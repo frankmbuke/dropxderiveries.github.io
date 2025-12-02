@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - DropX Delivery Malawi</title>
+    <meta name="description" content="Meet the DropX Delivery team in Malawi. Our dedicated professionals delivering excellence across the country.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery/css/lightgallery-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery/lightgallery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery/plugins/fullscreen/lg-fullscreen.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1e40af",
+                        secondary: "#3b82f6",
+                        accent: "#f59e0b",
+                        dark: "#1f2937",
+                        light: "#f8fafc"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .team-card {
+            transition: all 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+        .stat-number {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .team-image {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border: 5px solid white;
+        }
+        .department-image {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+        }
+        .gallery-item {
+            cursor: pointer;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <!-- Company Logo - Replace with your actual logo -->
+                        <img src="images/logo.png" alt="DropX Delivery Logo" class="w-10 h-10 rounded-full object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiMxZTQwYWIiLz4KPHBhdGggZD0iTTEyIDI2TDIwIDM0TDI4IDI2IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMjAgMTRWMjYiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo='; this.onerror=null;">
+                        <span class="text-2xl font-bold text-blue-600">DropX</span>
+                    </a>
+                    <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium">
+                        <i class="fas fa-flag mr-1"></i>Malawi
+                    </span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="ourteam.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="careers.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Careers</a>
+                    <a href="ourteam.html" class="text-blue-600 font-medium">Our Team</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="career.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                        Join Our Team
+                    </a>
+                    <button class="md:hidden text-gray-700" id="mobileMenuBtn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4 bg-white rounded-lg shadow-lg p-4" id="mobileMenu">
+                <div class="space-y-3">
+                    <a href="ourteam.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Home</a>
+                    <a href="careers.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Careers</a>
+                    <a href="ourteam.html" class="block text-blue-600 font-medium py-2">Our Team</a>
+                    <a href="policy.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Privacy Policy</a>
+                    <a href="terms.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Terms of Service</a>
+                    <a href="index.html#contact" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 relative overflow-hidden">
+        <!-- Background team photo -->
+        <div class="absolute inset-0 opacity-10">
+            <img src="images/team-hero.jpg" alt="DropX Delivery Team" class="w-full h-full object-cover" onerror="this.style.display='none';">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Meet Our Team
+                </h1>
+                <p class="text-xl mb-8 text-blue-100">
+                    The dedicated professionals behind DropX Delivery in Malawi. 
+                    We're proud to serve communities across the country with passion and commitment.
+                </p>
+                <div class="flex items-center justify-center space-x-4">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold" id="teamCount">150+</div>
+                        <div class="text-sm text-blue-200">Team Members</div>
+                    </div>
+                    <div class="h-8 w-px bg-blue-400"></div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold" id="cityCount">25+</div>
+                        <div class="text-sm text-blue-200">Cities Covered</div>
+                    </div>
+                    <div class="h-8 w-px bg-blue-400"></div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold" id="satisfactionRate">99.8%</div>
+                        <div class="text-sm text-blue-200">Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Leadership Team</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Experienced leaders driving innovation in Malawi's delivery industry
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" id="leadershipGrid">
+                <!-- Team members will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Department Teams -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Departments</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Specialized teams working together to deliver excellence
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="departmentsGrid">
+                <!-- Departments will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Gallery -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Team in Action</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Our team delivering excellence across Malawi
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="galleryGrid">
+                <!-- Gallery items will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Values -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Team Values</h2>
+                    <p class="text-xl text-gray-600">
+                        The principles that guide our team in serving Malawi
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="valuesGrid">
+                    <!-- Values will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Our Team CTA -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-blue-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Want to Join Our Team?</h2>
+                <p class="text-xl mb-8 text-blue-100">
+                    We're always looking for passionate individuals to help us revolutionize delivery services in Malawi.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="career.html" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors">
+                        View Current Openings
+                    </a>
+                    <a href="mailto:careers@dropxdelivery.mw" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors">
+                        Send Your CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="images/logo.png" alt="DropX Delivery Logo" class="w-8 h-8 rounded-full object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiMxZTQwYWIiLz4KPHBhdGggZD0iTTEyIDI2TDIwIDM0TDI4IDI2IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMjAgMTRWMjYiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo='; this.onerror=null;">
+                        <span class="text-2xl font-bold">DropX Delivery</span>
+                        <span class="text-xs bg-yellow-500 text-yellow-900 px-2 py-1 rounded-full font-medium">
+                            <i class="fas fa-flag mr-1"></i>Malawi
+                        </span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Proudly serving communities across Malawi with dedicated team members committed to excellence in delivery services.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Our Team</h4>
+                    <ul class="space-y-2">
+                        <li><a href="careers.html" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="ourteam.html" class="text-white font-medium">Meet the Team</a></li>
+                        <li><a href="career.html#why-join" class="text-gray-400 hover:text-white transition-colors">Why Join Us</a></li>
+                        <li><a href="career.html#openings" class="text-gray-400 hover:text-white transition-colors">Open Positions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>team@dropxdelivery.mw</li>
+                        <li>+265 123 456 789</li>
+                        <li>Lilongwe, Malawi</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 DropX Delivery. All rights reserved. Proudly Malawian.</p>
+                <p class="mt-2 text-sm">Delivering excellence across Malawi since 2020</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="modal-overlay" id="imageModal">
+        <div class="modal-content p-4">
+            <button class="absolute top-2 right-2 text-gray-600 hover:text-gray-800" onclick="closeModal()">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <img id="modalImage" src="" alt="" class="max-w-full max-h-[80vh]">
+            <p id="modalCaption" class="mt-2 text-center text-gray-700"></p>
+        </div>
+    </div>
+
+    <script>
+        // Data for team members
+        const teamMembers = [
+            {
+                id: 1,
+                name: "Frank Mwakasungula",
+                position: "CEO & Founder",
+                bio: "Former logistics expert with 15+ years experience. Founded DropX to revolutionize delivery services in Malawi.",
+                color: "blue",
+                image: "images/team/frank.jpg",
+                social: [
+                    { platform: "linkedin", url: "#" },
+                    { platform: "twitter", url: "#" }
+                ]
+            },
+            {
+                id: 2,
+                name: "Maggie Chisiza",
+                position: "Operations Director",
+                bio: "Logistics specialist with expertise in supply chain management across Southern Africa.",
+                color: "green",
+                image: "images/team/maggie.jpg",
+                social: [
+                    { platform: "linkedin", url: "#" },
+                    { platform: "twitter", url: "#" }
+                ]
+            },
+            {
+                id: 3,
+                name: "Frank Mbuke Jr",
+                position: "Technology Lead",
+                bio: "Software engineer passionate about building tech solutions for Malawi's unique challenges.",
+                color: "purple",
+                image: "images/team/mbuke.jpg",
+                social: [
+                    { platform: "linkedin", url: "#" },
+                    { platform: "github", url: "#" }
+                ]
+            }
+        ];
+
+        // Data for departments
+        const departments = [
+            {
+                id: 1,
+                name: "Operations Team",
+                description: "Managing day-to-day delivery operations across Malawi. Ensuring timely pickups and deliveries.",
+                color: "blue",
+                image: "images/departments/operations-team.jpg",
+                teamCount: 25,
+                teamMembers: [
+                    "images/team/team1.jpg",
+                    "images/team/team2.jpg",
+                    "images/team/team3.jpg"
+                ]
+            },
+            {
+                id: 2,
+                name: "Customer Support",
+                description: "24/7 support team helping customers with orders, tracking, and delivery issues.",
+                color: "green",
+                image: "images/departments/support-team.jpg",
+                teamCount: 25,
+                teamMembers: [
+                    "images/team/team4.jpg",
+                    "images/team/team5.jpg"
+                ]
+            },
+            {
+                id: 3,
+                name: "Technology Team",
+                description: "Building and maintaining our delivery platform, mobile apps, and tracking systems.",
+                color: "purple",
+                image: "images/departments/tech-team.jpg",
+                teamCount: 12,
+                teamMembers: [
+                    "images/team/team6.jpg",
+                    "images/team/team7.jpg",
+                    "images/team/team8.jpg"
+                ]
+            }
+        ];
+
+        // Data for gallery
+        const galleryImages = [
+            {
+                src: "images/gallery/team1.jpg",
+                alt: "Delivery team preparing packages"
+            },
+            {
+                src: "images/gallery/team2.jpg",
+                alt: "Customer service team at work"
+            },
+            {
+                src: "images/gallery/team3.jpg",
+                alt: "Team meeting in progress"
+            },
+            {
+                src: "images/gallery/team4.jpg",
+                alt: "Delivery team on the road"
+            }
+        ];
+
+        // Data for values
+        const values = [
+            {
+                title: "Customer First",
+                description: "Every decision starts with our customers' needs. We're committed to exceeding expectations.",
+                color: "blue",
+                icon: "images/icons/customer-first.png"
+            },
+            {
+                title: "Speed & Efficiency",
+                description: "We value prompt service and efficient operations to ensure timely deliveries.",
+                color: "green",
+                icon: "images/icons/speed.png"
+            },
+            {
+                title: "Safety & Security",
+                description: "Protecting our customers, team members, and partners is our top priority.",
+                color: "yellow",
+                icon: "images/icons/safety.png"
+            },
+            {
+                title: "Teamwork",
+                description: "We believe in collaborative success and supporting each other to achieve common goals.",
+                color: "purple",
+                icon: "images/icons/teamwork.png"
+            },
+            {
+                title: "Innovation",
+                description: "Constantly improving and adapting to provide better services for Malawi.",
+                color: "red",
+                icon: "images/icons/innovation.png"
+            },
+            {
+                title: "Community Focus",
+                description: "We're committed to serving and contributing to Malawian communities.",
+                color: "indigo",
+                icon: "images/icons/community.png"
+            }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTeamMembers();
+            renderDepartments();
+            renderGallery();
+            renderValues();
+            initImageErrorHandling();
+            animateStatistics();
+            initMobileMenu();
+            initGalleryLightbox();
+        });
+
+        // Render team members
+        function renderTeamMembers() {
+            const grid = document.getElementById('leadershipGrid');
+            grid.innerHTML = '';
+            
+            teamMembers.forEach(member => {
+                const colorClasses = {
+                    blue: { bg: 'from-blue-500 to-blue-700', text: 'text-blue-600', socialBg: 'bg-blue-100' },
+                    green: { bg: 'from-green-500 to-green-700', text: 'text-green-600', socialBg: 'bg-green-100' },
+                    purple: { bg: 'from-purple-500 to-purple-700', text: 'text-purple-600', socialBg: 'bg-purple-100' }
+                };
+                
+                const color = colorClasses[member.color];
+                
+                const memberHTML = `
+                    <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="relative h-64 bg-gradient-to-br ${color.bg}">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <img src="${member.image}" alt="${member.name}" 
+                                     class="team-image rounded-full bg-white p-1"
+                                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgdmlld0JveD0iMCAwIDE2MCAxNjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjgwIiBjeT0iODAiIHI9Ijc4IiBmaWxsPSIjRkZGIi8+CjxjaXJjbGUgY3g9IjgwIiBjeT0iNjAiIHI9IjIwIiBmaWxsPSIjRThFOEVBIi8+CjxwYXRoIGQ9Ik00MCAxMzBDNDAgMTE1IDYwIDEwMCA4MCAxMDBDMTE0IDEwMCAxMjAgMTE1IDEyMCAxMzBIMTQwQzE0MCAxMDAgMTE0IDYwIDgwIDYwQzQ2IDYwIDIwIDEwMCAyMCAxMzBINDBaIiBmaWxsPSIjRThFOEVBIi8+Cjwvc3ZnPgo=';">
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">${member.name}</h3>
+                            <p class="${color.text} font-medium mb-4">${member.position}</p>
+                            <p class="text-gray-600 mb-4">${member.bio}</p>
+                            <div class="flex space-x-3">
+                                ${member.social.map(social => `
+                                    <a href="${social.url}" class="social-icon w-8 h-8 ${color.socialBg} rounded-full flex items-center justify-center ${color.text}">
+                                        <i class="fab fa-${social.platform}"></i>
+                                    </a>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                grid.innerHTML += memberHTML;
+            });
+        }
+
+        // Render departments
+        function renderDepartments() {
+            const grid = document.getElementById('departmentsGrid');
+            grid.innerHTML = '';
+            
+            departments.forEach(dept => {
+                const colorClasses = {
+                    blue: { bg: 'bg-blue-100', socialBg: 'bg-blue-200', border: 'border-blue-300' },
+                    green: { bg: 'bg-green-100', socialBg: 'bg-green-200', border: 'border-green-300' },
+                    purple: { bg: 'bg-purple-100', socialBg: 'bg-purple-200', border: 'border-purple-300' }
+                };
+                
+                const color = colorClasses[dept.color];
+                
+                const deptHTML = `
+                    <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
+                        <div class="w-16 h-16 ${color.bg} rounded-full flex items-center justify-center mb-6 overflow-hidden">
+                            <img src="${dept.image}" alt="${dept.name}" 
+                                 class="department-image rounded-full"
+                                 onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNFQkVCRUIiLz4KPHBhdGggZD0iTTQ4IDQ4SDE2VjQ0QzE2IDM2IDI0IDMyIDMyIDMyQzQwIDMyIDQ4IDM2IDQ4IDQ0VjQ4WiIgZmlsbD0iY3VycmVudENvbG9yIi8+CjxjaXJjbGUgY3g9IjMyIiBjeT0iMjQiIHI9IjgiIGZpbGw9ImN1cnJlbnRDb2xvciIvPgo8L3N2Zz4K';">
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">${dept.name}</h3>
+                        <p class="text-gray-600 mb-6">${dept.description}</p>
+                        <div class="flex items-center">
+                            <div class="flex -space-x-2">
+                                ${dept.teamMembers.map((img, index) => `
+                                    <div class="w-8 h-8 ${color.socialBg} rounded-full flex items-center justify-center overflow-hidden border-2 ${color.border}">
+                                        <img src="${img}" alt="Team Member ${index + 1}" 
+                                             class="w-full h-full object-cover"
+                                             onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-user text-gray-600\"></i>';">
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <span class="ml-3 text-sm text-gray-600">${dept.teamCount} team members</span>
+                        </div>
+                    </div>
+                `;
+                
+                grid.innerHTML += deptHTML;
+            });
+        }
+
+        // Render gallery
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = '';
+            
+            galleryImages.forEach((img, index) => {
+                const galleryHTML = `
+                    <div class="rounded-lg overflow-hidden gallery-item" onclick="openImageModal('${img.src}', '${img.alt}')">
+                        <img src="${img.src}" alt="${img.alt}" 
+                             class="w-full h-48 object-cover hover:scale-110 transition-transform duration-300"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRkZGIi8+CjxyZWN0IHg9IjUwIiB5PSI1MCIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFQkVCRUIiLz4KPHBhdGggZD0iTTEyMCAxNjBMMTcwIDE4MEwyMjAgMTQwTDI3MCAxNjBMMzIwIDEzMCIgc3Ryb2tlPSIjOTk5IiBzdHJva2Utd2lkdGg9IjIiLz4KPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTIwIiByPSIxNSIgZmlsbD0iIzk5OSIvPgo8Y2lyY2xlIGN4PSIzMjAiIGN5PSI4MCIgcj0iMTAiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cg==';">
+                    </div>
+                `;
+                grid.innerHTML += galleryHTML;
+            });
+        }
+
+        // Render values
+        function renderValues() {
+            const grid = document.getElementById('valuesGrid');
+            grid.innerHTML = '';
+            
+            values.forEach(value => {
+                const colorClasses = {
+                    blue: 'bg-blue-100',
+                    green: 'bg-green-100',
+                    yellow: 'bg-yellow-100',
+                    purple: 'bg-purple-100',
+                    red: 'bg-red-100',
+                    indigo: 'bg-indigo-100'
+                };
+                
+                const valueHTML = `
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 ${colorClasses[value.color]} rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                            <img src="${value.icon}" alt="${value.title} Icon" 
+                                 class="w-6 h-6"
+                                 onerror="this.parentElement.innerHTML='<i class=\"fas fa-star text-gray-600\"></i>';">
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">${value.title}</h3>
+                            <p class="text-gray-600">${value.description}</p>
+                        </div>
+                    </div>
+                `;
+                
+                grid.innerHTML += valueHTML;
+            });
+        }
+
+        // Image error handling
+        function initImageErrorHandling() {
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.onerror) {
+                    img.onerror = function() {
+                        if (!this.getAttribute('data-default-set')) {
+                            this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRkZGIi8+CjxyZWN0IHg9IjI1IiB5PSI1MCIgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNFQkVCRUIiLz4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIyNSIgZmlsbD0iIzk5OSIvPgo8L3N2Zz4K';
+                            this.setAttribute('data-default-set', 'true');
+                        }
+                    };
+                }
+            });
+        }
+
+        // Animate statistics
+        function animateStatistics() {
+            const counters = [
+                { id: 'teamCount', target: 150, suffix: '+' },
+                { id: 'cityCount', target: 25, suffix: '+' },
+                { id: 'satisfactionRate', target: 99.8, suffix: '%' }
+            ];
+            
+            counters.forEach(counter => {
+                const element = document.getElementById(counter.id);
+                if (element) {
+                    const duration = 2000;
+                    const steps = 60;
+                    const increment = counter.target / (duration / steps);
+                    let current = 0;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= counter.target) {
+                            current = counter.target;
+                            clearInterval(timer);
+                        }
+                        element.textContent = counter.suffix === '%' 
+                            ? current.toFixed(1) + counter.suffix
+                            : Math.round(current) + counter.suffix;
+                    }, steps);
+                }
+            });
+        }
+
+        // Mobile menu functionality
+        function initMobileMenu() {
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const menu = document.getElementById('mobileMenu');
+            
+            menuBtn.addEventListener('click', function() {
+                menu.classList.toggle('hidden');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!menu.contains(event.target) && !menuBtn.contains(event.target) && !menu.classList.contains('hidden')) {
+                    menu.classList.add('hidden');
+                }
+            });
+        }
+
+        // Image modal functionality
+        function openImageModal(src, alt) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            
+            modalImage.src = src;
+            modalImage.alt = alt;
+            modalCaption.textContent = alt;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal on background click
+        document.getElementById('imageModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+
+        // Initialize gallery lightbox
+        function initGalleryLightbox() {
+            // Lightgallery is already included and initialized automatically
+            // You can add custom lightgallery options if needed
+        }
+
+        // Team member hover effect
+        document.addEventListener('mouseover', function(event) {
+            if (event.target.closest('.team-card')) {
+                const card = event.target.closest('.team-card');
+                card.style.transform = 'translateY(-10px)';
+                card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)';
+            }
+        });
+
+        document.addEventListener('mouseout', function(event) {
+            if (event.target.closest('.team-card')) {
+                const card = event.target.closest('.team-card');
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '';
+            }
+        });
+
+        // Social icon hover effects
+        document.querySelectorAll('.social-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.2)';
+            });
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

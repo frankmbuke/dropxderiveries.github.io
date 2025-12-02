@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers at DropX Delivery - Join Our Team in Malawi</title>
+    <meta name="description" content="Join DropX Delivery team in Malawi. Exciting career opportunities in delivery services, logistics, customer support, and technology.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1e40af",
+                        secondary: "#3b82f6",
+                        accent: "#f59e0b",
+                        dark: "#1f2937",
+                        light: "#f8fafc"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .job-card {
+            transition: all 0.3s ease;
+        }
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            transition: all 0.3s ease;
+        }
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Header (Same as main page) -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-shipping-fast text-white text-lg"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-blue-600">DropX</span>
+                    </a>
+                    <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium">
+                        <i class="fas fa-flag mr-1"></i>Malawi
+                    </span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="careers.html" class="text-blue-600 font-medium">Careers</a>
+                    <a href="ourteam.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Our Team</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="application.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                        Apply Now
+                    </a>
+                    <button class="md:hidden text-gray-700" id="mobileMenuBtn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4 bg-white rounded-lg shadow-lg p-4" id="mobileMenu">
+                <div class="space-y-3">
+                    <a href="index.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Home</a>
+                    <a href="careers.html" class="block text-blue-600 font-medium py-2">Careers</a>
+                    <a href="ourteam.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Our Team</a>
+                    <a href="policy.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Privacy Policy</a>
+                    <a href="terms.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Terms of Service</a>
+                    <a href="index.html#contact" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Build Your Career at DropX
+                </h1>
+                <p class="text-xl mb-8 text-blue-100">
+                    Join Malawi's fastest-growing delivery service. Be part of a team that's revolutionizing 
+                    how Malawians receive their food, groceries, and goods.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#openings" class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors">
+                        View Open Positions
+                    </a>
+                    <a href="#why-join" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors">
+                        Why Join Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join DropX -->
+    <section id="why-join" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Work With DropX?</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    We're building more than just a delivery service - we're building opportunities for Malawians.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="benefit-card text-center p-6 rounded-xl bg-blue-50">
+                    <div class="benefit-icon bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Growth Opportunities</h3>
+                    <p class="text-gray-600">
+                        Fast-track career progression with training and development programs.
+                    </p>
+                </div>
+                
+                <div class="benefit-card text-center p-6 rounded-xl bg-green-50">
+                    <div class="benefit-icon bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hand-holding-usd text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Competitive Compensation</h3>
+                    <p class="text-gray-600">
+                        Attractive salaries, bonuses, and performance incentives.
+                    </p>
+                </div>
+                
+                <div class="benefit-card text-center p-6 rounded-xl bg-purple-50">
+                    <div class="benefit-icon bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Great Team Culture</h3>
+                    <p class="text-gray-600">
+                        Collaborative environment with supportive colleagues and leadership.
+                    </p>
+                </div>
+                
+                <div class="benefit-card text-center p-6 rounded-xl bg-yellow-50">
+                    <div class="benefit-icon bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-motorcycle text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Make an Impact</h3>
+                    <p class="text-gray-600">
+                        Directly contribute to Malawi's economy and digital transformation.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Employee Benefits -->
+            <div class="mt-20 bg-gray-50 rounded-2xl p-8 md:p-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">Employee Benefits</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-2">Health Insurance</h4>
+                            <p class="text-gray-600">Comprehensive medical coverage</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-2">Flexible Hours</h4>
+                            <p class="text-gray-600">Work-life balance support</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-2">Training Programs</h4>
+                            <p class="text-gray-600">Continuous skill development</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-2">Performance Bonuses</h4>
+                            <p class="text-gray-600">Rewards for outstanding work</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-2">Paid Time Off</h4>
+                            <p class="text-gray-600">Generous vacation days</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 text-xl mt-1 mr-3"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-2">Career Advancement</h4>
+                            <p class="text-gray-600">Clear promotion pathways</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Openings -->
+    <section id="openings" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Current Job Openings</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Find your perfect role in our growing team across Malawi
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Job 1 -->
+                <div class="job-card bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-gray-800">Delivery Rider</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mt-2 md:mt-0">
+                            Multiple Locations
+                        </span>
+                    </div>
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <span class="flex items-center text-gray-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Lilongwe, Blantyre, Mzuzu
+                        </span>
+                        <span class="flex items-center text-gray-600">
+                            <i class="fas fa-clock mr-2"></i>
+                            Full-time / Part-time
+                        </span>
+                        <span class="flex items-center text-gray-600">
+                            <i class="fas fa-money-bill-wave mr-2"></i>
+                            Competitive + Tips
+                        </span>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        Join our fleet of delivery riders and be the face of DropX. Deliver food, groceries, and goods to customers across Malawi with our state-of-the-art delivery app.
+                    </p>
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <a href="application.html?position=delivery-rider" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                            Apply Now
+                        </a>
+                        <button class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors view-details">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Job 2 -->
+                <div class="job-card bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-gray-800">Customer Support Agent</h3>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mt-2 md:mt-0">
+                            Lilongwe HQ
+                        </span>
+                    </div>
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <span class="flex items-center text-gray-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Lilongwe
+                        </span>
+                        <span class="flex items-center text-gray-600">
+                            <i class="fas fa-clock mr-2"></i>
+                            Full-time
+                        </span>
+                        <span class="flex items-center text-gray-600">
+                            <i class="fas fa-money-bill-wave mr-2"></i>
+                            MWK 350,000+
+                        </span>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        Provide exceptional customer service to DropX clients. Handle inquiries, resolve issues, and ensure customer satisfaction through various channels.
+                    </p>
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <a href="application.html?position=customer-support" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                            Apply Now
+                        </a>
+                        <button class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors view-details">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Job 3 -->
+                <div class="job-card bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-gray-800">Operations Manager</h3>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium mt-2 md:mt-0">
+                            Blantyre
+                        </span>
+                    </div>
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <span class="flex items-center text-gray-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Blantyre
+                        </span>
+                        <span class="flex items-center text-gray-600">
+                            <i class="fas fa-clock mr-2"></i>
+                            Full-time
+                        </span>
+                        <span class="flex items-center text-gray-600">
+                            <i class="fas fa-money-bill-wave mr-2"></i>
+                            MWK 1,200,000+
+                        </span>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        Oversee delivery operations in Blantyre. Manage rider teams, optimize delivery routes, and ensure efficient service delivery.
+                    </p>
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <a href="application.html?position=operations-manager" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                            Apply Now
+                        </a>
+                        <button class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors view-details">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- No Suitable Role -->
+            <div class="mt-12 text-center">
+                <div class="bg-white rounded-xl p-8 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Don't see your perfect role?</h3>
+                    <p class="text-gray-600 mb-6">
+                        We're always looking for talented individuals. Send us your CV and we'll contact you when suitable positions open.
+                    </p>
+                    <a href="mailto:careers@dropxdelivery.mw" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                        <i class="fas fa-paper-plane mr-2"></i>Send Your CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Hiring Process</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Simple, transparent, and designed to find the best talent
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Application</h3>
+                    <p class="text-gray-600">
+                        Submit your application online. We review every application within 48 hours.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Initial Screening</h3>
+                    <p class="text-gray-600">
+                        Phone or video interview to discuss your experience and career goals.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Assessment</h3>
+                    <p class="text-gray-600">
+                        Role-specific assessments or practical tasks to evaluate your skills.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                        4
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Final Interview</h3>
+                    <p class="text-gray-600">
+                        Meet with our team leaders. Get to know us and discuss the role in detail.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-shipping-fast text-white"></i>
+                        </div>
+                        <span class="text-2xl font-bold">DropX Delivery</span>
+                        <span class="text-xs bg-yellow-500 text-yellow-900 px-2 py-1 rounded-full font-medium">
+                            <i class="fas fa-flag mr-1"></i>Malawi
+                        </span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Building career opportunities across Malawi. Join us in revolutionizing delivery services.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="careers.html" class="text-white font-medium">Careers</a></li>
+                        <li><a href="ourteam.html" class="text-gray-400 hover:text-white transition-colors">Our Team</a></li>
+                        <li><a href="policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact HR</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">careers@dropxdelivery.mw</li>
+                        <li class="text-gray-400">+265 123 456 789</li>
+                        <li class="text-gray-400">Lilongwe, Malawi</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 DropX Delivery. All rights reserved.</p>
+                <p class="mt-2 text-sm">Equal Opportunity Employer</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Job Details Toggle
+        document.querySelectorAll('.view-details').forEach(button => {
+            button.addEventListener('click', function() {
+                const jobCard = this.closest('.job-card');
+                const details = jobCard.querySelector('.job-details');
+                
+                if (details) {
+                    details.remove();
+                } else {
+                    const detailsHTML = `
+                        <div class="job-details mt-6 pt-6 border-t border-gray-200">
+                            <h4 class="font-bold text-gray-800 mb-4">Requirements:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 mb-6 space-y-2">
+                                <li>Valid Malawian driver's license (for rider positions)</li>
+                                <li>Good communication skills in English and Chichewa</li>
+                                <li>Smartphone with internet access</li>
+                                <li>Positive attitude and customer-focused mindset</li>
+                                <li>Willingness to work flexible hours</li>
+                            </ul>
+                            <h4 class="font-bold text-gray-800 mb-4">Responsibilities:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>Timely pickup and delivery of orders</li>
+                                <li>Maintaining delivery equipment</li>
+                                <li>Providing excellent customer service</li>
+                                <li>Following safety protocols</li>
+                                <li>Reporting issues to supervisors</li>
+                            </ul>
+                        </div>
+                    `;
+                    jobCard.insertAdjacentHTML('beforeend', detailsHTML);
+                    this.textContent = 'Hide Details';
+                    
+                    // Scroll to show details
+                    jobCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
