@@ -4,8 +4,8 @@
     <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DropX Delivery - Fast Food, Groceries & Goods Delivery in Malawi</title>
-    <meta name="description" content="DropX Delivery provides fast, reliable delivery services for food, groceries, and goods across Malawi. We bring what you need right to your doorstep.">
+    <title>DropX Delivery - Food, Groceries & Farm Produce Delivery in Lilongwe</title>
+    <meta name="description" content="DropX Delivery provides fast food, groceries, and fresh farm produce delivery in Lilongwe, Malawi. Order through our mobile app.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script>
@@ -24,36 +24,14 @@
         }
     </script>
     <style>
-        /* Animation for counters */
-        @keyframes countUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .count-up {
-            animation: countUp 1s ease-out;
-        }
-        
-        /* Smooth transitions */
         .transition-all {
             transition: all 0.3s ease;
         }
         
-        /* FAQ accordion styles */
         .faq-answer {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
-        }
-        
-        /* Testimonial slider */
-        .testimonial-slide {
-            opacity: 0;
-            transform: translateX(20px);
-            transition: all 0.5s ease;
-        }
-        .testimonial-slide.active {
-            opacity: 1;
-            transform: translateX(0);
         }
     </style>
 </head>
@@ -68,33 +46,35 @@
                     </div>
                     <span class="text-2xl font-bold text-blue-600">DropX</span>
                     <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium">
-                        <i class="fas fa-flag mr-1"></i>Malawi
+                        <i class="fas fa-flag mr-1"></i>Lilongwe
                     </span>
                 </div>
                 
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
                     <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Services</a>
-                    <a href="#areas" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Areas</a>
-                    <a href="#partners" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Partners</a>
-                    <a href="#testimonials" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Reviews</a>
-                    <a href="#tracking" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Tracking</a>
+                    <a href="#partners" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Restaurants</a>
+                    <a href="#dropxstore" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">DropX Store</a>
                     <a href="#faq" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">FAQ</a>
                     <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Contact</a>
-                    <a href="careers.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Careers</a>
-                    <a href="ourteam.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Our Team</a>
+                    
+                    <!-- Company Dropdown -->
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-blue-600 font-medium transition-colors flex items-center">
+                            Company <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block">
+                            <a href="careers.html" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50">Careers</a>
+                            <a href="ourteam.html" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50">Our Team</a>
+                            <a href="privacy.html" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50">Privacy Policy</a>
+                            <a href="terms.html" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50">Terms of Service</a>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="flex items-center space-x-4">
-                    <!-- WhatsApp Button -->
-                    <a href="https://wa.me/265123456789?text=Hi%20DropX%20Delivery,%20I%20need%20delivery%20assistance" 
-                       target="_blank" 
-                       class="hidden md:flex items-center bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
-                        <i class="fab fa-whatsapp mr-2"></i>Chat
-                    </a>
-                    
                     <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                        Get Quote
+                        Contact Us
                     </a>
                     <button class="md:hidden text-gray-700" id="mobileMenuBtn">
                         <i class="fas fa-bars text-xl"></i>
@@ -107,19 +87,28 @@
                 <div class="space-y-3">
                     <a href="#home" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Home</a>
                     <a href="#services" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Services</a>
-                    <a href="#areas" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Areas</a>
-                    <a href="#partners" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Partners</a>
-                    <a href="#testimonials" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Reviews</a>
-                    <a href="#tracking" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Tracking</a>
+                    <a href="#partners" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Restaurants</a>
+                    <a href="#dropxstore" class="block text-gray-700 hover:text-blue-600 font-medium py-2">DropX Store</a>
                     <a href="#faq" class="block text-gray-700 hover:text-blue-600 font-medium py-2">FAQ</a>
                     <a href="#contact" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Contact</a>
-                    <a href="career.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Careers</a>
-                    <a href="team.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Our Team</a>
-                    <a href="privacy.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Privacy Policy</a>
-                    <a href="terms.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Terms of Service</a>
-                    <a href="https://wa.me/265123456789" target="_blank" class="block bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600">
-                        <i class="fab fa-whatsapp mr-2"></i>Chat on WhatsApp
-                    </a>
+                    <div class="border-t pt-2">
+                        <p class="text-sm font-semibold text-gray-500 mb-2">Company</p>
+                        <a href="careers.html" class="block text-gray-700 hover:text-blue-600 font-medium py-1 pl-4">Careers</a>
+                        <a href="ourteam.html" class="block text-gray-700 hover:text-blue-600 font-medium py-1 pl-4">Our Team</a>
+                        <a href="privacy.html" class="block text-gray-700 hover:text-blue-600 font-medium py-1 pl-4">Privacy Policy</a>
+                        <a href="terms.html" class="block text-gray-700 hover:text-blue-600 font-medium py-1 pl-4">Terms of Service</a>
+                    </div>
+                    <div class="border-t pt-4">
+                        <p class="text-sm font-semibold text-gray-500 mb-2">Download App</p>
+                        <div class="flex space-x-2">
+                            <button class="flex-1 bg-gray-900 text-white px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center download-app-btn" data-platform="ios">
+                                <i class="fab fa-apple mr-2"></i>iOS
+                            </button>
+                            <button class="flex-1 bg-green-600 text-white px-3 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn" data-platform="android">
+                                <i class="fab fa-google-play mr-2"></i>Android
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -135,73 +124,78 @@
                             <i class="fas fa-bolt mr-1"></i>FAST DELIVERY
                         </div>
                         <div class="text-blue-200">
-                            <i class="fas fa-map-marker-alt mr-1"></i>Serving all Malawi
+                            <i class="fas fa-map-marker-alt mr-1"></i>Serving Lilongwe Only
                         </div>
                     </div>
                     
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                        Fast & Reliable
+                        Fast & Fresh
                         <span class="text-yellow-400">Delivery</span>
-                        Across Malawi
+                        in Lilongwe
                     </h1>
                     <p class="text-xl mb-8 text-blue-100">
-                        Delivering food, groceries, and goods with speed and care. 
-                        Trust DropX Delivery for all your delivery needs within Malawi.
+                        Delivering restaurant meals, groceries, and fresh farm produce directly to your door in Lilongwe.
+                        Order through our mobile app for the best experience.
                     </p>
                     
                     <!-- Statistics Counter -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                         <div class="text-center bg-blue-500/20 rounded-lg p-4">
-                            <div class="text-2xl md:text-3xl font-bold count-up" id="deliveryCount">50,000+</div>
+                            <div class="text-2xl md:text-3xl font-bold">10,000+</div>
                             <div class="text-sm text-blue-200">Deliveries</div>
                         </div>
                         <div class="text-center bg-blue-500/20 rounded-lg p-4">
-                            <div class="text-2xl md:text-3xl font-bold count-up">25+</div>
-                            <div class="text-sm text-blue-200">Cities</div>
+                            <div class="text-2xl md:text-3xl font-bold">50+</div>
+                            <div class="text-sm text-blue-200">Restaurants</div>
                         </div>
                         <div class="text-center bg-blue-500/20 rounded-lg p-4">
-                            <div class="text-2xl md:text-3xl font-bold count-up">99.8%</div>
+                            <div class="text-2xl md:text-3xl font-bold">99.8%</div>
                             <div class="text-sm text-blue-200">On Time</div>
                         </div>
                         <div class="text-center bg-blue-500/20 rounded-lg p-4">
-                            <div class="text-2xl md:text-3xl font-bold count-up">24/7</div>
-                            <div class="text-sm text-blue-200">Support</div>
+                            <div class="text-2xl md:text-3xl font-bold">Fresh</div>
+                            <div class="text-sm text-blue-200">Farm Produce</div>
                         </div>
                     </div>
                     
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#tracking" class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors flex items-center justify-center">
-                            <i class="fas fa-shipping-fast mr-2"></i>Track Your Delivery
-                        </a>
-                        <a href="#orderModal" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors flex items-center justify-center order-now-btn">
-                            <i class="fas fa-shopping-cart mr-2"></i>Order Now
-                        </a>
-                    </div>
-                    
-                    <!-- Download App CTA -->
-                    <div class="mt-8 pt-6 border-t border-blue-500/30">
-                        <p class="text-blue-200 mb-3">Get our mobile app for faster ordering:</p>
+                    <!-- Mobile App CTA -->
+                    <div class="bg-white/10 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-3">Order through our Mobile App</h3>
+                        <p class="text-blue-100 mb-4">Download our app for easy ordering, real-time tracking, and exclusive offers.</p>
                         <div class="flex space-x-4">
-                            <button class="bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors flex items-center download-app-btn" data-platform="ios">
-                                <i class="fab fa-apple mr-2"></i>App Store
+                            <button class="bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center download-app-btn" data-platform="ios">
+                                <i class="fab fa-apple mr-2 text-xl"></i>
+                                <div class="text-left">
+                                    <div class="text-xs">Download on the</div>
+                                    <div class="font-bold">App Store</div>
+                                </div>
                             </button>
-                            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center download-app-btn" data-platform="android">
-                                <i class="fab fa-google-play mr-2"></i>Play Store
+                            <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center download-app-btn" data-platform="android">
+                                <i class="fab fa-google-play mr-2 text-xl"></i>
+                                <div class="text-left">
+                                    <div class="text-xs">Get it on</div>
+                                    <div class="font-bold">Google Play</div>
+                                </div>
                             </button>
                         </div>
+                    </div>
+                    
+                    <div class="flex items-center text-blue-200">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        <span class="text-sm">This website is for informational purposes only. Please use our mobile app to place orders.</span>
                     </div>
                 </div>
                 <div class="relative">
                     <img 
-                        src="https://picsum.photos/600/400?random=1" 
-                        alt="DropX delivery service in Malawi" 
+                        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600" 
+                        alt="DropX delivery service in Lilongwe" 
                         class="rounded-lg shadow-2xl"
                         loading="lazy"
                     />
                     <!-- Floating badge -->
                     <div class="absolute -bottom-4 -right-4 bg-white text-blue-600 px-6 py-3 rounded-lg shadow-xl">
-                        <div class="font-bold text-lg">Proudly Malawian</div>
-                        <div class="text-sm text-gray-600">Local delivery experts</div>
+                        <div class="font-bold text-lg">Lilongwe Only</div>
+                        <div class="text-sm text-gray-600">Order through our app</div>
                     </div>
                 </div>
             </div>
@@ -214,518 +208,293 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Delivery Services</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Comprehensive delivery solutions for food, groceries, and goods across Malawi
+                    Three convenient services available through our mobile app in Lilongwe
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all hover:-translate-y-1">
                     <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-utensils text-blue-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Food Delivery</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Restaurant Food</h3>
                     <p class="text-gray-600 mb-4">
-                        Hot, fresh meals delivered from your favorite restaurants across Malawi
+                        Hot, fresh meals delivered from your favorite restaurants across Lilongwe
                     </p>
                     <ul class="text-gray-600 space-y-2">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Restaurant Partnerships</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>50+ Restaurant Partners</li>
                         <li><i class="fas fa-check text-green-500 mr-2"></i>Hot & Fresh Guarantee</li>
                         <li><i class="fas fa-check text-green-500 mr-2"></i>Contactless Delivery</li>
                     </ul>
-                    <button class="mt-6 w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium order-service-btn" data-service="food">
-                        Order Food
-                    </button>
+                    <div class="mt-6 text-center">
+                        <span class="text-sm text-gray-500">Available in our mobile app</span>
+                    </div>
                 </div>
                 
                 <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all hover:-translate-y-1">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-shopping-basket text-blue-600 text-2xl"></i>
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shopping-basket text-green-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Groceries Delivery</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Groceries</h3>
                     <p class="text-gray-600 mb-4">
-                        Fresh produce, pantry staples, and household items delivered to your door
+                        Pantry staples and household essentials delivered to your door in Lilongwe
                     </p>
                     <ul class="text-gray-600 space-y-2">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Fresh Produce</li>
                         <li><i class="fas fa-check text-green-500 mr-2"></i>Same-Day Delivery</li>
                         <li><i class="fas fa-check text-green-500 mr-2"></i>Scheduled Deliveries</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Wide Selection</li>
                     </ul>
-                    <button class="mt-6 w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium order-service-btn" data-service="groceries">
-                        Order Groceries
-                    </button>
+                    <div class="mt-6 text-center">
+                        <span class="text-sm text-gray-500">Available in our mobile app</span>
+                    </div>
                 </div>
                 
                 <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all hover:-translate-y-1">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-box text-blue-600 text-2xl"></i>
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-seedling text-yellow-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Goods Delivery</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Farm Produce</h3>
                     <p class="text-gray-600 mb-4">
-                        Reliable delivery of packages, documents, and goods across Malawi
+                        Fresh farm produce delivered directly from DropX Store to your home
                     </p>
                     <ul class="text-gray-600 space-y-2">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Package Tracking</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Secure Handling</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Nationwide Coverage</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Fresh from DropX Store</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Daily Harvest</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Local Farmers</li>
                     </ul>
-                    <button class="mt-6 w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium order-service-btn" data-service="goods">
-                        Send Package
-                    </button>
+                    <div class="mt-6 text-center">
+                        <span class="text-sm text-gray-500">Exclusive to DropX Store</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section class="py-20 bg-gray-50">
+    <!-- DropX Store Section -->
+    <section id="dropxstore" class="py-20 bg-green-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                            <i class="fas fa-store mr-1"></i>DROPX STORE
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Fresh Farm Produce from DropX Store</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        DropX Store is our own farm produce marketplace, bringing you the freshest vegetables, fruits, 
+                        and farm products directly from local farmers to your table.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-600 mb-2">100%</div>
+                            <div class="text-gray-600">Fresh Produce</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-600 mb-2">Same Day</div>
+                            <div class="text-gray-600">Harvest to Delivery</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-600 mb-2">Local</div>
+                            <div class="text-gray-600">Farmers Supported</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-600 mb-2">Quality</div>
+                            <div class="text-gray-600">Guaranteed</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <h4 class="text-lg font-bold text-gray-800 mb-3">Available in DropX Store:</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-carrot text-green-500 mr-2"></i>
+                                <span class="text-gray-700">Fresh Vegetables</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-apple-alt text-green-500 mr-2"></i>
+                                <span class="text-gray-700">Seasonal Fruits</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-egg text-green-500 mr-2"></i>
+                                <span class="text-gray-700">Farm Eggs</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-wheat-alt text-green-500 mr-2"></i>
+                                <span class="text-gray-700">Grains & Cereals</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img 
+                        src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600" 
+                        alt="DropX Store fresh farm produce" 
+                        class="rounded-lg shadow-lg"
+                        loading="lazy"
+                    />
+                    <div class="absolute -bottom-4 -left-4 bg-white text-green-700 px-6 py-3 rounded-lg shadow-xl">
+                        <div class="font-bold text-lg">Farm Fresh</div>
+                        <div class="text-sm text-gray-600">Direct from local farmers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurant Partners Section -->
+    <section id="partners" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">How It Works</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Restaurant Partners in Lilongwe</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Get your items delivered in 3 simple steps
+                    Delivering from top restaurants across Lilongwe
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
-                        1
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hamburger text-blue-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Place Your Order</h3>
-                    <p class="text-gray-600">
-                        Order through our app, website, or WhatsApp. Choose from restaurants, grocery stores, or send packages.
-                    </p>
-                    <button class="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium order-now-btn">
-                        Start Ordering
-                    </button>
+                    <h4 class="font-bold text-gray-800">Burger Express</h4>
+                    <p class="text-sm text-gray-600">Fast Food</p>
+                    <div class="mt-4">
+                        <span class="text-xs text-gray-500">Available in app</span>
+                    </div>
                 </div>
                 
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
-                        2
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-pizza-slice text-green-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">We Pick & Pack</h3>
-                    <p class="text-gray-600">
-                        Our team picks up your items and ensures everything is properly packed for safe delivery.
-                    </p>
+                    <h4 class="font-bold text-gray-800">Pizza Palace</h4>
+                    <p class="text-sm text-gray-600">Italian</p>
+                    <div class="mt-4">
+                        <span class="text-xs text-gray-500">Available in app</span>
+                    </div>
                 </div>
                 
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
-                        3
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-utensil-spoon text-yellow-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Fast Delivery</h3>
-                    <p class="text-gray-600">
-                        Track your delivery in real-time. We deliver quickly and safely to your location.
-                    </p>
-                    <a href="#tracking" class="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                        Track Delivery
-                    </a>
+                    <h4 class="font-bold text-gray-800">Malawi Kitchen</h4>
+                    <p class="text-sm text-gray-600">Local Cuisine</p>
+                    <div class="mt-4">
+                        <span class="text-xs text-gray-500">Available in app</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-drumstick-bite text-red-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800">Chicken Spot</h4>
+                    <p class="text-sm text-gray-600">Grill & BBQ</p>
+                    <div class="mt-4">
+                        <span class="text-xs text-gray-500">Available in app</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View All Restaurants -->
+            <div class="mt-12 text-center">
+                <div class="bg-blue-50 rounded-lg p-6 inline-block">
+                    <p class="text-gray-700 mb-3">Browse all 50+ restaurants in our mobile app</p>
+                    <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+                        <button class="bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center download-app-btn" data-platform="ios">
+                            <i class="fab fa-apple mr-3"></i>
+                            <div class="text-left">
+                                <div class="text-xs">View on</div>
+                                <div class="font-bold">App Store</div>
+                            </div>
+                        </button>
+                        <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn" data-platform="android">
+                            <i class="fab fa-google-play mr-3"></i>
+                            <div class="text-left">
+                                <div class="text-xs">View on</div>
+                                <div class="font-bold">Google Play</div>
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Service Areas Section -->
-    <section id="areas" class="py-20 bg-white">
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Areas We Serve</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Service Areas</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Currently delivering across major cities and towns in Malawi
+                    Currently serving Lilongwe, with more cities coming soon
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Major Cities -->
-                <div class="bg-blue-50 rounded-xl p-6">
-                    <h3 class="text-xl font-bold text-blue-800 mb-4 flex items-center">
-                        <i class="fas fa-city mr-2"></i>Major Cities
-                    </h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt text-blue-500 mr-3"></i>
-                            <span>Lilongwe (All Areas)</span>
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt text-blue-500 mr-3"></i>
-                            <span>Blantyre (All Areas)</span>
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt text-blue-500 mr-3"></i>
-                            <span>Mzuzu City</span>
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt text-blue-500 mr-3"></i>
-                            <span>Zomba City</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Expanding to -->
-                <div class="bg-green-50 rounded-xl p-6">
-                    <h3 class="text-xl font-bold text-green-800 mb-4 flex items-center">
-                        <i class="fas fa-expand-alt mr-2"></i>Expanding To
-                    </h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt text-green-500 mr-3"></i>
-                            <span>Mangochi</span>
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt text-green-500 mr-3"></i>
-                            <span>Salima</span>
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt text-green-500 mr-3"></i>
-                            <span>Karonga</span>
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt text-green-500 mr-3"></i>
-                            <span>Balaka</span>
-                        </li>
-                    </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <!-- Current Service -->
+                <div class="bg-blue-50 rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-check text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-blue-800">Currently Serving</h3>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                        <h4 class="text-xl font-bold text-gray-800 mb-4">Lilongwe</h4>
+                        <p class="text-gray-600 mb-4">All areas of Lilongwe including:</p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>City Center</li>
+                            <li><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>Area 3, 9, 10, 12</li>
+                            <li><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>Area 43, 47, 49</li>
+                            <li><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>Likuni, Mtandile</li>
+                            <li><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>Kawale, Chinsapo</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <!-- Coming Soon -->
-                <div class="bg-purple-50 rounded-xl p-6">
-                    <h3 class="text-xl font-bold text-purple-800 mb-4 flex items-center">
-                        <i class="fas fa-clock mr-2"></i>Coming Soon
-                    </h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt text-purple-500 mr-3"></i>
-                            <span>Kasungu</span>
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt text-purple-500 mr-3"></i>
-                            <span>Mulanje</span>
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt text-purple-500 mr-3"></i>
-                            <span>Nkhotakota</span>
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt text-purple-500 mr-3"></i>
-                            <span>Thyolo</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Request Area Expansion -->
-            <div class="mt-12 bg-yellow-50 rounded-xl p-8 text-center max-w-2xl mx-auto">
-                <h3 class="text-xl font-bold text-gray-800 mb-4">Don't see your area?</h3>
-                <p class="text-gray-600 mb-6">
-                    We're expanding rapidly! Request DropX Delivery service in your area.
-                </p>
-                <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium request-expansion-btn">
-                    <i class="fas fa-plus-circle mr-2"></i>Request Service Expansion
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partner Restaurants/Stores Section -->
-    <section id="partners" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Partners</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Delivering from top restaurants and stores across Malawi
-                </p>
-            </div>
-            
-            <!-- Restaurant Partners -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center flex items-center justify-center">
-                    <i class="fas fa-utensils mr-3 text-blue-600"></i>Restaurant Partners
-                </h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <!-- Partner logos would go here - using placeholders for now -->
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-hamburger text-blue-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800">Burger Express</h4>
-                        <p class="text-sm text-gray-600">Fast Food</p>
-                        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm order-partner-btn" data-partner="burger-express">
-                            Order Now
-                        </button>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-pizza-slice text-green-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800">Pizza Palace</h4>
-                        <p class="text-sm text-gray-600">Italian</p>
-                        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm order-partner-btn" data-partner="pizza-palace">
-                            Order Now
-                        </button>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-utensil-spoon text-yellow-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800">Malawi Kitchen</h4>
-                        <p class="text-sm text-gray-600">Local Cuisine</p>
-                        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm order-partner-btn" data-partner="malawi-kitchen">
-                            Order Now
-                        </button>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-drumstick-bite text-red-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800">Chicken Spot</h4>
-                        <p class="text-sm text-gray-600">Grill & BBQ</p>
-                        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm order-partner-btn" data-partner="chicken-spot">
-                            Order Now
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Grocery Partners -->
-            <div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center flex items-center justify-center">
-                    <i class="fas fa-shopping-basket mr-3 text-green-600"></i>Grocery Partners
-                </h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-store text-blue-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800">ShopRite</h4>
-                        <p class="text-sm text-gray-600">Supermarket</p>
-                        <button class="mt-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm order-partner-btn" data-partner="shoprite">
-                            Shop Now
-                        </button>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-leaf text-green-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800">Fresh Mart</h4>
-                        <p class="text-sm text-gray-600">Fresh Produce</p>
-                        <button class="mt-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm order-partner-btn" data-partner="fresh-mart">
-                            Shop Now
-                        </button>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-wine-bottle text-yellow-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800">Bottle Store</h4>
-                        <p class="text-sm text-gray-600">Beverages</p>
-                        <button class="mt-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm order-partner-btn" data-partner="bottle-store">
-                            Shop Now
-                        </button>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-pills text-purple-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800">PharmaCare</h4>
-                        <p class="text-sm text-gray-600">Pharmacy</p>
-                        <button class="mt-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm order-partner-btn" data-partner="pharmacare">
-                            Shop Now
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Become a Partner CTA -->
-            <div class="mt-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-8 text-white text-center">
-                <h3 class="text-2xl font-bold mb-4">Want to become a partner?</h3>
-                <p class="mb-6 max-w-2xl mx-auto">
-                    Join our network of restaurants and stores. Reach more customers with DropX Delivery.
-                </p>
-                <a href="#contact" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
-                    <i class="fas fa-handshake mr-2"></i>Become a Partner
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Customers Say</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Real feedback from happy customers across Malawi
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-gray-50 p-8 rounded-xl">
+                <div class="bg-green-50 rounded-xl p-8">
                     <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">
-                            T
+                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-clock text-white text-xl"></i>
                         </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold text-gray-800">Thandiwe M.</h4>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                        <h3 class="text-2xl font-bold text-green-800">Coming Soon</h3>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                        <p class="text-gray-600 mb-6">We're expanding to these cities soon:</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-city text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Mzuzu</h4>
+                                    <p class="text-sm text-gray-600">Launching Q1 2024</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic mb-4">
-                        "DropX Delivery saved me during my busy work week. Their grocery delivery is fast and fresh. Highly recommended!"
-                    </p>
-                    <div class="text-sm text-gray-500">
-                        <i class="fas fa-map-marker-alt mr-1"></i>Lilongwe, Malawi
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-gray-50 p-8 rounded-xl">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold">
-                            J
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold text-gray-800">James K.</h4>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-city text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Blantyre</h4>
+                                    <p class="text-sm text-gray-600">Launching Q2 2024</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic mb-4">
-                        "The food always arrives hot and delicious. Best delivery service in Blantyre! Their tracking feature is very accurate."
-                    </p>
-                    <div class="text-sm text-gray-500">
-                        <i class="fas fa-map-marker-alt mr-1"></i>Blantyre, Malawi
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="bg-gray-50 p-8 rounded-xl">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold">
-                            M
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold text-gray-800">Maria B.</h4>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-city text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Zomba</h4>
+                                    <p class="text-sm text-gray-600">Launching Q3 2024</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic mb-4">
-                        "I use DropX for all my package deliveries. Reliable, safe, and affordable. Their customer service is excellent!"
-                    </p>
-                    <div class="text-sm text-gray-500">
-                        <i class="fas fa-map-marker-alt mr-1"></i>Mzuzu, Malawi
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Add Testimonial Button -->
-            <div class="mt-12 text-center">
-                <button class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium add-testimonial-btn">
-                    <i class="fas fa-pen mr-2"></i>Share Your Experience
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tracking Section -->
-    <section id="tracking" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Track Your Delivery</h2>
-                <div class="flex flex-col md:flex-row gap-4 mb-8">
-                    <input 
-                        type="text" 
-                        placeholder="Enter tracking number" 
-                        class="flex-1 px-6 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        id="trackingInput"
-                    />
-                    <button class="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium" id="trackBtn">
-                        Track Delivery
-                    </button>
-                </div>
-                
-                <!-- Sample Tracking Info -->
-                <div class="bg-blue-50 rounded-lg p-6 hidden" id="trackingResult">
-                    <h3 class="text-lg font-semibold text-blue-800 mb-4">Delivery Status</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <div class="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
-                            <div>
-                                <p class="font-medium text-gray-800">Delivery Completed</p>
-                                <p class="text-sm text-gray-600">December 15, 2023 - 10:30 AM</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
-                            <div>
-                                <p class="font-medium text-gray-800">Out for Delivery</p>
-                                <p class="text-sm text-gray-600">December 15, 2023 - 8:15 AM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Delivery Calculator -->
-                <div class="mt-8 pt-8 border-t border-gray-200">
-                    <h3 class="text-xl font-bold text-gray-800 mb-6">Estimate Delivery Cost</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">From</label>
-                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg" id="calcFrom">
-                                <option>Lilongwe</option>
-                                <option>Blantyre</option>
-                                <option>Mzuzu</option>
-                                <option>Zomba</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">To</label>
-                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg" id="calcTo">
-                                <option>Lilongwe</option>
-                                <option>Blantyre</option>
-                                <option>Mzuzu</option>
-                                <option>Zomba</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Package Size</label>
-                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg" id="calcSize">
-                                <option>Small (Up to 5kg)</option>
-                                <option>Medium (5-10kg)</option>
-                                <option>Large (10-20kg)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium" id="calculateCostBtn">
-                        Calculate Cost
-                    </button>
-                    <div class="mt-4 hidden" id="costResult">
-                        <div class="bg-green-50 p-4 rounded-lg">
-                            <h4 class="font-bold text-green-800">Estimated Cost: <span id="estimatedCost">MWK 2,500</span></h4>
-                            <p class="text-sm text-green-600 mt-2">This is an estimate. Final cost may vary based on exact location and delivery time.</p>
                         </div>
                     </div>
                 </div>
@@ -734,7 +503,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-white">
+    <section id="faq" class="py-20 bg-gray-100">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
@@ -746,65 +515,52 @@
             <div class="max-w-3xl mx-auto space-y-4">
                 <!-- FAQ Item 1 -->
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
+                    <button class="faq-question w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
                         <span class="font-medium text-gray-800">How do I place an order?</span>
                         <i class="fas fa-chevron-down text-gray-600"></i>
                     </button>
                     <div class="faq-answer px-6">
                         <p class="py-4 text-gray-600">
-                            You can place orders through our mobile app, website, or WhatsApp. Download our app for the best experience, or visit our website and click "Order Now". For WhatsApp orders, message us at +265 123 456 789.
+                            All orders must be placed through our mobile app. Download the DropX Delivery app from the App Store or Google Play Store, create an account, and start ordering from restaurants, groceries, or DropX Store farm produce.
                         </p>
                     </div>
                 </div>
                 
                 <!-- FAQ Item 2 -->
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
-                        <span class="font-medium text-gray-800">What areas do you serve?</span>
+                    <button class="faq-question w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
+                        <span class="font-medium text-gray-800">What areas in Lilongwe do you serve?</span>
                         <i class="fas fa-chevron-down text-gray-600"></i>
                     </button>
                     <div class="faq-answer px-6">
                         <p class="py-4 text-gray-600">
-                            We currently serve all major cities in Malawi including Lilongwe, Blantyre, Mzuzu, and Zomba. We're rapidly expanding to more towns. Check our "Areas We Serve" section for the complete list and to request service in your area.
+                            We serve all areas of Lilongwe including City Center, Area 3, 9, 10, 12, Area 43, 47, 49, Likuni, Mtandile, Kawale, and Chinsapo. If you're unsure about your area, please check in our mobile app or contact us.
                         </p>
                     </div>
                 </div>
                 
                 <!-- FAQ Item 3 -->
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
-                        <span class="font-medium text-gray-800">How long does delivery take?</span>
+                    <button class="faq-question w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
+                        <span class="font-medium text-gray-800">What is DropX Store?</span>
                         <i class="fas fa-chevron-down text-gray-600"></i>
                     </button>
                     <div class="faq-answer px-6">
                         <p class="py-4 text-gray-600">
-                            Delivery times vary based on location and service type. In-city deliveries typically take 30-60 minutes for food and groceries. Package delivery within the same city is 1-2 hours, while inter-city deliveries take 3-6 hours depending on distance.
+                            DropX Store is our own farm produce marketplace. We work directly with local farmers to bring you the freshest vegetables, fruits, and farm products. All DropX Store items are available for delivery through our app.
                         </p>
                     </div>
                 </div>
                 
                 <!-- FAQ Item 4 -->
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
-                        <span class="font-medium text-gray-800">What payment methods do you accept?</span>
+                    <button class="faq-question w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
+                        <span class="font-medium text-gray-800">When will you expand to other cities?</span>
                         <i class="fas fa-chevron-down text-gray-600"></i>
                     </button>
                     <div class="faq-answer px-6">
                         <p class="py-4 text-gray-600">
-                            We accept multiple payment methods including cash on delivery, mobile money (Airtel Money and TNM Mpamba), and bank transfers. Some restaurants and stores also accept card payments through our app.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 5 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
-                        <span class="font-medium text-gray-800">How do I track my delivery?</span>
-                        <i class="fas fa-chevron-down text-gray-600"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="py-4 text-gray-600">
-                            You can track your delivery in real-time through our website or mobile app. Simply enter your tracking number in the tracking section, or check your order status in your account. You'll receive SMS updates throughout the delivery process.
+                            We're planning to expand to Mzuzu in Q1 2024, Blantyre in Q2 2024, and Zomba in Q3 2024. Follow us on social media or check our app for updates on expansion plans.
                         </p>
                     </div>
                 </div>
@@ -816,79 +572,6 @@
                 <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800">
                     Contact our support team <i class="fas fa-arrow-right ml-1"></i>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Signup -->
-    <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">
-                Subscribe to get exclusive deals, service updates, and delivery tips
-            </p>
-            
-            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4" id="newsletterForm">
-                <input 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    class="flex-1 px-6 py-3 rounded-lg text-gray-800 focus:outline-none"
-                    required
-                    id="newsletterEmail"
-                />
-                <button type="submit" class="bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors">
-                    Subscribe
-                </button>
-            </form>
-            
-            <p class="mt-4 text-sm text-blue-200">
-                We respect your privacy. Unsubscribe at any time.
-            </p>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About DropX Delivery</h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        DropX Delivery is Malawi's leading delivery service, specializing in food, groceries, and goods delivery. 
-                        We're committed to connecting people with what they need, delivered fast and fresh to their doorstep.
-                    </p>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-blue-600 mb-2">50K+</div>
-                            <div class="text-gray-600">Deliveries Completed</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-blue-600 mb-2">25+</div>
-                            <div class="text-gray-600">Cities in Malawi</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-blue-600 mb-2">24/7</div>
-                            <div class="text-gray-600">Customer Support</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-blue-600 mb-2">99.8%</div>
-                            <div class="text-gray-600">On-time Delivery</div>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <a href="team.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                            Meet Our Team <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <img 
-                        src="https://picsum.photos/500/400?random=2" 
-                        alt="DropX Delivery team in Malawi" 
-                        class="rounded-lg shadow-lg"
-                        loading="lazy"
-                    />
-                </div>
             </div>
         </div>
     </section>
@@ -905,9 +588,9 @@
                             <div class="flex items-center">
                                 <i class="fas fa-map-marker-alt text-blue-600 text-xl mr-4"></i>
                                 <div>
-                                    <p class="font-medium text-gray-800">Malawi Headquarters</p>
-                                    <p class="text-gray-600">Delivery Center, Lilongwe</p>
-                                    <p class="text-gray-600">Malawi</p>
+                                    <p class="font-medium text-gray-800">Lilongwe Headquarters</p>
+                                    <p class="text-gray-600">DropX Delivery Center</p>
+                                    <p class="text-gray-600">Lilongwe, Malawi</p>
                                 </div>
                             </div>
                             <div class="flex items-center">
@@ -924,46 +607,25 @@
                                     <p class="text-gray-600">info@dropxdelivery.mw</p>
                                 </div>
                             </div>
-                            <div class="flex items-center">
-                                <i class="fab fa-whatsapp text-green-600 text-xl mr-4"></i>
-                                <div>
-                                    <p class="font-medium text-gray-800">WhatsApp</p>
-                                    <p class="text-gray-600">+265 123 456 789</p>
-                                </div>
-                            </div>
                         </div>
                         
-                        <!-- Social Media -->
-                        <div class="mt-8">
-                            <h4 class="text-lg font-bold text-gray-800 mb-4">Follow Us</h4>
+                        <!-- App Download Reminder -->
+                        <div class="mt-8 bg-blue-50 rounded-lg p-6">
+                            <h4 class="text-lg font-bold text-blue-800 mb-3">Download Our App</h4>
+                            <p class="text-blue-700 mb-4">For ordering and delivery in Lilongwe, please use our mobile app:</p>
                             <div class="flex space-x-4">
-                                <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-200">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-200">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 hover:bg-pink-200">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 hover:bg-green-200">
-                                    <i class="fab fa-whatsapp"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Legal Links -->
-                        <div class="mt-8">
-                            <h4 class="text-lg font-bold text-gray-800 mb-4">Legal</h4>
-                            <div class="space-y-2">
-                                <a href="privacy.html" class="block text-gray-600 hover:text-blue-600 transition-colors">Privacy Policy</a>
-                                <a href="terms.html" class="block text-gray-600 hover:text-blue-600 transition-colors">Terms of Service</a>
-                                <a href="career.html" class="block text-gray-600 hover:text-blue-600 transition-colors">Careers</a>
+                                <button class="flex-1 bg-gray-900 text-white px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center download-app-btn" data-platform="ios">
+                                    <i class="fab fa-apple mr-2"></i>iOS
+                                </button>
+                                <button class="flex-1 bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn" data-platform="android">
+                                    <i class="fab fa-google-play mr-2"></i>Android
+                                </button>
                             </div>
                         </div>
                     </div>
                     
                     <div class="bg-gray-50 rounded-xl p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
                         <form class="space-y-6" id="contactForm">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
@@ -991,7 +653,7 @@
                                     id="message" 
                                     rows="4" 
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    placeholder="Tell us about your delivery needs"
+                                    placeholder="Tell us about your inquiry"
                                     required
                                 ></textarea>
                             </div>
@@ -1016,116 +678,43 @@
                         </div>
                         <span class="text-2xl font-bold">DropX Delivery</span>
                         <span class="text-xs bg-yellow-500 text-yellow-900 px-2 py-1 rounded-full font-medium">
-                            <i class="fas fa-flag mr-1"></i>Malawi
+                            <i class="fas fa-map-marker-alt mr-1"></i>Lilongwe
                         </span>
                     </div>
                     <p class="text-gray-400 mb-4">
-                        Your trusted partner for fast, reliable delivery of food, groceries, and goods across Malawi.
+                        Fast food, groceries, and fresh farm produce delivery in Lilongwe, Malawi.
+                        <span class="block mt-2 text-sm">Order exclusively through our mobile app.</span>
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <h4 class="text-lg font-bold mb-4">Services</h4>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-                        <li><a href="#areas" class="text-gray-400 hover:text-white transition-colors">Areas</a></li>
-                        <li><a href="#partners" class="text-gray-400 hover:text-white transition-colors">Partners</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Reviews</a></li>
-                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Restaurant Food</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Groceries</a></li>
+                        <li><a href="#dropxstore" class="text-gray-400 hover:text-white transition-colors">DropX Store</a></li>
+                        <li><a href="#partners" class="text-gray-400 hover:text-white transition-colors">Restaurants</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Support</h4>
+                    <h4 class="text-lg font-bold mb-4">Company</h4>
                     <ul class="space-y-2">
-                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
-                        <li><a href="Policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-                        <li><a href="careers.html" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
                         <li><a href="ourteam.html" class="text-gray-400 hover:text-white transition-colors">Our Team</a></li>
+                        <li><a href="careers.html" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 DropX Delivery. All rights reserved. Serving all of Malawi.</p>
-                <p class="mt-2 text-sm">Proudly delivering across Malawi since 2020</p>
+                <p>&copy; 2024 DropX Delivery. All rights reserved. Currently serving Lilongwe only.</p>
+                <p class="mt-2 text-sm">Coming soon to Mzuzu, Blantyre, and Zomba. Order through our mobile app only.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Fixed WhatsApp Button -->
-    <a href="https://wa.me/265123456789?text=Hi%20DropX%20Delivery,%20I%20need%20delivery%20assistance" 
-       target="_blank" 
-       class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all z-40">
-        <i class="fab fa-whatsapp text-2xl"></i>
-    </a>
-
-    <!-- Order Modal -->
-    <div id="orderModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-xl font-bold text-gray-800">Place Your Order</h3>
-                    <button class="text-gray-400 hover:text-gray-600 close-modal">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-                
-                <form id="orderForm" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Order Type</label>
-                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="orderType">
-                            <option value="">Select order type</option>
-                            <option value="food">Food Delivery</option>
-                            <option value="groceries">Groceries Delivery</option>
-                            <option value="goods">Package Delivery</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Pickup Location</label>
-                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter pickup address">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Delivery Address</label>
-                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter delivery address" required>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Special Instructions</label>
-                        <textarea class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3" placeholder="Any special instructions?"></textarea>
-                    </div>
-                    
-                    <div class="pt-4 border-t border-gray-200">
-                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                            Proceed to Order Details
-                        </button>
-                        <p class="text-sm text-gray-500 mt-2 text-center">
-                            You'll be redirected to complete your order
-                        </p>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
     <!-- Success Toast -->
     <div id="successToast" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50">
@@ -1182,72 +771,6 @@
                 });
             }
 
-            // Newsletter Form Submission
-            const newsletterForm = document.getElementById('newsletterForm');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const email = this.querySelector('input[type="email"]').value;
-                    showToast("Thank you for subscribing with: " + email);
-                    this.reset();
-                });
-            }
-
-            // Tracking functionality
-            const trackButton = document.getElementById('trackBtn');
-            const trackingInput = document.getElementById('trackingInput');
-            const trackingResult = document.getElementById('trackingResult');
-            
-            if (trackButton) {
-                trackButton.addEventListener("click", function() {
-                    if (trackingInput && trackingInput.value.trim() === "") {
-                        showToast("Please enter a tracking number", "warning");
-                        trackingInput.focus();
-                    } else {
-                        // Show sample tracking result
-                        trackingResult.classList.remove('hidden');
-                        trackingResult.classList.add('animate-pulse');
-                        
-                        // Remove animation after a while
-                        setTimeout(() => {
-                            trackingResult.classList.remove('animate-pulse');
-                        }, 1000);
-                        
-                        showToast("Tracking information displayed for: " + trackingInput.value);
-                    }
-                });
-            }
-
-            // Cost Calculator
-            const calculateCostBtn = document.getElementById('calculateCostBtn');
-            const costResult = document.getElementById('costResult');
-            
-            if (calculateCostBtn) {
-                calculateCostBtn.addEventListener('click', function() {
-                    const from = document.getElementById('calcFrom').value;
-                    const to = document.getElementById('calcTo').value;
-                    const size = document.getElementById('calcSize').value;
-                    
-                    // Simple pricing logic
-                    let basePrice = 1500; // Base price in MWK
-                    
-                    if (from !== to) {
-                        basePrice += 1000; // Inter-city delivery
-                    }
-                    
-                    if (size === 'Medium (5-10kg)') {
-                        basePrice += 500;
-                    } else if (size === 'Large (10-20kg)') {
-                        basePrice += 1000;
-                    }
-                    
-                    document.getElementById('estimatedCost').textContent = 'MWK ' + basePrice.toLocaleString();
-                    costResult.classList.remove('hidden');
-                    
-                    showToast("Delivery cost calculated successfully!");
-                });
-            }
-
             // FAQ Accordion
             const faqQuestions = document.querySelectorAll('.faq-question');
             faqQuestions.forEach(question => {
@@ -1268,23 +791,6 @@
                 });
             });
 
-            // Order Now Buttons
-            document.querySelectorAll('.order-now-btn, .order-service-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const service = this.getAttribute('data-service') || '';
-                    openOrderModal(service);
-                });
-            });
-
-            // Partner Order Buttons
-            document.querySelectorAll('.order-partner-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const partner = this.getAttribute('data-partner');
-                    showToast("Redirecting to " + partner.replace('-', ' ') + " ordering page");
-                    // In a real implementation, this would redirect to the partner's ordering page
-                });
-            });
-
             // Download App Buttons
             document.querySelectorAll('.download-app-btn').forEach(button => {
                 button.addEventListener('click', function() {
@@ -1298,91 +804,6 @@
                     }
                 });
             });
-
-            // Request Expansion Button
-            document.querySelector('.request-expansion-btn')?.addEventListener('click', function() {
-                showToast("Thank you for your interest! We'll contact you when we expand to your area.");
-                // In a real implementation, this would open a form or redirect
-            });
-
-            // Add Testimonial Button
-            document.querySelector('.add-testimonial-btn')?.addEventListener('click', function() {
-                showToast("Thank you! We'll contact you to share your experience.");
-            });
-
-            // Order Modal Functions
-            function openOrderModal(serviceType = '') {
-                const modal = document.getElementById('orderModal');
-                const orderType = document.getElementById('orderType');
-                
-                if (serviceType && orderType) {
-                    // Map service type to option value
-                    const optionMap = {
-                        'food': 'food',
-                        'groceries': 'groceries',
-                        'goods': 'goods'
-                    };
-                    
-                    if (optionMap[serviceType]) {
-                        orderType.value = optionMap[serviceType];
-                    }
-                }
-                
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            }
-
-            // Close Modal
-            document.querySelectorAll('.close-modal').forEach(button => {
-                button.addEventListener('click', function() {
-                    const modal = document.getElementById('orderModal');
-                    modal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                });
-            });
-
-            // Close modal when clicking outside
-            document.getElementById('orderModal')?.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-
-            // Order Form Submission
-            const orderForm = document.getElementById('orderForm');
-            if (orderForm) {
-                orderForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Get order type
-                    const orderType = document.getElementById('orderType').value;
-                    let redirectUrl = '';
-                    
-                    // Determine where to redirect based on order type
-                    if (orderType === 'food') {
-                        redirectUrl = 'https://wa.me/265123456789?text=I%20want%20to%20order%20food%20delivery';
-                    } else if (orderType === 'groceries') {
-                        redirectUrl = 'https://wa.me/265123456789?text=I%20want%20to%20order%20groceries%20delivery';
-                    } else if (orderType === 'goods') {
-                        redirectUrl = 'https://wa.me/265123456789?text=I%20want%20to%20send%20a%20package';
-                    } else {
-                        redirectUrl = 'https://wa.me/265123456789?text=I%20want%20to%20place%20an%20order';
-                    }
-                    
-                    // Close modal and redirect
-                    const modal = document.getElementById('orderModal');
-                    modal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                    
-                    showToast("Redirecting to complete your order...", "info");
-                    
-                    // Redirect after a short delay
-                    setTimeout(() => {
-                        window.open(redirectUrl, '_blank');
-                    }, 1500);
-                });
-            }
 
             // Toast Notification Function
             function showToast(message, type = "success") {
@@ -1409,37 +830,6 @@
                     toast.classList.add('hidden');
                 }, 3000);
             }
-
-            // Counter animation on scroll
-            function animateCounter(element) {
-                let count = 0;
-                const target = parseInt(element.innerText.replace('+', '').replace(',', ''));
-                const increment = target / 100;
-                const timer = setInterval(() => {
-                    count += increment;
-                    if (count >= target) {
-                        count = target;
-                        clearInterval(timer);
-                    }
-                    element.innerText = Math.floor(count).toLocaleString() + (element.innerText.includes('+') ? '+' : '');
-                }, 20);
-            }
-
-            // Animate counters when they come into view
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const counter = entry.target;
-                        animateCounter(counter);
-                        observer.unobserve(counter);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            // Observe all counters
-            document.querySelectorAll('.count-up').forEach(counter => {
-                observer.observe(counter);
-            });
 
             // Initialize all FAQ answers to be closed
             faqQuestions.forEach(question => {
