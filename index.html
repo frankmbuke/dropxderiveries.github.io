@@ -3,7 +3,7 @@
 <head>
     <base target="_self">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>DropX Delivery - Food, Groceries & Farm Produce Delivery in Lilongwe</title>
     <meta name="description" content="DropX Delivery provides fast food, groceries, and fresh farm produce delivery in Lilongwe, Malawi. Order through our mobile app.">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,6 +24,10 @@
         }
     </script>
     <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+        
         .transition-all {
             transition: all 0.3s ease;
         }
@@ -33,70 +37,107 @@
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.875rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            h2 {
+                font-size: 1.5rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            .text-responsive {
+                font-size: 0.875rem;
+            }
+            
+            .gap-mobile {
+                gap: 0.75rem;
+            }
+        }
+
+        /* Better touch targets */
+        button, a {
+            touch-action: manipulation;
+        }
+        
+        .touch-target {
+            min-height: 44px;
+            min-width: 44px;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
-    <!-- Header & Navigation -->
+    <!-- Header & Navigation - Fixed for mobile -->
     <header class="bg-white shadow-lg sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-4">
+        <nav class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <!-- Logo area -->
-                <!-- Logo area - if logo includes text -->
-				<div class="flex items-center space-x-2">
-					<img src="logo.png" 
-						 alt="DropX Logo" 
-						 class="h-10 w-auto rounded-lg shadow-md">
-					
-				</div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
-                    <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Services</a>
-                    <a href="#partners" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Restaurants</a>
-                    <a href="#dropxstore" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">DropX Store</a>
-                    <a href="#faq" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">FAQ</a>
-                    <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Contact</a>
-                    
-                    <!-- Company Dropdown -->
-                    <div class="relative group">
-                        <button class="text-gray-700 hover:text-blue-600 font-medium transition-colors flex items-center">
-                            Company <i class="fas fa-chevron-down ml-1 text-sm"></i>
-                        </button>
-                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block">
-                            <a href="careers.html" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50">Careers</a>
-                            <a href="ourteam.html" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50">Our Team</a>
-                            <a href="privacy.html" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50">Privacy Policy</a>
-                            <a href="terms.html" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50">Terms of Service</a>
-                        </div>
-                    </div>
+                <div class="flex items-center space-x-2">
+                    <img src="logo.png" 
+                         alt="DropX Logo" 
+                         class="h-8 w-auto rounded-lg shadow-md"
+                         onerror="this.style.display='none'">
+                    <span class="text-xl font-bold text-blue-600">DropX</span>
                 </div>
                 
+                <!-- Mobile menu button and desktop nav -->
+                <div class="flex items-center space-x-4">
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">Home</a>
+                        <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">Services</a>
+                        <a href="#partners" class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">Restaurants</a>
+                        <a href="#dropxstore" class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">Store</a>
+                        <a href="#faq" class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">FAQ</a>
+                        <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">Contact</a>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 touch-target" aria-label="Menu">
+                        <i class="fas fa-bars text-xl text-gray-700"></i>
+                    </button>
+                </div>
             </div>
             
-            <!-- Mobile Menu -->
-            <div class="md:hidden hidden mt-4 bg-white rounded-lg shadow-lg p-4" id="mobileMenu">
-                <div class="space-y-3">
-                    <a href="#home" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Home</a>
-                    <a href="#services" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Services</a>
-                    <a href="#partners" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Restaurants</a>
-                    <a href="#dropxstore" class="block text-gray-700 hover:text-blue-600 font-medium py-2">DropX Store</a>
-                    <a href="#faq" class="block text-gray-700 hover:text-blue-600 font-medium py-2">FAQ</a>
-                    <a href="#contact" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Contact</a>
-                    <div class="border-t pt-2">
+            <!-- Mobile Menu - Improved spacing and touch targets -->
+            <div class="md:hidden hidden mt-4 bg-white rounded-xl shadow-lg overflow-hidden" id="mobileMenu">
+                <div class="divide-y divide-gray-100">
+                    <a href="#home" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 font-medium">Home</a>
+                    <a href="#services" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 font-medium">Services</a>
+                    <a href="#partners" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 font-medium">Restaurants</a>
+                    <a href="#dropxstore" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 font-medium">DropX Store</a>
+                    <a href="#faq" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 font-medium">FAQ</a>
+                    <a href="#contact" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 font-medium">Contact</a>
+                    
+                    <!-- Company Section -->
+                    <div class="px-4 py-3 bg-gray-50">
                         <p class="text-sm font-semibold text-gray-500 mb-2">Company</p>
-                        <a href="careers.html" class="block text-gray-700 hover:text-blue-600 font-medium py-1 pl-4">Careers</a>
-                        <a href="ourteam.html" class="block text-gray-700 hover:text-blue-600 font-medium py-1 pl-4">Our Team</a>
-                        <a href="privacy.html" class="block text-gray-700 hover:text-blue-600 font-medium py-1 pl-4">Privacy Policy</a>
-                        <a href="terms.html" class="block text-gray-700 hover:text-blue-600 font-medium py-1 pl-4">Terms of Service</a>
+                        <div class="space-y-2">
+                            <a href="careers.html" class="block text-gray-700 hover:text-blue-600 py-2">Careers</a>
+                            <a href="ourteam.html" class="block text-gray-700 hover:text-blue-600 py-2">Our Team</a>
+                            <a href="privacy.html" class="block text-gray-700 hover:text-blue-600 py-2">Privacy Policy</a>
+                            <a href="terms.html" class="block text-gray-700 hover:text-blue-600 py-2">Terms of Service</a>
+                        </div>
                     </div>
-                    <div class="border-t pt-4">
-                        <p class="text-sm font-semibold text-gray-500 mb-2">Download App</p>
-                        <div class="flex space-x-2">
-                            <button class="flex-1 bg-gray-900 text-white px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center download-app-btn" data-platform="ios">
-                                <i class="fab fa-apple mr-2"></i>iOS
+                    
+                    <!-- App Download -->
+                    <div class="px-4 py-4 bg-blue-50">
+                        <p class="text-sm font-semibold text-gray-700 mb-3">Download our app</p>
+                        <div class="flex flex-col space-y-2">
+                            <button class="bg-black text-white px-4 py-3 rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center download-app-btn touch-target" data-platform="ios">
+                                <i class="fab fa-apple mr-2"></i> Download on App Store
                             </button>
-                            <button class="flex-1 bg-green-600 text-white px-3 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn" data-platform="android">
-                                <i class="fab fa-google-play mr-2"></i>Android
+                            <button class="bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn touch-target" data-platform="android">
+                                <i class="fab fa-google-play mr-2"></i> Get it on Google Play
                             </button>
                         </div>
                     </div>
@@ -104,426 +145,418 @@
             </div>
         </nav>
     </header>
-    <!-- Hero Section - Compact Version -->
-	<section id="home" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-10 md:py-12">
-		<div class="container mx-auto px-4">
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-				<div>
-					
-					<h1 class="text-3xl md:text-4xl font-bold mb-3 leading-tight">
-						Fresh food & groceries <br>
-						<span class="text-yellow-400">delivered to your door</span>
-					</h1>
-					
-					<p class="text-base text-blue-100 mb-5 max-w-lg">
-						Order from 50+ restaurants and DropX Farm Store through our app.
-					</p>
-					
-					<!-- App Download Buttons - Smaller -->
-					<div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 mb-4">
-						<button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center download-app-btn shadow-md" data-platform="ios">
-							<i class="fab fa-apple mr-2 text-xl"></i>
-							<div class="text-left">
-								<div class="text-xs">Download on the</div>
-								<div class="font-semibold text-base">App Store</div>
-							</div>
-						</button>
-						<button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn shadow-md" data-platform="android">
-							<i class="fab fa-google-play mr-2 text-xl"></i>
-							<div class="text-left">
-								<div class="text-xs">Get it on</div>
-								<div class="font-semibold text-base">Google Play</div>
-							</div>
-						</button>
-					</div>
-					
-					<p class="text-blue-200 text-xs flex items-center">
-						<i class="fas fa-info-circle mr-1"></i>
-						Info site only. Order via app.
-					</p>
-				</div>
-				
-				<div class="relative">
-					<div class="relative z-10">
-						<img 
-							src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" 
-							alt="DropX delivery" 
-							class="rounded-xl shadow-2xl"
-							loading="lazy"
-						/>
-					</div>
-					
-					
-					
-				</div>
-			</div>
-		</div>
-	</section>
-	 <!-- Services Section - Simple & Focused -->
-	<section id="services" class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<!-- Simple Header -->
-			<div class="text-center mb-12">
-				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">We deliver to you</h2>
-				<p class="text-lg text-gray-600 max-w-2xl mx-auto">
-					Home or office — we bring what you need right to your door.
-				</p>
-			</div>
-			
-			<!-- Three Simple Cards -->
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-				
-				<!-- Food -->
-				<div class="text-center p-6">
-					<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-						<i class="fas fa-utensils text-blue-600 text-xl"></i>
-					</div>
-					<h3 class="text-xl font-bold text-gray-900 mb-2">Restaurant Food</h3>
-					<p class="text-gray-600 text-sm">Hot meals from local restaurants</p>
-				</div>
-				
-				<!-- Groceries -->
-				<div class="text-center p-6">
-					<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-						<i class="fas fa-shopping-basket text-green-600 text-xl"></i>
-					</div>
-					<h3 class="text-xl font-bold text-gray-900 mb-2">Groceries</h3>
-					<p class="text-gray-600 text-sm">Essentials for your home</p>
-				</div>
-				
-				<!-- Farm Produce -->
-				<div class="text-center p-6">
-					<div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-						<i class="fas fa-seedling text-yellow-600 text-xl"></i>
-					</div>
-					<h3 class="text-xl font-bold text-gray-900 mb-2">Farm Produce</h3>
-					<p class="text-gray-600 text-sm">Fresh from local farmers</p>
-				</div>
-			</div>
-			
-			<!-- Simple Location Line -->
-			<p class="text-center text-sm text-gray-400 mt-8">
-				<i class="fas fa-map-marker-alt text-blue-500 mr-1"></i>
-				Delivering in Lilongwe
-			</p>
-		</div>
-	</section>
-    <!-- DropX Store Section -->
-    <section id="dropxstore" class="py-20 bg-green-50">
+
+    <!-- Hero Section - Optimized for mobile -->
+    <section id="home" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-8 md:py-12">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <div class="bg-green-600 text-white px-4 py-1 rounded-full text-sm font-bold">
-                            <i class="fas fa-store mr-1"></i>DROPX STORE
-                        </div>
-                    </div>
+            <div class="flex flex-col lg:flex-row gap-6 items-center">
+                <div class="w-full lg:w-1/2">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 leading-tight">
+                        Fresh food & groceries 
+                        <span class="text-yellow-400 block sm:inline">delivered to your door</span>
+                    </h1>
                     
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Fresh Farm Produce from DropX Store</h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        DropX Store is our own farm produce marketplace, bringing you the freshest vegetables, fruits, 
-                        and farm products directly from local farmers to your table.
+                    <p class="text-sm sm:text-base text-blue-100 mb-4 max-w-lg">
+                        Order from 50+ restaurants and DropX Farm Store through our app.
                     </p>
                     
-                    <div class="grid grid-cols-2 gap-6 mb-8">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-green-600 mb-2">100%</div>
-                            <div class="text-gray-600">Fresh Produce</div>
+                    <!-- App Download Buttons - Stack on mobile -->
+                    <div class="flex flex-col sm:flex-row gap-3 mb-4">
+                        <button class="bg-black text-white px-4 py-3 rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center download-app-btn shadow-md touch-target" data-platform="ios">
+                            <i class="fab fa-apple mr-2 text-xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Download on the</div>
+                                <div class="font-semibold text-sm sm:text-base">App Store</div>
+                            </div>
+                        </button>
+                        <button class="bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn shadow-md touch-target" data-platform="android">
+                            <i class="fab fa-google-play mr-2 text-xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Get it on</div>
+                                <div class="font-semibold text-sm sm:text-base">Google Play</div>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <p class="text-blue-200 text-xs flex items-center">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Info site only. Order via app.
+                    </p>
+                </div>
+                
+                <div class="w-full lg:w-1/2">
+                    <img 
+                        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" 
+                        alt="DropX delivery" 
+                        class="rounded-xl shadow-2xl w-full h-auto max-h-64 sm:max-h-80 object-cover"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section - Mobile optimized grid -->
+    <section id="services" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">We deliver to you</h2>
+                <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+                    Home or office — we bring what you need right to your door.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                <!-- Food -->
+                <div class="text-center p-4 bg-gray-50 rounded-xl">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-utensils text-blue-600 text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">Restaurant Food</h3>
+                    <p class="text-gray-600 text-xs">Hot meals from local restaurants</p>
+                </div>
+                
+                <!-- Groceries -->
+                <div class="text-center p-4 bg-gray-50 rounded-xl">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-shopping-basket text-green-600 text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">Groceries</h3>
+                    <p class="text-gray-600 text-xs">Essentials for your home</p>
+                </div>
+                
+                <!-- Farm Produce -->
+                <div class="text-center p-4 bg-gray-50 rounded-xl">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-seedling text-yellow-600 text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">Farm Produce</h3>
+                    <p class="text-gray-600 text-xs">Fresh from local farmers</p>
+                </div>
+            </div>
+            
+            <p class="text-center text-xs text-gray-400 mt-6">
+                <i class="fas fa-map-marker-alt text-blue-500 mr-1"></i>
+                Delivering in Lilongwe
+            </p>
+        </div>
+    </section>
+
+    <!-- DropX Store Section - Mobile optimized -->
+    <section id="dropxstore" class="py-12 bg-green-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-8 items-center">
+                <div class="w-full lg:w-1/2">
+                    <div class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">
+                        <i class="fas fa-store mr-1"></i>DROPX STORE
+                    </div>
+                    
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Fresh Farm Produce</h2>
+                    <p class="text-sm sm:text-base text-gray-600 mb-6">
+                        DropX Store brings you the freshest vegetables, fruits, and farm products directly from local farmers.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="text-center bg-white p-3 rounded-lg">
+                            <div class="text-xl font-bold text-green-600 mb-1">100%</div>
+                            <div class="text-xs text-gray-600">Fresh Produce</div>
                         </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-green-600 mb-2">Same Day</div>
-                            <div class="text-gray-600">Harvest to Delivery</div>
+                        <div class="text-center bg-white p-3 rounded-lg">
+                            <div class="text-xl font-bold text-green-600 mb-1">Same Day</div>
+                            <div class="text-xs text-gray-600">Harvest to Delivery</div>
                         </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-green-600 mb-2">Local</div>
-                            <div class="text-gray-600">Farmers Supported</div>
+                        <div class="text-center bg-white p-3 rounded-lg">
+                            <div class="text-xl font-bold text-green-600 mb-1">Local</div>
+                            <div class="text-xs text-gray-600">Farmers Supported</div>
                         </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-green-600 mb-2">Quality</div>
-                            <div class="text-gray-600">Guaranteed</div>
+                        <div class="text-center bg-white p-3 rounded-lg">
+                            <div class="text-xl font-bold text-green-600 mb-1">Quality</div>
+                            <div class="text-xs text-gray-600">Guaranteed</div>
                         </div>
                     </div>
                     
-                    <div class="bg-white rounded-lg p-6 shadow-md">
-                        <h4 class="text-lg font-bold text-gray-800 mb-3">Available in DropX Store:</h4>
-                        <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <h4 class="font-bold text-gray-800 mb-2">Available in DropX Store:</h4>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
                             <div class="flex items-center">
-                                <i class="fas fa-carrot text-green-500 mr-2"></i>
-                                <span class="text-gray-700">Fresh Vegetables</span>
+                                <i class="fas fa-carrot text-green-500 mr-2 text-xs"></i>
+                                <span class="text-xs sm:text-sm">Fresh Vegetables</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-apple-alt text-green-500 mr-2"></i>
-                                <span class="text-gray-700">Seasonal Fruits</span>
+                                <i class="fas fa-apple-alt text-green-500 mr-2 text-xs"></i>
+                                <span class="text-xs sm:text-sm">Seasonal Fruits</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-egg text-green-500 mr-2"></i>
-                                <span class="text-gray-700">Farm Eggs</span>
+                                <i class="fas fa-egg text-green-500 mr-2 text-xs"></i>
+                                <span class="text-xs sm:text-sm">Farm Eggs</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-wheat-alt text-green-500 mr-2"></i>
-                                <span class="text-gray-700">Grains & Cereals</span>
+                                <i class="fas fa-wheat-alt text-green-500 mr-2 text-xs"></i>
+                                <span class="text-xs sm:text-sm">Grains & Cereals</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="relative">
+                
+                <div class="w-full lg:w-1/2 relative">
                     <img 
                         src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600" 
                         alt="DropX Store fresh farm produce" 
-                        class="rounded-lg shadow-lg"
+                        class="rounded-lg shadow-lg w-full h-auto max-h-64 sm:max-h-80 object-cover"
                         loading="lazy"
                     />
-                    <div class="absolute -bottom-4 -left-4 bg-white text-green-700 px-6 py-3 rounded-lg shadow-xl">
-                        <div class="font-bold text-lg">Farm Fresh</div>
-                        <div class="text-sm text-gray-600">Direct from local farmers</div>
+                    <div class="absolute -bottom-2 -left-2 bg-white text-green-700 px-4 py-2 rounded-lg shadow-lg">
+                        <div class="font-bold text-sm">Farm Fresh</div>
+                        <div class="text-xs text-gray-600">Direct from farmers</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Restaurant Partners Section - Clean & Simple -->
-	<section id="partners" class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<div class="text-center mb-12">
-				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Our Restaurant Partners</h2>
-				<p class="text-lg text-gray-600">50+ restaurants delivering in Lilongwe</p>
-			</div>
-			
-			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-				<div class="bg-white p-4 rounded-lg text-center shadow-sm">
-					<div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
-						<i class="fas fa-hamburger text-blue-600"></i>
-					</div>
-					<h4 class="font-semibold text-gray-900">Burger Express</h4>
-					<p class="text-xs text-gray-500">Fast Food</p>
-				</div>
-				
-				<div class="bg-white p-4 rounded-lg text-center shadow-sm">
-					<div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
-						<i class="fas fa-pizza-slice text-green-600"></i>
-					</div>
-					<h4 class="font-semibold text-gray-900">Pizza Palace</h4>
-					<p class="text-xs text-gray-500">Italian</p>
-				</div>
-				
-				<div class="bg-white p-4 rounded-lg text-center shadow-sm">
-					<div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2">
-						<i class="fas fa-utensil-spoon text-yellow-600"></i>
-					</div>
-					<h4 class="font-semibold text-gray-900">Malawi Kitchen</h4>
-					<p class="text-xs text-gray-500">Local Cuisine</p>
-				</div>
-				
-				<div class="bg-white p-4 rounded-lg text-center shadow-sm">
-					<div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
-						<i class="fas fa-drumstick-bite text-red-600"></i>
-					</div>
-					<h4 class="font-semibold text-gray-900">Chicken Spot</h4>
-					<p class="text-xs text-gray-500">Grill & BBQ</p>
-				</div>
-			</div>
-			
-			<p class="text-center text-sm text-gray-500 mt-6">
-				<i class="fas fa-mobile-alt mr-1 text-blue-500"></i> View all restaurants in our app
-			</p>
-		</div>
-	</section>
+    <!-- Restaurant Partners Section - Mobile optimized -->
+    <section id="partners" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Our Restaurant Partners</h2>
+                <p class="text-sm sm:text-base text-gray-600">50+ restaurants delivering in Lilongwe</p>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
+                <div class="bg-white p-3 rounded-lg text-center shadow-sm">
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-hamburger text-blue-600 text-sm"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-900 text-sm">Burger Express</h4>
+                    <p class="text-xs text-gray-500">Fast Food</p>
+                </div>
+                
+                <div class="bg-white p-3 rounded-lg text-center shadow-sm">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-pizza-slice text-green-600 text-sm"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-900 text-sm">Pizza Palace</h4>
+                    <p class="text-xs text-gray-500">Italian</p>
+                </div>
+                
+                <div class="bg-white p-3 rounded-lg text-center shadow-sm">
+                    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-utensil-spoon text-yellow-600 text-sm"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-900 text-sm">Malawi Kitchen</h4>
+                    <p class="text-xs text-gray-500">Local Cuisine</p>
+                </div>
+                
+                <div class="bg-white p-3 rounded-lg text-center shadow-sm">
+                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-drumstick-bite text-red-600 text-sm"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-900 text-sm">Chicken Spot</h4>
+                    <p class="text-xs text-gray-500">Grill & BBQ</p>
+                </div>
+            </div>
+            
+            <p class="text-center text-xs text-gray-500 mt-4">
+                <i class="fas fa-mobile-alt mr-1 text-blue-500"></i> View all restaurants in our app
+            </p>
+        </div>
+    </section>
 
-	<!-- Service Areas Section - Simple -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="text-center mb-12">
-				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Service Areas</h2>
-				<p class="text-lg text-gray-600">Currently serving Lilongwe</p>
-			</div>
-			
-			<div class="max-w-2xl mx-auto bg-blue-50 rounded-xl p-6 text-center">
-				<div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-					<i class="fas fa-map-marker-alt text-white text-xl"></i>
-				</div>
-				<h3 class="text-2xl font-bold text-gray-900 mb-2">Lilongwe</h3>
-				<p class="text-gray-600 mb-4">All areas including City Center, Area 3, 10, 43, 47, Likuni, Kawale</p>
-				<p class="text-sm text-blue-700 font-medium">Coming soon: Mzuzu, Blantyre, Zomba</p>
-			</div>
-		</div>
-	</section>
+    <!-- Service Areas Section - Mobile optimized -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Service Areas</h2>
+                <p class="text-sm sm:text-base text-gray-600">Currently serving Lilongwe</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto bg-blue-50 rounded-xl p-6 text-center">
+                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-map-marker-alt text-white text-sm"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Lilongwe</h3>
+                <p class="text-sm text-gray-600 mb-3">All areas including City Center, Area 3, 10, 43, 47, Likuni, Kawale</p>
+                <p class="text-xs text-blue-700 font-medium bg-white p-2 rounded-lg inline-block">Coming soon: Mzuzu, Blantyre, Zomba</p>
+            </div>
+        </div>
+    </section>
 
-	<!-- FAQ Section - Clean Accordion -->
-	<section id="faq" class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<div class="text-center mb-12">
-				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">FAQs</h2>
-				<p class="text-lg text-gray-600">Quick answers to common questions</p>
-			</div>
-			
-			<div class="max-w-2xl mx-auto space-y-3">
-				<div class="bg-white rounded-lg overflow-hidden border border-gray-200">
-					<button class="faq-question w-full px-5 py-3 text-left flex justify-between items-center">
-						<span class="font-medium text-gray-800">How do I place an order?</span>
-						<i class="fas fa-chevron-down text-gray-500 text-sm"></i>
-					</button>
-					<div class="faq-answer px-5">
-						<p class="pb-3 text-sm text-gray-600">All orders through our mobile app. Download from App Store or Google Play.</p>
-					</div>
-				</div>
-				
-				<div class="bg-white rounded-lg overflow-hidden border border-gray-200">
-					<button class="faq-question w-full px-5 py-3 text-left flex justify-between items-center">
-						<span class="font-medium text-gray-800">What areas do you serve?</span>
-						<i class="fas fa-chevron-down text-gray-500 text-sm"></i>
-					</button>
-					<div class="faq-answer px-5">
-						<p class="pb-3 text-sm text-gray-600">All areas of Lilongwe. Check app for exact coverage.</p>
-					</div>
-				</div>
-				
-				<div class="bg-white rounded-lg overflow-hidden border border-gray-200">
-					<button class="faq-question w-full px-5 py-3 text-left flex justify-between items-center">
-						<span class="font-medium text-gray-800">What is DropX Store?</span>
-						<i class="fas fa-chevron-down text-gray-500 text-sm"></i>
-					</button>
-					<div class="faq-answer px-5">
-						<p class="pb-3 text-sm text-gray-600">Our own farm produce marketplace with fresh items from local farmers.</p>
-					</div>
-				</div>
-				
-				<div class="bg-white rounded-lg overflow-hidden border border-gray-200">
-					<button class="faq-question w-full px-5 py-3 text-left flex justify-between items-center">
-						<span class="font-medium text-gray-800">Expanding to other cities?</span>
-						<i class="fas fa-chevron-down text-gray-500 text-sm"></i>
-					</button>
-					<div class="faq-answer px-5">
-						<p class="pb-3 text-sm text-gray-600">Yes, coming to Mzuzu, Blantyre, and Zomba soon.</p>
-					</div>
-				</div>
-			</div>
-			
-			<p class="text-center mt-6">
-				<a href="#contact" class="text-blue-600 text-sm hover:underline">Still have questions? Contact us</a>
-			</p>
-		</div>
-	</section>
+    <!-- FAQ Section - Mobile optimized accordion -->
+    <section id="faq" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">FAQs</h2>
+                <p class="text-sm sm:text-base text-gray-600">Quick answers to common questions</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto space-y-2">
+                <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <button class="faq-question w-full px-4 py-3 text-left flex justify-between items-center touch-target">
+                        <span class="font-medium text-gray-800 text-sm">How do I place an order?</span>
+                        <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+                    </button>
+                    <div class="faq-answer px-4">
+                        <p class="pb-3 text-xs sm:text-sm text-gray-600">All orders through our mobile app. Download from App Store or Google Play.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <button class="faq-question w-full px-4 py-3 text-left flex justify-between items-center touch-target">
+                        <span class="font-medium text-gray-800 text-sm">What areas do you serve?</span>
+                        <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+                    </button>
+                    <div class="faq-answer px-4">
+                        <p class="pb-3 text-xs sm:text-sm text-gray-600">All areas of Lilongwe. Check app for exact coverage.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <button class="faq-question w-full px-4 py-3 text-left flex justify-between items-center touch-target">
+                        <span class="font-medium text-gray-800 text-sm">What is DropX Store?</span>
+                        <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+                    </button>
+                    <div class="faq-answer px-4">
+                        <p class="pb-3 text-xs sm:text-sm text-gray-600">Our own farm produce marketplace with fresh items from local farmers.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <button class="faq-question w-full px-4 py-3 text-left flex justify-between items-center touch-target">
+                        <span class="font-medium text-gray-800 text-sm">Expanding to other cities?</span>
+                        <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+                    </button>
+                    <div class="faq-answer px-4">
+                        <p class="pb-3 text-xs sm:text-sm text-gray-600">Yes, coming to Mzuzu, Blantyre, and Zomba soon.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center mt-4">
+                <a href="#contact" class="text-blue-600 text-xs sm:text-sm hover:underline">Still have questions? Contact us</a>
+            </p>
+        </div>
+    </section>
 
-	<!-- Contact Section - Clean & Simple -->
-	<section id="contact" class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto">
-				<div class="text-center mb-10">
-					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Contact Us</h2>
-					<p class="text-lg text-gray-600">Get in touch with our team</p>
-				</div>
-				
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-					<!-- Contact Info - Simple -->
-					<div>
-						<h3 class="text-xl font-bold text-gray-900 mb-4">Reach us</h3>
-						<div class="space-y-4">
-							<div class="flex items-center">
-								<i class="fas fa-map-marker-alt text-blue-600 w-6"></i>
-								<span class="text-gray-700">Lilongwe, Malawi</span>
-							</div>
-							<div class="flex items-center">
-								<i class="fas fa-phone text-blue-600 w-6"></i>
-								<span class="text-gray-700">+265 123 456 789</span>
-							</div>
-							<div class="flex items-center">
-								<i class="fas fa-envelope text-blue-600 w-6"></i>
-								<span class="text-gray-700">info@dropxdelivery.mw</span>
-							</div>
-						</div>
-						
-						<!-- Simple App Download -->
-						<div class="mt-6 bg-gray-50 rounded-lg p-4">
-							<p class="text-sm font-medium text-gray-700 mb-3">Order via our app</p>
-							<div class="flex space-x-3">
-								<button class="bg-black text-white px-3 py-2 rounded-lg text-sm flex items-center download-app-btn" data-platform="ios">
-									<i class="fab fa-apple mr-2"></i> iOS
-								</button>
-								<button class="bg-green-600 text-white px-3 py-2 rounded-lg text-sm flex items-center download-app-btn" data-platform="android">
-									<i class="fab fa-google-play mr-2"></i> Android
-								</button>
-							</div>
-						</div>
-					</div>
-					
-					<!-- Quick Message Form -->
-					<div class="bg-gray-50 rounded-lg p-6">
-						<h3 class="text-xl font-bold text-gray-900 mb-4">Send a message</h3>
-						<form class="space-y-4" id="contactForm">
-							<input type="text" placeholder="Your name" class="w-full px-4 py-2 rounded-lg border border-gray-300 text-sm" required>
-							<input type="email" placeholder="Email address" class="w-full px-4 py-2 rounded-lg border border-gray-300 text-sm" required>
-							<textarea rows="3" placeholder="Your message" class="w-full px-4 py-2 rounded-lg border border-gray-300 text-sm" required></textarea>
-							<button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">
-								Send
-							</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <!-- Contact Section - Mobile optimized -->
+    <section id="contact" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Contact Us</h2>
+                    <p class="text-sm sm:text-base text-gray-600">Get in touch with our team</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-6">
+                    <!-- Contact Info -->
+                    <div class="w-full md:w-1/2 bg-gray-50 rounded-xl p-5">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Reach us</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-blue-600 w-6 text-sm"></i>
+                                <span class="text-sm text-gray-700">Lilongwe, Malawi</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-blue-600 w-6 text-sm"></i>
+                                <span class="text-sm text-gray-700">+265 123 456 789</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-blue-600 w-6 text-sm"></i>
+                                <span class="text-sm text-gray-700">info@dropxdelivery.mw</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Simple App Download -->
+                        <div class="mt-5 bg-white rounded-lg p-4">
+                            <p class="text-xs font-medium text-gray-700 mb-3">Order via our app</p>
+                            <div class="flex flex-col sm:flex-row gap-2">
+                                <button class="bg-black text-white px-3 py-2 rounded-lg text-xs flex items-center justify-center download-app-btn touch-target flex-1" data-platform="ios">
+                                    <i class="fab fa-apple mr-2"></i> iOS
+                                </button>
+                                <button class="bg-green-600 text-white px-3 py-2 rounded-lg text-xs flex items-center justify-center download-app-btn touch-target flex-1" data-platform="android">
+                                    <i class="fab fa-google-play mr-2"></i> Android
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Message Form -->
+                    <div class="w-full md:w-1/2 bg-gray-50 rounded-xl p-5">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Send a message</h3>
+                        <form class="space-y-3" id="contactForm">
+                            <input type="text" placeholder="Your name" class="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm" required>
+                            <input type="email" placeholder="Email address" class="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm" required>
+                            <textarea rows="3" placeholder="Your message" class="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm" required></textarea>
+                            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg text-sm hover:bg-blue-700 transition-colors touch-target">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer - Clean version if logo includes text -->
-	<footer class="bg-white text-gray-800 py-12 border-t border-gray-200">
-		<div class="container mx-auto px-4">
-			<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-				<div class="md:col-span-2">
-					<div class="flex items-center space-x-2 mb-4">
-						<!-- Logo image (assumed to include brand name) -->
-						<img src="logo.png" 
-							 alt="DropX" 
-							 class="h-8 w-auto">
-						
-					</div>
-					<p class="text-gray-400 mb-4">
-						Fast food, groceries, and fresh farm produce delivery in Malawi.
-						<span class="block mt-2 text-sm">Order exclusively through our mobile app.</span>
-					</p>
-				</div>
-				
-				<div>
-					<h4 class="text-lg font-bold mb-4">Services</h4>
-					<ul class="space-y-2">
-						<li><a href="#services" class="text-gray-400 hover:text-white">Restaurant Food</a></li>
-						<li><a href="#services" class="text-gray-400 hover:text-white">Groceries</a></li>
-						<li><a href="#dropxstore" class="text-gray-400 hover:text-white">DropX Store</a></li>
-					</ul>
-				</div>
-				
-				<div>
-					<h4 class="text-lg font-bold mb-4">Company</h4>
-					<ul class="space-y-2">
-						<li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
-						<li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy</a></li>
-						<li><a href="terms.html" class="text-gray-400 hover:text-white">Terms</a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-				<p>&copy; 2026 DropX Delivery..</p>
-			</div>
-		</div>
-	</footer>
+    <!-- Footer - Mobile optimized -->
+    <footer class="bg-white text-gray-800 py-8 border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="w-full md:w-1/2">
+                    <div class="flex items-center space-x-2 mb-3">
+                        <span class="text-xl font-bold text-blue-600">DropX</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-3">
+                        Fast food, groceries, and fresh farm produce delivery in Malawi.
+                        <span class="block mt-1">Order exclusively through our mobile app.</span>
+                    </p>
+                </div>
+                
+                <div class="w-1/2 md:w-1/4">
+                    <h4 class="text-sm font-bold mb-3">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-xs text-gray-500 hover:text-blue-600">Restaurant Food</a></li>
+                        <li><a href="#services" class="text-xs text-gray-500 hover:text-blue-600">Groceries</a></li>
+                        <li><a href="#dropxstore" class="text-xs text-gray-500 hover:text-blue-600">DropX Store</a></li>
+                    </ul>
+                </div>
+                
+                <div class="w-1/2 md:w-1/4">
+                    <h4 class="text-sm font-bold mb-3">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#contact" class="text-xs text-gray-500 hover:text-blue-600">Contact</a></li>
+                        <li><a href="privacy.html" class="text-xs text-gray-500 hover:text-blue-600">Privacy</a></li>
+                        <li><a href="terms.html" class="text-xs text-gray-500 hover:text-blue-600">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 mt-6 pt-4 text-center">
+                <p class="text-xs text-gray-400">&copy; 2026 DropX Delivery. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Success Toast -->
-    <div id="successToast" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50">
-        <div class="flex items-center">
-            <i class="fas fa-check-circle mr-3"></i>
-            <span id="toastMessage">Action completed successfully!</span>
+    <div id="successToast" class="fixed top-4 left-4 right-4 md:left-auto md:right-4 md:w-auto bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg hidden z-50">
+        <div class="flex items-center justify-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span id="toastMessage" class="text-sm">Action completed successfully!</span>
         </div>
     </div>
 
     <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Smooth scrolling for navigation links
         document.addEventListener("DOMContentLoaded", function() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Smooth scrolling for navigation links
             const links = document.querySelectorAll('a[href^="#"]');
             
             links.forEach(link => {
@@ -538,13 +571,12 @@
                         
                         if (targetElement) {
                             window.scrollTo({
-                                top: targetElement.offsetTop - 80,
+                                top: targetElement.offsetTop - 70,
                                 behavior: "smooth"
                             });
                             
                             // Close mobile menu if open
-                            const mobileMenu = document.getElementById('mobileMenu');
-                            if (!mobileMenu.classList.contains('hidden')) {
+                            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                                 mobileMenu.classList.add('hidden');
                             }
                         }
@@ -557,7 +589,7 @@
             if (contactForm) {
                 contactForm.addEventListener("submit", function(e) {
                     e.preventDefault();
-                    showToast("Thank you for your message! We will get back to you soon.");
+                    showToast("Thank you! We'll get back to you soon.");
                     this.reset();
                 });
             }
@@ -569,7 +601,22 @@
                     const answer = this.nextElementSibling;
                     const icon = this.querySelector('i');
                     
-                    // Toggle answer visibility
+                    // Close other FAQs
+                    faqQuestions.forEach(q => {
+                        if (q !== this) {
+                            const otherAnswer = q.nextElementSibling;
+                            const otherIcon = q.querySelector('i');
+                            if (otherAnswer && otherAnswer.style.maxHeight) {
+                                otherAnswer.style.maxHeight = null;
+                                if (otherIcon) {
+                                    otherIcon.classList.remove('fa-chevron-up');
+                                    otherIcon.classList.add('fa-chevron-down');
+                                }
+                            }
+                        }
+                    });
+                    
+                    // Toggle current answer
                     if (answer.style.maxHeight) {
                         answer.style.maxHeight = null;
                         icon.classList.remove('fa-chevron-up');
@@ -586,13 +633,7 @@
             document.querySelectorAll('.download-app-btn').forEach(button => {
                 button.addEventListener('click', function() {
                     const platform = this.getAttribute('data-platform');
-                    if (platform === 'ios') {
-                        showToast("Redirecting to App Store", "info");
-                        // window.location.href = "https://apps.apple.com/app/dropx-delivery";
-                    } else {
-                        showToast("Redirecting to Play Store", "info");
-                        // window.location.href = "https://play.google.com/store/apps/details?id=com.dropx.delivery";
-                    }
+                    showToast(`Redirecting to ${platform === 'ios' ? 'App Store' : 'Play Store'}`, "info");
                 });
             });
 
@@ -601,35 +642,21 @@
                 const toast = document.getElementById('successToast');
                 const toastMessage = document.getElementById('toastMessage');
                 
-                // Set message
                 toastMessage.textContent = message;
                 
                 // Set color based on type
-                if (type === "warning") {
-                    toast.style.backgroundColor = "#f59e0b";
-                } else if (type === "info") {
+                if (type === "info") {
                     toast.style.backgroundColor = "#3b82f6";
                 } else {
                     toast.style.backgroundColor = "#10b981";
                 }
                 
-                // Show toast
                 toast.classList.remove('hidden');
                 
-                // Hide after 3 seconds
                 setTimeout(() => {
                     toast.classList.add('hidden');
                 }, 3000);
             }
-
-            // Initialize all FAQ answers to be closed
-            faqQuestions.forEach(question => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('i');
-                answer.style.maxHeight = null;
-                icon.classList.remove('fa-chevron-up');
-                icon.classList.add('fa-chevron-down');
-            });
         });
     </script>
 </body>
