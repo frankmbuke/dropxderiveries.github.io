@@ -40,15 +40,14 @@
     <header class="bg-white shadow-lg sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                        <i class="fas fa-shipping-fast text-white text-lg"></i>
-                    </div>
-                    <span class="text-2xl font-bold text-blue-600">DropX</span>
-                    <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium">
-                        <i class="fas fa-flag mr-1"></i>Lilongwe
-                    </span>
-                </div>
+                <!-- Logo area -->
+                <!-- Logo area - if logo includes text -->
+				<div class="flex items-center space-x-2">
+					<img src="logo.png" 
+						 alt="DropX Logo" 
+						 class="h-10 w-auto rounded-lg shadow-md">
+					
+				</div>
                 
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
@@ -72,14 +71,6 @@
                     </div>
                 </div>
                 
-                <div class="flex items-center space-x-4">
-                    <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                        Contact Us
-                    </a>
-                    <button class="md:hidden text-gray-700" id="mobileMenuBtn">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
             </div>
             
             <!-- Mobile Menu -->
@@ -113,163 +104,110 @@
             </div>
         </nav>
     </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <div class="bg-yellow-400 text-blue-900 px-3 py-1 rounded-full text-sm font-bold mr-4">
-                            <i class="fas fa-bolt mr-1"></i>FAST DELIVERY
-                        </div>
-                        <div class="text-blue-200">
-                            <i class="fas fa-map-marker-alt mr-1"></i>Serving Lilongwe Only
-                        </div>
-                    </div>
-                    
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                        Fast & Fresh
-                        <span class="text-yellow-400">Delivery</span>
-                        in Lilongwe
-                    </h1>
-                    <p class="text-xl mb-8 text-blue-100">
-                        Delivering restaurant meals, groceries, and fresh farm produce directly to your door in Lilongwe.
-                        Order through our mobile app for the best experience.
-                    </p>
-                    
-                    <!-- Statistics Counter -->
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                        <div class="text-center bg-blue-500/20 rounded-lg p-4">
-                            <div class="text-2xl md:text-3xl font-bold">10,000+</div>
-                            <div class="text-sm text-blue-200">Deliveries</div>
-                        </div>
-                        <div class="text-center bg-blue-500/20 rounded-lg p-4">
-                            <div class="text-2xl md:text-3xl font-bold">50+</div>
-                            <div class="text-sm text-blue-200">Restaurants</div>
-                        </div>
-                        <div class="text-center bg-blue-500/20 rounded-lg p-4">
-                            <div class="text-2xl md:text-3xl font-bold">99.8%</div>
-                            <div class="text-sm text-blue-200">On Time</div>
-                        </div>
-                        <div class="text-center bg-blue-500/20 rounded-lg p-4">
-                            <div class="text-2xl md:text-3xl font-bold">Fresh</div>
-                            <div class="text-sm text-blue-200">Farm Produce</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Mobile App CTA -->
-                    <div class="bg-white/10 rounded-xl p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-3">Order through our Mobile App</h3>
-                        <p class="text-blue-100 mb-4">Download our app for easy ordering, real-time tracking, and exclusive offers.</p>
-                        <div class="flex space-x-4">
-                            <button class="bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center download-app-btn" data-platform="ios">
-                                <i class="fab fa-apple mr-2 text-xl"></i>
-                                <div class="text-left">
-                                    <div class="text-xs">Download on the</div>
-                                    <div class="font-bold">App Store</div>
-                                </div>
-                            </button>
-                            <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center download-app-btn" data-platform="android">
-                                <i class="fab fa-google-play mr-2 text-xl"></i>
-                                <div class="text-left">
-                                    <div class="text-xs">Get it on</div>
-                                    <div class="font-bold">Google Play</div>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center text-blue-200">
-                        <i class="fas fa-info-circle mr-2"></i>
-                        <span class="text-sm">This website is for informational purposes only. Please use our mobile app to place orders.</span>
-                    </div>
-                </div>
-                <div class="relative">
-                    <img 
-                        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600" 
-                        alt="DropX delivery service in Lilongwe" 
-                        class="rounded-lg shadow-2xl"
-                        loading="lazy"
-                    />
-                    <!-- Floating badge -->
-                    <div class="absolute -bottom-4 -right-4 bg-white text-blue-600 px-6 py-3 rounded-lg shadow-xl">
-                        <div class="font-bold text-lg">Lilongwe Only</div>
-                        <div class="text-sm text-gray-600">Order through our app</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Delivery Services</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Three convenient services available through our mobile app in Lilongwe
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all hover:-translate-y-1">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-utensils text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Restaurant Food</h3>
-                    <p class="text-gray-600 mb-4">
-                        Hot, fresh meals delivered from your favorite restaurants across Lilongwe
-                    </p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>50+ Restaurant Partners</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Hot & Fresh Guarantee</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Contactless Delivery</li>
-                    </ul>
-                    <div class="mt-6 text-center">
-                        <span class="text-sm text-gray-500">Available in our mobile app</span>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all hover:-translate-y-1">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-shopping-basket text-green-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Groceries</h3>
-                    <p class="text-gray-600 mb-4">
-                        Pantry staples and household essentials delivered to your door in Lilongwe
-                    </p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Same-Day Delivery</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Scheduled Deliveries</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Wide Selection</li>
-                    </ul>
-                    <div class="mt-6 text-center">
-                        <span class="text-sm text-gray-500">Available in our mobile app</span>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all hover:-translate-y-1">
-                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-seedling text-yellow-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Farm Produce</h3>
-                    <p class="text-gray-600 mb-4">
-                        Fresh farm produce delivered directly from DropX Store to your home
-                    </p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Fresh from DropX Store</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Daily Harvest</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Local Farmers</li>
-                    </ul>
-                    <div class="mt-6 text-center">
-                        <span class="text-sm text-gray-500">Exclusive to DropX Store</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Hero Section - Compact Version -->
+	<section id="home" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-10 md:py-12">
+		<div class="container mx-auto px-4">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+				<div>
+					
+					<h1 class="text-3xl md:text-4xl font-bold mb-3 leading-tight">
+						Fresh food & groceries <br>
+						<span class="text-yellow-400">delivered to your door</span>
+					</h1>
+					
+					<p class="text-base text-blue-100 mb-5 max-w-lg">
+						Order from 50+ restaurants and DropX Farm Store through our app.
+					</p>
+					
+					<!-- App Download Buttons - Smaller -->
+					<div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 mb-4">
+						<button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center download-app-btn shadow-md" data-platform="ios">
+							<i class="fab fa-apple mr-2 text-xl"></i>
+							<div class="text-left">
+								<div class="text-xs">Download on the</div>
+								<div class="font-semibold text-base">App Store</div>
+							</div>
+						</button>
+						<button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn shadow-md" data-platform="android">
+							<i class="fab fa-google-play mr-2 text-xl"></i>
+							<div class="text-left">
+								<div class="text-xs">Get it on</div>
+								<div class="font-semibold text-base">Google Play</div>
+							</div>
+						</button>
+					</div>
+					
+					<p class="text-blue-200 text-xs flex items-center">
+						<i class="fas fa-info-circle mr-1"></i>
+						Info site only. Order via app.
+					</p>
+				</div>
+				
+				<div class="relative">
+					<div class="relative z-10">
+						<img 
+							src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" 
+							alt="DropX delivery" 
+							class="rounded-xl shadow-2xl"
+							loading="lazy"
+						/>
+					</div>
+					
+					
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	 <!-- Services Section - Simple & Focused -->
+	<section id="services" class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<!-- Simple Header -->
+			<div class="text-center mb-12">
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">We deliver to you</h2>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+					Home or office — we bring what you need right to your door.
+				</p>
+			</div>
+			
+			<!-- Three Simple Cards -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+				
+				<!-- Food -->
+				<div class="text-center p-6">
+					<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+						<i class="fas fa-utensils text-blue-600 text-xl"></i>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Restaurant Food</h3>
+					<p class="text-gray-600 text-sm">Hot meals from local restaurants</p>
+				</div>
+				
+				<!-- Groceries -->
+				<div class="text-center p-6">
+					<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+						<i class="fas fa-shopping-basket text-green-600 text-xl"></i>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Groceries</h3>
+					<p class="text-gray-600 text-sm">Essentials for your home</p>
+				</div>
+				
+				<!-- Farm Produce -->
+				<div class="text-center p-6">
+					<div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+						<i class="fas fa-seedling text-yellow-600 text-xl"></i>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Farm Produce</h3>
+					<p class="text-gray-600 text-sm">Fresh from local farmers</p>
+				</div>
+			</div>
+			
+			<!-- Simple Location Line -->
+			<p class="text-center text-sm text-gray-400 mt-8">
+				<i class="fas fa-map-marker-alt text-blue-500 mr-1"></i>
+				Delivering in Lilongwe
+			</p>
+		</div>
+	</section>
     <!-- DropX Store Section -->
     <section id="dropxstore" class="py-20 bg-green-50">
         <div class="container mx-auto px-4">
@@ -344,377 +282,230 @@
         </div>
     </section>
 
-    <!-- Restaurant Partners Section -->
-    <section id="partners" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Restaurant Partners in Lilongwe</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Delivering from top restaurants across Lilongwe
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-hamburger text-blue-600 text-2xl"></i>
-                    </div>
-                    <h4 class="font-bold text-gray-800">Burger Express</h4>
-                    <p class="text-sm text-gray-600">Fast Food</p>
-                    <div class="mt-4">
-                        <span class="text-xs text-gray-500">Available in app</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-pizza-slice text-green-600 text-2xl"></i>
-                    </div>
-                    <h4 class="font-bold text-gray-800">Pizza Palace</h4>
-                    <p class="text-sm text-gray-600">Italian</p>
-                    <div class="mt-4">
-                        <span class="text-xs text-gray-500">Available in app</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-utensil-spoon text-yellow-600 text-2xl"></i>
-                    </div>
-                    <h4 class="font-bold text-gray-800">Malawi Kitchen</h4>
-                    <p class="text-sm text-gray-600">Local Cuisine</p>
-                    <div class="mt-4">
-                        <span class="text-xs text-gray-500">Available in app</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-drumstick-bite text-red-600 text-2xl"></i>
-                    </div>
-                    <h4 class="font-bold text-gray-800">Chicken Spot</h4>
-                    <p class="text-sm text-gray-600">Grill & BBQ</p>
-                    <div class="mt-4">
-                        <span class="text-xs text-gray-500">Available in app</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- View All Restaurants -->
-            <div class="mt-12 text-center">
-                <div class="bg-blue-50 rounded-lg p-6 inline-block">
-                    <p class="text-gray-700 mb-3">Browse all 50+ restaurants in our mobile app</p>
-                    <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
-                        <button class="bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center download-app-btn" data-platform="ios">
-                            <i class="fab fa-apple mr-3"></i>
-                            <div class="text-left">
-                                <div class="text-xs">View on</div>
-                                <div class="font-bold">App Store</div>
-                            </div>
-                        </button>
-                        <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn" data-platform="android">
-                            <i class="fab fa-google-play mr-3"></i>
-                            <div class="text-left">
-                                <div class="text-xs">View on</div>
-                                <div class="font-bold">Google Play</div>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Restaurant Partners Section - Clean & Simple -->
+	<section id="partners" class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Our Restaurant Partners</h2>
+				<p class="text-lg text-gray-600">50+ restaurants delivering in Lilongwe</p>
+			</div>
+			
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+				<div class="bg-white p-4 rounded-lg text-center shadow-sm">
+					<div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+						<i class="fas fa-hamburger text-blue-600"></i>
+					</div>
+					<h4 class="font-semibold text-gray-900">Burger Express</h4>
+					<p class="text-xs text-gray-500">Fast Food</p>
+				</div>
+				
+				<div class="bg-white p-4 rounded-lg text-center shadow-sm">
+					<div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+						<i class="fas fa-pizza-slice text-green-600"></i>
+					</div>
+					<h4 class="font-semibold text-gray-900">Pizza Palace</h4>
+					<p class="text-xs text-gray-500">Italian</p>
+				</div>
+				
+				<div class="bg-white p-4 rounded-lg text-center shadow-sm">
+					<div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2">
+						<i class="fas fa-utensil-spoon text-yellow-600"></i>
+					</div>
+					<h4 class="font-semibold text-gray-900">Malawi Kitchen</h4>
+					<p class="text-xs text-gray-500">Local Cuisine</p>
+				</div>
+				
+				<div class="bg-white p-4 rounded-lg text-center shadow-sm">
+					<div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
+						<i class="fas fa-drumstick-bite text-red-600"></i>
+					</div>
+					<h4 class="font-semibold text-gray-900">Chicken Spot</h4>
+					<p class="text-xs text-gray-500">Grill & BBQ</p>
+				</div>
+			</div>
+			
+			<p class="text-center text-sm text-gray-500 mt-6">
+				<i class="fas fa-mobile-alt mr-1 text-blue-500"></i> View all restaurants in our app
+			</p>
+		</div>
+	</section>
 
-    <!-- Service Areas Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Service Areas</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Currently serving Lilongwe, with more cities coming soon
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                <!-- Current Service -->
-                <div class="bg-blue-50 rounded-xl p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-check text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-blue-800">Currently Serving</h3>
-                    </div>
-                    <div class="bg-white rounded-lg p-6 shadow-sm">
-                        <h4 class="text-xl font-bold text-gray-800 mb-4">Lilongwe</h4>
-                        <p class="text-gray-600 mb-4">All areas of Lilongwe including:</p>
-                        <ul class="space-y-2 text-gray-700">
-                            <li><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>City Center</li>
-                            <li><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>Area 3, 9, 10, 12</li>
-                            <li><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>Area 43, 47, 49</li>
-                            <li><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>Likuni, Mtandile</li>
-                            <li><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>Kawale, Chinsapo</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Coming Soon -->
-                <div class="bg-green-50 rounded-xl p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-clock text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-green-800">Coming Soon</h3>
-                    </div>
-                    <div class="bg-white rounded-lg p-6 shadow-sm">
-                        <p class="text-gray-600 mb-6">We're expanding to these cities soon:</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="fas fa-city text-green-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Mzuzu</h4>
-                                    <p class="text-sm text-gray-600">Launching Q1 2024</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="fas fa-city text-green-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Blantyre</h4>
-                                    <p class="text-sm text-gray-600">Launching Q2 2024</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="fas fa-city text-green-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Zomba</h4>
-                                    <p class="text-sm text-gray-600">Launching Q3 2024</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<!-- Service Areas Section - Simple -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Service Areas</h2>
+				<p class="text-lg text-gray-600">Currently serving Lilongwe</p>
+			</div>
+			
+			<div class="max-w-2xl mx-auto bg-blue-50 rounded-xl p-6 text-center">
+				<div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+					<i class="fas fa-map-marker-alt text-white text-xl"></i>
+				</div>
+				<h3 class="text-2xl font-bold text-gray-900 mb-2">Lilongwe</h3>
+				<p class="text-gray-600 mb-4">All areas including City Center, Area 3, 10, 43, 47, Likuni, Kawale</p>
+				<p class="text-sm text-blue-700 font-medium">Coming soon: Mzuzu, Blantyre, Zomba</p>
+			</div>
+		</div>
+	</section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Get answers to common questions about DropX Delivery
-                </p>
-            </div>
-            
-            <div class="max-w-3xl mx-auto space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
-                        <span class="font-medium text-gray-800">How do I place an order?</span>
-                        <i class="fas fa-chevron-down text-gray-600"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="py-4 text-gray-600">
-                            All orders must be placed through our mobile app. Download the DropX Delivery app from the App Store or Google Play Store, create an account, and start ordering from restaurants, groceries, or DropX Store farm produce.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 2 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
-                        <span class="font-medium text-gray-800">What areas in Lilongwe do you serve?</span>
-                        <i class="fas fa-chevron-down text-gray-600"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="py-4 text-gray-600">
-                            We serve all areas of Lilongwe including City Center, Area 3, 9, 10, 12, Area 43, 47, 49, Likuni, Mtandile, Kawale, and Chinsapo. If you're unsure about your area, please check in our mobile app or contact us.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 3 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
-                        <span class="font-medium text-gray-800">What is DropX Store?</span>
-                        <i class="fas fa-chevron-down text-gray-600"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="py-4 text-gray-600">
-                            DropX Store is our own farm produce marketplace. We work directly with local farmers to bring you the freshest vegetables, fruits, and farm products. All DropX Store items are available for delivery through our app.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 4 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
-                        <span class="font-medium text-gray-800">When will you expand to other cities?</span>
-                        <i class="fas fa-chevron-down text-gray-600"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="py-4 text-gray-600">
-                            We're planning to expand to Mzuzu in Q1 2024, Blantyre in Q2 2024, and Zomba in Q3 2024. Follow us on social media or check our app for updates on expansion plans.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- More Questions -->
-            <div class="mt-12 text-center">
-                <p class="text-gray-600 mb-4">Still have questions?</p>
-                <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800">
-                    Contact our support team <i class="fas fa-arrow-right ml-1"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+	<!-- FAQ Section - Clean Accordion -->
+	<section id="faq" class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">FAQs</h2>
+				<p class="text-lg text-gray-600">Quick answers to common questions</p>
+			</div>
+			
+			<div class="max-w-2xl mx-auto space-y-3">
+				<div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+					<button class="faq-question w-full px-5 py-3 text-left flex justify-between items-center">
+						<span class="font-medium text-gray-800">How do I place an order?</span>
+						<i class="fas fa-chevron-down text-gray-500 text-sm"></i>
+					</button>
+					<div class="faq-answer px-5">
+						<p class="pb-3 text-sm text-gray-600">All orders through our mobile app. Download from App Store or Google Play.</p>
+					</div>
+				</div>
+				
+				<div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+					<button class="faq-question w-full px-5 py-3 text-left flex justify-between items-center">
+						<span class="font-medium text-gray-800">What areas do you serve?</span>
+						<i class="fas fa-chevron-down text-gray-500 text-sm"></i>
+					</button>
+					<div class="faq-answer px-5">
+						<p class="pb-3 text-sm text-gray-600">All areas of Lilongwe. Check app for exact coverage.</p>
+					</div>
+				</div>
+				
+				<div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+					<button class="faq-question w-full px-5 py-3 text-left flex justify-between items-center">
+						<span class="font-medium text-gray-800">What is DropX Store?</span>
+						<i class="fas fa-chevron-down text-gray-500 text-sm"></i>
+					</button>
+					<div class="faq-answer px-5">
+						<p class="pb-3 text-sm text-gray-600">Our own farm produce marketplace with fresh items from local farmers.</p>
+					</div>
+				</div>
+				
+				<div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+					<button class="faq-question w-full px-5 py-3 text-left flex justify-between items-center">
+						<span class="font-medium text-gray-800">Expanding to other cities?</span>
+						<i class="fas fa-chevron-down text-gray-500 text-sm"></i>
+					</button>
+					<div class="faq-answer px-5">
+						<p class="pb-3 text-sm text-gray-600">Yes, coming to Mzuzu, Blantyre, and Zomba soon.</p>
+					</div>
+				</div>
+			</div>
+			
+			<p class="text-center mt-6">
+				<a href="#contact" class="text-blue-600 text-sm hover:underline">Still have questions? Contact us</a>
+			</p>
+		</div>
+	</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">Get In Touch</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <i class="fas fa-map-marker-alt text-blue-600 text-xl mr-4"></i>
-                                <div>
-                                    <p class="font-medium text-gray-800">Lilongwe Headquarters</p>
-                                    <p class="text-gray-600">DropX Delivery Center</p>
-                                    <p class="text-gray-600">Lilongwe, Malawi</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-phone text-blue-600 text-xl mr-4"></i>
-                                <div>
-                                    <p class="font-medium text-gray-800">Phone</p>
-                                    <p class="text-gray-600">+265 123 456 789</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-envelope text-blue-600 text-xl mr-4"></i>
-                                <div>
-                                    <p class="font-medium text-gray-800">Email</p>
-                                    <p class="text-gray-600">info@dropxdelivery.mw</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- App Download Reminder -->
-                        <div class="mt-8 bg-blue-50 rounded-lg p-6">
-                            <h4 class="text-lg font-bold text-blue-800 mb-3">Download Our App</h4>
-                            <p class="text-blue-700 mb-4">For ordering and delivery in Lilongwe, please use our mobile app:</p>
-                            <div class="flex space-x-4">
-                                <button class="flex-1 bg-gray-900 text-white px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center download-app-btn" data-platform="ios">
-                                    <i class="fab fa-apple mr-2"></i>iOS
-                                </button>
-                                <button class="flex-1 bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn" data-platform="android">
-                                    <i class="fab fa-google-play mr-2"></i>Android
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-50 rounded-xl p-8">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
-                        <form class="space-y-6" id="contactForm">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                                <input 
-                                    type="text" 
-                                    id="name" 
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    placeholder="Enter your full name"
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                                <input 
-                                    type="email" 
-                                    id="email" 
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    placeholder="Enter your email"
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                                <textarea 
-                                    id="message" 
-                                    rows="4" 
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    placeholder="Tell us about your inquiry"
-                                    required
-                                ></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<!-- Contact Section - Clean & Simple -->
+	<section id="contact" class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<div class="text-center mb-10">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Contact Us</h2>
+					<p class="text-lg text-gray-600">Get in touch with our team</p>
+				</div>
+				
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<!-- Contact Info - Simple -->
+					<div>
+						<h3 class="text-xl font-bold text-gray-900 mb-4">Reach us</h3>
+						<div class="space-y-4">
+							<div class="flex items-center">
+								<i class="fas fa-map-marker-alt text-blue-600 w-6"></i>
+								<span class="text-gray-700">Lilongwe, Malawi</span>
+							</div>
+							<div class="flex items-center">
+								<i class="fas fa-phone text-blue-600 w-6"></i>
+								<span class="text-gray-700">+265 123 456 789</span>
+							</div>
+							<div class="flex items-center">
+								<i class="fas fa-envelope text-blue-600 w-6"></i>
+								<span class="text-gray-700">info@dropxdelivery.mw</span>
+							</div>
+						</div>
+						
+						<!-- Simple App Download -->
+						<div class="mt-6 bg-gray-50 rounded-lg p-4">
+							<p class="text-sm font-medium text-gray-700 mb-3">Order via our app</p>
+							<div class="flex space-x-3">
+								<button class="bg-black text-white px-3 py-2 rounded-lg text-sm flex items-center download-app-btn" data-platform="ios">
+									<i class="fab fa-apple mr-2"></i> iOS
+								</button>
+								<button class="bg-green-600 text-white px-3 py-2 rounded-lg text-sm flex items-center download-app-btn" data-platform="android">
+									<i class="fab fa-google-play mr-2"></i> Android
+								</button>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Quick Message Form -->
+					<div class="bg-gray-50 rounded-lg p-6">
+						<h3 class="text-xl font-bold text-gray-900 mb-4">Send a message</h3>
+						<form class="space-y-4" id="contactForm">
+							<input type="text" placeholder="Your name" class="w-full px-4 py-2 rounded-lg border border-gray-300 text-sm" required>
+							<input type="email" placeholder="Email address" class="w-full px-4 py-2 rounded-lg border border-gray-300 text-sm" required>
+							<textarea rows="3" placeholder="Your message" class="w-full px-4 py-2 rounded-lg border border-gray-300 text-sm" required></textarea>
+							<button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">
+								Send
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="md:col-span-2">
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                            <i class="fas fa-shipping-fast text-white"></i>
-                        </div>
-                        <span class="text-2xl font-bold">DropX Delivery</span>
-                        <span class="text-xs bg-yellow-500 text-yellow-900 px-2 py-1 rounded-full font-medium">
-                            <i class="fas fa-map-marker-alt mr-1"></i>Lilongwe
-                        </span>
-                    </div>
-                    <p class="text-gray-400 mb-4">
-                        Fast food, groceries, and fresh farm produce delivery in Lilongwe, Malawi.
-                        <span class="block mt-2 text-sm">Order exclusively through our mobile app.</span>
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Services</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Restaurant Food</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Groceries</a></li>
-                        <li><a href="#dropxstore" class="text-gray-400 hover:text-white transition-colors">DropX Store</a></li>
-                        <li><a href="#partners" class="text-gray-400 hover:text-white transition-colors">Restaurants</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Company</h4>
-                    <ul class="space-y-2">
-                        <li><a href="ourteam.html" class="text-gray-400 hover:text-white transition-colors">Our Team</a></li>
-                        <li><a href="careers.html" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
-                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 DropX Delivery. All rights reserved. Currently serving Lilongwe only.</p>
-                <p class="mt-2 text-sm">Coming soon to Mzuzu, Blantyre, and Zomba. Order through our mobile app only.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer - Clean version if logo includes text -->
+	<footer class="bg-white text-gray-800 py-12 border-t border-gray-200">
+		<div class="container mx-auto px-4">
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+				<div class="md:col-span-2">
+					<div class="flex items-center space-x-2 mb-4">
+						<!-- Logo image (assumed to include brand name) -->
+						<img src="logo.png" 
+							 alt="DropX" 
+							 class="h-8 w-auto">
+						
+					</div>
+					<p class="text-gray-400 mb-4">
+						Fast food, groceries, and fresh farm produce delivery in Malawi.
+						<span class="block mt-2 text-sm">Order exclusively through our mobile app.</span>
+					</p>
+				</div>
+				
+				<div>
+					<h4 class="text-lg font-bold mb-4">Services</h4>
+					<ul class="space-y-2">
+						<li><a href="#services" class="text-gray-400 hover:text-white">Restaurant Food</a></li>
+						<li><a href="#services" class="text-gray-400 hover:text-white">Groceries</a></li>
+						<li><a href="#dropxstore" class="text-gray-400 hover:text-white">DropX Store</a></li>
+					</ul>
+				</div>
+				
+				<div>
+					<h4 class="text-lg font-bold mb-4">Company</h4>
+					<ul class="space-y-2">
+						<li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+						<li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy</a></li>
+						<li><a href="terms.html" class="text-gray-400 hover:text-white">Terms</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+				<p>&copy; 2026 DropX Delivery..</p>
+			</div>
+		</div>
+	</footer>
 
     <!-- Success Toast -->
     <div id="successToast" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50">
