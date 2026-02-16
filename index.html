@@ -178,23 +178,23 @@
                         loading="lazy"
                     />
                 </div>
-				<!-- App Download Buttons - Stack on mobile -->
-                    <div class="flex flex-col sm:flex-row gap-3 mb-4">
-                        <button class="bg-black text-white px-4 py-3 rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center download-app-btn shadow-md touch-target" data-platform="ios">
-                            <i class="fab fa-apple mr-2 text-xl"></i>
-                            <div class="text-left">
-                                <div class="text-xs">Download on the</div>
-                                <div class="font-semibold text-sm sm:text-base">App Store</div>
-                            </div>
-                        </button>
-                        <button class="bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn shadow-md touch-target" data-platform="android">
-                            <i class="fab fa-google-play mr-2 text-xl"></i>
-                            <div class="text-left">
-                                <div class="text-xs">Get it on</div>
-                                <div class="font-semibold text-sm sm:text-base">Google Play</div>
-                            </div>
-                        </button>
-                    </div>
+				<!-- App Download Buttons - Always in a row -->
+				<div class="flex flex-row gap-3 mb-4">
+					<button class="bg-black text-white px-4 py-3 rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center download-app-btn shadow-md touch-target flex-1 sm:flex-none" data-platform="ios">
+						<i class="fab fa-apple mr-2 text-xl"></i>
+						<div class="text-left">
+							<div class="text-xs">Download on the</div>
+							<div class="font-semibold text-sm sm:text-base">App Store</div>
+						</div>
+					</button>
+					<button class="bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn shadow-md touch-target flex-1 sm:flex-none" data-platform="android">
+						<i class="fab fa-google-play mr-2 text-xl"></i>
+						<div class="text-left">
+							<div class="text-xs">Get it on</div>
+							<div class="font-semibold text-sm sm:text-base">Google Play</div>
+						</div>
+					</button>
+				</div>
                     
                     <p class="text-blue-200 text-xs flex items-center">
                         <i class="fas fa-info-circle mr-1"></i>
