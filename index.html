@@ -255,103 +255,146 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);" class="text-white">
-        <!-- DESKTOP VERSION -->
-        <div class="hidden lg:block py-12">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h1 class="text-4xl font-bold mb-3 leading-tight">
-                            Fresh food & groceries 
-                            <span class="text-yellow-400">delivered to your door</span>
-                        </h1>
-                        
-                        <p class="text-base text-blue-100 mb-5 max-w-lg">
-                            Order from 50+ restaurants and DropX Farm Store through our app.
-                        </p>
-                        
-                        <!-- Desktop buttons -->
-                        <div class="flex space-x-3 mb-4">
-                            <button class="btn-primary px-4 py-2 rounded-lg flex items-center justify-center download-app-btn shadow-md" data-platform="ios">
-                                <i class="fab fa-apple mr-2 text-xl"></i>
-                                <div class="text-left">
-                                    <div class="text-xs">Download on the</div>
-                                    <div class="font-semibold text-base">App Store</div>
-                                </div>
-                            </button>
-                            <button class="btn-primary px-4 py-2 rounded-lg flex items-center justify-center download-app-btn shadow-md" data-platform="android">
-                                <i class="fab fa-google-play mr-2 text-xl"></i>
-                                <div class="text-left">
-                                    <div class="text-xs">Get it on</div>
-                                    <div class="font-semibold text-base">Google Play</div>
-                                </div>
-                            </button>
-                        </div>
-                        
-                        
-                    </div>
-                    
-                    <div class="relative">
-                        <img 
-                            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" 
-                            alt="DropX delivery" 
-                            class="rounded-xl shadow-2xl w-full"
-                            loading="lazy"
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- MOBILE VERSION -->
-        <div class="lg:hidden py-8">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-col gap-6">
-                    <div>
-                        <h1 class="text-2xl font-bold mb-2 leading-tight">
-                            Fresh food & groceries 
-                            <span class="text-yellow-400 block">delivered to your door</span>
-                        </h1>
-                        
-                        <p class="text-sm text-blue-100 mb-3">
-                            Order from 50+ restaurants and DropX Farm Store through our app.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <img 
-                            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" 
-                            alt="DropX delivery" 
-                            class="rounded-xl shadow-2xl w-full max-h-48 object-cover"
-                            loading="lazy"
-                        />
-                    </div>
-                    
-                    <div class="flex flex-row gap-3 mb-4">
-                        <button class="btn-primary px-4 py-3 rounded-lg flex items-center justify-center download-app-btn shadow-md touch-target flex-1" data-platform="ios">
-                            <i class="fab fa-apple mr-2 text-xl"></i>
-                            <div class="text-left">
-                                <div class="text-xs">Download on the</div>
-                                <div class="font-semibold text-sm">App Store</div>
-                            </div>
-                        </button>
-                        <button class="btn-primary px-4 py-3 rounded-lg flex items-center justify-center download-app-btn shadow-md touch-target flex-1" data-platform="android">
-                            <i class="fab fa-google-play mr-2 text-xl"></i>
-                            <div class="text-left">
-                                <div class="text-xs">Get it on</div>
-                                <div class="font-semibold text-sm">Google Play</div>
-                            </div>
-                        </button>
-                    </div>
-                    
-                    <p class="text-blue-200 text-xs flex items-center">
-                        <i class="fas fa-info-circle mr-1"></i>
-                        Info site only. Order via app.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+	<section id="home" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);" class="text-white">
+		<!-- DESKTOP VERSION -->
+		<div class="hidden lg:block py-12">
+			<div class="container mx-auto px-4">
+				<div class="grid grid-cols-2 gap-8 items-center">
+					<div>
+						<h1 class="text-4xl font-bold mb-3 leading-tight">
+							Fresh food & groceries 
+							<span class="text-yellow-400">delivered to your door</span>
+						</h1>
+						
+						<p class="text-base text-blue-100 mb-5 max-w-lg">
+							Order from 50+ restaurants and DropX Farm Store through our app.
+						</p>
+						
+						<!-- Desktop buttons -->
+						<div class="flex space-x-3 mb-4">
+							<button class="btn-primary px-4 py-2 rounded-lg flex items-center justify-center download-app-btn shadow-md" data-platform="ios">
+								<i class="fab fa-apple mr-2 text-xl"></i>
+								<div class="text-left">
+									<div class="text-xs">Download on the</div>
+									<div class="font-semibold text-base">App Store</div>
+								</div>
+							</button>
+							<button class="btn-primary px-4 py-2 rounded-lg flex items-center justify-center download-app-btn shadow-md" data-platform="android">
+								<i class="fab fa-google-play mr-2 text-xl"></i>
+								<div class="text-left">
+									<div class="text-xs">Get it on</div>
+									<div class="font-semibold text-base">Google Play</div>
+								</div>
+							</button>
+						</div>
+					</div>
+					
+					<div class="relative">
+						<!-- Image Slider/Carousel -->
+						<div class="relative overflow-hidden rounded-xl shadow-2xl" style="height: 350px;">
+							<!-- Slider container -->
+							<div id="slider" class="flex transition-transform duration-500 ease-in-out h-full">
+								<img src="office.jpeg" alt="Office" class="w-full h-full object-cover flex-shrink-0">
+								<img src="track.jpg" alt="Track" class="w-full h-full object-cover flex-shrink-0">
+								<img src="frank.jpg" alt="Staff" class="w-full h-full object-cover flex-shrink-0">
+								<img src="customer.jpg" alt="Customer" class="w-full h-full object-cover flex-shrink-0">
+								<img src="item.jpg" alt="Item" class="w-full h-full object-cover flex-shrink-0">
+							</div>
+							
+							<!-- Navigation arrows -->
+							<button onclick="prevSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 backdrop-blur-sm transition-all">
+								<i class="fas fa-chevron-left text-xl"></i>
+							</button>
+							<button onclick="nextSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 backdrop-blur-sm transition-all">
+								<i class="fas fa-chevron-right text-xl"></i>
+							</button>
+							
+							<!-- Dots indicator -->
+							<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+								<div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(0)"></div>
+								<div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(1)"></div>
+								<div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(2)"></div>
+								<div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(3)"></div>
+								<div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(4)"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- MOBILE VERSION -->
+		<div class="lg:hidden py-8">
+			<div class="container mx-auto px-4">
+				<div class="flex flex-col gap-6">
+					<div>
+						<h1 class="text-2xl font-bold mb-2 leading-tight">
+							Fresh food & groceries 
+							<span class="text-yellow-400 block">delivered to your door</span>
+						</h1>
+						
+						<p class="text-sm text-blue-100 mb-3">
+							Order from 50+ restaurants and DropX Farm Store through our app.
+						</p>
+					</div>
+					
+					<div class="relative">
+						<!-- Mobile Image Slider -->
+						<div class="relative overflow-hidden rounded-xl shadow-2xl" style="height: 250px;">
+							<div id="mobileSlider" class="flex transition-transform duration-500 ease-in-out h-full">
+								<img src="office.png" alt="Office" class="w-full h-full object-cover flex-shrink-0">
+								<img src="track.png" alt="Track" class="w-full h-full object-cover flex-shrink-0">
+								<img src="staff.png" alt="Staff" class="w-full h-full object-cover flex-shrink-0">
+								<img src="customer.png" alt="Customer" class="w-full h-full object-cover flex-shrink-0">
+								<img src="item.png" alt="Item" class="w-full h-full object-cover flex-shrink-0">
+							</div>
+							
+							<!-- Mobile navigation arrows -->
+							<button onclick="prevMobileSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 backdrop-blur-sm transition-all">
+								<i class="fas fa-chevron-left text-sm"></i>
+							</button>
+							<button onclick="nextMobileSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 backdrop-blur-sm transition-all">
+								<i class="fas fa-chevron-right text-sm"></i>
+							</button>
+							
+							<!-- Mobile dots indicator -->
+							<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+								<div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(0)"></div>
+								<div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(1)"></div>
+								<div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(2)"></div>
+								<div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(3)"></div>
+								<div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(4)"></div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="flex flex-row gap-3 mb-4">
+						<button class="btn-primary px-4 py-3 rounded-lg flex items-center justify-center download-app-btn shadow-md touch-target flex-1" data-platform="ios">
+							<i class="fab fa-apple mr-2 text-xl"></i>
+							<div class="text-left">
+								<div class="text-xs">Download on the</div>
+								<div class="font-semibold text-sm">App Store</div>
+							</div>
+						</button>
+						<button class="btn-primary px-4 py-3 rounded-lg flex items-center justify-center download-app-btn shadow-md touch-target flex-1" data-platform="android">
+							<i class="fab fa-google-play mr-2 text-xl"></i>
+							<div class="text-left">
+								<div class="text-xs">Get it on</div>
+								<div class="font-semibold text-sm">Google Play</div>
+							</div>
+						</button>
+					</div>
+					
+					<p class="text-blue-200 text-xs flex items-center">
+						<i class="fas fa-info-circle mr-1"></i>
+						Info site only. Order via app.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
 
     <!-- Services Section -->
     <section id="services" class="py-12 bg-white">
@@ -968,6 +1011,114 @@
             `;
             document.head.appendChild(style);
         });
-    </script>
+	   
+		// Desktop slider
+		let currentSlide = 0;
+		const slides = document.querySelectorAll('#slider img');
+		const totalSlides = slides.length;
+		const slider = document.getElementById('slider');
+		const dots = document.querySelectorAll('.dot');
+		
+		// Mobile slider
+		let currentMobileSlide = 0;
+		const mobileSlides = document.querySelectorAll('#mobileSlider img');
+		const totalMobileSlides = mobileSlides.length;
+		const mobileSlider = document.getElementById('mobileSlider');
+		const mobileDots = document.querySelectorAll('.mobile-dot');
+		
+		// Auto slide interval
+		let slideInterval = setInterval(nextSlide, 3000);
+		let mobileSlideInterval = setInterval(nextMobileSlide, 3000);
+		
+		function updateDots() {
+			dots.forEach((dot, index) => {
+				if (index === currentSlide) {
+					dot.classList.add('bg-white');
+					dot.classList.remove('bg-white/50');
+				} else {
+					dot.classList.remove('bg-white');
+					dot.classList.add('bg-white/50');
+				}
+			});
+		}
+		
+		function updateMobileDots() {
+			mobileDots.forEach((dot, index) => {
+				if (index === currentMobileSlide) {
+					dot.classList.add('bg-white');
+					dot.classList.remove('bg-white/50');
+				} else {
+					dot.classList.remove('bg-white');
+					dot.classList.add('bg-white/50');
+				}
+			});
+		}
+		
+		function nextSlide() {
+			currentSlide = (currentSlide + 1) % totalSlides;
+			slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+			updateDots();
+		}
+		
+		function prevSlide() {
+			currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+			slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+			updateDots();
+		}
+		
+		function goToSlide(index) {
+			currentSlide = index;
+			slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+			updateDots();
+			
+			// Reset interval
+			clearInterval(slideInterval);
+			slideInterval = setInterval(nextSlide, 3000);
+		}
+		
+		// Mobile functions
+		function nextMobileSlide() {
+			currentMobileSlide = (currentMobileSlide + 1) % totalMobileSlides;
+			mobileSlider.style.transform = `translateX(-${currentMobileSlide * 100}%)`;
+			updateMobileDots();
+		}
+		
+		function prevMobileSlide() {
+			currentMobileSlide = (currentMobileSlide - 1 + totalMobileSlides) % totalMobileSlides;
+			mobileSlider.style.transform = `translateX(-${currentMobileSlide * 100}%)`;
+			updateMobileDots();
+		}
+		
+		function goToMobileSlide(index) {
+			currentMobileSlide = index;
+			mobileSlider.style.transform = `translateX(-${currentMobileSlide * 100}%)`;
+			updateMobileDots();
+			
+			// Reset interval
+			clearInterval(mobileSlideInterval);
+			mobileSlideInterval = setInterval(nextMobileSlide, 3000);
+		}
+		
+		// Pause auto-slide on hover
+		slider.addEventListener('mouseenter', () => {
+			clearInterval(slideInterval);
+		});
+		
+		slider.addEventListener('mouseleave', () => {
+			slideInterval = setInterval(nextSlide, 3000);
+		});
+		
+		mobileSlider.addEventListener('mouseenter', () => {
+			clearInterval(mobileSlideInterval);
+		});
+		
+		mobileSlider.addEventListener('mouseleave', () => {
+			mobileSlideInterval = setInterval(nextMobileSlide, 3000);
+		});
+		
+		// Initialize dots
+		updateDots();
+		updateMobileDots();
+	</script>
 </body>
 </html>
