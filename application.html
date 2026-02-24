@@ -3,8 +3,8 @@
 <head>
     <base target="_self">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply Now - DropX Delivery Careers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Apply Now - DropX Delivery Careers Malawi</title>
     <meta name="description" content="Apply for a position at DropX Delivery Malawi. Join our growing team revolutionizing delivery services.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -13,8 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#1e40af",
-                        secondary: "#3b82f6",
+                        primary: "#44A3E3",
+                        secondary: "#195887",
                         accent: "#f59e0b",
                         dark: "#1f2937",
                         light: "#f8fafc"
@@ -24,6 +24,14 @@
         }
     </script>
     <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+        
         .form-step {
             display: none;
             animation: fadeIn 0.5s ease;
@@ -35,37 +43,151 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .progress-dot {
-            width: 12px;
-            height: 12px;
-            background-color: #d1d5db;
+        
+        .progress-step {
+            width: 40px;
+            height: 40px;
+            background-color: #e5e7eb;
+            color: #6b7280;
+            transition: all 0.3s ease;
         }
-        .progress-dot.active {
-            background-color: #3b82f6;
+        .progress-step.active {
+            background: linear-gradient(135deg, #44A3E3, #195887);
+            color: white;
+        }
+        .progress-step.completed {
+            background: #10b981;
+            color: white;
+        }
+        .progress-line {
+            height: 4px;
+            background-color: #e5e7eb;
+            flex: 1;
+        }
+        .progress-line.active {
+            background: linear-gradient(90deg, #44A3E3, #195887);
+        }
+        
+        .bg-logo-gradient {
+            background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #44A3E3, #195887);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #195887, #44A3E3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(68, 163, 227, 0.4);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-outline {
+            border: 2px solid #44A3E3;
+            color: #195887;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background: linear-gradient(135deg, #44A3E3, #195887);
+            color: white;
+        }
+        
+        /* Better touch targets */
+        button, a, .clickable, input, select, textarea {
+            min-height: 44px;
+            min-width: 44px;
+        }
+        
+        /* Form input focus styles */
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #44A3E3;
+            box-shadow: 0 0 0 3px rgba(68, 163, 227, 0.1);
+        }
+        
+        /* Image loading */
+        img {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        img.loaded {
+            opacity: 1;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.875rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            h2 {
+                font-size: 1.5rem !important;
+                line-height: 1.3 !important;
+            }
+        }
+
+        /* File input styling */
+        .file-input-label {
+            transition: all 0.3s ease;
+        }
+        .file-input-label:hover {
+            background: linear-gradient(135deg, #44A3E3, #195887);
+            color: white;
         }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
-    <!-- Header -->
+    <!-- Header - Exactly matching main page -->
     <header class="bg-white shadow-lg sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-4">
+        <nav class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
+                <!-- Logo area - exactly like main page -->
                 <div class="flex items-center space-x-2">
                     <a href="index.html" class="flex items-center space-x-2">
-                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                            <i class="fas fa-shipping-fast text-white text-lg"></i>
-                        </div>
-                        <span class="text-2xl font-bold text-blue-600">DropX</span>
+                        <img src="logo.png" 
+                             alt="DropX Logo" 
+                             class="h-8 w-auto rounded-lg shadow-md"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 40 40\'%3E%3Crect width=\'40\' height=\'40\' fill=\'%2344A3E3\' rx=\'8\'/%3E%3Ctext x=\'8\' y=\'28\' fill=\'white\' font-size=\'24\' font-weight=\'bold\'%3EDX%3C/text%3E%3C/svg%3E'">
+                       
                     </a>
-                    <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium">
-                        <i class="fas fa-flag mr-1"></i>Malawi
-                    </span>
+                    
                 </div>
                 
                 <div class="flex items-center space-x-4">
-                    <a href="careers.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                    <a href="careers.html" class="btn-outline px-4 py-2 rounded-lg text-sm font-medium inline-flex items-center">
                         <i class="fas fa-arrow-left mr-2"></i>Back to Careers
                     </a>
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 clickable" aria-label="Menu">
+                        <i class="fas fa-bars text-xl" style="color: #195887;"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu - exactly matching main page -->
+            <div class="md:hidden hidden mt-4 bg-white rounded-xl shadow-lg overflow-hidden" id="mobileMenu">
+                <div class="divide-y divide-gray-100">
+                    <a href="index.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Home</a>
+                    <a href="careers.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Careers</a>
+                    <a href="ourteam.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Our Team</a>
+                    <a href="privacy.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Privacy</a>
+                    <a href="terms.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Terms</a>
+                    <a href="index.html#contact" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Contact</a>
                 </div>
             </div>
         </nav>
@@ -75,25 +197,25 @@
     <section class="py-12">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <!-- Progress Indicator -->
+                <!-- Progress Indicator - Updated with logo colors -->
                 <div class="mb-12">
-                    <div class="flex justify-between items-center mb-4">
+                    <div class="flex justify-between items-center">
                         <div class="text-center">
-                            <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-2 text-white font-bold">
+                            <div class="progress-step w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 text-white font-bold active" id="step1-indicator">
                                 1
                             </div>
-                            <span class="text-sm font-medium text-blue-600">Personal Info</span>
+                            <span class="text-sm font-medium" style="color: #195887;">Personal Info</span>
                         </div>
-                        <div class="h-1 flex-1 bg-gray-200 mx-4"></div>
+                        <div class="progress-line" id="line1"></div>
                         <div class="text-center">
-                            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-600 font-bold">
+                            <div class="progress-step w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 text-white font-bold" id="step2-indicator">
                                 2
                             </div>
                             <span class="text-sm font-medium text-gray-500">Experience</span>
                         </div>
-                        <div class="h-1 flex-1 bg-gray-200 mx-4"></div>
+                        <div class="progress-line" id="line2"></div>
                         <div class="text-center">
-                            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-2 text-gray-600 font-bold">
+                            <div class="progress-step w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 text-white font-bold" id="step3-indicator">
                                 3
                             </div>
                             <span class="text-sm font-medium text-gray-500">Documents</span>
@@ -103,58 +225,59 @@
 
                 <!-- Application Header -->
                 <div class="text-center mb-12">
-                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Apply for Position</h1>
+                    
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: #195887;">Apply for Position</h1>
                     <p class="text-xl text-gray-600" id="positionTitle">
                         <!-- Position will be filled by JavaScript -->
                     </p>
                 </div>
 
                 <!-- Application Form -->
-                <form id="applicationForm" class="bg-white rounded-xl shadow-lg p-8">
+                <form id="applicationForm" class="bg-white rounded-xl shadow-lg p-6 md:p-8">
                     <!-- Step 1: Personal Information -->
                     <div class="form-step active" id="step1">
-                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Personal Information</h2>
+                        <h2 class="text-2xl font-bold mb-6" style="color: #195887;">Personal Information</h2>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                             <div>
                                 <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
-                                    First Name *
+                                    First Name <span class="text-red-500">*</span>
                                 </label>
                                 <input type="text" id="firstName" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
                             </div>
                             
                             <div>
                                 <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Last Name *
+                                    Last Name <span class="text-red-500">*</span>
                                 </label>
                                 <input type="text" id="lastName" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
                             </div>
                             
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Email Address *
+                                    Email Address <span class="text-red-500">*</span>
                                 </label>
                                 <input type="email" id="email" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
                             </div>
                             
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Phone Number *
+                                    Phone Number <span class="text-red-500">*</span>
                                 </label>
                                 <input type="tel" id="phone" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    placeholder="+265">
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                                    placeholder="+265 XXX XXX XXX">
                             </div>
                             
                             <div>
                                 <label for="city" class="block text-sm font-medium text-gray-700 mb-2">
-                                    City of Residence *
+                                    City of Residence <span class="text-red-500">*</span>
                                 </label>
                                 <select id="city" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
                                     <option value="">Select City</option>
                                     <option value="lilongwe">Lilongwe</option>
                                     <option value="blantyre">Blantyre</option>
@@ -166,65 +289,65 @@
                             
                             <div>
                                 <label for="dob" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Date of Birth *
+                                    Date of Birth <span class="text-red-500">*</span>
                                 </label>
                                 <input type="date" id="dob" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
                             </div>
                         </div>
                         
                         <div class="mb-8">
                             <label for="coverLetter" class="block text-sm font-medium text-gray-700 mb-2">
-                                Cover Letter *
+                                Cover Letter <span class="text-red-500">*</span>
                             </label>
-                            <textarea id="coverLetter" rows="4" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            <textarea id="coverLetter" rows="5" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
                                 placeholder="Tell us why you're interested in this position and why you'd be a good fit..."></textarea>
                         </div>
                         
                         <div class="flex justify-end">
-                            <button type="button" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium next-step">
-                                Next: Experience
+                            <button type="button" class="btn-primary px-8 py-3 rounded-lg font-medium next-step">
+                                Next: Experience <i class="fas fa-arrow-right ml-2"></i>
                             </button>
                         </div>
                     </div>
                     
                     <!-- Step 2: Experience & Qualifications -->
                     <div class="form-step" id="step2">
-                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Experience & Qualifications</h2>
+                        <h2 class="text-2xl font-bold mb-6" style="color: #195887;">Experience & Qualifications</h2>
                         
                         <div class="mb-8">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Work Experience</h3>
+                            <h3 class="text-lg font-semibold mb-4" style="color: #195887;">Work Experience</h3>
                             <div id="experienceFields">
                                 <div class="experience-entry mb-6 p-4 border border-gray-200 rounded-lg">
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                         <div>
                                             <label class="block text-sm font-medium text-gray-700 mb-2">
-                                                Company/Organization *
+                                                Company/Organization
                                             </label>
-                                            <input type="text" name="company[]" required
-                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                            <input type="text" name="company[]"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none">
                                         </div>
                                         <div>
                                             <label class="block text-sm font-medium text-gray-700 mb-2">
-                                                Position *
+                                                Position
                                             </label>
-                                            <input type="text" name="position[]" required
-                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                            <input type="text" name="position[]"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none">
                                         </div>
                                         <div>
                                             <label class="block text-sm font-medium text-gray-700 mb-2">
-                                                Start Date *
+                                                Start Date
                                             </label>
-                                            <input type="date" name="startDate[]" required
-                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                            <input type="date" name="startDate[]"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none">
                                         </div>
                                         <div>
                                             <label class="block text-sm font-medium text-gray-700 mb-2">
-                                                End Date (or Present)
+                                                End Date
                                             </label>
                                             <input type="date" name="endDate[]"
-                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none">
                                         </div>
                                     </div>
                                     <div>
@@ -232,24 +355,24 @@
                                             Responsibilities & Achievements
                                         </label>
                                         <textarea name="responsibilities[]" rows="3"
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"></textarea>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" id="addExperience" class="text-blue-600 hover:text-blue-800 font-medium">
-                                <i class="fas fa-plus mr-2"></i>Add Another Experience
+                            <button type="button" id="addExperience" class="text-sm font-medium" style="color: #44A3E3;">
+                                <i class="fas fa-plus-circle mr-2"></i>Add Another Experience
                             </button>
                         </div>
                         
                         <div class="mb-8">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Education</h3>
+                            <h3 class="text-lg font-semibold mb-4" style="color: #195887;">Education</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                 <div>
                                     <label for="educationLevel" class="block text-sm font-medium text-gray-700 mb-2">
-                                        Highest Education Level *
+                                        Highest Education Level <span class="text-red-500">*</span>
                                     </label>
                                     <select id="educationLevel" required
-                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
                                         <option value="">Select Level</option>
                                         <option value="primary">Primary School</option>
                                         <option value="secondary">Secondary School</option>
@@ -261,52 +384,53 @@
                                 </div>
                                 <div>
                                     <label for="institution" class="block text-sm font-medium text-gray-700 mb-2">
-                                        Institution *
+                                        Institution <span class="text-red-500">*</span>
                                     </label>
                                     <input type="text" id="institution" required
-                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
                                 </div>
                             </div>
                         </div>
                         
                         <div class="mb-8">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Skills & Certifications</h3>
+                            <h3 class="text-lg font-semibold mb-4" style="color: #195887;">Skills & Certifications</h3>
                             <div>
                                 <label for="skills" class="block text-sm font-medium text-gray-700 mb-2">
                                     Relevant Skills (comma separated)
                                 </label>
                                 <input type="text" id="skills"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    placeholder="e.g., Customer Service, Driving, Time Management, etc.">
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                                    placeholder="e.g., Customer Service, Driving, Time Management">
                             </div>
                         </div>
                         
                         <div class="flex justify-between">
-                            <button type="button" class="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium prev-step">
-                                Previous
+                            <button type="button" class="btn-outline px-8 py-3 rounded-lg font-medium prev-step">
+                                <i class="fas fa-arrow-left mr-2"></i>Previous
                             </button>
-                            <button type="button" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium next-step">
-                                Next: Documents
+                            <button type="button" class="btn-primary px-8 py-3 rounded-lg font-medium next-step">
+                                Next: Documents <i class="fas fa-arrow-right ml-2"></i>
                             </button>
                         </div>
                     </div>
                     
                     <!-- Step 3: Documents & Submission -->
                     <div class="form-step" id="step3">
-                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Documents & Submission</h2>
+                        <h2 class="text-2xl font-bold mb-6" style="color: #195887;">Documents & Submission</h2>
                         
                         <div class="mb-8">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Upload Documents</h3>
-                            <div class="space-y-4">
+                            <h3 class="text-lg font-semibold mb-4" style="color: #195887;">Upload Documents</h3>
+                            <div class="space-y-6">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">
-                                        Curriculum Vitae (CV) *
+                                        Curriculum Vitae (CV) <span class="text-red-500">*</span>
                                     </label>
-                                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-                                        <i class="fas fa-file-pdf text-gray-400 text-3xl mb-3"></i>
+                                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#44A3E3] transition-colors">
+                                        <i class="fas fa-file-pdf text-3xl mb-3" style="color: #44A3E3;"></i>
                                         <p class="text-gray-600 mb-2">Upload your CV (PDF or Word document)</p>
+                                        <p class="text-xs text-gray-400 mb-3">Maximum file size: 5MB</p>
                                         <input type="file" id="cv" accept=".pdf,.doc,.docx" required
-                                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#44A3E3] file:text-white hover:file:bg-[#195887] cursor-pointer">
                                     </div>
                                 </div>
                                 
@@ -314,78 +438,84 @@
                                     <label class="block text-sm font-medium text-gray-700 mb-2">
                                         Cover Letter (Optional)
                                     </label>
-                                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-                                        <i class="fas fa-file-word text-gray-400 text-3xl mb-3"></i>
+                                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#44A3E3] transition-colors">
+                                        <i class="fas fa-file-word text-3xl mb-3" style="color: #44A3E3;"></i>
                                         <p class="text-gray-600 mb-2">Upload cover letter (optional)</p>
+                                        <p class="text-xs text-gray-400 mb-3">Maximum file size: 5MB</p>
                                         <input type="file" id="coverLetterFile" accept=".pdf,.doc,.docx"
-                                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#44A3E3] file:text-white hover:file:bg-[#195887] cursor-pointer">
                                     </div>
                                 </div>
                                 
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">
-                                        Identification Document *
+                                        Identification Document <span class="text-red-500">*</span>
                                     </label>
-                                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-                                        <i class="fas fa-id-card text-gray-400 text-3xl mb-3"></i>
-                                        <p class="text-gray-600 mb-2">Upload National ID or Passport (PDF or image)</p>
+                                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#44A3E3] transition-colors">
+                                        <i class="fas fa-id-card text-3xl mb-3" style="color: #44A3E3;"></i>
+                                        <p class="text-gray-600 mb-2">Upload National ID or Passport</p>
+                                        <p class="text-xs text-gray-400 mb-3">Accepted formats: PDF, JPG, PNG (max 5MB)</p>
                                         <input type="file" id="idDocument" accept=".pdf,.jpg,.jpeg,.png" required
-                                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#44A3E3] file:text-white hover:file:bg-[#195887] cursor-pointer">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="mb-8">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Additional Information</h3>
+                            <h3 class="text-lg font-semibold mb-4" style="color: #195887;">Additional Information</h3>
                             <div>
                                 <label for="additionalInfo" class="block text-sm font-medium text-gray-700 mb-2">
                                     Any additional information you'd like to share
                                 </label>
                                 <textarea id="additionalInfo" rows="3"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                                    placeholder="References, certifications, or any other relevant information..."></textarea>
                             </div>
                         </div>
                         
                         <div class="mb-8">
-                            <div class="flex items-start">
+                            <div class="flex items-start bg-gray-50 p-4 rounded-lg">
                                 <input type="checkbox" id="agreeTerms" required
-                                    class="mt-1 mr-3">
+                                    class="mt-1 mr-3 w-5 h-5" style="accent-color: #44A3E3;">
                                 <label for="agreeTerms" class="text-sm text-gray-700">
-                                    I confirm that all information provided is accurate and complete. I understand that any false information may result in disqualification from the selection process. I agree to the processing of my personal data for recruitment purposes. *
+                                    I confirm that all information provided is accurate and complete. I understand that any false information may result in disqualification from the selection process. I agree to the processing of my personal data for recruitment purposes in accordance with the <a href="privacy.html" class="text-[#44A3E3] hover:underline">Privacy Policy</a>. <span class="text-red-500">*</span>
                                 </label>
                             </div>
                         </div>
                         
                         <div class="flex justify-between">
-                            <button type="button" class="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium prev-step">
-                                Previous
+                            <button type="button" class="btn-outline px-8 py-3 rounded-lg font-medium prev-step">
+                                <i class="fas fa-arrow-left mr-2"></i>Previous
                             </button>
-                            <button type="submit" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-colors font-medium">
-                                Submit Application
+                            <button type="submit" class="btn-primary px-8 py-3 rounded-lg font-medium">
+                                <i class="fas fa-paper-plane mr-2"></i>Submit Application
                             </button>
                         </div>
                     </div>
                 </form>
                 
                 <!-- Application Tips -->
-                <div class="mt-8 bg-blue-50 rounded-lg p-6">
-                    <h3 class="text-lg font-bold text-blue-800 mb-4">Application Tips</h3>
-                    <ul class="space-y-2 text-blue-700">
+                <div class="mt-8 rounded-lg p-6" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
+                    <h3 class="text-lg font-bold mb-4" style="color: #195887;">
+                        <i class="fas fa-lightbulb mr-2" style="color: #44A3E3;"></i>
+                        Application Tips
+                    </h3>
+                    <ul class="space-y-2 text-gray-600">
                         <li class="flex items-start">
-                            <i class="fas fa-check-circle mt-1 mr-2"></i>
+                            <i class="fas fa-check-circle mt-1 mr-2" style="color: #44A3E3;"></i>
                             <span>Ensure all information is accurate and complete</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check-circle mt-1 mr-2"></i>
-                            <span>Upload clear, readable documents</span>
+                            <i class="fas fa-check-circle mt-1 mr-2" style="color: #44A3E3;"></i>
+                            <span>Upload clear, readable documents (PDF format preferred)</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check-circle mt-1 mr-2"></i>
+                            <i class="fas fa-check-circle mt-1 mr-2" style="color: #44A3E3;"></i>
                             <span>Tailor your cover letter to the specific position</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check-circle mt-1 mr-2"></i>
+                            <i class="fas fa-check-circle mt-1 mr-2" style="color: #44A3E3;"></i>
                             <span>We'll contact you within 7 business days if shortlisted</span>
                         </li>
                     </ul>
@@ -394,208 +524,379 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <!-- Footer - Exactly matching main page -->
+    <footer class="text-white py-8" style="background: linear-gradient(135deg, #195887 0%, #44A3E3 100%);">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                    <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                        <i class="fas fa-shipping-fast text-white"></i>
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Company Info with Logo -->
+                <div class="w-full md:w-1/3">
+                    <div class="flex items-center space-x-2 mb-3">
+                        <img src="logo.png" 
+                             alt="DropX Logo" 
+                             class="h-8 w-auto rounded-lg bg-white p-1"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 40 40\'%3E%3Crect width=\'40\' height=\'40\' fill=\'white\' rx=\'8\'/%3E%3Ctext x=\'8\' y=\'28\' fill=\'%2344A3E3\' font-size=\'24\' font-weight=\'bold\'%3EDX%3C/text%3E%3C/svg%3E'">
+                       
                     </div>
-                    <span class="text-xl font-bold">DropX Delivery</span>
-                    <span class="text-xs bg-yellow-500 text-yellow-900 px-2 py-1 rounded-full font-medium">
-                        <i class="fas fa-flag mr-1"></i>Malawi
-                    </span>
+                    <p class="text-xs text-blue-100 mb-3 leading-relaxed">
+                        Fast food, groceries, and fresh farm produce delivery in Malawi.
+                        <span class="block mt-1">Order exclusively through our mobile app.</span>
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-white hover:text-yellow-400 text-lg transition-colors" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-yellow-400 text-lg transition-colors" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-yellow-400 text-lg transition-colors" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-yellow-400 text-lg transition-colors" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
                 </div>
                 
-                <div class="text-center md:text-right text-gray-400 text-sm">
-                    <p>&copy; 2024 DropX Delivery. All rights reserved.</p>
-                    <p class="mt-1">Equal Opportunity Employer</p>
+                <!-- Quick Links -->
+                <div class="w-1/2 md:w-1/6">
+                    <h4 class="text-sm font-bold mb-3 text-white uppercase tracking-wide">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-xs text-blue-100 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="careers.html" class="text-xs text-blue-100 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="ourteam.html" class="text-xs text-blue-100 hover:text-white transition-colors">Our Team</a></li>
+                        <li><a href="index.html#contact" class="text-xs text-blue-100 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="index.html#faq" class="text-xs text-blue-100 hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
                 </div>
+                
+                <!-- Services -->
+                <div class="w-1/2 md:w-1/6">
+                    <h4 class="text-sm font-bold mb-3 text-white uppercase tracking-wide">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#services" class="text-xs text-blue-100 hover:text-white transition-colors">Restaurant Food</a></li>
+                        <li><a href="index.html#services" class="text-xs text-blue-100 hover:text-white transition-colors">Groceries</a></li>
+                        <li><a href="index.html#dropxstore" class="text-xs text-blue-100 hover:text-white transition-colors">Farm Produce</a></li>
+                        <li><a href="index.html#partners" class="text-xs text-blue-100 hover:text-white transition-colors">Restaurants</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company Section - Footer -->
+                <div class="w-1/2 md:w-1/6">
+                    <h4 class="text-sm font-bold mb-3 text-white uppercase tracking-wide">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="privacy.html" class="text-xs text-blue-100 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-xs text-blue-100 hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="w-1/2 md:w-1/6">
+                    <h4 class="text-sm font-bold mb-3 text-white uppercase tracking-wide">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-xs text-blue-100 flex items-start">
+                            <i class="fas fa-phone-alt mr-2 mt-1 text-xs"></i>
+                            <span>+265 123 456 789</span>
+                        </li>
+                        <li class="text-xs text-blue-100 flex items-start">
+                            <i class="fas fa-envelope mr-2 mt-1 text-xs"></i>
+                            <span>careers@dropx.mw</span>
+                        </li>
+                        <li class="text-xs text-blue-100 flex items-start">
+                            <i class="fas fa-map-marker-alt mr-2 mt-1 text-xs"></i>
+                            <span>Lilongwe, Malawi</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-400 mt-8 pt-6 text-center">
+                <p class="text-xs text-blue-100">&copy; 2026 DropX Delivery. All rights reserved.</p>
+                <p class="text-xs text-blue-100 mt-1">Equal Opportunity Employer</p>
             </div>
         </div>
     </footer>
 
+    <!-- Success Toast -->
+    <div id="successToast" class="fixed top-4 left-4 right-4 md:left-auto md:right-4 md:w-96 text-white px-4 py-3 rounded-lg shadow-lg hidden z-50 animate__animated animate__fadeIn" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+        <div class="flex items-center justify-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span id="toastMessage" class="text-sm">Application submitted successfully!</span>
+        </div>
+    </div>
+
     <script>
-        // Get position from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const position = urlParams.get('position') || 'Delivery Rider';
-        
-        // Format position title
-        const positionTitle = document.getElementById('positionTitle');
-        const positionNames = {
-            'delivery-rider': 'Delivery Rider',
-            'customer-support': 'Customer Support Agent',
-            'operations-manager': 'Operations Manager'
-        };
-        
-        positionTitle.textContent = positionNames[position] || position.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
-        
-        // Multi-step form functionality
-        let currentStep = 1;
-        const totalSteps = 3;
-        
-        // Update progress indicator
-        function updateProgress() {
-            // Update dots
-            document.querySelectorAll('.progress-dot').forEach((dot, index) => {
-                if (index < currentStep) {
-                    dot.classList.add('active');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Image lazy loading
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                if (img.complete) {
+                    img.classList.add('loaded');
                 } else {
-                    dot.classList.remove('active');
-                }
-            });
-            
-            // Update step numbers
-            document.querySelectorAll('.step-number').forEach((number, index) => {
-                if (index + 1 === currentStep) {
-                    number.style.backgroundColor = '#3b82f6';
-                    number.style.color = 'white';
-                } else {
-                    number.style.backgroundColor = '#d1d5db';
-                    number.style.color = '#6b7280';
-                }
-            });
-        }
-        
-        // Show step
-        function showStep(step) {
-            // Hide all steps
-            document.querySelectorAll('.form-step').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            // Show current step
-            document.getElementById(`step${step}`).classList.add('active');
-            currentStep = step;
-            updateProgress();
-        }
-        
-        // Next step button
-        document.querySelectorAll('.next-step').forEach(button => {
-            button.addEventListener('click', function() {
-                if (validateStep(currentStep)) {
-                    if (currentStep < totalSteps) {
-                        showStep(currentStep + 1);
-                    }
-                }
-            });
-        });
-        
-        // Previous step button
-        document.querySelectorAll('.prev-step').forEach(button => {
-            button.addEventListener('click', function() {
-                if (currentStep > 1) {
-                    showStep(currentStep - 1);
-                }
-            });
-        });
-        
-        // Validate step
-        function validateStep(step) {
-            const stepElement = document.getElementById(`step${step}`);
-            const requiredInputs = stepElement.querySelectorAll('[required]');
-            
-            let isValid = true;
-            requiredInputs.forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    input.classList.add('border-red-500');
-                    
-                    // Remove error class when user starts typing
-                    input.addEventListener('input', function() {
-                        this.classList.remove('border-red-500');
+                    img.addEventListener('load', function() {
+                        this.classList.add('loaded');
                     });
                 }
             });
+
+            // Get position from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const position = urlParams.get('position') || 'delivery-rider';
             
-            if (!isValid) {
-                alert('Please fill in all required fields marked with *');
+            // Format position title
+            const positionTitle = document.getElementById('positionTitle');
+            const positionNames = {
+                'delivery-rider': 'Delivery Rider',
+                'customer-support': 'Customer Support Agent',
+                'operations-manager': 'Operations Manager'
+            };
+            
+            positionTitle.textContent = positionNames[position] || position.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            positionTitle.style.color = '#195887';
+            
+            // Multi-step form functionality
+            let currentStep = 1;
+            const totalSteps = 3;
+            
+            // Update progress indicator
+            function updateProgress() {
+                // Update step indicators
+                for (let i = 1; i <= totalSteps; i++) {
+                    const indicator = document.getElementById(`step${i}-indicator`);
+                    const line = document.getElementById(`line${i-1}`);
+                    
+                    if (i < currentStep) {
+                        indicator.className = 'progress-step w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 text-white font-bold completed';
+                        indicator.innerHTML = '<i class="fas fa-check"></i>';
+                        if (line) line.className = 'progress-line active';
+                    } else if (i === currentStep) {
+                        indicator.className = 'progress-step w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 text-white font-bold active';
+                        indicator.textContent = i;
+                        if (line) line.className = 'progress-line';
+                    } else {
+                        indicator.className = 'progress-step w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 text-white font-bold';
+                        indicator.textContent = i;
+                        if (line) line.className = 'progress-line';
+                    }
+                }
             }
             
-            return isValid;
-        }
-        
-        // Add experience field
-        document.getElementById('addExperience').addEventListener('click', function() {
-            const experienceFields = document.getElementById('experienceFields');
-            const newEntry = document.createElement('div');
-            newEntry.className = 'experience-entry mb-6 p-4 border border-gray-200 rounded-lg';
-            newEntry.innerHTML = `
-                <div class="flex justify-between items-center mb-4">
-                    <h4 class="font-medium text-gray-700">Additional Experience</h4>
-                    <button type="button" class="remove-experience text-red-600 hover:text-red-800">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Company/Organization
-                        </label>
-                        <input type="text" name="company[]"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Position
-                        </label>
-                        <input type="text" name="position[]"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Start Date
-                        </label>
-                        <input type="date" name="startDate[]"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            End Date (or Present)
-                        </label>
-                        <input type="date" name="endDate[]"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">
-                        Responsibilities & Achievements
-                    </label>
-                    <textarea name="responsibilities[]" rows="3"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                </div>
-            `;
-            experienceFields.appendChild(newEntry);
+            // Show step
+            function showStep(step) {
+                // Hide all steps
+                document.querySelectorAll('.form-step').forEach(el => {
+                    el.classList.remove('active');
+                });
+                
+                // Show current step
+                document.getElementById(`step${step}`).classList.add('active');
+                currentStep = step;
+                updateProgress();
+                
+                // Scroll to top of form
+                document.querySelector('.form-step').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
             
-            // Add remove functionality
-            newEntry.querySelector('.remove-experience').addEventListener('click', function() {
-                newEntry.remove();
+            // Next step button
+            document.querySelectorAll('.next-step').forEach(button => {
+                button.addEventListener('click', function() {
+                    if (validateStep(currentStep)) {
+                        if (currentStep < totalSteps) {
+                            showStep(currentStep + 1);
+                        }
+                    }
+                });
             });
-        });
-        
-        // Form submission
-        document.getElementById('applicationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
             
-            if (validateStep(currentStep)) {
-                // Here you would typically send the form data to a server
-                // For now, we'll show a success message
+            // Previous step button
+            document.querySelectorAll('.prev-step').forEach(button => {
+                button.addEventListener('click', function() {
+                    if (currentStep > 1) {
+                        showStep(currentStep - 1);
+                    }
+                });
+            });
+            
+            // Validate step
+            function validateStep(step) {
+                const stepElement = document.getElementById(`step${step}`);
+                const requiredInputs = stepElement.querySelectorAll('[required]');
                 
-                const submitBtn = this.querySelector('button[type="submit"]');
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
-                submitBtn.disabled = true;
+                let isValid = true;
+                requiredInputs.forEach(input => {
+                    if (input.type === 'file') {
+                        // Check if file is selected
+                        if (!input.files || input.files.length === 0) {
+                            isValid = false;
+                            input.closest('.border-2').style.borderColor = '#ef4444';
+                            
+                            // Remove error when file is selected
+                            input.addEventListener('change', function() {
+                                this.closest('.border-2').style.borderColor = '#44A3E3';
+                            });
+                        }
+                    } else if (!input.value.trim()) {
+                        isValid = false;
+                        input.style.borderColor = '#ef4444';
+                        
+                        // Remove error when user starts typing
+                        input.addEventListener('input', function() {
+                            this.style.borderColor = '#44A3E3';
+                        });
+                    }
+                });
                 
-                // Simulate API call
+                if (!isValid) {
+                    showToast('Please fill in all required fields marked with *', 'error');
+                }
+                
+                return isValid;
+            }
+            
+            // Add experience field
+            document.getElementById('addExperience')?.addEventListener('click', function() {
+                const experienceFields = document.getElementById('experienceFields');
+                const newEntry = document.createElement('div');
+                newEntry.className = 'experience-entry mb-6 p-4 border border-gray-200 rounded-lg relative';
+                newEntry.innerHTML = `
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-medium text-gray-700">Additional Experience</h4>
+                        <button type="button" class="remove-experience text-red-600 hover:text-red-800 p-2">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Company/Organization</label>
+                            <input type="text" name="company[]" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Position</label>
+                            <input type="text" name="position[]" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Start Date</label>
+                            <input type="date" name="startDate[]" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">End Date</label>
+                            <input type="date" name="endDate[]" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Responsibilities & Achievements</label>
+                        <textarea name="responsibilities[]" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"></textarea>
+                    </div>
+                `;
+                experienceFields.appendChild(newEntry);
+                
+                // Add remove functionality
+                newEntry.querySelector('.remove-experience').addEventListener('click', function() {
+                    newEntry.remove();
+                });
+            });
+            
+            // Form submission
+            document.getElementById('applicationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (validateStep(currentStep)) {
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        showToast('Application submitted successfully! We will contact you within 7 business days.', 'success');
+                        
+                        setTimeout(() => {
+                            window.location.href = 'careers.html?application=success';
+                        }, 2000);
+                    }, 2000);
+                }
+            });
+            
+            // Initialize progress indicator
+            updateProgress();
+            
+            // Show toast function
+            window.showToast = function(message, type = "success") {
+                const toast = document.getElementById('successToast');
+                const toastMessage = document.getElementById('toastMessage');
+                
+                toastMessage.textContent = message;
+                
+                // Set color based on type
+                const colors = {
+                    success: "linear-gradient(135deg, #44A3E3, #195887)",
+                    error: "linear-gradient(135deg, #ef4444, #dc2626)",
+                    info: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
+                    warning: "linear-gradient(135deg, #f59e0b, #d97706)"
+                };
+                
+                toast.style.background = colors[type] || colors.success;
+                toast.classList.remove('hidden');
+                
                 setTimeout(() => {
-                    alert('Application submitted successfully! We will contact you within 7 business days if you are shortlisted.');
-                    window.location.href = 'career.html?application=success';
-                }, 2000);
+                    toast.classList.add('hidden');
+                }, 3000);
+            };
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    mobileMenu.classList.toggle('hidden');
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
+            }
+
+            // Handle click outside to close mobile menu
+            document.addEventListener('click', function(e) {
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+
+            // Handle escape key to close mobile menu
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+
+            // Add animation keyframes if not already present
+            if (!document.querySelector('#toast-animations')) {
+                const style = document.createElement('style');
+                style.id = 'toast-animations';
+                style.textContent = `
+                    @keyframes fadeIn {
+                        from { opacity: 0; transform: translateY(-10px); }
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                    
+                    @keyframes fadeOut {
+                        from { opacity: 1; transform: translateY(0); }
+                        to { opacity: 0; transform: translateY(-10px); }
+                    }
+                    
+                    .animate__fadeIn {
+                        animation: fadeIn 0.3s ease;
+                    }
+                `;
+                document.head.appendChild(style);
             }
         });
-        
-        // Initialize progress indicator
-        updateProgress();
     </script>
 </body>
 </html>

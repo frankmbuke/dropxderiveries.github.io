@@ -13,8 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#1e40af",
-                        secondary: "#3b82f6",
+                        primary: "#44A3E3",
+                        secondary: "#195887", 
                         accent: "#f59e0b",
                         dark: "#1f2937",
                         light: "#f8fafc"
@@ -65,18 +65,118 @@
         }
 
         /* Better touch targets */
-        button, a {
-            touch-action: manipulation;
-        }
-        
-        .touch-target {
+        button, a, .clickable {
             min-height: 44px;
             min-width: 44px;
+            cursor: pointer;
+        }
+        
+        /* Improved dropdown handling */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 50;
+        }
+        
+        .group:hover .dropdown-menu,
+        .group:focus-within .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            min-height: 44px;
+            width: 100%;
+            pointer-events: auto;
+        }
+        
+        /* Loading skeleton animation */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* Image loading */
+        img {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        img.loaded {
+            opacity: 1;
         }
 
-        /* Dropdown hover for desktop */
-        .group:hover .group-hover\:block {
-            display: block;
+        /* Custom gradients and colors using logo colors */
+        .bg-logo-gradient {
+            background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);
+        }
+        
+        .bg-logo-light {
+            background-color: #44A3E3;
+        }
+        
+        .bg-logo-dark {
+            background-color: #195887;
+        }
+        
+        .text-logo-light {
+            color: #44A3E3;
+        }
+        
+        .text-logo-dark {
+            color: #195887;
+        }
+        
+        .border-logo-light {
+            border-color: #44A3E3;
+        }
+        
+        .border-logo-dark {
+            border-color: #195887;
+        }
+        
+        .hover-logo-light:hover {
+            background-color: #44A3E3;
+            color: white;
+        }
+        
+        .hover-logo-dark:hover {
+            background-color: #195887;
+            color: white;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #44A3E3, #195887);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #195887, #44A3E3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(68, 163, 227, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: #195887;
+            border: 2px solid #44A3E3;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #44A3E3, #195887);
+            color: white;
+            border-color: transparent;
         }
     </style>
 </head>
@@ -98,169 +198,169 @@
                 <div class="flex items-center space-x-4">
                     <!-- Desktop Navigation -->
                     <div class="hidden md:flex space-x-6">
-                        <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">Home</a>
-                        <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">Services</a>
-                        <a href="#partners" class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">Restaurants</a>
-                        <a href="#dropxstore" class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">Store</a>
-                        <a href="#faq" class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">FAQ</a>
-                        <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm">Contact</a>
+                        <a href="#home" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Home</a>
+                        <a href="#services" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Services</a>
+                        <a href="#partners" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Restaurants</a>
+                        <a href="#dropxstore" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Store</a>
+                        <a href="#faq" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">FAQ</a>
+                        <a href="#contact" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Contact</a>
                         
                         <!-- Company Dropdown - Desktop -->
                         <div class="relative group">
-                            <button class="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm flex items-center">
-                                Company <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            <button class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm flex items-center">
+                                Company <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180" style="color: #195887;"></i>
                             </button>
-                            <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block border border-gray-100">
-                                <a href="careers.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Careers</a>
-                                <a href="ourteam.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Team</a>
-                                <a href="privacy.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Privacy Policy</a>
-                                <a href="terms.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Terms of Service</a>
+                            <div class="dropdown-menu bg-white rounded-lg shadow-lg py-2 border border-gray-100 min-w-[200px]">
+                                <a href="careers.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors">Careers</a>
+                                <a href="ourteam.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors">Our Team</a>
+                                <a href="privacy.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors">Privacy Policy</a>
+                                <a href="terms.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors">Terms of Service</a>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Mobile Menu Button -->
-                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 touch-target" aria-label="Menu">
-                        <i class="fas fa-bars text-xl text-gray-700"></i>
+                    <button id="mobileMenuBtn" class="md:hidden p-3 rounded-lg hover:bg-gray-100 clickable" aria-label="Menu" aria-expanded="false">
+                        <i class="fas fa-bars text-xl" style="color: #195887;"></i>
                     </button>
                 </div>
             </div>
             
-            <!-- Mobile Menu - Improved spacing and touch targets -->
+            <!-- Mobile Menu -->
             <div class="md:hidden hidden mt-4 bg-white rounded-xl shadow-lg overflow-hidden" id="mobileMenu">
                 <div class="divide-y divide-gray-100">
-                    <a href="#home" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 font-medium">Home</a>
-                    <a href="#services" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 font-medium">Services</a>
-                    <a href="#partners" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 font-medium">Restaurants</a>
-                    <a href="#dropxstore" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 font-medium">DropX Store</a>
-                    <a href="#faq" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 font-medium">FAQ</a>
-                    <a href="#contact" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 font-medium">Contact</a>
+                    <a href="#home" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Home</a>
+                    <a href="#services" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Services</a>
+                    <a href="#partners" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Restaurants</a>
+                    <a href="#dropxstore" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">DropX Store</a>
+                    <a href="#faq" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">FAQ</a>
+                    <a href="#contact" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Contact</a>
                     
                     <!-- Company Section - Mobile -->
-                    <div class="px-4 py-3 bg-gray-50">
-                        <p class="text-sm font-semibold text-gray-500 mb-2">Company</p>
-                        <div class="space-y-2">
-                            <a href="careers.html" class="block text-gray-700 hover:text-blue-600 py-2 text-sm">Careers</a>
-                            <a href="ourteam.html" class="block text-gray-700 hover:text-blue-600 py-2 text-sm">Our Team</a>
-                            <a href="privacy.html" class="block text-gray-700 hover:text-blue-600 py-2 text-sm">Privacy Policy</a>
-                            <a href="terms.html" class="block text-gray-700 hover:text-blue-600 py-2 text-sm">Terms of Service</a>
+                    <div class="px-4 py-3" style="background-color: #f0f7ff;">
+                        <button id="mobileCompanyToggle" class="w-full text-left flex justify-between items-center py-2 clickable">
+                            <span class="text-sm font-semibold" style="color: #195887;">Company</span>
+                            <i class="fas fa-chevron-down transition-transform" style="color: #44A3E3;"></i>
+                        </button>
+                        <div id="mobileCompanyMenu" class="hidden mt-2 space-y-2">
+                            <a href="careers.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-2 text-sm rounded-lg transition-colors clickable">Careers</a>
+                            <a href="ourteam.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-2 text-sm rounded-lg transition-colors clickable">Our Team</a>
+                            <a href="privacy.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-2 text-sm rounded-lg transition-colors clickable">Privacy Policy</a>
+                            <a href="terms.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-2 text-sm rounded-lg transition-colors clickable">Terms of Service</a>
                         </div>
                     </div>
-                    
-                   
                 </div>
             </div>
         </nav>
     </header>
 
-   <!-- Hero Section - Completely different layouts for desktop vs mobile -->
-	<section id="home" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-		<!-- DESKTOP VERSION (hidden on mobile) -->
-		<div class="hidden lg:block py-12">
-			<div class="container mx-auto px-4">
-				<div class="grid grid-cols-2 gap-8 items-center">
-					<div>
-						<h1 class="text-4xl font-bold mb-3 leading-tight">
-							Fresh food & groceries 
-							<span class="text-yellow-400">delivered to your door</span>
-						</h1>
-						
-						<p class="text-base text-blue-100 mb-5 max-w-lg">
-							Order from 50+ restaurants and DropX Farm Store through our app.
-						</p>
-						
-						<!-- Desktop buttons - exactly as original -->
-						<div class="flex space-x-3 mb-4">
-							<button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center download-app-btn shadow-md" data-platform="ios">
-								<i class="fab fa-apple mr-2 text-xl"></i>
-								<div class="text-left">
-									<div class="text-xs">Download on the</div>
-									<div class="font-semibold text-base">App Store</div>
-								</div>
-							</button>
-							<button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn shadow-md" data-platform="android">
-								<i class="fab fa-google-play mr-2 text-xl"></i>
-								<div class="text-left">
-									<div class="text-xs">Get it on</div>
-									<div class="font-semibold text-base">Google Play</div>
-								</div>
-							</button>
-						</div>
-						
-						<p class="text-blue-200 text-xs flex items-center">
-							<i class="fas fa-info-circle mr-1"></i>
-							Info site only. Order via app.
-						</p>
-					</div>
-					
-					<div class="relative">
-						<img 
-							src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" 
-							alt="DropX delivery" 
-							class="rounded-xl shadow-2xl w-full"
-							loading="lazy"
-						/>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<!-- MOBILE VERSION (hidden on desktop) -->
-		<div class="lg:hidden py-8">
-			<div class="container mx-auto px-4">
-				<div class="flex flex-col gap-6">
-					<div>
-						<h1 class="text-2xl font-bold mb-2 leading-tight">
-							Fresh food & groceries 
-							<span class="text-yellow-400 block">delivered to your door</span>
-						</h1>
-						
-						<p class="text-sm text-blue-100 mb-3">
-							Order from 50+ restaurants and DropX Farm Store through our app.
-						</p>
-					</div>
-					
-					<div>
-						<img 
-							src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" 
-							alt="DropX delivery" 
-							class="rounded-xl shadow-2xl w-full max-h-48 object-cover"
-							loading="lazy"
-						/>
-					</div>
-					
-					<!-- App Download Buttons - Always in a row -->
-					<div class="flex flex-row gap-3 mb-4">
-						<button class="bg-black text-white px-4 py-3 rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center download-app-btn shadow-md touch-target flex-1 sm:flex-none" data-platform="ios">
-							<i class="fab fa-apple mr-2 text-xl"></i>
-							<div class="text-left">
-								<div class="text-xs">Download on the</div>
-								<div class="font-semibold text-sm sm:text-base">App Store</div>
-							</div>
-						</button>
-						<button class="bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center download-app-btn shadow-md touch-target flex-1 sm:flex-none" data-platform="android">
-							<i class="fab fa-google-play mr-2 text-xl"></i>
-							<div class="text-left">
-								<div class="text-xs">Get it on</div>
-								<div class="font-semibold text-sm sm:text-base">Google Play</div>
-							</div>
-						</button>
-					</div>
-					
-					<p class="text-blue-200 text-xs flex items-center">
-						<i class="fas fa-info-circle mr-1"></i>
-						Info site only. Order via app.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
+    <!-- Hero Section -->
+    <section id="home" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);" class="text-white">
+        <!-- DESKTOP VERSION -->
+        <div class="hidden lg:block py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h1 class="text-4xl font-bold mb-3 leading-tight">
+                            Fresh food & groceries 
+                            <span class="text-yellow-400">delivered to your door</span>
+                        </h1>
+                        
+                        <p class="text-base text-blue-100 mb-5 max-w-lg">
+                            Order from 50+ restaurants and DropX Farm Store through our app.
+                        </p>
+                        
+                        <!-- Desktop buttons -->
+                        <div class="flex space-x-3 mb-4">
+                            <button class="btn-primary px-4 py-2 rounded-lg flex items-center justify-center download-app-btn shadow-md" data-platform="ios">
+                                <i class="fab fa-apple mr-2 text-xl"></i>
+                                <div class="text-left">
+                                    <div class="text-xs">Download on the</div>
+                                    <div class="font-semibold text-base">App Store</div>
+                                </div>
+                            </button>
+                            <button class="btn-primary px-4 py-2 rounded-lg flex items-center justify-center download-app-btn shadow-md" data-platform="android">
+                                <i class="fab fa-google-play mr-2 text-xl"></i>
+                                <div class="text-left">
+                                    <div class="text-xs">Get it on</div>
+                                    <div class="font-semibold text-base">Google Play</div>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <p class="text-blue-200 text-xs flex items-center">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            Info site only. Order via app.
+                        </p>
+                    </div>
+                    
+                    <div class="relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" 
+                            alt="DropX delivery" 
+                            class="rounded-xl shadow-2xl w-full"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MOBILE VERSION -->
+        <div class="lg:hidden py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col gap-6">
+                    <div>
+                        <h1 class="text-2xl font-bold mb-2 leading-tight">
+                            Fresh food & groceries 
+                            <span class="text-yellow-400 block">delivered to your door</span>
+                        </h1>
+                        
+                        <p class="text-sm text-blue-100 mb-3">
+                            Order from 50+ restaurants and DropX Farm Store through our app.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <img 
+                            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" 
+                            alt="DropX delivery" 
+                            class="rounded-xl shadow-2xl w-full max-h-48 object-cover"
+                            loading="lazy"
+                        />
+                    </div>
+                    
+                    <div class="flex flex-row gap-3 mb-4">
+                        <button class="btn-primary px-4 py-3 rounded-lg flex items-center justify-center download-app-btn shadow-md touch-target flex-1" data-platform="ios">
+                            <i class="fab fa-apple mr-2 text-xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Download on the</div>
+                                <div class="font-semibold text-sm">App Store</div>
+                            </div>
+                        </button>
+                        <button class="btn-primary px-4 py-3 rounded-lg flex items-center justify-center download-app-btn shadow-md touch-target flex-1" data-platform="android">
+                            <i class="fab fa-google-play mr-2 text-xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Get it on</div>
+                                <div class="font-semibold text-sm">Google Play</div>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <p class="text-blue-200 text-xs flex items-center">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Info site only. Order via app.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Services Section - Mobile optimized grid -->
+    <!-- Services Section -->
     <section id="services" class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-8">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">We deliver to you</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2" style="color: #195887;">We deliver to you</h2>
                 <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
                     Home or office — we bring what you need right to your door.
                 </p>
@@ -268,90 +368,90 @@
             
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
                 <!-- Food -->
-                <div class="text-center p-4 bg-gray-50 rounded-xl">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-utensils text-blue-600 text-lg"></i>
+                <div class="text-center p-4 rounded-xl transition-all hover:shadow-lg" style="background-color: #f0f7ff;">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+                        <i class="fas fa-utensils text-white text-lg"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-1">Restaurant Food</h3>
+                    <h3 class="text-lg font-bold mb-1" style="color: #195887;">Restaurant Food</h3>
                     <p class="text-gray-600 text-xs">Hot meals from local restaurants</p>
                 </div>
                 
                 <!-- Groceries -->
-                <div class="text-center p-4 bg-gray-50 rounded-xl">
-                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-shopping-basket text-green-600 text-lg"></i>
+                <div class="text-center p-4 rounded-xl transition-all hover:shadow-lg" style="background-color: #f0f7ff;">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+                        <i class="fas fa-shopping-basket text-white text-lg"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-1">Groceries</h3>
+                    <h3 class="text-lg font-bold mb-1" style="color: #195887;">Groceries</h3>
                     <p class="text-gray-600 text-xs">Essentials for your home</p>
                 </div>
                 
                 <!-- Farm Produce -->
-                <div class="text-center p-4 bg-gray-50 rounded-xl">
-                    <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-seedling text-yellow-600 text-lg"></i>
+                <div class="text-center p-4 rounded-xl transition-all hover:shadow-lg" style="background-color: #f0f7ff;">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+                        <i class="fas fa-seedling text-white text-lg"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-1">Farm Produce</h3>
+                    <h3 class="text-lg font-bold mb-1" style="color: #195887;">Farm Produce</h3>
                     <p class="text-gray-600 text-xs">Fresh from local farmers</p>
                 </div>
             </div>
             
             <p class="text-center text-xs text-gray-400 mt-6">
-                <i class="fas fa-map-marker-alt text-blue-500 mr-1"></i>
+                <i class="fas fa-map-marker-alt mr-1" style="color: #44A3E3;"></i>
                 Delivering in Lilongwe
             </p>
         </div>
     </section>
 
-    <!-- DropX Store Section - Mobile optimized -->
-    <section id="dropxstore" class="py-12 bg-green-50">
+    <!-- DropX Store Section -->
+    <section id="dropxstore" class="py-12" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row gap-8 items-center">
                 <div class="w-full lg:w-1/2">
-                    <div class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">
+                    <div class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 text-white" style="background: linear-gradient(135deg, #44A3E3, #195887);">
                         <i class="fas fa-store mr-1"></i>DROPX STORE
                     </div>
                     
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Fresh Farm Produce</h2>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-4" style="color: #195887;">Fresh Farm Produce</h2>
                     <p class="text-sm sm:text-base text-gray-600 mb-6">
                         DropX Store brings you the freshest vegetables, fruits, and farm products directly from local farmers.
                     </p>
                     
                     <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div class="text-center bg-white p-3 rounded-lg">
-                            <div class="text-xl font-bold text-green-600 mb-1">100%</div>
+                        <div class="text-center bg-white p-3 rounded-lg shadow-sm border" style="border-color: #44A3E3;">
+                            <div class="text-xl font-bold mb-1" style="color: #195887;">100%</div>
                             <div class="text-xs text-gray-600">Fresh Produce</div>
                         </div>
-                        <div class="text-center bg-white p-3 rounded-lg">
-                            <div class="text-xl font-bold text-green-600 mb-1">Same Day</div>
+                        <div class="text-center bg-white p-3 rounded-lg shadow-sm border" style="border-color: #44A3E3;">
+                            <div class="text-xl font-bold mb-1" style="color: #195887;">Same Day</div>
                             <div class="text-xs text-gray-600">Harvest to Delivery</div>
                         </div>
-                        <div class="text-center bg-white p-3 rounded-lg">
-                            <div class="text-xl font-bold text-green-600 mb-1">Local</div>
+                        <div class="text-center bg-white p-3 rounded-lg shadow-sm border" style="border-color: #44A3E3;">
+                            <div class="text-xl font-bold mb-1" style="color: #195887;">Local</div>
                             <div class="text-xs text-gray-600">Farmers Supported</div>
                         </div>
-                        <div class="text-center bg-white p-3 rounded-lg">
-                            <div class="text-xl font-bold text-green-600 mb-1">Quality</div>
+                        <div class="text-center bg-white p-3 rounded-lg shadow-sm border" style="border-color: #44A3E3;">
+                            <div class="text-xl font-bold mb-1" style="color: #195887;">Quality</div>
                             <div class="text-xs text-gray-600">Guaranteed</div>
                         </div>
                     </div>
                     
-                    <div class="bg-white rounded-lg p-4 shadow-sm">
-                        <h4 class="font-bold text-gray-800 mb-2">Available in DropX Store:</h4>
+                    <div class="bg-white rounded-lg p-4 shadow-sm border-l-4" style="border-left-color: #44A3E3;">
+                        <h4 class="font-bold mb-2" style="color: #195887;">Available in DropX Store:</h4>
                         <div class="grid grid-cols-2 gap-2 text-sm">
                             <div class="flex items-center">
-                                <i class="fas fa-carrot text-green-500 mr-2 text-xs"></i>
+                                <i class="fas fa-carrot mr-2 text-xs" style="color: #44A3E3;"></i>
                                 <span class="text-xs sm:text-sm">Fresh Vegetables</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-apple-alt text-green-500 mr-2 text-xs"></i>
+                                <i class="fas fa-apple-alt mr-2 text-xs" style="color: #44A3E3;"></i>
                                 <span class="text-xs sm:text-sm">Seasonal Fruits</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-egg text-green-500 mr-2 text-xs"></i>
+                                <i class="fas fa-egg mr-2 text-xs" style="color: #44A3E3;"></i>
                                 <span class="text-xs sm:text-sm">Farm Eggs</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-wheat-alt text-green-500 mr-2 text-xs"></i>
+                                <i class="fas fa-wheat-alt mr-2 text-xs" style="color: #44A3E3;"></i>
                                 <span class="text-xs sm:text-sm">Grains & Cereals</span>
                             </div>
                         </div>
@@ -365,8 +465,8 @@
                         class="rounded-lg shadow-lg w-full h-auto max-h-64 sm:max-h-80 object-cover"
                         loading="lazy"
                     />
-                    <div class="absolute -bottom-2 -left-2 bg-white text-green-700 px-4 py-2 rounded-lg shadow-lg">
-                        <div class="font-bold text-sm">Farm Fresh</div>
+                    <div class="absolute -bottom-2 -left-2 bg-white px-4 py-2 rounded-lg shadow-lg border-l-4" style="border-left-color: #44A3E3;">
+                        <div class="font-bold text-sm" style="color: #195887;">Farm Fresh</div>
                         <div class="text-xs text-gray-600">Direct from farmers</div>
                     </div>
                 </div>
@@ -374,116 +474,116 @@
         </div>
     </section>
 
-    <!-- Restaurant Partners Section - Mobile optimized -->
-    <section id="partners" class="py-12 bg-gray-50">
+    <!-- Restaurant Partners Section -->
+    <section id="partners" class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-8">
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Our Restaurant Partners</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-2" style="color: #195887;">Our Restaurant Partners</h2>
                 <p class="text-sm sm:text-base text-gray-600">50+ restaurants delivering in Lilongwe</p>
             </div>
             
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
-                <div class="bg-white p-3 rounded-lg text-center shadow-sm">
-                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i class="fas fa-hamburger text-blue-600 text-sm"></i>
+                <div class="bg-white p-3 rounded-lg text-center shadow-sm border hover:shadow-lg transition-all" style="border-color: #44A3E3;">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+                        <i class="fas fa-hamburger text-white text-sm"></i>
                     </div>
-                    <h4 class="font-semibold text-gray-900 text-sm">Burger Express</h4>
+                    <h4 class="font-semibold text-sm" style="color: #195887;">Burger Express</h4>
                     <p class="text-xs text-gray-500">Fast Food</p>
                 </div>
                 
-                <div class="bg-white p-3 rounded-lg text-center shadow-sm">
-                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i class="fas fa-pizza-slice text-green-600 text-sm"></i>
+                <div class="bg-white p-3 rounded-lg text-center shadow-sm border hover:shadow-lg transition-all" style="border-color: #44A3E3;">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+                        <i class="fas fa-pizza-slice text-white text-sm"></i>
                     </div>
-                    <h4 class="font-semibold text-gray-900 text-sm">Pizza Palace</h4>
+                    <h4 class="font-semibold text-sm" style="color: #195887;">Pizza Palace</h4>
                     <p class="text-xs text-gray-500">Italian</p>
                 </div>
                 
-                <div class="bg-white p-3 rounded-lg text-center shadow-sm">
-                    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i class="fas fa-utensil-spoon text-yellow-600 text-sm"></i>
+                <div class="bg-white p-3 rounded-lg text-center shadow-sm border hover:shadow-lg transition-all" style="border-color: #44A3E3;">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+                        <i class="fas fa-utensil-spoon text-white text-sm"></i>
                     </div>
-                    <h4 class="font-semibold text-gray-900 text-sm">Malawi Kitchen</h4>
+                    <h4 class="font-semibold text-sm" style="color: #195887;">Malawi Kitchen</h4>
                     <p class="text-xs text-gray-500">Local Cuisine</p>
                 </div>
                 
-                <div class="bg-white p-3 rounded-lg text-center shadow-sm">
-                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i class="fas fa-drumstick-bite text-red-600 text-sm"></i>
+                <div class="bg-white p-3 rounded-lg text-center shadow-sm border hover:shadow-lg transition-all" style="border-color: #44A3E3;">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+                        <i class="fas fa-drumstick-bite text-white text-sm"></i>
                     </div>
-                    <h4 class="font-semibold text-gray-900 text-sm">Chicken Spot</h4>
+                    <h4 class="font-semibold text-sm" style="color: #195887;">Chicken Spot</h4>
                     <p class="text-xs text-gray-500">Grill & BBQ</p>
                 </div>
             </div>
             
             <p class="text-center text-xs text-gray-500 mt-4">
-                <i class="fas fa-mobile-alt mr-1 text-blue-500"></i> View all restaurants in our app
+                <i class="fas fa-mobile-alt mr-1" style="color: #44A3E3;"></i> View all restaurants in our app
             </p>
         </div>
     </section>
 
-    <!-- Service Areas Section - Mobile optimized -->
-    <section class="py-12 bg-white">
+    <!-- Service Areas Section -->
+    <section class="py-12" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
         <div class="container mx-auto px-4">
             <div class="text-center mb-8">
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Service Areas</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-2" style="color: #195887;">Service Areas</h2>
                 <p class="text-sm sm:text-base text-gray-600">Currently serving Lilongwe</p>
             </div>
             
-            <div class="max-w-2xl mx-auto bg-blue-50 rounded-xl p-6 text-center">
-                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <i class="fas fa-map-marker-alt text-white text-sm"></i>
+            <div class="max-w-2xl mx-auto rounded-xl p-6 text-center" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-map-marker-alt text-sm" style="color: #195887;"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Lilongwe</h3>
-                <p class="text-sm text-gray-600 mb-3">All areas including City Center, Area 3, 10, 43, 47, Likuni, Kawale</p>
-                <p class="text-xs text-blue-700 font-medium bg-white p-2 rounded-lg inline-block">Coming soon: Mzuzu, Blantyre, Zomba</p>
+                <h3 class="text-xl font-bold text-white mb-2">Lilongwe</h3>
+                <p class="text-sm text-blue-100 mb-3">All areas including City Center, Area 3, 10, 43, 47, Likuni, Kawale</p>
+                <p class="text-xs font-medium bg-white p-2 rounded-lg inline-block" style="color: #195887;">Coming soon: Mzuzu, Blantyre, Zomba</p>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section - Mobile optimized accordion -->
-    <section id="faq" class="py-12 bg-gray-50">
+    <!-- FAQ Section -->
+    <section id="faq" class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-8">
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">FAQs</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-2" style="color: #195887;">FAQs</h2>
                 <p class="text-sm sm:text-base text-gray-600">Quick answers to common questions</p>
             </div>
             
             <div class="max-w-2xl mx-auto space-y-2">
-                <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                <div class="bg-white rounded-lg overflow-hidden border" style="border-color: #44A3E3;">
                     <button class="faq-question w-full px-4 py-3 text-left flex justify-between items-center touch-target">
-                        <span class="font-medium text-gray-800 text-sm">How do I place an order?</span>
-                        <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+                        <span class="font-medium text-sm" style="color: #195887;">How do I place an order?</span>
+                        <i class="fas fa-chevron-down text-xs" style="color: #44A3E3;"></i>
                     </button>
                     <div class="faq-answer px-4">
                         <p class="pb-3 text-xs sm:text-sm text-gray-600">All orders through our mobile app. Download from App Store or Google Play.</p>
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                <div class="bg-white rounded-lg overflow-hidden border" style="border-color: #44A3E3;">
                     <button class="faq-question w-full px-4 py-3 text-left flex justify-between items-center touch-target">
-                        <span class="font-medium text-gray-800 text-sm">What areas do you serve?</span>
-                        <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+                        <span class="font-medium text-sm" style="color: #195887;">What areas do you serve?</span>
+                        <i class="fas fa-chevron-down text-xs" style="color: #44A3E3;"></i>
                     </button>
                     <div class="faq-answer px-4">
                         <p class="pb-3 text-xs sm:text-sm text-gray-600">All areas of Lilongwe. Check app for exact coverage.</p>
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                <div class="bg-white rounded-lg overflow-hidden border" style="border-color: #44A3E3;">
                     <button class="faq-question w-full px-4 py-3 text-left flex justify-between items-center touch-target">
-                        <span class="font-medium text-gray-800 text-sm">What is DropX Store?</span>
-                        <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+                        <span class="font-medium text-sm" style="color: #195887;">What is DropX Store?</span>
+                        <i class="fas fa-chevron-down text-xs" style="color: #44A3E3;"></i>
                     </button>
                     <div class="faq-answer px-4">
                         <p class="pb-3 text-xs sm:text-sm text-gray-600">Our own farm produce marketplace with fresh items from local farmers.</p>
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                <div class="bg-white rounded-lg overflow-hidden border" style="border-color: #44A3E3;">
                     <button class="faq-question w-full px-4 py-3 text-left flex justify-between items-center touch-target">
-                        <span class="font-medium text-gray-800 text-sm">Expanding to other cities?</span>
-                        <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+                        <span class="font-medium text-sm" style="color: #195887;">Expanding to other cities?</span>
+                        <i class="fas fa-chevron-down text-xs" style="color: #44A3E3;"></i>
                     </button>
                     <div class="faq-answer px-4">
                         <p class="pb-3 text-xs sm:text-sm text-gray-600">Yes, coming to Mzuzu, Blantyre, and Zomba soon.</p>
@@ -492,47 +592,47 @@
             </div>
             
             <p class="text-center mt-4">
-                <a href="#contact" class="text-blue-600 text-xs sm:text-sm hover:underline">Still have questions? Contact us</a>
+                <a href="#contact" class="text-xs sm:text-sm hover:underline" style="color: #44A3E3;">Still have questions? Contact us</a>
             </p>
         </div>
     </section>
 
-    <!-- Contact Section - Mobile optimized -->
-    <section id="contact" class="py-12 bg-white">
+    <!-- Contact Section -->
+    <section id="contact" class="py-12" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-8">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Contact Us</h2>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-2" style="color: #195887;">Contact Us</h2>
                     <p class="text-sm sm:text-base text-gray-600">Get in touch with our team</p>
                 </div>
                 
                 <div class="flex flex-col md:flex-row gap-6">
                     <!-- Contact Info -->
-                    <div class="w-full md:w-1/2 bg-gray-50 rounded-xl p-5">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">Reach us</h3>
+                    <div class="w-full md:w-1/2 rounded-xl p-5" style="background-color: #f0f7ff;">
+                        <h3 class="text-lg font-bold mb-3" style="color: #195887;">Reach us</h3>
                         <div class="space-y-3">
                             <div class="flex items-center">
-                                <i class="fas fa-map-marker-alt text-blue-600 w-6 text-sm"></i>
+                                <i class="fas fa-map-marker-alt w-6 text-sm" style="color: #44A3E3;"></i>
                                 <span class="text-sm text-gray-700">Lilongwe, Malawi</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-phone text-blue-600 w-6 text-sm"></i>
+                                <i class="fas fa-phone w-6 text-sm" style="color: #44A3E3;"></i>
                                 <span class="text-sm text-gray-700">+265 123 456 789</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-envelope text-blue-600 w-6 text-sm"></i>
+                                <i class="fas fa-envelope w-6 text-sm" style="color: #44A3E3;"></i>
                                 <span class="text-sm text-gray-700">info@dropxdelivery.mw</span>
                             </div>
                         </div>
                         
                         <!-- Simple App Download -->
-                        <div class="mt-5 bg-white rounded-lg p-4">
+                        <div class="mt-5 bg-white rounded-lg p-4 border" style="border-color: #44A3E3;">
                             <p class="text-xs font-medium text-gray-700 mb-3">Order via our app</p>
                             <div class="flex flex-col sm:flex-row gap-2">
-                                <button class="bg-black text-white px-3 py-2 rounded-lg text-xs flex items-center justify-center download-app-btn touch-target flex-1" data-platform="ios">
+                                <button class="btn-primary px-3 py-2 rounded-lg text-xs flex items-center justify-center download-app-btn touch-target flex-1" data-platform="ios">
                                     <i class="fab fa-apple mr-2"></i> iOS
                                 </button>
-                                <button class="bg-green-600 text-white px-3 py-2 rounded-lg text-xs flex items-center justify-center download-app-btn touch-target flex-1" data-platform="android">
+                                <button class="btn-primary px-3 py-2 rounded-lg text-xs flex items-center justify-center download-app-btn touch-target flex-1" data-platform="android">
                                     <i class="fab fa-google-play mr-2"></i> Android
                                 </button>
                             </div>
@@ -540,13 +640,13 @@
                     </div>
                     
                     <!-- Quick Message Form -->
-                    <div class="w-full md:w-1/2 bg-gray-50 rounded-xl p-5">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">Send a message</h3>
+                    <div class="w-full md:w-1/2 rounded-xl p-5" style="background-color: #f0f7ff;">
+                        <h3 class="text-lg font-bold mb-3" style="color: #195887;">Send a message</h3>
                         <form class="space-y-3" id="contactForm">
-                            <input type="text" placeholder="Your name" class="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm" required>
-                            <input type="email" placeholder="Email address" class="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm" required>
-                            <textarea rows="3" placeholder="Your message" class="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm" required></textarea>
-                            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg text-sm hover:bg-blue-700 transition-colors touch-target">
+                            <input type="text" placeholder="Your name" class="w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2" style="border-color: #44A3E3; focus:ring-color: #44A3E3;" required>
+                            <input type="email" placeholder="Email address" class="w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2" style="border-color: #44A3E3; focus:ring-color: #44A3E3;" required>
+                            <textarea rows="3" placeholder="Your message" class="w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2" style="border-color: #44A3E3; focus:ring-color: #44A3E3;" required></textarea>
+                            <button type="submit" class="btn-primary w-full py-3 rounded-lg text-sm transition-colors touch-target">
                                 Send Message
                             </button>
                         </form>
@@ -556,27 +656,26 @@
         </div>
     </section>
 
-    <!-- Footer - Mobile optimized with logo and company section -->
-    <footer class="bg-gray-900 text-white py-8">
+    <!-- Footer -->
+    <footer class="text-white py-8" style="background: linear-gradient(135deg, #195887 0%, #44A3E3 100%);">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row gap-8">
-                <!-- Company Info with Logo -->
+                <!-- Company Info -->
                 <div class="w-full md:w-1/3">
                     <div class="flex items-center space-x-2 mb-3">
                         <img src="logo.png" 
                              alt="DropX Logo" 
                              class="h-8 w-auto rounded-lg"
                              onerror="this.style.display='none'">
-                       
                     </div>
-                    <p class="text-xs text-gray-400 mb-3">
+                    <p class="text-xs text-blue-100 mb-3">
                         Fast food, groceries, and fresh farm produce delivery in Malawi.
                         <span class="block mt-1">Order exclusively through our mobile app.</span>
                     </p>
                     <div class="flex space-x-3 mt-4">
-                        <a href="#" class="text-gray-400 hover:text-white text-lg"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white text-lg"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white text-lg"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-yellow-400 text-lg"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white hover:text-yellow-400 text-lg"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-yellow-400 text-lg"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
@@ -584,11 +683,11 @@
                 <div class="w-1/2 md:w-1/6">
                     <h4 class="text-sm font-bold mb-3 text-white">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-xs text-gray-400 hover:text-white">Home</a></li>
-                        <li><a href="#services" class="text-xs text-gray-400 hover:text-white">Services</a></li>
-                        <li><a href="#partners" class="text-xs text-gray-400 hover:text-white">Restaurants</a></li>
-                        <li><a href="#dropxstore" class="text-xs text-gray-400 hover:text-white">DropX Store</a></li>
-                        <li><a href="#faq" class="text-xs text-gray-400 hover:text-white">FAQ</a></li>
+                        <li><a href="#home" class="text-xs text-blue-100 hover:text-white">Home</a></li>
+                        <li><a href="#services" class="text-xs text-blue-100 hover:text-white">Services</a></li>
+                        <li><a href="#partners" class="text-xs text-blue-100 hover:text-white">Restaurants</a></li>
+                        <li><a href="#dropxstore" class="text-xs text-blue-100 hover:text-white">DropX Store</a></li>
+                        <li><a href="#faq" class="text-xs text-blue-100 hover:text-white">FAQ</a></li>
                     </ul>
                 </div>
                 
@@ -596,10 +695,10 @@
                 <div class="w-1/2 md:w-1/6">
                     <h4 class="text-sm font-bold mb-3 text-white">Services</h4>
                     <ul class="space-y-2">
-                        <li><a href="#services" class="text-xs text-gray-400 hover:text-white">Restaurant Food</a></li>
-                        <li><a href="#services" class="text-xs text-gray-400 hover:text-white">Groceries</a></li>
-                        <li><a href="#dropxstore" class="text-xs text-gray-400 hover:text-white">Farm Produce</a></li>
-                        <li><a href="#contact" class="text-xs text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#services" class="text-xs text-blue-100 hover:text-white">Restaurant Food</a></li>
+                        <li><a href="#services" class="text-xs text-blue-100 hover:text-white">Groceries</a></li>
+                        <li><a href="#dropxstore" class="text-xs text-blue-100 hover:text-white">Farm Produce</a></li>
+                        <li><a href="#contact" class="text-xs text-blue-100 hover:text-white">Contact Us</a></li>
                     </ul>
                 </div>
                 
@@ -607,24 +706,22 @@
                 <div class="w-1/2 md:w-1/6">
                     <h4 class="text-sm font-bold mb-3 text-white">Company</h4>
                     <ul class="space-y-2">
-                        <li><a href="careers.html" class="text-xs text-gray-400 hover:text-white">Careers</a></li>
-                        <li><a href="ourteam.html" class="text-xs text-gray-400 hover:text-white">Our Team</a></li>
-                        <li><a href="privacy.html" class="text-xs text-gray-400 hover:text-white">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="text-xs text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="careers.html" class="text-xs text-blue-100 hover:text-white">Careers</a></li>
+                        <li><a href="ourteam.html" class="text-xs text-blue-100 hover:text-white">Our Team</a></li>
+                        <li><a href="privacy.html" class="text-xs text-blue-100 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-xs text-blue-100 hover:text-white">Terms of Service</a></li>
                     </ul>
                 </div>
-                
-               
             </div>
             
-            <div class="border-t border-gray-800 mt-8 pt-4 text-center">
-                <p class="text-xs text-gray-500">&copy; 2026 DropX Delivery. All rights reserved.</p>
+            <div class="border-t border-blue-400 mt-8 pt-4 text-center">
+                <p class="text-xs text-blue-100">&copy; 2026 DropX Delivery. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Success Toast -->
-    <div id="successToast" class="fixed top-4 left-4 right-4 md:left-auto md:right-4 md:w-auto bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg hidden z-50">
+    <div id="successToast" class="fixed top-4 left-4 right-4 md:left-auto md:right-4 md:w-96 text-white px-4 py-3 rounded-lg shadow-lg hidden z-50 animate__animated animate__fadeIn" style="background: linear-gradient(135deg, #44A3E3, #195887);">
         <div class="flex items-center justify-center">
             <i class="fas fa-check-circle mr-2"></i>
             <span id="toastMessage" class="text-sm">Action completed successfully!</span>
@@ -633,6 +730,18 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Image lazy loading with fade effect
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                if (img.complete) {
+                    img.classList.add('loaded');
+                } else {
+                    img.addEventListener('load', function() {
+                        this.classList.add('loaded');
+                    });
+                }
+            });
+
             // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -640,7 +749,25 @@
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', function(e) {
                     e.stopPropagation();
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
                     mobileMenu.classList.toggle('hidden');
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
+            }
+
+            // Mobile Company Toggle
+            const mobileCompanyToggle = document.getElementById('mobileCompanyToggle');
+            const mobileCompanyMenu = document.getElementById('mobileCompanyMenu');
+            
+            if (mobileCompanyToggle && mobileCompanyMenu) {
+                mobileCompanyToggle.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    mobileCompanyMenu.classList.toggle('hidden');
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+                    }
+                    this.setAttribute('aria-expanded', !isExpanded);
                 });
             }
 
@@ -651,114 +778,198 @@
                 link.addEventListener("click", function(e) {
                     if (this.getAttribute('href') === '#') return;
                     
-                    if (this.getAttribute('href').startsWith('#')) {
-                        e.preventDefault();
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute("href").substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: "smooth"
+                        });
                         
-                        const targetId = this.getAttribute("href").substring(1);
-                        const targetElement = document.getElementById(targetId);
-                        
-                        if (targetElement) {
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 70,
-                                behavior: "smooth"
-                            });
-                            
-                            // Close mobile menu if open
-                            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                                mobileMenu.classList.add('hidden');
-                            }
+                        // Close mobile menu if open
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenuBtn.setAttribute('aria-expanded', 'false');
                         }
+                        
+                        // Update URL without page jump
+                        history.pushState(null, null, `#${targetId}`);
                     }
                 });
             });
 
-            // Contact Form Submission
+            // Contact Form Submission with validation
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener("submit", function(e) {
                     e.preventDefault();
+                    
+                    // Basic validation
+                    const name = this.querySelector('input[type="text"]');
+                    const email = this.querySelector('input[type="email"]');
+                    const message = this.querySelector('textarea');
+                    
+                    if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
+                        showToast("Please fill in all fields", "error");
+                        return;
+                    }
+                    
+                    if (!isValidEmail(email.value)) {
+                        showToast("Please enter a valid email address", "error");
+                        return;
+                    }
+                    
                     showToast("Thank you! We'll get back to you soon.");
                     this.reset();
                 });
             }
 
-            // FAQ Accordion
+            // Email validation helper
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            // FAQ Accordion with improved accessibility
             const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach(question => {
+            faqQuestions.forEach((question, index) => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Set ARIA attributes
+                question.setAttribute('aria-expanded', 'false');
+                question.setAttribute('aria-controls', `faq-answer-${index}`);
+                answer.setAttribute('id', `faq-answer-${index}`);
+                
                 question.addEventListener('click', function() {
-                    const answer = this.nextElementSibling;
-                    const icon = this.querySelector('i');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
                     
                     // Close other FAQs
-                    faqQuestions.forEach(q => {
-                        if (q !== this) {
+                    faqQuestions.forEach((q, i) => {
+                        if (i !== index) {
                             const otherAnswer = q.nextElementSibling;
                             const otherIcon = q.querySelector('i');
-                            if (otherAnswer && otherAnswer.style.maxHeight) {
+                            q.setAttribute('aria-expanded', 'false');
+                            if (otherAnswer) {
                                 otherAnswer.style.maxHeight = null;
-                                if (otherIcon) {
-                                    otherIcon.classList.remove('fa-chevron-up');
-                                    otherIcon.classList.add('fa-chevron-down');
-                                }
+                            }
+                            if (otherIcon) {
+                                otherIcon.classList.remove('fa-chevron-up');
+                                otherIcon.classList.add('fa-chevron-down');
                             }
                         }
                     });
                     
                     // Toggle current answer
-                    if (answer.style.maxHeight) {
-                        answer.style.maxHeight = null;
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
-                    } else {
+                    if (!isExpanded) {
                         answer.style.maxHeight = answer.scrollHeight + "px";
                         icon.classList.remove('fa-chevron-down');
                         icon.classList.add('fa-chevron-up');
+                        this.setAttribute('aria-expanded', 'true');
+                    } else {
+                        answer.style.maxHeight = null;
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                        this.setAttribute('aria-expanded', 'false');
                     }
                 });
             });
 
-            // Download App Buttons
+            // Download App Buttons with analytics tracking
             document.querySelectorAll('.download-app-btn').forEach(button => {
                 button.addEventListener('click', function() {
                     const platform = this.getAttribute('data-platform');
-                    showToast(`Redirecting to ${platform === 'ios' ? 'App Store' : 'Play Store'}`, "info");
+                    
+                    // Track download attempt
+                    console.log(`Download attempted: ${platform}`);
+                    
+                    // Show appropriate message
+                    const storeName = platform === 'ios' ? 'App Store' : 'Google Play';
+                    showToast(`Redirecting to ${storeName}...`, "info");
+                    
+                    // In production, you would redirect to actual app store links
+                    // window.location.href = platform === 'ios' 
+                    //     ? 'https://apps.apple.com/app/dropx' 
+                    //     : 'https://play.google.com/store/apps/details?id=com.dropx';
                 });
             });
 
-            // Toast Notification Function
+            // Toast Notification Function with multiple types
             function showToast(message, type = "success") {
                 const toast = document.getElementById('successToast');
                 const toastMessage = document.getElementById('toastMessage');
                 
                 toastMessage.textContent = message;
                 
-                // Set color based on type
-                if (type === "info") {
-                    toast.style.backgroundColor = "#3b82f6";
-                } else {
-                    toast.style.backgroundColor = "#10b981";
-                }
+                // Set gradient based on type
+                const gradients = {
+                    success: "linear-gradient(135deg, #44A3E3, #195887)",
+                    error: "linear-gradient(135deg, #ef4444, #dc2626)",
+                    info: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
+                    warning: "linear-gradient(135deg, #f59e0b, #d97706)"
+                };
                 
+                toast.style.background = gradients[type] || gradients.success;
                 toast.classList.remove('hidden');
                 
+                // Add animation
+                toast.style.animation = 'none';
+                toast.offsetHeight; // Trigger reflow
+                toast.style.animation = 'fadeIn 0.3s';
+                
                 setTimeout(() => {
-                    toast.classList.add('hidden');
+                    toast.style.animation = 'fadeOut 0.3s';
+                    setTimeout(() => {
+                        toast.classList.add('hidden');
+                        toast.style.animation = '';
+                    }, 300);
                 }, 3000);
             }
 
-            // Handle dropdown for mobile/touch devices
-            const dropdowns = document.querySelectorAll('.group');
-            dropdowns.forEach(dropdown => {
-                dropdown.addEventListener('click', function(e) {
-                    if (window.innerWidth < 768) {
-                        e.preventDefault();
-                        const menu = this.querySelector('.group-hover\\:block');
-                        if (menu) {
-                            menu.classList.toggle('hidden');
-                        }
+            // Handle click outside to close mobile menu
+            document.addEventListener('click', function(e) {
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
                     }
-                });
+                }
             });
+
+            // Handle escape key to close mobile menu
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+
+            // Add animation keyframes
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(-10px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                
+                @keyframes fadeOut {
+                    from { opacity: 1; transform: translateY(0); }
+                    to { opacity: 0; transform: translateY(-10px); }
+                }
+                
+                .animate__fadeIn {
+                    animation: fadeIn 0.3s ease;
+                }
+                
+                input:focus, textarea:focus {
+                    ring-color: #44A3E3;
+                }
+            `;
+            document.head.appendChild(style);
         });
     </script>
 </body>
