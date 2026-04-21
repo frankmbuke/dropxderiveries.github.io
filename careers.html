@@ -3,7 +3,7 @@
 <head>
     <base target="_self">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Careers at DropX Delivery - Join Our Team in Malawi</title>
     <meta name="description" content="Join DropX Delivery team in Malawi. Exciting career opportunities in delivery services, logistics, customer support, and technology.">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,6 +18,12 @@
                         accent: "#f59e0b",
                         dark: "#1f2937",
                         light: "#f8fafc"
+                    },
+                    screens: {
+                        'xs': '475px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1024px',
                     }
                 }
             }
@@ -28,139 +34,239 @@
             -webkit-tap-highlight-color: transparent;
         }
         
+        /* Mobile-first responsive enhancements */
         .job-card {
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border-left: 4px solid #44A3E3;
         }
+        
         .job-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(68, 163, 227, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(68, 163, 227, 0.2);
         }
+        
         .benefit-icon {
-            width: 60px;
-            height: 60px;
+            width: 56px;
+            height: 56px;
             transition: all 0.3s ease;
         }
+        
+        @media (min-width: 768px) {
+            .benefit-icon {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        
         .benefit-card:hover .benefit-icon {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
-        .bg-logo-gradient {
-            background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #44A3E3, #195887);
-            color: white;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #195887, #44A3E3);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(68, 163, 227, 0.4);
-        }
-        .btn-outline {
-            border: 2px solid #44A3E3;
-            color: #195887;
-            transition: all 0.3s ease;
-        }
-        .btn-outline:hover {
-            background: linear-gradient(135deg, #44A3E3, #195887);
-            color: white;
-        }
+        
         .step-number {
             background: linear-gradient(135deg, #44A3E3, #195887);
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             margin: 0 auto 1rem;
         }
         
-        /* Better touch targets */
-        button, a, .clickable {
+        @media (min-width: 768px) {
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+        
+        /* Better touch targets for mobile */
+        button, a, .clickable, .btn-primary, .btn-outline {
             min-height: 44px;
             min-width: 44px;
             cursor: pointer;
+            touch-action: manipulation;
         }
-
-        /* Image loading */
+        
+        /* Mobile menu improvements */
+        .mobile-nav-item {
+            transition: all 0.2s ease;
+        }
+        
+        /* Responsive text adjustments */
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 1.875rem !important;
+                line-height: 1.3 !important;
+            }
+            .section-title {
+                font-size: 1.5rem !important;
+            }
+            .job-card {
+                padding: 1.25rem !important;
+            }
+        }
+        
+        /* Loading animation */
         img {
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-        
         img.loaded {
             opacity: 1;
+        }
+        
+        /* Custom button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #44A3E3, #195887);
+            color: white;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #195887, #44A3E3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(68, 163, 227, 0.4);
+        }
+        .btn-outline {
+            border: 2px solid #44A3E3;
+            color: #195887;
+            background: transparent;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-outline:hover {
+            background: linear-gradient(135deg, #44A3E3, #195887);
+            color: white;
+            border-color: transparent;
+        }
+        
+        /* Toast animation */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .toast-show {
+            animation: slideDown 0.3s ease forwards;
+        }
+        
+        /* Dropdown menu for desktop */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 50;
+            min-width: 200px;
+        }
+        .group:hover .dropdown-menu,
+        .group:focus-within .dropdown-menu {
+            display: block;
+        }
+        
+        /* Job details expand/collapse */
+        .job-details {
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
-    <!-- Header (Same as main page with logo) -->
+    <!-- Header - Consistent with main site -->
     <header class="bg-white shadow-lg sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <!-- Logo area - exactly like main page -->
+                <!-- Logo area -->
                 <div class="flex items-center space-x-2">
-                    <a href="index.html" class="flex items-center space-x-2">
-                        <img src="logo.png" 
-                             alt="DropX Logo" 
-                             class="h-8 w-auto rounded-lg shadow-md"
-                             onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 40 40\'%3E%3Crect width=\'40\' height=\'40\' fill=\'%2344A3E3\' rx=\'8\'/%3E%3Ctext x=\'8\' y=\'28\' fill=\'white\' font-size=\'24\' font-weight=\'bold\'%3EDX%3C/text%3E%3C/svg%3E'">
-                    </a>
+                    <img src="logo.png" 
+                         alt="DropX Logo" 
+                         class="h-8 w-auto rounded-lg shadow-md"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 40 40\'%3E%3Crect width=\'40\' height=\'40\' fill=\'%2344A3E3\' rx=\'8\'/%3E%3Ctext x=\'8\' y=\'28\' fill=\'white\' font-size=\'24\' font-weight=\'bold\'%3EDX%3C/text%3E%3C/svg%3E'">
+                    <span class="font-bold text-xl hidden xs:inline" style="color: #195887;">DropX</span>
                 </div>
                 
+                <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-6">
                     <a href="index.html" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm py-2">Home</a>
                     <a href="careers.html" class="text-[#195887] font-medium transition-colors text-sm py-2 border-b-2 border-[#44A3E3]">Careers</a>
-                    <a href="ourteam.html" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm py-2">Our Team</a>
-                    <a href="privacy.html" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm py-2">Privacy Policy</a>
-                    <a href="terms.html" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm py-2">Terms of Service</a>
+                    
+                    <!-- Company Dropdown -->
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm py-2 flex items-center">
+                            Company <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="dropdown-menu bg-white rounded-lg shadow-lg py-2 border border-gray-100">
+                            <a href="ourteam.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors">Our Team</a>
+                            <a href="privacy.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors">Privacy Policy</a>
+                            <a href="terms.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors">Terms of Service</a>
+                        </div>
+                    </div>
+                    
                     <a href="index.html#contact" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm py-2">Contact</a>
                 </div>
                 
-                <div class="flex items-center space-x-4">
-                   
-                    <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 clickable" id="mobileMenuBtn">
-                        <i class="fas fa-bars text-xl" style="color: #195887;"></i>
-                    </button>
-                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-3 rounded-lg hover:bg-gray-100 clickable" aria-label="Menu">
+                    <i class="fas fa-bars text-xl" style="color: #195887;"></i>
+                </button>
             </div>
             
             <!-- Mobile Menu -->
             <div class="md:hidden hidden mt-4 bg-white rounded-xl shadow-lg overflow-hidden" id="mobileMenu">
                 <div class="divide-y divide-gray-100">
-                    <a href="index.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Home</a>
-                    <a href="careers.html" class="block px-4 py-4 text-white font-medium clickable" style="background: linear-gradient(135deg, #44A3E3, #195887);">Careers</a>
-                    <a href="ourteam.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Our Team</a>
-                    <a href="privacy.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Privacy Policy</a>
-                    <a href="terms.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Terms of Service</a>
-                    <a href="index.html#contact" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Contact</a>
+                    <a href="index.html" class="mobile-nav-item block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Home</a>
+                    <a href="careers.html" class="mobile-nav-item block px-4 py-4 text-white font-medium clickable" style="background: linear-gradient(135deg, #44A3E3, #195887);">Careers</a>
+                    
+                    <!-- Mobile Company Section -->
+                    <div class="px-4 py-3 bg-gray-50">
+                        <button id="mobileCompanyToggle" class="w-full text-left flex justify-between items-center py-2 clickable">
+                            <span class="text-sm font-semibold" style="color: #195887;">Company</span>
+                            <i class="fas fa-chevron-down transition-transform" style="color: #44A3E3;"></i>
+                        </button>
+                        <div id="mobileCompanyMenu" class="hidden mt-2 space-y-2">
+                            <a href="ourteam.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-lg transition-colors clickable">Our Team</a>
+                            <a href="privacy.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-lg transition-colors clickable">Privacy Policy</a>
+                            <a href="terms.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-lg transition-colors clickable">Terms of Service</a>
+                        </div>
+                    </div>
+                    
+                    <a href="index.html#contact" class="mobile-nav-item block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Contact</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section with Logo Colors -->
-    <section class="py-20 text-white" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);">
+    <section class="py-12 md:py-20 text-white" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
-               
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                <h1 class="hero-title text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
                     Build Your Career at DropX
                 </h1>
-                <p class="text-xl mb-8 text-blue-100">
+                <p class="text-base md:text-xl mb-6 md:mb-8 text-blue-100 px-2">
                     Join Malawi's fastest-growing delivery service. Be part of a team that's revolutionizing 
                     how Malawians receive their food, groceries, and goods.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#openings" class="bg-yellow-400 text-[#195887] px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors">
+                <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
+                    <a href="#openings" class="bg-yellow-400 text-[#195887] px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg hover:bg-yellow-300 transition-colors text-center">
                         View Open Positions
                     </a>
-                    <a href="#why-join" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-[#195887] transition-colors">
+                    <a href="#why-join" class="border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg hover:bg-white hover:text-[#195887] transition-colors text-center">
                         Why Join Us
                     </a>
                 </div>
@@ -169,101 +275,93 @@
     </section>
 
     <!-- Why Join DropX -->
-    <section id="why-join" class="py-20 bg-white">
+    <section id="why-join" class="py-12 md:py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #195887;">Why Work With DropX?</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="section-title text-2xl md:text-4xl font-bold mb-3 md:mb-4" style="color: #195887;">Why Work With DropX?</h2>
+                <p class="text-base md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
                     We're building more than just a delivery service - we're building opportunities for Malawians.
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="benefit-card text-center p-6 rounded-xl" style="background-color: #f0f7ff;">
-                    <div class="benefit-icon rounded-full flex items-center justify-center mx-auto mb-6" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                        <i class="fas fa-chart-line text-white text-2xl"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8">
+                <div class="benefit-card text-center p-5 md:p-6 rounded-xl transition-all hover:shadow-lg" style="background-color: #f0f7ff;">
+                    <div class="benefit-icon rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+                        <i class="fas fa-chart-line text-white text-xl md:text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4" style="color: #195887;">Growth Opportunities</h3>
-                    <p class="text-gray-600">
-                        Fast-track career progression with training and development programs.
-                    </p>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4" style="color: #195887;">Growth Opportunities</h3>
+                    <p class="text-sm md:text-base text-gray-600">Fast-track career progression with training and development programs.</p>
                 </div>
                 
-                <div class="benefit-card text-center p-6 rounded-xl" style="background-color: #f0f7ff;">
-                    <div class="benefit-icon rounded-full flex items-center justify-center mx-auto mb-6" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                        <i class="fas fa-hand-holding-usd text-white text-2xl"></i>
+                <div class="benefit-card text-center p-5 md:p-6 rounded-xl transition-all hover:shadow-lg" style="background-color: #f0f7ff;">
+                    <div class="benefit-icon rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+                        <i class="fas fa-hand-holding-usd text-white text-xl md:text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4" style="color: #195887;">Competitive Compensation</h3>
-                    <p class="text-gray-600">
-                        Attractive salaries, bonuses, and performance incentives.
-                    </p>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4" style="color: #195887;">Competitive Compensation</h3>
+                    <p class="text-sm md:text-base text-gray-600">Attractive salaries, bonuses, and performance incentives.</p>
                 </div>
                 
-                <div class="benefit-card text-center p-6 rounded-xl" style="background-color: #f0f7ff;">
-                    <div class="benefit-icon rounded-full flex items-center justify-center mx-auto mb-6" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                        <i class="fas fa-users text-white text-2xl"></i>
+                <div class="benefit-card text-center p-5 md:p-6 rounded-xl transition-all hover:shadow-lg" style="background-color: #f0f7ff;">
+                    <div class="benefit-icon rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+                        <i class="fas fa-users text-white text-xl md:text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4" style="color: #195887;">Great Team Culture</h3>
-                    <p class="text-gray-600">
-                        Collaborative environment with supportive colleagues and leadership.
-                    </p>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4" style="color: #195887;">Great Team Culture</h3>
+                    <p class="text-sm md:text-base text-gray-600">Collaborative environment with supportive colleagues and leadership.</p>
                 </div>
                 
-                <div class="benefit-card text-center p-6 rounded-xl" style="background-color: #f0f7ff;">
-                    <div class="benefit-icon rounded-full flex items-center justify-center mx-auto mb-6" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                        <i class="fas fa-motorcycle text-white text-2xl"></i>
+                <div class="benefit-card text-center p-5 md:p-6 rounded-xl transition-all hover:shadow-lg" style="background-color: #f0f7ff;">
+                    <div class="benefit-icon rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+                        <i class="fas fa-motorcycle text-white text-xl md:text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4" style="color: #195887;">Make an Impact</h3>
-                    <p class="text-gray-600">
-                        Directly contribute to Malawi's economy and digital transformation.
-                    </p>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4" style="color: #195887;">Make an Impact</h3>
+                    <p class="text-sm md:text-base text-gray-600">Directly contribute to Malawi's economy and digital transformation.</p>
                 </div>
             </div>
             
             <!-- Employee Benefits -->
-            <div class="mt-20 rounded-2xl p-8 md:p-12" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
-                <h3 class="text-2xl font-bold mb-8 text-center" style="color: #195887;">Employee Benefits</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="mt-12 md:mt-20 rounded-2xl p-6 md:p-12" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
+                <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-center" style="color: #195887;">Employee Benefits</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     <div class="flex items-start">
-                        <i class="fas fa-check-circle text-xl mt-1 mr-3" style="color: #44A3E3;"></i>
+                        <i class="fas fa-check-circle text-lg md:text-xl mt-1 mr-3" style="color: #44A3E3;"></i>
                         <div>
-                            <h4 class="font-bold mb-2" style="color: #195887;">Health Insurance</h4>
-                            <p class="text-gray-600">Comprehensive medical coverage</p>
+                            <h4 class="font-bold mb-1 md:mb-2 text-sm md:text-base" style="color: #195887;">Health Insurance</h4>
+                            <p class="text-xs md:text-sm text-gray-600">Comprehensive medical coverage</p>
                         </div>
                     </div>
                     <div class="flex items-start">
-                        <i class="fas fa-check-circle text-xl mt-1 mr-3" style="color: #44A3E3;"></i>
+                        <i class="fas fa-check-circle text-lg md:text-xl mt-1 mr-3" style="color: #44A3E3;"></i>
                         <div>
-                            <h4 class="font-bold mb-2" style="color: #195887;">Flexible Hours</h4>
-                            <p class="text-gray-600">Work-life balance support</p>
+                            <h4 class="font-bold mb-1 md:mb-2 text-sm md:text-base" style="color: #195887;">Flexible Hours</h4>
+                            <p class="text-xs md:text-sm text-gray-600">Work-life balance support</p>
                         </div>
                     </div>
                     <div class="flex items-start">
-                        <i class="fas fa-check-circle text-xl mt-1 mr-3" style="color: #44A3E3;"></i>
+                        <i class="fas fa-check-circle text-lg md:text-xl mt-1 mr-3" style="color: #44A3E3;"></i>
                         <div>
-                            <h4 class="font-bold mb-2" style="color: #195887;">Training Programs</h4>
-                            <p class="text-gray-600">Continuous skill development</p>
+                            <h4 class="font-bold mb-1 md:mb-2 text-sm md:text-base" style="color: #195887;">Training Programs</h4>
+                            <p class="text-xs md:text-sm text-gray-600">Continuous skill development</p>
                         </div>
                     </div>
                     <div class="flex items-start">
-                        <i class="fas fa-check-circle text-xl mt-1 mr-3" style="color: #44A3E3;"></i>
+                        <i class="fas fa-check-circle text-lg md:text-xl mt-1 mr-3" style="color: #44A3E3;"></i>
                         <div>
-                            <h4 class="font-bold mb-2" style="color: #195887;">Performance Bonuses</h4>
-                            <p class="text-gray-600">Rewards for outstanding work</p>
+                            <h4 class="font-bold mb-1 md:mb-2 text-sm md:text-base" style="color: #195887;">Performance Bonuses</h4>
+                            <p class="text-xs md:text-sm text-gray-600">Rewards for outstanding work</p>
                         </div>
                     </div>
                     <div class="flex items-start">
-                        <i class="fas fa-check-circle text-xl mt-1 mr-3" style="color: #44A3E3;"></i>
+                        <i class="fas fa-check-circle text-lg md:text-xl mt-1 mr-3" style="color: #44A3E3;"></i>
                         <div>
-                            <h4 class="font-bold mb-2" style="color: #195887;">Paid Time Off</h4>
-                            <p class="text-gray-600">Generous vacation days</p>
+                            <h4 class="font-bold mb-1 md:mb-2 text-sm md:text-base" style="color: #195887;">Paid Time Off</h4>
+                            <p class="text-xs md:text-sm text-gray-600">Generous vacation days</p>
                         </div>
                     </div>
                     <div class="flex items-start">
-                        <i class="fas fa-check-circle text-xl mt-1 mr-3" style="color: #44A3E3;"></i>
+                        <i class="fas fa-check-circle text-lg md:text-xl mt-1 mr-3" style="color: #44A3E3;"></i>
                         <div>
-                            <h4 class="font-bold mb-2" style="color: #195887;">Career Advancement</h4>
-                            <p class="text-gray-600">Clear promotion pathways</p>
+                            <h4 class="font-bold mb-1 md:mb-2 text-sm md:text-base" style="color: #195887;">Career Advancement</h4>
+                            <p class="text-xs md:text-sm text-gray-600">Clear promotion pathways</p>
                         </div>
                     </div>
                 </div>
@@ -272,207 +370,132 @@
     </section>
 
     <!-- Current Openings -->
-    <section id="openings" class="py-20" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
+    <section id="openings" class="py-12 md:py-20" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #195887;">Current Job Openings</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="section-title text-2xl md:text-4xl font-bold mb-3 md:mb-4" style="color: #195887;">Current Job Openings</h2>
+                <p class="text-base md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
                     Find your perfect role in our growing team across Malawi
                 </p>
             </div>
             
-            <div class="max-w-4xl mx-auto space-y-6">
-                <!-- Job 1 -->
-                <div class="job-card bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold" style="color: #195887;">Delivery Rider</h3>
-                        <span class="px-3 py-1 rounded-full text-sm font-medium mt-2 md:mt-0 text-white" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+            <div class="max-w-4xl mx-auto space-y-4 md:space-y-6">
+                <!-- Job 1 - Delivery Rider -->
+                <div class="job-card bg-white p-5 md:p-8 rounded-xl shadow-md">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-3 md:mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold" style="color: #195887;">Delivery Rider</h3>
+                        <span class="px-3 py-1 rounded-full text-xs md:text-sm font-medium mt-2 md:mt-0 text-white inline-block w-fit" style="background: linear-gradient(135deg, #44A3E3, #195887);">
                             Multiple Locations
                         </span>
                     </div>
-                    <div class="flex flex-wrap gap-4 mb-6">
-                        <span class="flex items-center text-gray-600">
-                            <i class="fas fa-map-marker-alt mr-2" style="color: #44A3E3;"></i>
-                            Lilongwe, Blantyre, Mzuzu
-                        </span>
-                        <span class="flex items-center text-gray-600">
-                            <i class="fas fa-clock mr-2" style="color: #44A3E3;"></i>
-                            Full-time / Part-time
-                        </span>
-                        <span class="flex items-center text-gray-600">
-                            <i class="fas fa-money-bill-wave mr-2" style="color: #44A3E3;"></i>
-                            Competitive + Tips
-                        </span>
+                    <div class="flex flex-wrap gap-3 md:gap-4 mb-4 md:mb-6">
+                        <span class="flex items-center text-xs md:text-sm text-gray-600"><i class="fas fa-map-marker-alt mr-2" style="color: #44A3E3;"></i>Lilongwe, Blantyre, Mzuzu</span>
+                        <span class="flex items-center text-xs md:text-sm text-gray-600"><i class="fas fa-clock mr-2" style="color: #44A3E3;"></i>Full-time / Part-time</span>
+                        <span class="flex items-center text-xs md:text-sm text-gray-600"><i class="fas fa-money-bill-wave mr-2" style="color: #44A3E3;"></i>Competitive + Tips</span>
                     </div>
-                    <p class="text-gray-600 mb-6">
-                        Join our fleet of delivery riders and be the face of DropX. Deliver food, groceries, and goods to customers across Malawi with our state-of-the-art delivery app.
-                    </p>
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <a href="application.html?position=delivery-rider" class="btn-primary px-6 py-3 rounded-lg text-center">
-                            Apply Now
-                        </a>
-                        <button class="btn-outline px-6 py-3 rounded-lg view-details">
-                            View Details
-                        </button>
+                    <p class="text-sm md:text-base text-gray-600 mb-4 md:mb-6">Join our fleet of delivery riders and be the face of DropX. Deliver food, groceries, and goods to customers across Malawi with our state-of-the-art delivery app.</p>
+                    <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+                        <a href="application.html?position=delivery-rider" class="btn-primary px-5 md:px-6 py-2.5 md:py-3 rounded-lg text-center text-sm md:text-base">Apply Now</a>
+                        <button class="btn-outline px-5 md:px-6 py-2.5 md:py-3 rounded-lg view-details text-sm md:text-base">View Details</button>
                     </div>
                 </div>
                 
-                <!-- Job 2 -->
-                <div class="job-card bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold" style="color: #195887;">Customer Support Agent</h3>
-                        <span class="px-3 py-1 rounded-full text-sm font-medium mt-2 md:mt-0 text-white" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                            Lilongwe HQ
-                        </span>
+                <!-- Job 2 - Customer Support Agent -->
+                <div class="job-card bg-white p-5 md:p-8 rounded-xl shadow-md">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-3 md:mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold" style="color: #195887;">Customer Support Agent</h3>
+                        <span class="px-3 py-1 rounded-full text-xs md:text-sm font-medium mt-2 md:mt-0 text-white inline-block w-fit" style="background: linear-gradient(135deg, #44A3E3, #195887);">Lilongwe HQ</span>
                     </div>
-                    <div class="flex flex-wrap gap-4 mb-6">
-                        <span class="flex items-center text-gray-600">
-                            <i class="fas fa-map-marker-alt mr-2" style="color: #44A3E3;"></i>
-                            Lilongwe
-                        </span>
-                        <span class="flex items-center text-gray-600">
-                            <i class="fas fa-clock mr-2" style="color: #44A3E3;"></i>
-                            Full-time
-                        </span>
-                        <span class="flex items-center text-gray-600">
-                            <i class="fas fa-money-bill-wave mr-2" style="color: #44A3E3;"></i>
-                            MWK 350,000+
-                        </span>
+                    <div class="flex flex-wrap gap-3 md:gap-4 mb-4 md:mb-6">
+                        <span class="flex items-center text-xs md:text-sm text-gray-600"><i class="fas fa-map-marker-alt mr-2" style="color: #44A3E3;"></i>Lilongwe</span>
+                        <span class="flex items-center text-xs md:text-sm text-gray-600"><i class="fas fa-clock mr-2" style="color: #44A3E3;"></i>Full-time</span>
+                        <span class="flex items-center text-xs md:text-sm text-gray-600"><i class="fas fa-money-bill-wave mr-2" style="color: #44A3E3;"></i>MWK 350,000+</span>
                     </div>
-                    <p class="text-gray-600 mb-6">
-                        Provide exceptional customer service to DropX clients. Handle inquiries, resolve issues, and ensure customer satisfaction through various channels.
-                    </p>
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <a href="application.html?position=customer-support" class="btn-primary px-6 py-3 rounded-lg text-center">
-                            Apply Now
-                        </a>
-                        <button class="btn-outline px-6 py-3 rounded-lg view-details">
-                            View Details
-                        </button>
+                    <p class="text-sm md:text-base text-gray-600 mb-4 md:mb-6">Provide exceptional customer service to DropX clients. Handle inquiries, resolve issues, and ensure customer satisfaction through various channels.</p>
+                    <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+                        <a href="application.html?position=customer-support" class="btn-primary px-5 md:px-6 py-2.5 md:py-3 rounded-lg text-center text-sm md:text-base">Apply Now</a>
+                        <button class="btn-outline px-5 md:px-6 py-2.5 md:py-3 rounded-lg view-details text-sm md:text-base">View Details</button>
                     </div>
                 </div>
                 
-                <!-- Job 3 -->
-                <div class="job-card bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold" style="color: #195887;">Operations Manager</h3>
-                        <span class="px-3 py-1 rounded-full text-sm font-medium mt-2 md:mt-0 text-white" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                            Blantyre
-                        </span>
+                <!-- Job 3 - Operations Manager -->
+                <div class="job-card bg-white p-5 md:p-8 rounded-xl shadow-md">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-3 md:mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold" style="color: #195887;">Operations Manager</h3>
+                        <span class="px-3 py-1 rounded-full text-xs md:text-sm font-medium mt-2 md:mt-0 text-white inline-block w-fit" style="background: linear-gradient(135deg, #44A3E3, #195887);">Blantyre</span>
                     </div>
-                    <div class="flex flex-wrap gap-4 mb-6">
-                        <span class="flex items-center text-gray-600">
-                            <i class="fas fa-map-marker-alt mr-2" style="color: #44A3E3;"></i>
-                            Blantyre
-                        </span>
-                        <span class="flex items-center text-gray-600">
-                            <i class="fas fa-clock mr-2" style="color: #44A3E3;"></i>
-                            Full-time
-                        </span>
-                        <span class="flex items-center text-gray-600">
-                            <i class="fas fa-money-bill-wave mr-2" style="color: #44A3E3;"></i>
-                            MWK 1,200,000+
-                        </span>
+                    <div class="flex flex-wrap gap-3 md:gap-4 mb-4 md:mb-6">
+                        <span class="flex items-center text-xs md:text-sm text-gray-600"><i class="fas fa-map-marker-alt mr-2" style="color: #44A3E3;"></i>Blantyre</span>
+                        <span class="flex items-center text-xs md:text-sm text-gray-600"><i class="fas fa-clock mr-2" style="color: #44A3E3;"></i>Full-time</span>
+                        <span class="flex items-center text-xs md:text-sm text-gray-600"><i class="fas fa-money-bill-wave mr-2" style="color: #44A3E3;"></i>MWK 1,200,000+</span>
                     </div>
-                    <p class="text-gray-600 mb-6">
-                        Oversee delivery operations in Blantyre. Manage rider teams, optimize delivery routes, and ensure efficient service delivery.
-                    </p>
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <a href="application.html?position=operations-manager" class="btn-primary px-6 py-3 rounded-lg text-center">
-                            Apply Now
-                        </a>
-                        <button class="btn-outline px-6 py-3 rounded-lg view-details">
-                            View Details
-                        </button>
+                    <p class="text-sm md:text-base text-gray-600 mb-4 md:mb-6">Oversee delivery operations in Blantyre. Manage rider teams, optimize delivery routes, and ensure efficient service delivery.</p>
+                    <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+                        <a href="application.html?position=operations-manager" class="btn-primary px-5 md:px-6 py-2.5 md:py-3 rounded-lg text-center text-sm md:text-base">Apply Now</a>
+                        <button class="btn-outline px-5 md:px-6 py-2.5 md:py-3 rounded-lg view-details text-sm md:text-base">View Details</button>
                     </div>
                 </div>
             </div>
             
             <!-- No Suitable Role -->
-            <div class="mt-12 text-center">
-                <div class="bg-white rounded-xl p-8 max-w-2xl mx-auto border-l-4" style="border-left-color: #44A3E3;">
-                    <h3 class="text-2xl font-bold mb-4" style="color: #195887;">Don't see your perfect role?</h3>
-                    <p class="text-gray-600 mb-6">
-                        We're always looking for talented individuals. Send us your CV and we'll contact you when suitable positions open.
-                    </p>
-                    <a href="mailto:careers@dropxdelivery.mw" class="btn-primary inline-block px-8 py-3 rounded-lg font-medium">
-                        <i class="fas fa-paper-plane mr-2"></i>Send Your CV
-                    </a>
+            <div class="mt-10 md:mt-12 text-center">
+                <div class="bg-white rounded-xl p-6 md:p-8 max-w-2xl mx-auto border-l-4" style="border-left-color: #44A3E3;">
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4" style="color: #195887;">Don't see your perfect role?</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-5 md:mb-6">We're always looking for talented individuals. Send us your CV and we'll contact you when suitable positions open.</p>
+                    <a href="mailto:careers@dropxdelivery.mw" class="btn-primary inline-block px-6 md:px-8 py-3 rounded-lg font-medium text-sm md:text-base">Send Your CV</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Application Process -->
-    <section class="py-20 bg-white">
+    <section class="py-12 md:py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #195887;">Our Hiring Process</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Simple, transparent, and designed to find the best talent
-                </p>
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="section-title text-2xl md:text-4xl font-bold mb-3 md:mb-4" style="color: #195887;">Our Hiring Process</h2>
+                <p class="text-base md:text-xl text-gray-600 max-w-2xl mx-auto px-2">Simple, transparent, and designed to find the best talent</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-                <div class="text-center">
-                    <div class="step-number">1</div>
-                    <h3 class="text-xl font-bold mb-4" style="color: #195887;">Application</h3>
-                    <p class="text-gray-600">
-                        Submit your application online. We review every application within 48 hours.
-                    </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
+                <div class="text-center px-2">
+                    <div class="step-number mx-auto">1</div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4" style="color: #195887;">Application</h3>
+                    <p class="text-xs md:text-sm text-gray-600">Submit your application online. We review every application within 48 hours.</p>
                 </div>
-                
-                <div class="text-center">
-                    <div class="step-number">2</div>
-                    <h3 class="text-xl font-bold mb-4" style="color: #195887;">Initial Screening</h3>
-                    <p class="text-gray-600">
-                        Phone or video interview to discuss your experience and career goals.
-                    </p>
+                <div class="text-center px-2">
+                    <div class="step-number mx-auto">2</div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4" style="color: #195887;">Initial Screening</h3>
+                    <p class="text-xs md:text-sm text-gray-600">Phone or video interview to discuss your experience and career goals.</p>
                 </div>
-                
-                <div class="text-center">
-                    <div class="step-number">3</div>
-                    <h3 class="text-xl font-bold mb-4" style="color: #195887;">Assessment</h3>
-                    <p class="text-gray-600">
-                        Role-specific assessments or practical tasks to evaluate your skills.
-                    </p>
+                <div class="text-center px-2">
+                    <div class="step-number mx-auto">3</div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4" style="color: #195887;">Assessment</h3>
+                    <p class="text-xs md:text-sm text-gray-600">Role-specific assessments or practical tasks to evaluate your skills.</p>
                 </div>
-                
-                <div class="text-center">
-                    <div class="step-number">4</div>
-                    <h3 class="text-xl font-bold mb-4" style="color: #195887;">Final Interview</h3>
-                    <p class="text-gray-600">
-                        Meet with our team leaders. Get to know us and discuss the role in detail.
-                    </p>
+                <div class="text-center px-2">
+                    <div class="step-number mx-auto">4</div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4" style="color: #195887;">Final Interview</h3>
+                    <p class="text-xs md:text-sm text-gray-600">Meet with our team leaders. Get to know us and discuss the role in detail.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer (Same style as main page) -->
-    <footer class="text-white py-8" style="background: linear-gradient(135deg, #195887 0%, #44A3E3 100%);">
+    <!-- Footer (Consistent with main site) -->
+    <footer class="text-white py-8 md:py-10" style="background: linear-gradient(135deg, #195887 0%, #44A3E3 100%);">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row gap-8">
-                <!-- Company Info with Logo -->
                 <div class="w-full md:w-1/3">
                     <div class="flex items-center space-x-2 mb-3">
-                        <img src="logo.png" 
-                             alt="DropX Logo" 
-                             class="h-8 w-auto rounded-lg bg-white p-1"
-                             onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 40 40\'%3E%3Crect width=\'40\' height=\'40\' fill=\'white\' rx=\'8\'/%3E%3Ctext x=\'8\' y=\'28\' fill=\'%2344A3E3\' font-size=\'24\' font-weight=\'bold\'%3EDX%3C/text%3E%3C/svg%3E'">
+                        <img src="logo.png" alt="DropX Logo" class="h-8 w-auto rounded-lg bg-white p-1" onerror="this.style.display='none'">
                     </div>
-                    <p class="text-xs text-blue-100 mb-3">
-                        Fast food, groceries, and fresh farm produce delivery in Malawi.
-                        <span class="block mt-1">Join our team and build your career.</span>
-                    </p>
+                    <p class="text-xs text-blue-100 mb-3">Fast food, groceries, and fresh farm produce delivery in Malawi. Join our team and build your career.</p>
                     <div class="flex space-x-3 mt-4">
                         <a href="#" class="text-white hover:text-yellow-400 text-lg"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="text-white hover:text-yellow-400 text-lg"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="text-white hover:text-yellow-400 text-lg"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                
-                <!-- Quick Links -->
                 <div class="w-1/2 md:w-1/6">
                     <h4 class="text-sm font-bold mb-3 text-white">Quick Links</h4>
                     <ul class="space-y-2">
@@ -482,18 +505,13 @@
                         <li><a href="index.html#contact" class="text-xs text-blue-100 hover:text-white">Contact</a></li>
                     </ul>
                 </div>
-                
-                <!-- Company -->
                 <div class="w-1/2 md:w-1/6">
                     <h4 class="text-sm font-bold mb-3 text-white">Company</h4>
                     <ul class="space-y-2">
                         <li><a href="privacy.html" class="text-xs text-blue-100 hover:text-white">Privacy Policy</a></li>
                         <li><a href="terms.html" class="text-xs text-blue-100 hover:text-white">Terms of Service</a></li>
-                        <li><a href="careers.html" class="text-xs text-blue-100 hover:text-white">Careers</a></li>
                     </ul>
                 </div>
-                
-                <!-- Contact -->
                 <div class="w-1/2 md:w-1/6">
                     <h4 class="text-sm font-bold mb-3 text-white">Contact HR</h4>
                     <ul class="space-y-2">
@@ -503,18 +521,16 @@
                     </ul>
                 </div>
             </div>
-            
             <div class="border-t border-blue-400 mt-8 pt-4 text-center">
-                <p class="text-xs text-blue-100">&copy; 2026 DropX Delivery. All rights reserved.</p>
-                <p class="text-xs text-blue-100 mt-1">Equal Opportunity Employer</p>
+                <p class="text-xs text-blue-100">&copy; 2026 DropX Delivery. All rights reserved. Equal Opportunity Employer</p>
             </div>
         </div>
     </footer>
 
     <!-- Success Toast -->
     <div id="successToast" class="fixed top-4 left-4 right-4 md:left-auto md:right-4 md:w-96 text-white px-4 py-3 rounded-lg shadow-lg hidden z-50" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-        <div class="flex items-center justify-center">
-            <i class="fas fa-check-circle mr-2"></i>
+        <div class="flex items-center justify-center gap-2">
+            <i class="fas fa-check-circle"></i>
             <span id="toastMessage" class="text-sm">Action completed successfully!</span>
         </div>
     </div>
@@ -522,108 +538,100 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Image lazy loading
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                if (img.complete) {
-                    img.classList.add('loaded');
-                } else {
-                    img.addEventListener('load', function() {
-                        this.classList.add('loaded');
-                    });
-                }
+            document.querySelectorAll('img').forEach(img => {
+                if (img.complete) img.classList.add('loaded');
+                else img.addEventListener('load', () => img.classList.add('loaded'));
             });
 
-            // Mobile Menu Toggle
+            // Mobile menu toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
-            
             if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function(e) {
+                mobileMenuBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
                     mobileMenu.classList.toggle('hidden');
                 });
             }
 
-            // Job Details Toggle
-            document.querySelectorAll('.view-details').forEach(button => {
-                button.addEventListener('click', function() {
-                    const jobCard = this.closest('.job-card');
-                    const existingDetails = jobCard.querySelector('.job-details');
-                    
-                    if (existingDetails) {
-                        existingDetails.remove();
+            // Mobile company toggle
+            const mobileCompanyToggle = document.getElementById('mobileCompanyToggle');
+            const mobileCompanyMenu = document.getElementById('mobileCompanyMenu');
+            if (mobileCompanyToggle && mobileCompanyMenu) {
+                mobileCompanyToggle.addEventListener('click', () => {
+                    mobileCompanyMenu.classList.toggle('hidden');
+                    const icon = mobileCompanyToggle.querySelector('i');
+                    if (icon) icon.style.transform = mobileCompanyMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                });
+            }
+
+            // Job details toggle
+            document.querySelectorAll('.view-details').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const card = this.closest('.job-card');
+                    const existing = card.querySelector('.job-details');
+                    if (existing) {
+                        existing.remove();
                         this.textContent = 'View Details';
                     } else {
-                        const detailsHTML = `
-                            <div class="job-details mt-6 pt-6 border-t border-gray-200">
-                                <h4 class="font-bold mb-4" style="color: #195887;">Requirements:</h4>
-                                <ul class="list-disc pl-5 text-gray-600 mb-6 space-y-2">
-                                    <li>Valid Malawian driver's license (for rider positions)</li>
-                                    <li>Good communication skills in English and Chichewa</li>
-                                    <li>Smartphone with internet access</li>
-                                    <li>Positive attitude and customer-focused mindset</li>
-                                    <li>Willingness to work flexible hours</li>
-                                </ul>
-                                <h4 class="font-bold mb-4" style="color: #195887;">Responsibilities:</h4>
-                                <ul class="list-disc pl-5 text-gray-600 space-y-2">
-                                    <li>Timely pickup and delivery of orders</li>
-                                    <li>Maintaining delivery equipment</li>
-                                    <li>Providing excellent customer service</li>
-                                    <li>Following safety protocols</li>
-                                    <li>Reporting issues to supervisors</li>
-                                </ul>
-                            </div>
+                        const details = document.createElement('div');
+                        details.className = 'job-details mt-4 md:mt-6 pt-4 md:pt-6 border-t border-gray-200';
+                        details.innerHTML = `
+                            <h4 class="font-bold mb-3 md:mb-4 text-sm md:text-base" style="color: #195887;">Requirements:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 mb-5 md:mb-6 space-y-1.5 text-xs md:text-sm">
+                                <li>Valid Malawian driver's license (for rider positions)</li>
+                                <li>Good communication skills in English and Chichewa</li>
+                                <li>Smartphone with internet access</li>
+                                <li>Positive attitude and customer-focused mindset</li>
+                                <li>Willingness to work flexible hours</li>
+                            </ul>
+                            <h4 class="font-bold mb-3 md:mb-4 text-sm md:text-base" style="color: #195887;">Responsibilities:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1.5 text-xs md:text-sm">
+                                <li>Timely pickup and delivery of orders</li>
+                                <li>Maintaining delivery equipment</li>
+                                <li>Providing excellent customer service</li>
+                                <li>Following safety protocols</li>
+                                <li>Reporting issues to supervisors</li>
+                            </ul>
                         `;
-                        jobCard.insertAdjacentHTML('beforeend', detailsHTML);
+                        card.appendChild(details);
                         this.textContent = 'Hide Details';
-                        
-                        // Scroll to show details
-                        jobCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     }
                 });
             });
 
-            // Smooth scrolling
+            // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                        }
+                    const hash = this.getAttribute('href');
+                    if (hash === '#') return;
+                    const target = document.querySelector(hash);
+                    if (target) {
+                        e.preventDefault();
+                        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
                     }
                 });
             });
 
-            // Handle click outside to close mobile menu
-            document.addEventListener('click', function(e) {
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                        mobileMenu.classList.add('hidden');
-                    }
+            // Close mobile menu on outside click
+            document.addEventListener('click', (e) => {
+                if (mobileMenu && !mobileMenu.classList.contains('hidden') && 
+                    !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
                 }
             });
 
-            // Show toast function (can be used for form submissions)
-            window.showToast = function(message, type = "success") {
+            // Toast function
+            window.showToast = (msg) => {
                 const toast = document.getElementById('successToast');
-                const toastMessage = document.getElementById('toastMessage');
-                
-                toastMessage.textContent = message;
+                const toastMsg = document.getElementById('toastMessage');
+                toastMsg.textContent = msg;
                 toast.classList.remove('hidden');
-                
+                toast.classList.add('toast-show');
                 setTimeout(() => {
                     toast.classList.add('hidden');
+                    toast.classList.remove('toast-show');
                 }, 3000);
             };
         });

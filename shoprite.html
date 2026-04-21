@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopRite - Grocery Delivery | DropX Delivery Malawi</title>
+    <meta name="description" content="Shop from ShopRite Malawi with DropX Delivery. Get groceries, fresh produce, household items delivered to your door.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1e40af",
+                        secondary: "#3b82f6",
+                        accent: "#f59e0b",
+                        dark: "#1f2937",
+                        light: "#f8fafc"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .category-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .category-btn.active {
+            background-color: #1e40af;
+            color: white;
+        }
+        
+        .cart-item {
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .item-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .item-card {
+            transition: all 0.2s ease;
+        }
+        
+        .quantity-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .sticky-cart {
+            position: sticky;
+            top: 100px;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Header & Navigation (Same as main site) -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-shipping-fast text-white text-lg"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-blue-600">DropX</span>
+                        <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium">
+                            <i class="fas fa-flag mr-1"></i>Malawi
+                        </span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="index.html#services" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Services</a>
+                    <a href="index.html#areas" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Areas</a>
+                    <a href="partners.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Partners</a>
+                    <a href="index.html#testimonials" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Reviews</a>
+                    <a href="index.html#tracking" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Tracking</a>
+                    <a href="index.html#faq" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">FAQ</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Cart Icon -->
+                    <button class="relative" id="cartToggle">
+                        <i class="fas fa-shopping-cart text-2xl text-gray-700"></i>
+                        <span class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center" id="cartCount">0</span>
+                    </button>
+                    
+                    <a href="https://wa.me/265123456789?text=Hi%20DropX%20Delivery,%20I%20want%20to%20order%20from%20ShopRite" 
+                       target="_blank" 
+                       class="hidden md:flex items-center bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                        <i class="fab fa-whatsapp mr-2"></i>Order via WhatsApp
+                    </a>
+                    
+                    <button class="md:hidden text-gray-700" id="mobileMenuBtn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4 bg-white rounded-lg shadow-lg p-4" id="mobileMenu">
+                <div class="space-y-3">
+                    <a href="index.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Home</a>
+                    <a href="partners.html" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Partners</a>
+                    <a href="index.html#services" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Services</a>
+                    <a href="index.html#areas" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Areas</a>
+                    <a href="index.html#tracking" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Tracking</a>
+                    <a href="index.html#contact" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Contact</a>
+                    <a href="https://wa.me/265123456789" target="_blank" class="block bg-green-500 text-white text-center py-2 rounded-lg hover:bg-green-600">
+                        <i class="fab fa-whatsapp mr-2"></i>Order via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ShopRite Hero Section -->
+    <section class="bg-gradient-to-r from-green-600 to-green-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-2/3 mb-8 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-white text-green-800 px-3 py-1 rounded-full text-sm font-bold mr-4">
+                            <i class="fas fa-store mr-1"></i>SUPERMARKET
+                        </div>
+                        <div class="text-green-200">
+                            <i class="fas fa-star mr-1"></i>4.5 Rating
+                        </div>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                        ShopRite Malawi
+                        <span class="text-yellow-300">Grocery Delivery</span>
+                    </h1>
+                    <p class="text-xl mb-6 text-green-100">
+                        Your one-stop supermarket for fresh groceries, household essentials, and more. Delivered fresh to your door.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-yellow-300 mr-2"></i>
+                            <span>Fresh Produce Guaranteed</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-yellow-300 mr-2"></i>
+                            <span>Same-Day Delivery</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-yellow-300 mr-2"></i>
+                            <span>Local & Imported Products</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/3">
+                    <div class="bg-white rounded-xl p-6 shadow-2xl">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Quick Order</h3>
+                        <p class="text-gray-600 mb-4">Need something specific? Order directly via WhatsApp:</p>
+                        <a href="https://wa.me/265123456789?text=Hi%20DropX%20Delivery,%20I%20want%20to%20order%20from%20ShopRite" 
+                           target="_blank" 
+                           class="w-full bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors font-medium flex items-center justify-center mb-3">
+                            <i class="fab fa-whatsapp mr-2"></i>Order via WhatsApp
+                        </a>
+                        <p class="text-sm text-gray-500 text-center">Or browse and add items to cart below</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Categories Sidebar -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-sm p-6 sticky-cart">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">Categories</h3>
+                    
+                    <div class="space-y-2 mb-8">
+                        <button class="category-btn w-full text-left px-4 py-3 rounded-lg bg-blue-600 text-white active" data-category="all">
+                            <i class="fas fa-th-large mr-3"></i>All Products
+                        </button>
+                        <button class="category-btn w-full text-left px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800" data-category="fresh">
+                            <i class="fas fa-leaf mr-3 text-green-500"></i>Fresh Produce
+                        </button>
+                        <button class="category-btn w-full text-left px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800" data-category="dairy">
+                            <i class="fas fa-cheese mr-3 text-yellow-500"></i>Dairy & Eggs
+                        </button>
+                        <button class="category-btn w-full text-left px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800" data-category="meat">
+                            <i class="fas fa-drumstick-bite mr-3 text-red-500"></i>Meat & Poultry
+                        </button>
+                        <button class="category-btn w-full text-left px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800" data-category="bakery">
+                            <i class="fas fa-bread-slice mr-3 text-yellow-600"></i>Bakery
+                        </button>
+                        <button class="category-btn w-full text-left px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800" data-category="beverages">
+                            <i class="fas fa-wine-bottle mr-3 text-blue-500"></i>Beverages
+                        </button>
+                        <button class="category-btn w-full text-left px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800" data-category="household">
+                            <i class="fas fa-home mr-3 text-purple-500"></i>Household Essentials
+                        </button>
+                    </div>
+                    
+                    <!-- Store Info -->
+                    <div class="border-t border-gray-200 pt-6">
+                        <h4 class="font-bold text-gray-800 mb-4">Store Information</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-map-marker-alt text-blue-500 mr-3"></i>
+                                <span>Lilongwe, Blantyre</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-clock text-blue-500 mr-3"></i>
+                                <span>8AM - 8PM Daily</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-truck text-blue-500 mr-3"></i>
+                                <span>Same-day Delivery</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-phone text-blue-500 mr-3"></i>
+                                <span>+265 123 456 789</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Delivery Info -->
+                    <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                        <h5 class="font-bold text-blue-800 mb-2">Delivery Info</h5>
+                        <p class="text-sm text-blue-700">
+                            Delivery within 2 hours for orders placed before 6PM. Minimum order: MWK 5,000.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Products Area -->
+            <div class="lg:col-span-3">
+                <!-- Search and Filter Bar -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="flex-1">
+                            <div class="relative">
+                                <input 
+                                    type="text" 
+                                    id="productSearch" 
+                                    placeholder="Search products..." 
+                                    class="w-full px-6 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                >
+                                <button class="absolute right-3 top-3 text-gray-400 hover:text-gray-600">
+                                    <i class="fas fa-search text-xl"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50" id="sortBtn">
+                                <i class="fas fa-sort mr-2"></i>Sort by
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Featured Products -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Fresh Produce</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="productsContainer">
+                        <!-- Product 1 -->
+                        <div class="item-card bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100" data-category="fresh">
+                            <div class="relative">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                                    alt="Fresh Tomatoes" 
+                                    class="w-full h-48 object-cover"
+                                    loading="lazy"
+                                >
+                                <div class="absolute top-4 left-4 bg-green-500 text-white px-2 py-1 rounded text-xs font-bold">
+                                    Fresh
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">Fresh Tomatoes</h3>
+                                <p class="text-gray-600 text-sm mb-4">Locally grown, vine-ripened tomatoes</p>
+                                
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-xl font-bold text-gray-800">MWK 1,500</span>
+                                        <span class="text-sm text-gray-500 line-through ml-2">MWK 2,000</span>
+                                        <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded ml-2">25% off</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-2">
+                                        <div class="quantity-control hidden">
+                                            <button class="quantity-btn bg-gray-100 hover:bg-gray-200" data-action="decrease">-</button>
+                                            <span class="quantity-value mx-2 font-bold">1</span>
+                                            <button class="quantity-btn bg-gray-100 hover:bg-gray-200" data-action="increase">+</button>
+                                        </div>
+                                        <button class="add-to-cart-btn bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 text-sm font-medium" 
+                                                data-id="1"
+                                                data-name="Fresh Tomatoes"
+                                                data-price="1500"
+                                                data-image="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 2 -->
+                        <div class="item-card bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100" data-category="fresh">
+                            <div class="relative">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                                    alt="Bananas" 
+                                    class="w-full h-48 object-cover"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">Bananas (Bunch)</h3>
+                                <p class="text-gray-600 text-sm mb-4">Sweet, ripe bananas from local farms</p>
+                                
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-xl font-bold text-gray-800">MWK 2,500</span>
+                                        <span class="text-sm text-gray-500">per bunch</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-2">
+                                        <div class="quantity-control hidden">
+                                            <button class="quantity-btn bg-gray-100 hover:bg-gray-200" data-action="decrease">-</button>
+                                            <span class="quantity-value mx-2 font-bold">1</span>
+                                            <button class="quantity-btn bg-gray-100 hover:bg-gray-200" data-action="increase">+</button>
+                                        </div>
+                                        <button class="add-to-cart-btn bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 text-sm font-medium"
+                                                data-id="2"
+                                                data-name="Bananas (Bunch)"
+                                                data-price="2500"
+                                                data-image="https://images.unsplash.com/photo-1610832958506-aa56368176cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 3 -->
+                        <div class="item-card bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100" data-category="fresh">
+                            <div class="relative">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1579113800032-c38bd7635818?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                                    alt="Potatoes" 
+                                    class="w-full h-48 object-cover"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">Potatoes (5kg)</h3>
+                                <p class="text-gray-600 text-sm mb-4">Fresh potatoes, perfect for cooking</p>
+                                
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-xl font-bold text-gray-800">MWK 4,500</span>
+                                        <span class="text-sm text-gray-500">per 5kg bag</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-2">
+                                        <div class="quantity-control hidden">
+                                            <button class="quantity-btn bg-gray-100 hover:bg-gray-200" data-action="decrease">-</button>
+                                            <span class="quantity-value mx-2 font-bold">1</span>
+                                            <button class="quantity-btn bg-gray-100 hover:bg-gray-200" data-action="increase">+</button>
+                                        </div>
+                                        <button class="add-to-cart-btn bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 text-sm font-medium"
+                                                data-id="3"
+                                                data-name="Potatoes (5kg)"
+                                                data-price="4500"
+                                                data-image="https://images.unsplash.com/photo-1579113800032-c38bd7635818?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 4 -->
+                        <div class="item-card bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100" data-category="dairy">
+                            <div class="relative">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                                    alt="Milk" 
+                                    class="w-full h-48 object-cover"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">Fresh Milk (1L)</h3>
+                                <p class="text-gray-600 text-sm mb-4">Pasteurized fresh milk</p>
+                                
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-xl font-bold text-gray-800">MWK 1,800</span>
+                                        <span class="text-sm text-gray-500">per liter</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-2">
+                                        <div class="quantity-control hidden">
+                                            <button class="quantity-btn bg-gray-100 hover:bg-gray-200" data-action="decrease">-</button>
+                                            <span class="quantity-value mx-2 font-bold">1</span>
+                                            <button class="quantity-btn bg-gray-100 hover:bg-gray-200" data-action="increase">+</button>
+                                        </div>
+                                        <button class="add-to-cart-btn bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 text-sm font-medium"
+                                                data-id="4"
+                                                data-name="Fresh Milk (1L)"
+                                                data-price="1800"
+                                                data-image="https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 5 -->
+                        <div class="item-card bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100" data-category="bakery">
+                            <div class="relative">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                                    alt="Bread" 
+                                    class="w-full h-48 object-cover"
+                                    loading="lazy"
+                                >
+                                <div class="absolute top-4 left-4 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">
+                                    Bestseller
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">White Bread Loaf</h3>
+                                <p class="text-gray-600 text-sm mb-4">Freshly baked daily</p>
+                                
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-xl font-bold text-gray-800">MWK 1,200</span>
+                                        <span class="text-sm text-gray-500">per loaf</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-2">
+                                        <div class="quantity-control hidden">
+                                            <button class="quantity-btn bg-gray-100 hover:bg-gray-200" data-action="decrease">-</button>
+                                            <span class="quantity-value mx-2 font-bold">1</span>
+                                            <button class="quantity-btn bg-gray-100 hover:bg-gray-200" data-action="increase">+</button>
+                                        </div>
+                                        <button class="add-to-cart-btn bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 text-sm font-medium"
+                                                data-id="5"
+                                                data-name="White Bread Loaf"
+                                                data-price="1200"
+                                                data-image="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 6 -->
+                        <div class="item-card bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100" data-category="beverages">
+                            <div class="relative">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                                    alt="Soft Drinks" 
+                                    class="w-full h-48 object-cover"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">Soft Drinks (6-pack)</h3>
+                                <p class="text-gray-600 text-sm mb-4">Assorted flavors</p>
+                                
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-xl font-bold text-gray-800">MWK 3,500</span>
+                                        <span class="text-sm text-gray-500">6 cans</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-2">
+                                        <div class="quantity-control hidden">
+                                            <button class="quantity-btn bg-gray-100 hover:bg-gray-200" data-action="decrease">-</button>
+                                            <span class="quantity-value mx-2 font-bold">1</span>
+                                            <button class="quantity-btn bg-gray-100 hover:bg-gray-200" data-action="increase">+</button>
+                                        </div>
+                                        <button class="add-to-cart-btn bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 text-sm font-medium"
+                                                data-id="6"
+                                                data-name="Soft Drinks (6-pack)"
+                                                data-price="3500"
+                                                data-image="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dairy & Eggs Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Dairy & Eggs</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- More products can be added here following the same pattern -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="fixed inset-y-0 right-0 w-full md:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex flex-col h-full">
+            <!-- Cart Header -->
+            <div class="flex items-center justify-between p-6 border-b">
+                <h3 class="text-xl font-bold text-gray-800">Your Shopping Cart</h3>
+                <button class="text-gray-400 hover:text-gray-600" id="closeCart">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Cart Items -->
+            <div class="flex-1 overflow-y-auto p-6" id="cartItems">
+                <!-- Cart items will be dynamically added here -->
+                <div class="text-center py-12 text-gray-500" id="emptyCartMessage">
+                    <i class="fas fa-shopping-cart text-4xl mb-4"></i>
+                    <p>Your cart is empty</p>
+                    <p class="text-sm mt-2">Add items from the store to get started</p>
+                </div>
+            </div>
+            
+            <!-- Cart Footer -->
+            <div class="border-t p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-600">Subtotal:</span>
+                    <span class="text-xl font-bold text-gray-800" id="cartSubtotal">MWK 0</span>
+                </div>
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-600">Delivery Fee:</span>
+                    <span class="text-gray-800" id="deliveryFee">MWK 1,500</span>
+                </div>
+                <div class="flex justify-between items-center mb-6 border-t pt-4">
+                    <span class="text-lg font-bold text-gray-800">Total:</span>
+                    <span class="text-2xl font-bold text-green-600" id="cartTotal">MWK 1,500</span>
+                </div>
+                
+                <div class="space-y-3">
+                    <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 font-medium" id="checkoutBtn">
+                        <i class="fas fa-shopping-bag mr-2"></i>Proceed to Checkout
+                    </button>
+                    <a href="https://wa.me/265123456789?text=Hi%20DropX%20Delivery,%20I%20want%20to%20order%20from%20ShopRite" 
+                       target="_blank" 
+                       class="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 font-medium flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-2"></i>Checkout via WhatsApp
+                    </a>
+                    <button class="w-full border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50 font-medium" id="clearCartBtn">
+                        Clear Cart
+                    </button>
+                </div>
+                
+                <p class="text-xs text-gray-500 mt-4 text-center">
+                    Minimum order: MWK 5,000. Delivery within 2 hours.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-shipping-fast text-white"></i>
+                        </div>
+                        <span class="text-2xl font-bold">DropX Delivery</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Delivering ShopRite groceries to your door across Malawi.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="partners.html" class="text-gray-400 hover:text-white transition-colors">All Partners</a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Need Help?</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="index.html#tracking" class="text-gray-400 hover:text-white transition-colors">Track Order</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition-colors">Customer Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 DropX Delivery. ShopRite is a registered trademark. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Overlay for cart -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+
+    <!-- Success Toast -->
+    <div id="successToast" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-3"></i>
+            <span id="toastMessage">Item added to cart!</span>
+        </div>
+    </div>
+
+    <script>
+        // Initialize cart
+        let cart = JSON.parse(localStorage.getItem('shoprite_cart')) || [];
+        
+        // Update cart display
+        function updateCartDisplay() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const emptyCartMessage = document.getElementById('emptyCartMessage');
+            const cartSubtotal = document.getElementById('cartSubtotal');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update cart items
+            if (cart.length === 0) {
+                emptyCartMessage.classList.remove('hidden');
+                cartItems.innerHTML = '';
+                cartItems.appendChild(emptyCartMessage);
+            } else {
+                emptyCartMessage.classList.add('hidden');
+                
+                let cartHTML = '';
+                let subtotal = 0;
+                
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    cartHTML += `
+                        <div class="cart-item bg-gray-50 rounded-lg p-4 mb-4">
+                            <div class="flex items-center">
+                                <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded mr-4">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-800">${item.name}</h4>
+                                    <p class="text-gray-600">MWK ${item.price.toLocaleString()}</p>
+                                    <div class="flex items-center mt-2">
+                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300" onclick="updateQuantity(${index}, -1)">-</button>
+                                        <span class="mx-3 font-bold">${item.quantity}</span>
+                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300" onclick="updateQuantity(${index}, 1)">+</button>
+                                        <button class="ml-4 text-red-500 hover:text-red-700" onclick="removeFromCart(${index})">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-gray-800">MWK ${itemTotal.toLocaleString()}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItems.innerHTML = cartHTML;
+                
+                // Calculate delivery fee (MWK 1,500 minimum)
+                const deliveryFee = subtotal > 0 ? 1500 : 0;
+                const total = subtotal + deliveryFee;
+                
+                // Update totals
+                cartSubtotal.textContent = `MWK ${subtotal.toLocaleString()}`;
+                document.getElementById('deliveryFee').textContent = `MWK ${deliveryFee.toLocaleString()}`;
+                cartTotal.textContent = `MWK ${total.toLocaleString()}`;
+            }
+            
+            // Save cart to localStorage
+            localStorage.setItem('shoprite_cart', JSON.stringify(cart));
+        }
+        
+        // Update quantity
+        function updateQuantity(index, change) {
+            cart[index].quantity += change;
+            
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            
+            updateCartDisplay();
+        }
+        
+        // Remove from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+            showToast("Item removed from cart");
+        }
+        
+        // Clear cart
+        document.getElementById('clearCartBtn')?.addEventListener('click', function() {
+            cart = [];
+            updateCartDisplay();
+            showToast("Cart cleared");
+        });
+        
+        // Add to cart
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('add-to-cart-btn')) {
+                const id = e.target.getAttribute('data-id');
+                const name = e.target.getAttribute('data-name');
+                const price = parseInt(e.target.getAttribute('data-price'));
+                const image = e.target.getAttribute('data-image');
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: id,
+                        name: name,
+                        price: price,
+                        image: image,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartDisplay();
+                showToast(`${name} added to cart`);
+                
+                // Show quantity controls
+                const itemCard = e.target.closest('.item-card');
+                const addBtn = itemCard.querySelector('.add-to-cart-btn');
+                const quantityControl = itemCard.querySelector('.quantity-control');
+                const quantityValue = itemCard.querySelector('.quantity-value');
+                
+                addBtn.classList.add('hidden');
+                quantityControl.classList.remove('hidden');
+                quantityValue.textContent = existingItem ? existingItem.quantity : 1;
+                
+                // Add event listeners to quantity buttons
+                const quantityBtns = quantityControl.querySelectorAll('.quantity-btn');
+                quantityBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const action = this.getAttribute('data-action');
+                        const existingItem = cart.find(item => item.id === id);
+                        
+                        if (action === 'increase') {
+                            existingItem.quantity += 1;
+                        } else if (action === 'decrease') {
+                            existingItem.quantity -= 1;
+                            
+                            if (existingItem.quantity <= 0) {
+                                cart = cart.filter(item => item.id !== id);
+                                addBtn.classList.remove('hidden');
+                                quantityControl.classList.add('hidden');
+                            }
+                        }
+                        
+                        quantityValue.textContent = existingItem ? existingItem.quantity : 0;
+                        updateCartDisplay();
+                    });
+                });
+            }
+        });
+        
+        // Cart toggle
+        document.getElementById('cartToggle')?.addEventListener('click', function() {
+            document.getElementById('cartSidebar').classList.remove('translate-x-full');
+            document.getElementById('cartOverlay').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Close cart
+        document.getElementById('closeCart')?.addEventListener('click', function() {
+            document.getElementById('cartSidebar').classList.add('translate-x-full');
+            document.getElementById('cartOverlay').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close cart when clicking overlay
+        document.getElementById('cartOverlay')?.addEventListener('click', function() {
+            document.getElementById('cartSidebar').classList.add('translate-x-full');
+            this.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Checkout button
+        document.getElementById('checkoutBtn')?.addEventListener('click', function() {
+            if (cart.length === 0) {
+                showToast("Your cart is empty", "warning");
+                return;
+            }
+            
+            // Build order message for WhatsApp
+            let orderMessage = "Hi DropX Delivery, I want to order from ShopRite:\n\n";
+            
+            cart.forEach(item => {
+                orderMessage += `${item.quantity}x ${item.name} - MWK ${(item.price * item.quantity).toLocaleString()}\n`;
+            });
+            
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const total = subtotal + 1500; // Add delivery fee
+            
+            orderMessage += `\nSubtotal: MWK ${subtotal.toLocaleString()}`;
+            orderMessage += `\nDelivery Fee: MWK 1,500`;
+            orderMessage += `\nTotal: MWK ${total.toLocaleString()}`;
+            orderMessage += `\n\nPlease contact me to complete the order.`;
+            
+            const encodedMessage = encodeURIComponent(orderMessage);
+            window.open(`https://wa.me/265123456789?text=${encodedMessage}`, '_blank');
+        });
+        
+        // Category filtering
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-blue-600', 'text-white');
+                    b.classList.add('bg-gray-100', 'text-gray-800');
+                });
+                
+                // Add active class to clicked button
+                this.classList.remove('bg-gray-100', 'text-gray-800');
+                this.classList.add('active', 'bg-blue-600', 'text-white');
+                
+                const category = this.getAttribute('data-category');
+                const products = document.querySelectorAll('.item-card');
+                
+                products.forEach(product => {
+                    if (category === 'all' || product.getAttribute('data-category') === category) {
+                        product.classList.remove('hidden');
+                    } else {
+                        product.classList.add('hidden');
+                    }
+                });
+            });
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Toast notification
+        function showToast(message, type = "success") {
+            const toast = document.getElementById('successToast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
+            
+            if (type === "warning") {
+                toast.style.backgroundColor = "#f59e0b";
+            } else {
+                toast.style.backgroundColor = "#10b981";
+            }
+            
+            toast.classList.remove('hidden');
+            
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+        
+        // Initialize cart display
+        updateCartDisplay();
+        
+        // Search functionality
+        document.getElementById('productSearch')?.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const products = document.querySelectorAll('.item-card');
+            
+            products.forEach(product => {
+                const name = product.querySelector('h3').textContent.toLowerCase();
+                const description = product.querySelector('p').textContent.toLowerCase();
+                
+                if (name.includes(searchTerm) || description.includes(searchTerm)) {
+                    product.classList.remove('hidden');
+                } else {
+                    product.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Initialize all quantity controls for items already in cart
+        document.addEventListener('DOMContentLoaded', function() {
+            cart.forEach(item => {
+                const addBtn = document.querySelector(`.add-to-cart-btn[data-id="${item.id}"]`);
+                if (addBtn) {
+                    const itemCard = addBtn.closest('.item-card');
+                    const quantityControl = itemCard.querySelector('.quantity-control');
+                    const quantityValue = itemCard.querySelector('.quantity-value');
+                    
+                    addBtn.classList.add('hidden');
+                    quantityControl.classList.remove('hidden');
+                    quantityValue.textContent = item.quantity;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
