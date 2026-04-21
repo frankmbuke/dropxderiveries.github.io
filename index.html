@@ -21,7 +21,6 @@
                     },
                     animation: {
                         'float': 'float 4s ease-in-out infinite',
-                        'float-delayed': 'float 5s ease-in-out infinite 0.5s',
                     },
                     keyframes: {
                         float: {
@@ -144,14 +143,6 @@
             border-color: #44A3E3;
             box-shadow: 0 8px 20px -6px rgba(68, 163, 227, 0.15);
         }
-        
-        /* Logo styling */
-        .logo-text {
-            background: linear-gradient(135deg, #44A3E3, #195887);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
@@ -159,9 +150,8 @@
     <header class="bg-white/95 backdrop-blur-sm shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <!-- Logo with fallback -->
                 <div class="flex items-center space-x-2">
-                    <img src="logo.png" 
+                    <img src="images/logo.png" 
                          alt="DropX Logo" 
                          class="h-9 w-auto rounded-lg shadow-sm"
                          onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'36\' height=\'36\' viewBox=\'0 0 40 40\'%3E%3Crect width=\'40\' height=\'40\' fill=\'%2344A3E3\' rx=\'10\'/%3E%3Ctext x=\'20\' y=\'28\' text-anchor=\'middle\' fill=\'white\' font-size=\'22\' font-weight=\'bold\'%3EDX%3C/text%3E%3C/svg%3E'">
@@ -221,23 +211,13 @@
         </nav>
     </header>
 
-    <!-- Hero Section - Professional with Your Images -->
+    <!-- Hero Section -->
     <section id="home" class="relative overflow-hidden" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);">
-        <!-- Decorative pattern -->
         <div class="absolute inset-0 hero-pattern opacity-30"></div>
-        
-        <!-- Floating decorative elements -->
-        <div class="absolute top-20 left-10 opacity-20 hidden xl:block animate-float">
-            <i class="fas fa-motorcycle text-5xl text-white"></i>
-        </div>
-        <div class="absolute bottom-20 right-10 opacity-20 hidden xl:block" style="animation: float 5s ease-in-out infinite 0.5s;">
-            <i class="fas fa-shopping-bag text-5xl text-white"></i>
-        </div>
         
         <div class="container mx-auto px-4 py-12 md:py-16 lg:py-20 relative z-10">
             <!-- Desktop Layout -->
             <div class="hidden lg:grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Left Content -->
                 <div>
                     <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6">
                         <span class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
@@ -255,19 +235,13 @@
                     </p>
                     
                     <div class="flex flex-wrap gap-4 mb-6">
-                        <button class="btn-primary px-6 py-3.5 rounded-xl flex items-center gap-3 shadow-lg hover:shadow-xl transition-all download-app-btn group" data-platform="ios">
+                        <button class="btn-primary px-6 py-3.5 rounded-xl flex items-center gap-3 shadow-lg hover:shadow-xl transition-all download-app-btn" data-platform="ios">
                             <i class="fab fa-apple text-2xl"></i>
-                            <div class="text-left">
-                                <div class="text-xs opacity-90">Download on the</div>
-                                <div class="font-bold">App Store</div>
-                            </div>
+                            <div><div class="text-xs opacity-90">Download on the</div><div class="font-bold">App Store</div></div>
                         </button>
-                        <button class="btn-primary px-6 py-3.5 rounded-xl flex items-center gap-3 shadow-lg hover:shadow-xl transition-all download-app-btn group" data-platform="android">
+                        <button class="btn-primary px-6 py-3.5 rounded-xl flex items-center gap-3 shadow-lg hover:shadow-xl transition-all download-app-btn" data-platform="android">
                             <i class="fab fa-google-play text-2xl"></i>
-                            <div class="text-left">
-                                <div class="text-xs opacity-90">Get it on</div>
-                                <div class="font-bold">Google Play</div>
-                            </div>
+                            <div><div class="text-xs opacity-90">Get it on</div><div class="font-bold">Google Play</div></div>
                         </button>
                     </div>
                     
@@ -278,32 +252,30 @@
                     </div>
                 </div>
                 
-                <!-- Right - Professional Image Slider with Your Images -->
+                <!-- Image Slider with images/ folder paths -->
                 <div class="slider-container relative overflow-hidden rounded-2xl shadow-2xl bg-white/10 backdrop-blur-sm p-2">
                     <div id="desktopSlider" class="relative overflow-hidden rounded-xl" style="height: 380px;">
                         <div id="sliderTrack" class="flex transition-transform duration-500 ease-out h-full">
-                            <img src="office.jpeg" alt="DropX Office" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%2344A3E3\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3EOffice%3C/text%3E%3C/svg%3E'">
-                            <img src="track.jpg" alt="Delivery Tracking" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%23195887\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3ETracking%3C/text%3E%3C/svg%3E'">
-                            <img src="frank.jpg" alt="Our Team" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%2344A3E3\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3ETeam%3C/text%3E%3C/svg%3E'">
-                            <img src="customer.jpg" alt="Happy Customer" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%23195887\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3ECustomer%3C/text%3E%3C/svg%3E'">
-                            <img src="item.jpg" alt="Delivery Items" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%2344A3E3\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3EItems%3C/text%3E%3C/svg%3E'">
+                            <img src="images/office.jpeg" alt="DropX Office" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%2344A3E3\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3EOffice%3C/text%3E%3C/svg%3E'">
+                            <img src="images/track.jpg" alt="Delivery Tracking" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%23195887\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3ETracking%3C/text%3E%3C/svg%3E'">
+                            <img src="images/frank.jpg" alt="Our Team" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%2344A3E3\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3ETeam%3C/text%3E%3C/svg%3E'">
+                            <img src="images/customer.jpg" alt="Happy Customer" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%23195887\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3ECustomer%3C/text%3E%3C/svg%3E'">
+                            <img src="images/item.jpg" alt="Delivery Items" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%2344A3E3\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3EItems%3C/text%3E%3C/svg%3E'">
                         </div>
                         
-                        <!-- Navigation Buttons -->
-                        <button onclick="prevSlide()" class="slider-nav-btn absolute left-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm transition-all">
+                        <button onclick="prevSlide()" class="slider-nav-btn absolute left-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm">
                             <i class="fas fa-chevron-left text-sm"></i>
                         </button>
-                        <button onclick="nextSlide()" class="slider-nav-btn absolute right-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm transition-all">
+                        <button onclick="nextSlide()" class="slider-nav-btn absolute right-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm">
                             <i class="fas fa-chevron-right text-sm"></i>
                         </button>
                         
-                        <!-- Dots -->
                         <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(0)"></div>
-                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(1)"></div>
-                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(2)"></div>
-                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(3)"></div>
-                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(4)"></div>
+                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(0)"></div>
+                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(1)"></div>
+                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(2)"></div>
+                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(3)"></div>
+                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(4)"></div>
                         </div>
                     </div>
                 </div>
@@ -314,7 +286,7 @@
                 <div class="text-center">
                     <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 mb-5">
                         <span class="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse"></span>
-                        <span class="text-xs font-medium text-white">#1 DELIVERY APP IN MALAWI</span>
+                        <span class="text-xs font-medium text-white">#1 DELIVERY APP</span>
                     </div>
                     
                     <h1 class="text-3xl font-bold text-white mb-3 leading-tight">
@@ -324,14 +296,13 @@
                     
                     <p class="text-sm text-blue-100 mb-6 px-4">Order from 50+ restaurants through our app.</p>
                     
-                    <!-- Mobile Slider with Your Images -->
                     <div class="relative overflow-hidden rounded-xl mb-6 shadow-xl" style="height: 220px;">
                         <div id="mobileSliderTrack" class="flex transition-transform duration-500 ease-out h-full">
-                            <img src="office.jpeg" alt="Office" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="track.jpg" alt="Track" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="frank.jpg" alt="Team" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="customer.jpg" alt="Customer" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="item.jpg" alt="Items" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="images/office.jpeg" alt="Office" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="images/track.jpg" alt="Track" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="images/frank.jpg" alt="Team" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="images/customer.jpg" alt="Customer" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="images/item.jpg" alt="Items" class="w-full h-full object-cover flex-shrink-0">
                         </div>
                         
                         <button onclick="prevMobileSlide()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 text-white rounded-full w-8 h-8 flex items-center justify-center backdrop-blur-sm">
@@ -353,17 +324,12 @@
                     <div class="flex flex-row gap-3 mb-4">
                         <button class="btn-primary px-4 py-3 rounded-xl flex items-center justify-center gap-2 flex-1 download-app-btn" data-platform="ios">
                             <i class="fab fa-apple text-xl"></i>
-                            <div class="text-left"><div class="text-xs">App Store</div><div class="font-semibold text-sm">Download</div></div>
+                            <div><div class="text-xs">App Store</div><div class="font-semibold text-sm">Download</div></div>
                         </button>
                         <button class="btn-primary px-4 py-3 rounded-xl flex items-center justify-center gap-2 flex-1 download-app-btn" data-platform="android">
                             <i class="fab fa-google-play text-xl"></i>
-                            <div class="text-left"><div class="text-xs">Google Play</div><div class="font-semibold text-sm">Get it</div></div>
+                            <div><div class="text-xs">Google Play</div><div class="font-semibold text-sm">Get it</div></div>
                         </button>
-                    </div>
-                    
-                    <div class="flex items-center justify-center gap-4 text-blue-100 text-xs">
-                        <div class="flex items-center gap-1"><i class="fas fa-star text-yellow-400 text-xs"></i><span>4.8 ★</span></div>
-                        <div class="flex items-center gap-1"><i class="fas fa-clock"></i><span>30-45 min</span></div>
                     </div>
                     
                     <p class="text-blue-200 text-xs mt-4"><i class="fas fa-info-circle mr-1"></i>Info site only. Order via app.</p>
@@ -500,7 +466,7 @@
     <footer class="text-white py-10" style="background: linear-gradient(135deg, #195887 0%, #44A3E3 100%);">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row gap-8">
-                <div class="w-full md:w-1/3"><div class="flex items-center space-x-2 mb-3"><img src="logo.png" alt="DropX Logo" class="h-8 w-auto rounded-lg bg-white p-1" onerror="this.style.display='none'"><span class="font-bold text-xl">DropX</span></div><p class="text-sm text-blue-100 mb-3">Fast food and grocery delivery in Malawi.<br>Order exclusively through our mobile app.</p><div class="flex space-x-3 mt-4"><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-facebook-f text-sm"></i></a><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-twitter text-sm"></i></a><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-instagram text-sm"></i></a></div></div>
+                <div class="w-full md:w-1/3"><div class="flex items-center space-x-2 mb-3"><img src="images/logo.png" alt="DropX Logo" class="h-8 w-auto rounded-lg bg-white p-1" onerror="this.style.display='none'"><span class="font-bold text-xl">DropX</span></div><p class="text-sm text-blue-100 mb-3">Fast food and grocery delivery in Malawi.<br>Order exclusively through our mobile app.</p><div class="flex space-x-3 mt-4"><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-facebook-f text-sm"></i></a><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-twitter text-sm"></i></a><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-instagram text-sm"></i></a></div></div>
                 <div class="w-1/2 md:w-1/6"><h4 class="text-sm font-bold mb-3 text-white">Company</h4><ul class="space-y-2"><li><a href="careers.html" class="text-xs text-blue-100 hover:text-white">Careers</a></li><li><a href="ourteam.html" class="text-xs text-blue-100 hover:text-white">Our Team</a></li><li><a href="privacy.html" class="text-xs text-blue-100 hover:text-white">Privacy Policy</a></li><li><a href="terms.html" class="text-xs text-blue-100 hover:text-white">Terms of Service</a></li></ul></div>
                 <div class="w-1/2 md:w-1/6"><h4 class="text-sm font-bold mb-3 text-white">Contact</h4><ul class="space-y-2"><li class="text-xs text-blue-100">info@dropxdelivery.mw</li><li class="text-xs text-blue-100">+265 123 456 789</li><li class="text-xs text-blue-100">Lilongwe, Malawi</li></ul></div>
             </div>
@@ -549,9 +515,9 @@
             const contactForm = document.getElementById('contactForm');
             if(contactForm) contactForm.addEventListener("submit", function(e) { e.preventDefault(); const inputs = this.querySelectorAll('input, textarea'); if(!inputs[0].value.trim() || !inputs[1].value.trim() || !inputs[2].value.trim()) { showToast("Please fill in all fields", "error"); return; } if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputs[1].value)) { showToast("Invalid email", "error"); return; } showToast("Thank you! We'll get back to you soon."); this.reset(); });
             
-            document.querySelectorAll('.download-app-btn').forEach(btn => btn.addEventListener('click', function() { const platform = this.getAttribute('data-platform'); const storeName = platform === 'ios' ? 'App Store' : 'Google Play'; showToast(`Redirecting to ${storeName}...`, "info"); }));
+            document.querySelectorAll('.download-app-btn').forEach(btn => btn.addEventListener('click', function() { showToast(`Redirecting to ${this.getAttribute('data-platform') === 'ios' ? 'App Store' : 'Google Play'}...`, "info"); }));
             
-            function showToast(msg, type = "success") { const toast = document.getElementById('successToast'); const toastMsg = document.getElementById('toastMessage'); toastMsg.textContent = msg; toast.classList.remove('hidden'); setTimeout(() => toast.classList.add('hidden'), 3000); }
+            function showToast(msg) { const toast = document.getElementById('successToast'); const toastMsg = document.getElementById('toastMessage'); toastMsg.textContent = msg; toast.classList.remove('hidden'); setTimeout(() => toast.classList.add('hidden'), 3000); }
             
             document.addEventListener('click', function(e) { if(mobileMenu && !mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) mobileMenu.classList.add('hidden'); });
             
