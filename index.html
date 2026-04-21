@@ -4,8 +4,8 @@
     <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>DropX Delivery - Food, Groceries & Farm Produce Delivery in Lilongwe</title>
-    <meta name="description" content="DropX Delivery provides fast food, groceries, and fresh farm produce delivery in Lilongwe, Malawi. Order through our mobile app.">
+    <title>DropX Delivery - Food & Grocery Delivery in Lilongwe</title>
+    <meta name="description" content="DropX Delivery provides fast food and grocery delivery in Lilongwe, Malawi. Order through our mobile app.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script>
@@ -93,18 +93,6 @@
             pointer-events: auto;
         }
         
-        /* Loading skeleton animation */
-        .skeleton {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-        }
-        
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-        
         /* Image loading */
         img {
             opacity: 0;
@@ -118,40 +106,6 @@
         /* Custom gradients and colors using logo colors */
         .bg-logo-gradient {
             background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);
-        }
-        
-        .bg-logo-light {
-            background-color: #44A3E3;
-        }
-        
-        .bg-logo-dark {
-            background-color: #195887;
-        }
-        
-        .text-logo-light {
-            color: #44A3E3;
-        }
-        
-        .text-logo-dark {
-            color: #195887;
-        }
-        
-        .border-logo-light {
-            border-color: #44A3E3;
-        }
-        
-        .border-logo-dark {
-            border-color: #195887;
-        }
-        
-        .hover-logo-light:hover {
-            background-color: #44A3E3;
-            color: white;
-        }
-        
-        .hover-logo-dark:hover {
-            background-color: #195887;
-            color: white;
         }
         
         .btn-primary {
@@ -191,7 +145,6 @@
                          alt="DropX Logo" 
                          class="h-8 w-auto rounded-lg shadow-md"
                          onerror="this.style.display='none'">
-                   
                 </div>
                 
                 <!-- Mobile menu button and desktop nav -->
@@ -201,7 +154,6 @@
                         <a href="#home" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Home</a>
                         <a href="#services" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Services</a>
                         <a href="#partners" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Restaurants</a>
-                        <a href="#dropxstore" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Store</a>
                         <a href="#faq" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">FAQ</a>
                         <a href="#contact" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Contact</a>
                         
@@ -232,7 +184,6 @@
                     <a href="#home" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Home</a>
                     <a href="#services" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Services</a>
                     <a href="#partners" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Restaurants</a>
-                    <a href="#dropxstore" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">DropX Store</a>
                     <a href="#faq" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">FAQ</a>
                     <a href="#contact" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Contact</a>
                     
@@ -255,146 +206,138 @@
     </header>
 
     <!-- Hero Section -->
-	<section id="home" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);" class="text-white">
-		<!-- DESKTOP VERSION -->
-		<div class="hidden lg:block py-12">
-			<div class="container mx-auto px-4">
-				<div class="grid grid-cols-2 gap-8 items-center">
-					<div>
-						<h1 class="text-4xl font-bold mb-3 leading-tight">
-							Fresh food & groceries 
-							<span class="text-yellow-400">delivered to your door</span>
-						</h1>
-						
-						<p class="text-base text-blue-100 mb-5 max-w-lg">
-							Order from 50+ restaurants and DropX Farm Store through our app.
-						</p>
-						
-						<!-- Desktop buttons -->
-						<div class="flex space-x-3 mb-4">
-							<button class="btn-primary px-4 py-2 rounded-lg flex items-center justify-center download-app-btn shadow-md" data-platform="ios">
-								<i class="fab fa-apple mr-2 text-xl"></i>
-								<div class="text-left">
-									<div class="text-xs">Download on the</div>
-									<div class="font-semibold text-base">App Store</div>
-								</div>
-							</button>
-							<button class="btn-primary px-4 py-2 rounded-lg flex items-center justify-center download-app-btn shadow-md" data-platform="android">
-								<i class="fab fa-google-play mr-2 text-xl"></i>
-								<div class="text-left">
-									<div class="text-xs">Get it on</div>
-									<div class="font-semibold text-base">Google Play</div>
-								</div>
-							</button>
-						</div>
-					</div>
-					
-					<div class="relative">
-						<!-- Image Slider/Carousel -->
-						<div class="relative overflow-hidden rounded-xl shadow-2xl" style="height: 350px;">
-							<!-- Slider container -->
-							<div id="slider" class="flex transition-transform duration-500 ease-in-out h-full">
-								<img src="office.jpeg" alt="Office" class="w-full h-full object-cover flex-shrink-0">
-								<img src="track.jpg" alt="Track" class="w-full h-full object-cover flex-shrink-0">
-								<img src="frank.jpg" alt="Staff" class="w-full h-full object-cover flex-shrink-0">
-								<img src="customer.jpg" alt="Customer" class="w-full h-full object-cover flex-shrink-0">
-								<img src="item.jpg" alt="Item" class="w-full h-full object-cover flex-shrink-0">
-							</div>
-							
-							<!-- Navigation arrows -->
-							<button onclick="prevSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 backdrop-blur-sm transition-all">
-								<i class="fas fa-chevron-left text-xl"></i>
-							</button>
-							<button onclick="nextSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 backdrop-blur-sm transition-all">
-								<i class="fas fa-chevron-right text-xl"></i>
-							</button>
-							
-							<!-- Dots indicator -->
-							<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-								<div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(0)"></div>
-								<div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(1)"></div>
-								<div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(2)"></div>
-								<div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(3)"></div>
-								<div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(4)"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<!-- MOBILE VERSION -->
-		<div class="lg:hidden py-8">
-			<div class="container mx-auto px-4">
-				<div class="flex flex-col gap-6">
-					<div>
-						<h1 class="text-2xl font-bold mb-2 leading-tight">
-							Fresh food & groceries 
-							<span class="text-yellow-400 block">delivered to your door</span>
-						</h1>
-						
-						<p class="text-sm text-blue-100 mb-3">
-							Order from 50+ restaurants and DropX Farm Store through our app.
-						</p>
-					</div>
-					
-					<div class="relative">
-						<!-- Mobile Image Slider -->
-						<div class="relative overflow-hidden rounded-xl shadow-2xl" style="height: 250px;">
-							<div id="mobileSlider" class="flex transition-transform duration-500 ease-in-out h-full">
-								<img src="office.jpeg" alt="Office" class="w-full h-full object-cover flex-shrink-0">
-								<img src="track.jpg" alt="Track" class="w-full h-full object-cover flex-shrink-0">
-								<img src="frank.jpg" alt="Staff" class="w-full h-full object-cover flex-shrink-0">
-								<img src="customer.jpg" alt="Customer" class="w-full h-full object-cover flex-shrink-0">
-								<img src="item.jpg" alt="Item" class="w-full h-full object-cover flex-shrink-0">
-							</div>
-							
-							<!-- Mobile navigation arrows -->
-							<button onclick="prevMobileSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 backdrop-blur-sm transition-all">
-								<i class="fas fa-chevron-left text-sm"></i>
-							</button>
-							<button onclick="nextMobileSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 backdrop-blur-sm transition-all">
-								<i class="fas fa-chevron-right text-sm"></i>
-							</button>
-							
-							<!-- Mobile dots indicator -->
-							<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-								<div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(0)"></div>
-								<div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(1)"></div>
-								<div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(2)"></div>
-								<div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(3)"></div>
-								<div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(4)"></div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="flex flex-row gap-3 mb-4">
-						<button class="btn-primary px-4 py-3 rounded-lg flex items-center justify-center download-app-btn shadow-md touch-target flex-1" data-platform="ios">
-							<i class="fab fa-apple mr-2 text-xl"></i>
-							<div class="text-left">
-								<div class="text-xs">Download on the</div>
-								<div class="font-semibold text-sm">App Store</div>
-							</div>
-						</button>
-						<button class="btn-primary px-4 py-3 rounded-lg flex items-center justify-center download-app-btn shadow-md touch-target flex-1" data-platform="android">
-							<i class="fab fa-google-play mr-2 text-xl"></i>
-							<div class="text-left">
-								<div class="text-xs">Get it on</div>
-								<div class="font-semibold text-sm">Google Play</div>
-							</div>
-						</button>
-					</div>
-					
-					<p class="text-blue-200 text-xs flex items-center">
-						<i class="fas fa-info-circle mr-1"></i>
-						Info site only. Order via app.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
+    <section id="home" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);" class="text-white">
+        <!-- DESKTOP VERSION -->
+        <div class="hidden lg:block py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h1 class="text-4xl font-bold mb-3 leading-tight">
+                            Fresh food & groceries 
+                            <span class="text-yellow-400">delivered to your door</span>
+                        </h1>
+                        
+                        <p class="text-base text-blue-100 mb-5 max-w-lg">
+                            Order from 50+ restaurants through our app.
+                        </p>
+                        
+                        <!-- Desktop buttons -->
+                        <div class="flex space-x-3 mb-4">
+                            <button class="btn-primary px-4 py-2 rounded-lg flex items-center justify-center download-app-btn shadow-md" data-platform="ios">
+                                <i class="fab fa-apple mr-2 text-xl"></i>
+                                <div class="text-left">
+                                    <div class="text-xs">Download on the</div>
+                                    <div class="font-semibold text-base">App Store</div>
+                                </div>
+                            </button>
+                            <button class="btn-primary px-4 py-2 rounded-lg flex items-center justify-center download-app-btn shadow-md" data-platform="android">
+                                <i class="fab fa-google-play mr-2 text-xl"></i>
+                                <div class="text-left">
+                                    <div class="text-xs">Get it on</div>
+                                    <div class="font-semibold text-base">Google Play</div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <!-- Image Slider/Carousel -->
+                        <div class="relative overflow-hidden rounded-xl shadow-2xl" style="height: 350px;">
+                            <div id="slider" class="flex transition-transform duration-500 ease-in-out h-full">
+                                <img src="office.jpeg" alt="Office" class="w-full h-full object-cover flex-shrink-0">
+                                <img src="track.jpg" alt="Track" class="w-full h-full object-cover flex-shrink-0">
+                                <img src="frank.jpg" alt="Staff" class="w-full h-full object-cover flex-shrink-0">
+                                <img src="customer.jpg" alt="Customer" class="w-full h-full object-cover flex-shrink-0">
+                                <img src="item.jpg" alt="Item" class="w-full h-full object-cover flex-shrink-0">
+                            </div>
+                            
+                            <button onclick="prevSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 backdrop-blur-sm transition-all">
+                                <i class="fas fa-chevron-left text-xl"></i>
+                            </button>
+                            <button onclick="nextSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 backdrop-blur-sm transition-all">
+                                <i class="fas fa-chevron-right text-xl"></i>
+                            </button>
+                            
+                            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                                <div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(0)"></div>
+                                <div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(1)"></div>
+                                <div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(2)"></div>
+                                <div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(3)"></div>
+                                <div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(4)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MOBILE VERSION -->
+        <div class="lg:hidden py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col gap-6">
+                    <div>
+                        <h1 class="text-2xl font-bold mb-2 leading-tight">
+                            Fresh food & groceries 
+                            <span class="text-yellow-400 block">delivered to your door</span>
+                        </h1>
+                        
+                        <p class="text-sm text-blue-100 mb-3">
+                            Order from 50+ restaurants through our app.
+                        </p>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="relative overflow-hidden rounded-xl shadow-2xl" style="height: 250px;">
+                            <div id="mobileSlider" class="flex transition-transform duration-500 ease-in-out h-full">
+                                <img src="office.jpeg" alt="Office" class="w-full h-full object-cover flex-shrink-0">
+                                <img src="track.jpg" alt="Track" class="w-full h-full object-cover flex-shrink-0">
+                                <img src="frank.jpg" alt="Staff" class="w-full h-full object-cover flex-shrink-0">
+                                <img src="customer.jpg" alt="Customer" class="w-full h-full object-cover flex-shrink-0">
+                                <img src="item.jpg" alt="Item" class="w-full h-full object-cover flex-shrink-0">
+                            </div>
+                            
+                            <button onclick="prevMobileSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 backdrop-blur-sm transition-all">
+                                <i class="fas fa-chevron-left text-sm"></i>
+                            </button>
+                            <button onclick="nextMobileSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 backdrop-blur-sm transition-all">
+                                <i class="fas fa-chevron-right text-sm"></i>
+                            </button>
+                            
+                            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                                <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(0)"></div>
+                                <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(1)"></div>
+                                <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(2)"></div>
+                                <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(3)"></div>
+                                <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(4)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-row gap-3 mb-4">
+                        <button class="btn-primary px-4 py-3 rounded-lg flex items-center justify-center download-app-btn shadow-md touch-target flex-1" data-platform="ios">
+                            <i class="fab fa-apple mr-2 text-xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Download on the</div>
+                                <div class="font-semibold text-sm">App Store</div>
+                            </div>
+                        </button>
+                        <button class="btn-primary px-4 py-3 rounded-lg flex items-center justify-center download-app-btn shadow-md touch-target flex-1" data-platform="android">
+                            <i class="fab fa-google-play mr-2 text-xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Get it on</div>
+                                <div class="font-semibold text-sm">Google Play</div>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <p class="text-blue-200 text-xs flex items-center">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Info site only. Order via app.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Services Section -->
     <section id="services" class="py-12 bg-white">
@@ -406,7 +349,7 @@
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
                 <!-- Food -->
                 <div class="text-center p-4 rounded-xl transition-all hover:shadow-lg" style="background-color: #f0f7ff;">
                     <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style="background: linear-gradient(135deg, #44A3E3, #195887);">
@@ -424,93 +367,12 @@
                     <h3 class="text-lg font-bold mb-1" style="color: #195887;">Groceries</h3>
                     <p class="text-gray-600 text-xs">Essentials for your home</p>
                 </div>
-                
-                <!-- Farm Produce -->
-                <div class="text-center p-4 rounded-xl transition-all hover:shadow-lg" style="background-color: #f0f7ff;">
-                    <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                        <i class="fas fa-seedling text-white text-lg"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-1" style="color: #195887;">Farm Produce</h3>
-                    <p class="text-gray-600 text-xs">Fresh from local farmers</p>
-                </div>
             </div>
             
             <p class="text-center text-xs text-gray-400 mt-6">
                 <i class="fas fa-map-marker-alt mr-1" style="color: #44A3E3;"></i>
                 Delivering in Lilongwe
             </p>
-        </div>
-    </section>
-
-    <!-- DropX Store Section -->
-    <section id="dropxstore" class="py-12" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row gap-8 items-center">
-                <div class="w-full lg:w-1/2">
-                    <div class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 text-white" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                        <i class="fas fa-store mr-1"></i>DROPX STORE
-                    </div>
-                    
-                    <h2 class="text-2xl sm:text-3xl font-bold mb-4" style="color: #195887;">Fresh Farm Produce</h2>
-                    <p class="text-sm sm:text-base text-gray-600 mb-6">
-                        DropX Store brings you the freshest vegetables, fruits, and farm products directly from local farmers.
-                    </p>
-                    
-                    <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div class="text-center bg-white p-3 rounded-lg shadow-sm border" style="border-color: #44A3E3;">
-                            <div class="text-xl font-bold mb-1" style="color: #195887;">100%</div>
-                            <div class="text-xs text-gray-600">Fresh Produce</div>
-                        </div>
-                        <div class="text-center bg-white p-3 rounded-lg shadow-sm border" style="border-color: #44A3E3;">
-                            <div class="text-xl font-bold mb-1" style="color: #195887;">Same Day</div>
-                            <div class="text-xs text-gray-600">Harvest to Delivery</div>
-                        </div>
-                        <div class="text-center bg-white p-3 rounded-lg shadow-sm border" style="border-color: #44A3E3;">
-                            <div class="text-xl font-bold mb-1" style="color: #195887;">Local</div>
-                            <div class="text-xs text-gray-600">Farmers Supported</div>
-                        </div>
-                        <div class="text-center bg-white p-3 rounded-lg shadow-sm border" style="border-color: #44A3E3;">
-                            <div class="text-xl font-bold mb-1" style="color: #195887;">Quality</div>
-                            <div class="text-xs text-gray-600">Guaranteed</div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg p-4 shadow-sm border-l-4" style="border-left-color: #44A3E3;">
-                        <h4 class="font-bold mb-2" style="color: #195887;">Available in DropX Store:</h4>
-                        <div class="grid grid-cols-2 gap-2 text-sm">
-                            <div class="flex items-center">
-                                <i class="fas fa-carrot mr-2 text-xs" style="color: #44A3E3;"></i>
-                                <span class="text-xs sm:text-sm">Fresh Vegetables</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-apple-alt mr-2 text-xs" style="color: #44A3E3;"></i>
-                                <span class="text-xs sm:text-sm">Seasonal Fruits</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-egg mr-2 text-xs" style="color: #44A3E3;"></i>
-                                <span class="text-xs sm:text-sm">Farm Eggs</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-wheat-alt mr-2 text-xs" style="color: #44A3E3;"></i>
-                                <span class="text-xs sm:text-sm">Grains & Cereals</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="w-full lg:w-1/2 relative">
-                    <img 
-                        src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600" 
-                        alt="DropX Store fresh farm produce" 
-                        class="rounded-lg shadow-lg w-full h-auto max-h-64 sm:max-h-80 object-cover"
-                        loading="lazy"
-                    />
-                    <div class="absolute -bottom-2 -left-2 bg-white px-4 py-2 rounded-lg shadow-lg border-l-4" style="border-left-color: #44A3E3;">
-                        <div class="font-bold text-sm" style="color: #195887;">Farm Fresh</div>
-                        <div class="text-xs text-gray-600">Direct from farmers</div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -612,11 +474,11 @@
                 
                 <div class="bg-white rounded-lg overflow-hidden border" style="border-color: #44A3E3;">
                     <button class="faq-question w-full px-4 py-3 text-left flex justify-between items-center touch-target">
-                        <span class="font-medium text-sm" style="color: #195887;">What is DropX Store?</span>
+                        <span class="font-medium text-sm" style="color: #195887;">How long does delivery take?</span>
                         <i class="fas fa-chevron-down text-xs" style="color: #44A3E3;"></i>
                     </button>
                     <div class="faq-answer px-4">
-                        <p class="pb-3 text-xs sm:text-sm text-gray-600">Our own farm produce marketplace with fresh items from local farmers.</p>
+                        <p class="pb-3 text-xs sm:text-sm text-gray-600">Delivery typically takes 30-45 minutes depending on location and restaurant preparation time.</p>
                     </div>
                 </div>
                 
@@ -665,7 +527,6 @@
                             </div>
                         </div>
                         
-                        <!-- Simple App Download -->
                         <div class="mt-5 bg-white rounded-lg p-4 border" style="border-color: #44A3E3;">
                             <p class="text-xs font-medium text-gray-700 mb-3">Order via our app</p>
                             <div class="flex flex-col sm:flex-row gap-2">
@@ -683,9 +544,9 @@
                     <div class="w-full md:w-1/2 rounded-xl p-5" style="background-color: #f0f7ff;">
                         <h3 class="text-lg font-bold mb-3" style="color: #195887;">Send a message</h3>
                         <form class="space-y-3" id="contactForm">
-                            <input type="text" placeholder="Your name" class="w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2" style="border-color: #44A3E3; focus:ring-color: #44A3E3;" required>
-                            <input type="email" placeholder="Email address" class="w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2" style="border-color: #44A3E3; focus:ring-color: #44A3E3;" required>
-                            <textarea rows="3" placeholder="Your message" class="w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2" style="border-color: #44A3E3; focus:ring-color: #44A3E3;" required></textarea>
+                            <input type="text" placeholder="Your name" class="w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2" style="border-color: #44A3E3;" required>
+                            <input type="email" placeholder="Email address" class="w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2" style="border-color: #44A3E3;" required>
+                            <textarea rows="3" placeholder="Your message" class="w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2" style="border-color: #44A3E3;" required></textarea>
                             <button type="submit" class="btn-primary w-full py-3 rounded-lg text-sm transition-colors touch-target">
                                 Send Message
                             </button>
@@ -700,16 +561,12 @@
     <footer class="text-white py-8" style="background: linear-gradient(135deg, #195887 0%, #44A3E3 100%);">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row gap-8">
-                <!-- Company Info -->
                 <div class="w-full md:w-1/3">
                     <div class="flex items-center space-x-2 mb-3">
-                        <img src="logo.png" 
-                             alt="DropX Logo" 
-                             class="h-8 w-auto rounded-lg"
-                             onerror="this.style.display='none'">
+                        <img src="logo.png" alt="DropX Logo" class="h-8 w-auto rounded-lg" onerror="this.style.display='none'">
                     </div>
                     <p class="text-xs text-blue-100 mb-3">
-                        Fast food, groceries, and fresh farm produce delivery in Malawi.
+                        Fast food and grocery delivery in Malawi.
                         <span class="block mt-1">Order exclusively through our mobile app.</span>
                     </p>
                     <div class="flex space-x-3 mt-4">
@@ -719,30 +576,25 @@
                     </div>
                 </div>
                 
-                <!-- Quick Links -->
                 <div class="w-1/2 md:w-1/6">
                     <h4 class="text-sm font-bold mb-3 text-white">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="#home" class="text-xs text-blue-100 hover:text-white">Home</a></li>
                         <li><a href="#services" class="text-xs text-blue-100 hover:text-white">Services</a></li>
                         <li><a href="#partners" class="text-xs text-blue-100 hover:text-white">Restaurants</a></li>
-                        <li><a href="#dropxstore" class="text-xs text-blue-100 hover:text-white">DropX Store</a></li>
                         <li><a href="#faq" class="text-xs text-blue-100 hover:text-white">FAQ</a></li>
                     </ul>
                 </div>
                 
-                <!-- Services -->
                 <div class="w-1/2 md:w-1/6">
                     <h4 class="text-sm font-bold mb-3 text-white">Services</h4>
                     <ul class="space-y-2">
                         <li><a href="#services" class="text-xs text-blue-100 hover:text-white">Restaurant Food</a></li>
                         <li><a href="#services" class="text-xs text-blue-100 hover:text-white">Groceries</a></li>
-                        <li><a href="#dropxstore" class="text-xs text-blue-100 hover:text-white">Farm Produce</a></li>
                         <li><a href="#contact" class="text-xs text-blue-100 hover:text-white">Contact Us</a></li>
                     </ul>
                 </div>
                 
-                <!-- Company Section - Footer -->
                 <div class="w-1/2 md:w-1/6">
                     <h4 class="text-sm font-bold mb-3 text-white">Company</h4>
                     <ul class="space-y-2">
@@ -761,7 +613,7 @@
     </footer>
 
     <!-- Success Toast -->
-    <div id="successToast" class="fixed top-4 left-4 right-4 md:left-auto md:right-4 md:w-96 text-white px-4 py-3 rounded-lg shadow-lg hidden z-50 animate__animated animate__fadeIn" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+    <div id="successToast" class="fixed top-4 left-4 right-4 md:left-auto md:right-4 md:w-96 text-white px-4 py-3 rounded-lg shadow-lg hidden z-50" style="background: linear-gradient(135deg, #44A3E3, #195887);">
         <div class="flex items-center justify-center">
             <i class="fas fa-check-circle mr-2"></i>
             <span id="toastMessage" class="text-sm">Action completed successfully!</span>
@@ -770,355 +622,155 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Image lazy loading with fade effect
             const images = document.querySelectorAll('img');
             images.forEach(img => {
-                if (img.complete) {
-                    img.classList.add('loaded');
-                } else {
-                    img.addEventListener('load', function() {
-                        this.classList.add('loaded');
-                    });
-                }
+                if (img.complete) img.classList.add('loaded');
+                else img.addEventListener('load', () => img.classList.add('loaded'));
             });
 
-            // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
-            
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', function(e) {
                     e.stopPropagation();
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
                     mobileMenu.classList.toggle('hidden');
-                    this.setAttribute('aria-expanded', !isExpanded);
+                    this.setAttribute('aria-expanded', !expanded);
                 });
             }
 
-            // Mobile Company Toggle
             const mobileCompanyToggle = document.getElementById('mobileCompanyToggle');
             const mobileCompanyMenu = document.getElementById('mobileCompanyMenu');
-            
             if (mobileCompanyToggle && mobileCompanyMenu) {
                 mobileCompanyToggle.addEventListener('click', function() {
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
                     mobileCompanyMenu.classList.toggle('hidden');
                     const icon = this.querySelector('i');
-                    if (icon) {
-                        icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
-                    }
-                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (icon) icon.style.transform = mobileCompanyMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
                 });
             }
 
-            // Smooth scrolling for navigation links
-            const links = document.querySelectorAll('a[href^="#"]');
-            
-            links.forEach(link => {
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
                 link.addEventListener("click", function(e) {
-                    if (this.getAttribute('href') === '#') return;
-                    
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
                     e.preventDefault();
-                    
-                    const targetId = this.getAttribute("href").substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: "smooth"
-                        });
-                        
-                        // Close mobile menu if open
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({ top: target.offsetTop - 80, behavior: "smooth" });
                         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                             mobileMenu.classList.add('hidden');
                             mobileMenuBtn.setAttribute('aria-expanded', 'false');
                         }
-                        
-                        // Update URL without page jump
-                        history.pushState(null, null, `#${targetId}`);
                     }
                 });
             });
 
-            // Contact Form Submission with validation
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener("submit", function(e) {
                     e.preventDefault();
-                    
-                    // Basic validation
                     const name = this.querySelector('input[type="text"]');
                     const email = this.querySelector('input[type="email"]');
                     const message = this.querySelector('textarea');
-                    
                     if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
                         showToast("Please fill in all fields", "error");
                         return;
                     }
-                    
-                    if (!isValidEmail(email.value)) {
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
                         showToast("Please enter a valid email address", "error");
                         return;
                     }
-                    
                     showToast("Thank you! We'll get back to you soon.");
                     this.reset();
                 });
             }
 
-            // Email validation helper
-            function isValidEmail(email) {
-                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-            }
-
-            // FAQ Accordion with improved accessibility
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach((question, index) => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('i');
-                
-                // Set ARIA attributes
-                question.setAttribute('aria-expanded', 'false');
-                question.setAttribute('aria-controls', `faq-answer-${index}`);
-                answer.setAttribute('id', `faq-answer-${index}`);
-                
-                question.addEventListener('click', function() {
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                    
-                    // Close other FAQs
-                    faqQuestions.forEach((q, i) => {
-                        if (i !== index) {
-                            const otherAnswer = q.nextElementSibling;
-                            const otherIcon = q.querySelector('i');
-                            q.setAttribute('aria-expanded', 'false');
-                            if (otherAnswer) {
-                                otherAnswer.style.maxHeight = null;
-                            }
-                            if (otherIcon) {
-                                otherIcon.classList.remove('fa-chevron-up');
-                                otherIcon.classList.add('fa-chevron-down');
-                            }
+            document.querySelectorAll('.faq-question').forEach((q, idx) => {
+                const ans = q.nextElementSibling;
+                const icon = q.querySelector('i');
+                q.setAttribute('aria-expanded', 'false');
+                q.addEventListener('click', () => {
+                    const expanded = q.getAttribute('aria-expanded') === 'true';
+                    document.querySelectorAll('.faq-question').forEach((qq, i) => {
+                        if (i !== idx) {
+                            const a = qq.nextElementSibling;
+                            const ic = qq.querySelector('i');
+                            qq.setAttribute('aria-expanded', 'false');
+                            if (a) a.style.maxHeight = null;
+                            if (ic) { ic.classList.remove('fa-chevron-up'); ic.classList.add('fa-chevron-down'); }
                         }
                     });
-                    
-                    // Toggle current answer
-                    if (!isExpanded) {
-                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    if (!expanded) {
+                        ans.style.maxHeight = ans.scrollHeight + "px";
                         icon.classList.remove('fa-chevron-down');
                         icon.classList.add('fa-chevron-up');
-                        this.setAttribute('aria-expanded', 'true');
+                        q.setAttribute('aria-expanded', 'true');
                     } else {
-                        answer.style.maxHeight = null;
+                        ans.style.maxHeight = null;
                         icon.classList.remove('fa-chevron-up');
                         icon.classList.add('fa-chevron-down');
-                        this.setAttribute('aria-expanded', 'false');
+                        q.setAttribute('aria-expanded', 'false');
                     }
                 });
             });
 
-            // Download App Buttons with analytics tracking
-            document.querySelectorAll('.download-app-btn').forEach(button => {
-                button.addEventListener('click', function() {
+            document.querySelectorAll('.download-app-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
                     const platform = this.getAttribute('data-platform');
-                    
-                    // Track download attempt
-                    console.log(`Download attempted: ${platform}`);
-                    
-                    // Show appropriate message
                     const storeName = platform === 'ios' ? 'App Store' : 'Google Play';
                     showToast(`Redirecting to ${storeName}...`, "info");
-                    
-                    // In production, you would redirect to actual app store links
-                    // window.location.href = platform === 'ios' 
-                    //     ? 'https://apps.apple.com/app/dropx' 
-                    //     : 'https://play.google.com/store/apps/details?id=com.dropx';
                 });
             });
 
-            // Toast Notification Function with multiple types
-            function showToast(message, type = "success") {
+            function showToast(msg, type = "success") {
                 const toast = document.getElementById('successToast');
-                const toastMessage = document.getElementById('toastMessage');
-                
-                toastMessage.textContent = message;
-                
-                // Set gradient based on type
+                const toastMsg = document.getElementById('toastMessage');
+                toastMsg.textContent = msg;
                 const gradients = {
                     success: "linear-gradient(135deg, #44A3E3, #195887)",
                     error: "linear-gradient(135deg, #ef4444, #dc2626)",
-                    info: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
-                    warning: "linear-gradient(135deg, #f59e0b, #d97706)"
+                    info: "linear-gradient(135deg, #3b82f6, #1d4ed8)"
                 };
-                
                 toast.style.background = gradients[type] || gradients.success;
                 toast.classList.remove('hidden');
-                
-                // Add animation
-                toast.style.animation = 'none';
-                toast.offsetHeight; // Trigger reflow
-                toast.style.animation = 'fadeIn 0.3s';
-                
-                setTimeout(() => {
-                    toast.style.animation = 'fadeOut 0.3s';
-                    setTimeout(() => {
-                        toast.classList.add('hidden');
-                        toast.style.animation = '';
-                    }, 300);
-                }, 3000);
+                setTimeout(() => { toast.classList.add('hidden'); }, 3000);
             }
 
-            // Handle click outside to close mobile menu
             document.addEventListener('click', function(e) {
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    }
+                if (mobileMenu && !mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
                 }
             });
-
-            // Handle escape key to close mobile menu
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    }
-                }
-            });
-
-            // Add animation keyframes
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes fadeIn {
-                    from { opacity: 0; transform: translateY(-10px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                
-                @keyframes fadeOut {
-                    from { opacity: 1; transform: translateY(0); }
-                    to { opacity: 0; transform: translateY(-10px); }
-                }
-                
-                .animate__fadeIn {
-                    animation: fadeIn 0.3s ease;
-                }
-                
-                input:focus, textarea:focus {
-                    ring-color: #44A3E3;
-                }
-            `;
-            document.head.appendChild(style);
         });
-	   
-		// Desktop slider
-		let currentSlide = 0;
-		const slides = document.querySelectorAll('#slider img');
-		const totalSlides = slides.length;
-		const slider = document.getElementById('slider');
-		const dots = document.querySelectorAll('.dot');
-		
-		// Mobile slider
-		let currentMobileSlide = 0;
-		const mobileSlides = document.querySelectorAll('#mobileSlider img');
-		const totalMobileSlides = mobileSlides.length;
-		const mobileSlider = document.getElementById('mobileSlider');
-		const mobileDots = document.querySelectorAll('.mobile-dot');
-		
-		// Auto slide interval
-		let slideInterval = setInterval(nextSlide, 3000);
-		let mobileSlideInterval = setInterval(nextMobileSlide, 3000);
-		
-		function updateDots() {
-			dots.forEach((dot, index) => {
-				if (index === currentSlide) {
-					dot.classList.add('bg-white');
-					dot.classList.remove('bg-white/50');
-				} else {
-					dot.classList.remove('bg-white');
-					dot.classList.add('bg-white/50');
-				}
-			});
-		}
-		
-		function updateMobileDots() {
-			mobileDots.forEach((dot, index) => {
-				if (index === currentMobileSlide) {
-					dot.classList.add('bg-white');
-					dot.classList.remove('bg-white/50');
-				} else {
-					dot.classList.remove('bg-white');
-					dot.classList.add('bg-white/50');
-				}
-			});
-		}
-		
-		function nextSlide() {
-			currentSlide = (currentSlide + 1) % totalSlides;
-			slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-			updateDots();
-		}
-		
-		function prevSlide() {
-			currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-			slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-			updateDots();
-		}
-		
-		function goToSlide(index) {
-			currentSlide = index;
-			slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-			updateDots();
-			
-			// Reset interval
-			clearInterval(slideInterval);
-			slideInterval = setInterval(nextSlide, 3000);
-		}
-		
-		// Mobile functions
-		function nextMobileSlide() {
-			currentMobileSlide = (currentMobileSlide + 1) % totalMobileSlides;
-			mobileSlider.style.transform = `translateX(-${currentMobileSlide * 100}%)`;
-			updateMobileDots();
-		}
-		
-		function prevMobileSlide() {
-			currentMobileSlide = (currentMobileSlide - 1 + totalMobileSlides) % totalMobileSlides;
-			mobileSlider.style.transform = `translateX(-${currentMobileSlide * 100}%)`;
-			updateMobileDots();
-		}
-		
-		function goToMobileSlide(index) {
-			currentMobileSlide = index;
-			mobileSlider.style.transform = `translateX(-${currentMobileSlide * 100}%)`;
-			updateMobileDots();
-			
-			// Reset interval
-			clearInterval(mobileSlideInterval);
-			mobileSlideInterval = setInterval(nextMobileSlide, 3000);
-		}
-		
-		// Pause auto-slide on hover
-		slider.addEventListener('mouseenter', () => {
-			clearInterval(slideInterval);
-		});
-		
-		slider.addEventListener('mouseleave', () => {
-			slideInterval = setInterval(nextSlide, 3000);
-		});
-		
-		mobileSlider.addEventListener('mouseenter', () => {
-			clearInterval(mobileSlideInterval);
-		});
-		
-		mobileSlider.addEventListener('mouseleave', () => {
-			mobileSlideInterval = setInterval(nextMobileSlide, 3000);
-		});
-		
-		// Initialize dots
-		updateDots();
-		updateMobileDots();
-	</script>
+
+        // Slider functionality
+        let currentSlide = 0, currentMobileSlide = 0;
+        const totalSlides = 5;
+        const slider = document.getElementById('slider');
+        const mobileSlider = document.getElementById('mobileSlider');
+        const dots = document.querySelectorAll('.dot');
+        const mobileDots = document.querySelectorAll('.mobile-dot');
+        
+        let slideInterval = setInterval(nextSlide, 3000);
+        let mobileSlideInterval = setInterval(nextMobileSlide, 3000);
+        
+        function updateDots() { dots.forEach((d, i) => { d.classList.toggle('bg-white', i === currentSlide); d.classList.toggle('bg-white/50', i !== currentSlide); }); }
+        function updateMobileDots() { mobileDots.forEach((d, i) => { d.classList.toggle('bg-white', i === currentMobileSlide); d.classList.toggle('bg-white/50', i !== currentMobileSlide); }); }
+        
+        function nextSlide() { currentSlide = (currentSlide + 1) % totalSlides; if(slider) slider.style.transform = `translateX(-${currentSlide * 100}%)`; updateDots(); }
+        function prevSlide() { currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; if(slider) slider.style.transform = `translateX(-${currentSlide * 100}%)`; updateDots(); }
+        function goToSlide(i) { currentSlide = i; if(slider) slider.style.transform = `translateX(-${currentSlide * 100}%)`; updateDots(); clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 3000); }
+        
+        function nextMobileSlide() { currentMobileSlide = (currentMobileSlide + 1) % totalSlides; if(mobileSlider) mobileSlider.style.transform = `translateX(-${currentMobileSlide * 100}%)`; updateMobileDots(); }
+        function prevMobileSlide() { currentMobileSlide = (currentMobileSlide - 1 + totalSlides) % totalSlides; if(mobileSlider) mobileSlider.style.transform = `translateX(-${currentMobileSlide * 100}%)`; updateMobileDots(); }
+        function goToMobileSlide(i) { currentMobileSlide = i; if(mobileSlider) mobileSlider.style.transform = `translateX(-${currentMobileSlide * 100}%)`; updateMobileDots(); clearInterval(mobileSlideInterval); mobileSlideInterval = setInterval(nextMobileSlide, 3000); }
+        
+        if(slider) { slider.addEventListener('mouseenter', () => clearInterval(slideInterval)); slider.addEventListener('mouseleave', () => { slideInterval = setInterval(nextSlide, 3000); }); }
+        if(mobileSlider) { mobileSlider.addEventListener('mouseenter', () => clearInterval(mobileSlideInterval)); mobileSlider.addEventListener('mouseleave', () => { mobileSlideInterval = setInterval(nextMobileSlide, 3000); }); }
+        
+        updateDots();
+        updateMobileDots();
+    </script>
 </body>
 </html>
