@@ -19,18 +19,14 @@
                         dark: "#1f2937",
                         light: "#f8fafc"
                     },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-                    },
                     animation: {
                         'float': 'float 4s ease-in-out infinite',
                         'float-delayed': 'float 5s ease-in-out infinite 0.5s',
-                        'pulse-slow': 'pulse 3s ease-in-out infinite',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-12px)' },
+                            '50%': { transform: 'translateY(-10px)' },
                         }
                     }
                 }
@@ -111,50 +107,52 @@
             box-shadow: 0 10px 25px -5px rgba(68, 163, 227, 0.4);
         }
         
-        /* Hero decorative elements */
         .hero-pattern {
             background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.08) 1.5px, transparent 1.5px);
             background-size: 28px 28px;
         }
         
-        /* Floating icons animation */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(3deg); }
+        /* Professional slider styling */
+        .slider-container {
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
         
-        @keyframes float-reverse {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(12px) rotate(-3deg); }
+        .slider-image {
+            transition: transform 0.3s ease;
         }
         
-        .floating-icon {
-            animation: float 4s ease-in-out infinite;
+        .slider-nav-btn {
+            transition: all 0.2s ease;
         }
         
-        .floating-icon-reverse {
-            animation: float-reverse 4.5s ease-in-out infinite;
+        .slider-nav-btn:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.4);
         }
         
-        /* Gradient text */
-        .gradient-text {
-            background: linear-gradient(135deg, #44A3E3, #195887);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .dot-active {
+            background: white;
+            width: 10px;
+            height: 10px;
         }
         
-        /* Service card hover effect */
+        .dot-inactive {
+            background: rgba(255, 255, 255, 0.4);
+            width: 8px;
+            height: 8px;
+        }
+        
+        /* Service card hover */
         .service-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
         
         .service-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-5px);
             box-shadow: 0 20px 25px -12px rgba(68, 163, 227, 0.2);
         }
         
-        /* Restaurant partner card */
         .partner-card {
             transition: all 0.25s ease;
         }
@@ -162,40 +160,25 @@
         .partner-card:hover {
             transform: translateY(-3px);
             border-color: #44A3E3;
-            box-shadow: 0 8px 20px -6px rgba(68, 163, 227, 0.2);
-        }
-        
-        /* Value card */
-        .value-card {
-            transition: all 0.3s ease;
-        }
-        
-        .value-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
+            box-shadow: 0 8px 20px -6px rgba(68, 163, 227, 0.15);
         }
     </style>
 </head>
-<body class="min-h-screen bg-gray-50 font-sans">
+<body class="min-h-screen bg-gray-50">
     <!-- Header -->
-    <header class="bg-white/95 backdrop-blur-sm shadow-md sticky top-0 z-50 transition-all">
+    <header class="bg-white/95 backdrop-blur-sm shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-2">
                     <img src="logo.png" 
                          alt="DropX Logo" 
-                         class="h-9 w-auto rounded-lg shadow-sm"
+                         class="h-8 w-auto rounded-lg shadow-md"
                          onerror="this.style.display='none'">
-                    <span class="font-bold text-xl tracking-tight" style="color: #195887;">DropX</span>
+                    <span class="font-bold text-xl hidden sm:inline" style="color: #195887;">DropX</span>
                 </div>
                 
                 <div class="flex items-center space-x-4">
-                    <div class="hidden md:flex space-x-8">
+                    <div class="hidden md:flex space-x-6">
                         <a href="#home" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Home</a>
                         <a href="#services" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Services</a>
                         <a href="#partners" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm">Restaurants</a>
@@ -207,10 +190,10 @@
                                 Company <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
                             </button>
                             <div class="dropdown-menu bg-white rounded-xl shadow-lg py-2 border border-gray-100 min-w-[200px]">
-                                <a href="careers.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-colors rounded-lg mx-1">Careers</a>
-                                <a href="ourteam.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-colors rounded-lg mx-1">Our Team</a>
-                                <a href="privacy.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-colors rounded-lg mx-1">Privacy Policy</a>
-                                <a href="terms.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-colors rounded-lg mx-1">Terms of Service</a>
+                                <a href="careers.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-colors mx-1 rounded-lg">Careers</a>
+                                <a href="ourteam.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-colors mx-1 rounded-lg">Our Team</a>
+                                <a href="privacy.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-colors mx-1 rounded-lg">Privacy Policy</a>
+                                <a href="terms.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-colors mx-1 rounded-lg">Terms of Service</a>
                             </div>
                         </div>
                     </div>
@@ -222,24 +205,24 @@
             </div>
             
             <!-- Mobile Menu -->
-            <div class="md:hidden hidden mt-4 bg-white rounded-2xl shadow-xl overflow-hidden" id="mobileMenu">
+            <div class="md:hidden hidden mt-4 bg-white rounded-xl shadow-lg overflow-hidden" id="mobileMenu">
                 <div class="divide-y divide-gray-100">
-                    <a href="#home" class="block px-5 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium transition-colors">Home</a>
-                    <a href="#services" class="block px-5 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium transition-colors">Services</a>
-                    <a href="#partners" class="block px-5 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium transition-colors">Restaurants</a>
-                    <a href="#faq" class="block px-5 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium transition-colors">FAQ</a>
-                    <a href="#contact" class="block px-5 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium transition-colors">Contact</a>
+                    <a href="#home" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium">Home</a>
+                    <a href="#services" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium">Services</a>
+                    <a href="#partners" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium">Restaurants</a>
+                    <a href="#faq" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium">FAQ</a>
+                    <a href="#contact" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium">Contact</a>
                     
-                    <div class="px-5 py-4 bg-gray-50">
-                        <button id="mobileCompanyToggle" class="w-full text-left flex justify-between items-center">
+                    <div class="px-4 py-3 bg-gray-50">
+                        <button id="mobileCompanyToggle" class="w-full text-left flex justify-between items-center py-2">
                             <span class="text-sm font-semibold" style="color: #195887;">Company</span>
                             <i class="fas fa-chevron-down transition-transform" style="color: #44A3E3;"></i>
                         </button>
-                        <div id="mobileCompanyMenu" class="hidden mt-3 space-y-2">
-                            <a href="careers.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-xl transition-colors">Careers</a>
-                            <a href="ourteam.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-xl transition-colors">Our Team</a>
-                            <a href="privacy.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-xl transition-colors">Privacy Policy</a>
-                            <a href="terms.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-xl transition-colors">Terms of Service</a>
+                        <div id="mobileCompanyMenu" class="hidden mt-2 space-y-2">
+                            <a href="careers.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-lg">Careers</a>
+                            <a href="ourteam.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-lg">Our Team</a>
+                            <a href="privacy.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-lg">Privacy Policy</a>
+                            <a href="terms.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-lg">Terms of Service</a>
                         </div>
                     </div>
                 </div>
@@ -247,294 +230,276 @@
         </nav>
     </header>
 
-    <!-- Hero Section - Modern & Professional -->
+    <!-- Hero Section - Professional with High-Quality Images -->
     <section id="home" class="relative overflow-hidden" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);">
-        <!-- Decorative pattern overlay -->
+        <!-- Decorative pattern -->
         <div class="absolute inset-0 hero-pattern opacity-30"></div>
         
-        <!-- Floating decorative icons -->
-        <div class="absolute top-20 left-10 opacity-20 floating-icon hidden lg:block">
-            <i class="fas fa-motorcycle text-6xl text-white"></i>
+        <!-- Floating decorative elements -->
+        <div class="absolute top-20 left-10 opacity-20 hidden xl:block animate-float">
+            <i class="fas fa-motorcycle text-5xl text-white"></i>
         </div>
-        <div class="absolute bottom-20 right-10 opacity-20 floating-icon-reverse hidden lg:block">
-            <i class="fas fa-shopping-bag text-6xl text-white"></i>
-        </div>
-        <div class="absolute top-1/3 right-1/4 opacity-10 floating-icon hidden lg:block">
-            <i class="fas fa-map-marker-alt text-5xl text-white"></i>
+        <div class="absolute bottom-20 right-10 opacity-20 hidden xl:block" style="animation: float 5s ease-in-out infinite 0.5s;">
+            <i class="fas fa-shopping-bag text-5xl text-white"></i>
         </div>
         
-        <div class="container mx-auto px-4 py-16 md:py-20 lg:py-24 relative z-10">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center">
-                    <!-- Badge -->
+        <div class="container mx-auto px-4 py-12 md:py-16 lg:py-20 relative z-10">
+            <!-- Desktop Layout -->
+            <div class="hidden lg:grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div>
                     <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6">
                         <span class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
-                        <span class="text-xs font-medium text-white tracking-wide">FAST DELIVERY IN LILONGWE</span>
+                        <span class="text-xs font-medium text-white tracking-wide">#1 DELIVERY APP IN MALAWI</span>
                     </div>
                     
-                    <!-- Main Heading -->
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-5 leading-tight">
+                    <h1 class="text-5xl xl:text-6xl font-bold text-white mb-5 leading-tight">
                         Fresh food & groceries
                         <span class="block text-yellow-400">delivered to your door</span>
                     </h1>
                     
-                    <!-- Subheading -->
-                    <p class="text-base md:text-lg text-blue-100 max-w-2xl mx-auto mb-8 leading-relaxed">
+                    <p class="text-base text-blue-100 mb-8 leading-relaxed max-w-lg">
                         Order from 50+ restaurants and get your favorites delivered fast. 
                         Fresh groceries also available through our mobile app.
                     </p>
                     
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-                        <button class="btn-primary px-8 py-4 rounded-xl flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all download-app-btn group" data-platform="ios">
-                            <i class="fab fa-apple text-2xl group-hover:scale-110 transition-transform"></i>
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <button class="btn-primary px-6 py-3.5 rounded-xl flex items-center gap-3 shadow-lg hover:shadow-xl transition-all download-app-btn group" data-platform="ios">
+                            <i class="fab fa-apple text-2xl"></i>
                             <div class="text-left">
                                 <div class="text-xs opacity-90">Download on the</div>
-                                <div class="font-bold text-lg">App Store</div>
+                                <div class="font-bold">App Store</div>
                             </div>
                         </button>
-                        <button class="btn-primary px-8 py-4 rounded-xl flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all download-app-btn group" data-platform="android">
-                            <i class="fab fa-google-play text-2xl group-hover:scale-110 transition-transform"></i>
+                        <button class="btn-primary px-6 py-3.5 rounded-xl flex items-center gap-3 shadow-lg hover:shadow-xl transition-all download-app-btn group" data-platform="android">
+                            <i class="fab fa-google-play text-2xl"></i>
                             <div class="text-left">
                                 <div class="text-xs opacity-90">Get it on</div>
-                                <div class="font-bold text-lg">Google Play</div>
+                                <div class="font-bold">Google Play</div>
                             </div>
                         </button>
                     </div>
                     
-                    <!-- Trust indicator -->
-                    <div class="flex items-center justify-center gap-6 text-blue-100 text-sm">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-star text-yellow-400 text-xs"></i>
-                            <span>4.8 ★ App Rating</span>
+                    <div class="flex items-center gap-6 text-blue-100 text-sm">
+                        <div class="flex items-center gap-1"><i class="fas fa-star text-yellow-400 text-xs"></i><span>4.8 ★ App Rating</span></div>
+                        <div class="flex items-center gap-1"><i class="fas fa-clock"></i><span>30-45 min delivery</span></div>
+                        <div class="flex items-center gap-1"><i class="fas fa-store"></i><span>50+ Partners</span></div>
+                    </div>
+                </div>
+                
+                <!-- Right - Professional Image Slider -->
+                <div class="slider-container relative overflow-hidden rounded-2xl shadow-2xl bg-white/10 backdrop-blur-sm p-2">
+                    <div id="desktopSlider" class="relative overflow-hidden rounded-xl" style="height: 380px;">
+                        <div id="sliderTrack" class="flex transition-transform duration-500 ease-out h-full">
+                            <!-- High-quality professional images from Unsplash (food/delivery themed) -->
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=380&fit=crop" alt="Delicious burger meal" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=380&fit=crop" alt="Fresh pizza delivery" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=380&fit=crop" alt="Healthy grain bowl" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&h=380&fit=crop" alt="Fresh groceries" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600&h=380&fit=crop" alt="Delivery rider" class="w-full h-full object-cover flex-shrink-0">
                         </div>
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-clock"></i>
-                            <span>30-45 min delivery</span>
+                        
+                        <!-- Navigation Buttons -->
+                        <button onclick="prevSlide()" class="slider-nav-btn absolute left-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm transition-all">
+                            <i class="fas fa-chevron-left text-sm"></i>
+                        </button>
+                        <button onclick="nextSlide()" class="slider-nav-btn absolute right-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm transition-all">
+                            <i class="fas fa-chevron-right text-sm"></i>
+                        </button>
+                        
+                        <!-- Dots -->
+                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(0)"></div>
+                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(1)"></div>
+                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(2)"></div>
+                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(3)"></div>
+                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(4)"></div>
                         </div>
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-store"></i>
-                            <span>50+ Partners</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Layout -->
+            <div class="lg:hidden">
+                <div class="text-center">
+                    <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 mb-5">
+                        <span class="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse"></span>
+                        <span class="text-xs font-medium text-white">#1 DELIVERY APP IN MALAWI</span>
+                    </div>
+                    
+                    <h1 class="text-3xl font-bold text-white mb-3 leading-tight">
+                        Fresh food & groceries
+                        <span class="block text-yellow-400">delivered to your door</span>
+                    </h1>
+                    
+                    <p class="text-sm text-blue-100 mb-6 px-4">Order from 50+ restaurants through our app.</p>
+                    
+                    <!-- Mobile Slider -->
+                    <div class="relative overflow-hidden rounded-xl mb-6 shadow-xl" style="height: 220px;">
+                        <div id="mobileSliderTrack" class="flex transition-transform duration-500 ease-out h-full">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&h=220&fit=crop" alt="Food" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&h=220&fit=crop" alt="Pizza" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&h=220&fit=crop" alt="Healthy bowl" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=500&h=220&fit=crop" alt="Groceries" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=500&h=220&fit=crop" alt="Delivery" class="w-full h-full object-cover flex-shrink-0">
+                        </div>
+                        
+                        <button onclick="prevMobileSlide()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 text-white rounded-full w-8 h-8 flex items-center justify-center backdrop-blur-sm">
+                            <i class="fas fa-chevron-left text-xs"></i>
+                        </button>
+                        <button onclick="nextMobileSlide()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 text-white rounded-full w-8 h-8 flex items-center justify-center backdrop-blur-sm">
+                            <i class="fas fa-chevron-right text-xs"></i>
+                        </button>
+                        
+                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                            <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(0)"></div>
+                            <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(1)"></div>
+                            <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(2)"></div>
+                            <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(3)"></div>
+                            <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(4)"></div>
                         </div>
                     </div>
                     
-                    <p class="text-blue-200 text-xs mt-6 flex items-center justify-center gap-1">
-                        <i class="fas fa-info-circle"></i>
-                        Information site only. Order via our mobile app.
-                    </p>
+                    <div class="flex flex-row gap-3 mb-4">
+                        <button class="btn-primary px-4 py-3 rounded-xl flex items-center justify-center gap-2 flex-1 download-app-btn" data-platform="ios">
+                            <i class="fab fa-apple text-xl"></i>
+                            <div class="text-left"><div class="text-xs">App Store</div><div class="font-semibold text-sm">Download</div></div>
+                        </button>
+                        <button class="btn-primary px-4 py-3 rounded-xl flex items-center justify-center gap-2 flex-1 download-app-btn" data-platform="android">
+                            <i class="fab fa-google-play text-xl"></i>
+                            <div class="text-left"><div class="text-xs">Google Play</div><div class="font-semibold text-sm">Get it</div></div>
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center justify-center gap-4 text-blue-100 text-xs">
+                        <div class="flex items-center gap-1"><i class="fas fa-star text-yellow-400 text-xs"></i><span>4.8 ★</span></div>
+                        <div class="flex items-center gap-1"><i class="fas fa-clock"></i><span>30-45 min</span></div>
+                    </div>
+                    
+                    <p class="text-blue-200 text-xs mt-4"><i class="fas fa-info-circle mr-1"></i>Info site only. Order via app.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 md:py-20 bg-white">
+    <section id="services" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <span class="text-primary text-sm font-semibold tracking-wide uppercase bg-blue-50 px-4 py-1.5 rounded-full inline-block mb-4" style="color: #44A3E3;">WHAT WE DELIVER</span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style="color: #195887;">We bring it to you</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-base">Home or office — fast, reliable delivery right to your door.</p>
+                <span class="text-primary text-sm font-semibold uppercase bg-blue-50 px-4 py-1.5 rounded-full inline-block mb-4" style="color: #44A3E3;">WHAT WE DELIVER</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4" style="color: #195887;">We deliver to you</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Home or office — we bring what you need right to your door.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                <!-- Food -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
                 <div class="service-card bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 text-center border border-blue-100">
                     <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(135deg, #44A3E3, #195887);">
                         <i class="fas fa-utensils text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2" style="color: #195887;">Restaurant Food</h3>
-                    <p class="text-gray-500">Hot, fresh meals from your favorite local restaurants delivered fast.</p>
+                    <p class="text-gray-500">Hot meals from your favorite local restaurants</p>
                 </div>
                 
-                <!-- Groceries -->
                 <div class="service-card bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 text-center border border-blue-100">
                     <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(135deg, #44A3E3, #195887);">
                         <i class="fas fa-shopping-basket text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2" style="color: #195887;">Groceries</h3>
-                    <p class="text-gray-500">Fresh produce, pantry staples, and daily essentials at your doorstep.</p>
+                    <p class="text-gray-500">Essentials delivered to your doorstep</p>
                 </div>
             </div>
             
-            <p class="text-center text-sm text-gray-400 mt-8 flex items-center justify-center gap-1">
-                <i class="fas fa-map-marker-alt" style="color: #44A3E3;"></i>
-                Currently delivering across Lilongwe
-            </p>
+            <p class="text-center text-sm text-gray-400 mt-8"><i class="fas fa-map-marker-alt mr-1" style="color: #44A3E3;"></i>Delivering in Lilongwe</p>
         </div>
     </section>
 
     <!-- Restaurant Partners -->
-    <section id="partners" class="py-16 md:py-20" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
+    <section id="partners" class="py-16" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <span class="text-primary text-sm font-semibold tracking-wide uppercase bg-white px-4 py-1.5 rounded-full inline-block mb-4 shadow-sm" style="color: #44A3E3;">OUR NETWORK</span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style="color: #195887;">Restaurant Partners</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-base">50+ restaurants delivering in Lilongwe</p>
+                <span class="text-primary text-sm font-semibold uppercase bg-white px-4 py-1.5 rounded-full inline-block mb-4 shadow-sm" style="color: #44A3E3;">OUR NETWORK</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4" style="color: #195887;">Our Restaurant Partners</h2>
+                <p class="text-gray-600">50+ restaurants delivering in Lilongwe</p>
             </div>
             
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
                 <div class="partner-card bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                        <i class="fas fa-hamburger text-white text-base"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md" style="background: linear-gradient(135deg, #44A3E3, #195887);"><i class="fas fa-hamburger text-white text-sm"></i></div>
                     <h4 class="font-semibold text-sm" style="color: #195887;">Burger Express</h4>
                     <p class="text-xs text-gray-400">Fast Food</p>
                 </div>
-                
                 <div class="partner-card bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                        <i class="fas fa-pizza-slice text-white text-base"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md" style="background: linear-gradient(135deg, #44A3E3, #195887);"><i class="fas fa-pizza-slice text-white text-sm"></i></div>
                     <h4 class="font-semibold text-sm" style="color: #195887;">Pizza Palace</h4>
                     <p class="text-xs text-gray-400">Italian</p>
                 </div>
-                
                 <div class="partner-card bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                        <i class="fas fa-utensil-spoon text-white text-base"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md" style="background: linear-gradient(135deg, #44A3E3, #195887);"><i class="fas fa-utensil-spoon text-white text-sm"></i></div>
                     <h4 class="font-semibold text-sm" style="color: #195887;">Malawi Kitchen</h4>
                     <p class="text-xs text-gray-400">Local Cuisine</p>
                 </div>
-                
                 <div class="partner-card bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                        <i class="fas fa-drumstick-bite text-white text-base"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md" style="background: linear-gradient(135deg, #44A3E3, #195887);"><i class="fas fa-drumstick-bite text-white text-sm"></i></div>
                     <h4 class="font-semibold text-sm" style="color: #195887;">Chicken Spot</h4>
                     <p class="text-xs text-gray-400">Grill & BBQ</p>
                 </div>
             </div>
             
-            <p class="text-center text-sm text-gray-500 mt-6 flex items-center justify-center gap-1">
-                <i class="fas fa-mobile-alt" style="color: #44A3E3;"></i>
-                View all 50+ restaurants in our app
-            </p>
+            <p class="text-center text-xs text-gray-500 mt-6"><i class="fas fa-mobile-alt mr-1" style="color: #44A3E3;"></i> View all restaurants in our app</p>
         </div>
     </section>
 
     <!-- Service Areas -->
-    <section class="py-16 md:py-20 bg-white">
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-10">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style="color: #195887;">Service Areas</h2>
-                <p class="text-gray-600 text-base">Currently serving Lilongwe</p>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4" style="color: #195887;">Service Areas</h2>
+                <p class="text-gray-600">Currently serving Lilongwe</p>
             </div>
             
             <div class="max-w-2xl mx-auto rounded-2xl p-8 text-center shadow-xl" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);">
-                <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <i class="fas fa-map-marker-alt text-xl" style="color: #195887;"></i>
-                </div>
+                <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg"><i class="fas fa-map-marker-alt text-xl" style="color: #195887;"></i></div>
                 <h3 class="text-2xl font-bold text-white mb-3">Lilongwe</h3>
                 <p class="text-blue-100 mb-4 text-sm">All areas including City Center, Area 3, 10, 43, 47, Likuni, Kawale</p>
-                <div class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                    <p class="text-xs font-medium text-white">🚀 Coming soon: Mzuzu, Blantyre, Zomba</p>
-                </div>
+                <div class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2"><p class="text-xs font-medium text-white">🚀 Coming soon: Mzuzu, Blantyre, Zomba</p></div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-16 md:py-20" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
+    <section id="faq" class="py-16" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <span class="text-primary text-sm font-semibold tracking-wide uppercase bg-white px-4 py-1.5 rounded-full inline-block mb-4 shadow-sm" style="color: #44A3E3;">ANSWERS</span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style="color: #195887;">Frequently Asked Questions</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Quick answers to common questions</p>
+                <span class="text-primary text-sm font-semibold uppercase bg-white px-4 py-1.5 rounded-full inline-block mb-4 shadow-sm" style="color: #44A3E3;">ANSWERS</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4" style="color: #195887;">Frequently Asked Questions</h2>
+                <p class="text-gray-600">Quick answers to common questions</p>
             </div>
             
             <div class="max-w-2xl mx-auto space-y-3">
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
-                        <span class="font-semibold text-sm" style="color: #195887;">How do I place an order?</span>
-                        <i class="fas fa-chevron-down text-xs transition-transform" style="color: #44A3E3;"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="pb-4 text-sm text-gray-600">All orders are placed through our mobile app. Download from App Store or Google Play to get started.</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
-                        <span class="font-semibold text-sm" style="color: #195887;">What areas do you serve?</span>
-                        <i class="fas fa-chevron-down text-xs transition-transform" style="color: #44A3E3;"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="pb-4 text-sm text-gray-600">We currently deliver across all areas of Lilongwe. Check the app for exact coverage in your neighborhood.</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
-                        <span class="font-semibold text-sm" style="color: #195887;">How long does delivery take?</span>
-                        <i class="fas fa-chevron-down text-xs transition-transform" style="color: #44A3E3;"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="pb-4 text-sm text-gray-600">Delivery typically takes 30-45 minutes depending on your location and restaurant preparation time.</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
-                        <span class="font-semibold text-sm" style="color: #195887;">Expanding to other cities?</span>
-                        <i class="fas fa-chevron-down text-xs transition-transform" style="color: #44A3E3;"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="pb-4 text-sm text-gray-600">Yes! We're expanding to Mzuzu, Blantyre, and Zomba very soon. Stay tuned for updates.</p>
-                    </div>
-                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100"><button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center"><span class="font-semibold text-sm" style="color: #195887;">How do I place an order?</span><i class="fas fa-chevron-down text-xs transition-transform" style="color: #44A3E3;"></i></button><div class="faq-answer px-6"><p class="pb-4 text-sm text-gray-600">All orders through our mobile app. Download from App Store or Google Play.</p></div></div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100"><button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center"><span class="font-semibold text-sm" style="color: #195887;">What areas do you serve?</span><i class="fas fa-chevron-down text-xs transition-transform" style="color: #44A3E3;"></i></button><div class="faq-answer px-6"><p class="pb-4 text-sm text-gray-600">All areas of Lilongwe. Check app for exact coverage.</p></div></div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100"><button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center"><span class="font-semibold text-sm" style="color: #195887;">How long does delivery take?</span><i class="fas fa-chevron-down text-xs transition-transform" style="color: #44A3E3;"></i></button><div class="faq-answer px-6"><p class="pb-4 text-sm text-gray-600">Delivery typically takes 30-45 minutes depending on location.</p></div></div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100"><button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center"><span class="font-semibold text-sm" style="color: #195887;">Expanding to other cities?</span><i class="fas fa-chevron-down text-xs transition-transform" style="color: #44A3E3;"></i></button><div class="faq-answer px-6"><p class="pb-4 text-sm text-gray-600">Yes, coming to Mzuzu, Blantyre, and Zomba soon.</p></div></div>
             </div>
             
-            <p class="text-center mt-8">
-                <a href="#contact" class="text-sm font-medium hover:underline inline-flex items-center gap-1" style="color: #44A3E3;">Still have questions? Contact us <i class="fas fa-arrow-right text-xs"></i></a>
-            </p>
+            <p class="text-center mt-8"><a href="#contact" class="text-sm font-medium hover:underline" style="color: #44A3E3;">Still have questions? Contact us</a></p>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 md:py-20 bg-white">
+    <section id="contact" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style="color: #195887;">Contact Us</h2>
-                    <p class="text-gray-600 text-base">Get in touch with our team</p>
-                </div>
-                
+                <div class="text-center mb-10"><h2 class="text-3xl sm:text-4xl font-bold mb-4" style="color: #195887;">Contact Us</h2><p class="text-gray-600">Get in touch with our team</p></div>
                 <div class="flex flex-col md:flex-row gap-6">
-                    <div class="w-full md:w-1/2 rounded-2xl p-6" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); border: 1px solid rgba(68, 163, 227, 0.2);">
+                    <div class="w-full md:w-1/2 rounded-2xl p-6" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); border:1px solid rgba(68,163,227,0.2);">
                         <h3 class="text-xl font-bold mb-4" style="color: #195887;">Reach us</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-sm" style="color: #44A3E3;"><i class="fas fa-map-marker-alt"></i></div>
-                                <span class="text-gray-700">Lilongwe, Malawi</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-sm" style="color: #44A3E3;"><i class="fas fa-phone"></i></div>
-                                <span class="text-gray-700">+265 123 456 789</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-sm" style="color: #44A3E3;"><i class="fas fa-envelope"></i></div>
-                                <span class="text-gray-700">info@dropxdelivery.mw</span>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-6 bg-white rounded-xl p-4 border border-blue-100">
-                            <p class="text-sm font-medium text-gray-700 mb-3">📱 Order via our app</p>
-                            <div class="flex flex-col sm:flex-row gap-2">
-                                <button class="btn-primary px-4 py-2.5 rounded-lg text-sm flex items-center justify-center gap-2 flex-1 download-app-btn" data-platform="ios"><i class="fab fa-apple"></i> App Store</button>
-                                <button class="btn-primary px-4 py-2.5 rounded-lg text-sm flex items-center justify-center gap-2 flex-1 download-app-btn" data-platform="android"><i class="fab fa-google-play"></i> Google Play</button>
-                            </div>
-                        </div>
+                        <div class="space-y-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-sm" style="color:#44A3E3;"><i class="fas fa-map-marker-alt"></i></div><span class="text-gray-700">Lilongwe, Malawi</span></div><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-sm" style="color:#44A3E3;"><i class="fas fa-phone"></i></div><span class="text-gray-700">+265 123 456 789</span></div><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-sm" style="color:#44A3E3;"><i class="fas fa-envelope"></i></div><span class="text-gray-700">info@dropxdelivery.mw</span></div></div>
+                        <div class="mt-6 bg-white rounded-xl p-4 border border-blue-100"><p class="text-sm font-medium text-gray-700 mb-3">📱 Order via our app</p><div class="flex flex-col sm:flex-row gap-2"><button class="btn-primary px-4 py-2.5 rounded-lg text-sm flex items-center justify-center gap-2 flex-1 download-app-btn" data-platform="ios"><i class="fab fa-apple"></i> App Store</button><button class="btn-primary px-4 py-2.5 rounded-lg text-sm flex items-center justify-center gap-2 flex-1 download-app-btn" data-platform="android"><i class="fab fa-google-play"></i> Google Play</button></div></div>
                     </div>
-                    
-                    <div class="w-full md:w-1/2 rounded-2xl p-6" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); border: 1px solid rgba(68, 163, 227, 0.2);">
+                    <div class="w-full md:w-1/2 rounded-2xl p-6" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); border:1px solid rgba(68,163,227,0.2);">
                         <h3 class="text-xl font-bold mb-4" style="color: #195887;">Send a message</h3>
-                        <form class="space-y-4" id="contactForm">
-                            <input type="text" placeholder="Your name" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" required>
-                            <input type="email" placeholder="Email address" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" required>
-                            <textarea rows="3" placeholder="Your message" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" required></textarea>
-                            <button type="submit" class="btn-primary w-full py-3.5 rounded-xl text-sm font-semibold transition-all">Send Message</button>
-                        </form>
+                        <form class="space-y-4" id="contactForm"><input type="text" placeholder="Your name" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary" required><input type="email" placeholder="Email address" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary" required><textarea rows="3" placeholder="Your message" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary" required></textarea><button type="submit" class="btn-primary w-full py-3.5 rounded-xl text-sm font-semibold">Send Message</button></form>
                     </div>
                 </div>
             </div>
@@ -545,154 +510,63 @@
     <footer class="text-white py-10" style="background: linear-gradient(135deg, #195887 0%, #44A3E3 100%);">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row gap-8">
-                <div class="w-full md:w-1/3">
-                    <div class="flex items-center space-x-2 mb-3">
-                        <img src="logo.png" alt="DropX Logo" class="h-9 w-auto rounded-lg bg-white p-1" onerror="this.style.display='none'">
-                        <span class="font-bold text-xl">DropX</span>
-                    </div>
-                    <p class="text-sm text-blue-100 mb-3 leading-relaxed">Fast food and grocery delivery in Malawi.<br>Order exclusively through our mobile app.</p>
-                    <div class="flex space-x-3 mt-4">
-                        <a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-facebook-f text-sm"></i></a>
-                        <a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-twitter text-sm"></i></a>
-                        <a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-instagram text-sm"></i></a>
-                    </div>
-                </div>
-                
-                <div class="w-1/2 md:w-1/6">
-                    <h4 class="text-sm font-bold mb-3 text-white tracking-wide">Company</h4>
-                    <ul class="space-y-2">
-                        <li><a href="careers.html" class="text-xs text-blue-100 hover:text-white transition-colors">Careers</a></li>
-                        <li><a href="ourteam.html" class="text-xs text-blue-100 hover:text-white transition-colors">Our Team</a></li>
-                        <li><a href="privacy.html" class="text-xs text-blue-100 hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="text-xs text-blue-100 hover:text-white transition-colors">Terms of Service</a></li>
-                    </ul>
-                </div>
-                
-                <div class="w-1/2 md:w-1/6">
-                    <h4 class="text-sm font-bold mb-3 text-white tracking-wide">Contact</h4>
-                    <ul class="space-y-2">
-                        <li class="text-xs text-blue-100">info@dropxdelivery.mw</li>
-                        <li class="text-xs text-blue-100">+265 123 456 789</li>
-                        <li class="text-xs text-blue-100">Lilongwe, Malawi</li>
-                    </ul>
-                </div>
+                <div class="w-full md:w-1/3"><div class="flex items-center space-x-2 mb-3"><img src="logo.png" alt="DropX Logo" class="h-8 w-auto rounded-lg bg-white p-1" onerror="this.style.display='none'"><span class="font-bold text-xl">DropX</span></div><p class="text-sm text-blue-100 mb-3">Fast food and grocery delivery in Malawi.<br>Order exclusively through our mobile app.</p><div class="flex space-x-3 mt-4"><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-facebook-f text-sm"></i></a><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-twitter text-sm"></i></a><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-instagram text-sm"></i></a></div></div>
+                <div class="w-1/2 md:w-1/6"><h4 class="text-sm font-bold mb-3 text-white">Company</h4><ul class="space-y-2"><li><a href="careers.html" class="text-xs text-blue-100 hover:text-white">Careers</a></li><li><a href="ourteam.html" class="text-xs text-blue-100 hover:text-white">Our Team</a></li><li><a href="privacy.html" class="text-xs text-blue-100 hover:text-white">Privacy Policy</a></li><li><a href="terms.html" class="text-xs text-blue-100 hover:text-white">Terms of Service</a></li></ul></div>
+                <div class="w-1/2 md:w-1/6"><h4 class="text-sm font-bold mb-3 text-white">Contact</h4><ul class="space-y-2"><li class="text-xs text-blue-100">info@dropxdelivery.mw</li><li class="text-xs text-blue-100">+265 123 456 789</li><li class="text-xs text-blue-100">Lilongwe, Malawi</li></ul></div>
             </div>
-            
-            <div class="border-t border-blue-400/50 mt-8 pt-6 text-center">
-                <p class="text-xs text-blue-100">&copy; 2026 DropX Delivery. All rights reserved.</p>
-            </div>
+            <div class="border-t border-blue-400/50 mt-8 pt-6 text-center"><p class="text-xs text-blue-100">&copy; 2026 DropX Delivery. All rights reserved.</p></div>
         </div>
     </footer>
 
-    <!-- Success Toast -->
-    <div id="successToast" class="fixed top-4 left-4 right-4 md:left-auto md:right-4 md:w-96 text-white px-4 py-3 rounded-xl shadow-lg hidden z-50 backdrop-blur-md" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-        <div class="flex items-center justify-center gap-2"><i class="fas fa-check-circle"></i><span id="toastMessage" class="text-sm">Action completed!</span></div>
-    </div>
+    <div id="successToast" class="fixed top-4 left-4 right-4 md:left-auto md:right-4 md:w-96 text-white px-4 py-3 rounded-xl shadow-lg hidden z-50" style="background: linear-gradient(135deg, #44A3E3, #195887);"><div class="flex items-center justify-center gap-2"><i class="fas fa-check-circle"></i><span id="toastMessage" class="text-sm">Action completed!</span></div></div>
 
     <script>
+        // Slider logic
+        let currentSlide = 0, currentMobileSlide = 0, totalSlides = 5;
+        const sliderTrack = document.getElementById('sliderTrack');
+        const mobileSliderTrack = document.getElementById('mobileSliderTrack');
+        const dots = document.querySelectorAll('.slider-dot');
+        const mobileDots = document.querySelectorAll('.mobile-dot');
+        let slideInterval = setInterval(nextSlide, 4000);
+        let mobileSlideInterval = setInterval(nextMobileSlide, 4000);
+        
+        function updateDots() { dots.forEach((d,i) => { if(i===currentSlide) { d.classList.remove('bg-white/50','w-2'); d.classList.add('bg-white','w-3'); } else { d.classList.remove('bg-white','w-3'); d.classList.add('bg-white/50','w-2'); } }); }
+        function updateMobileDots() { mobileDots.forEach((d,i) => { if(i===currentMobileSlide) { d.classList.remove('bg-white/50'); d.classList.add('bg-white'); } else { d.classList.remove('bg-white'); d.classList.add('bg-white/50'); } }); }
+        function nextSlide() { currentSlide = (currentSlide+1)%totalSlides; if(sliderTrack) sliderTrack.style.transform = `translateX(-${currentSlide*100}%)`; updateDots(); }
+        function prevSlide() { currentSlide = (currentSlide-1+totalSlides)%totalSlides; if(sliderTrack) sliderTrack.style.transform = `translateX(-${currentSlide*100}%)`; updateDots(); clearInterval(slideInterval); slideInterval = setInterval(nextSlide,4000); }
+        function goToSlide(i) { currentSlide = i; if(sliderTrack) sliderTrack.style.transform = `translateX(-${currentSlide*100}%)`; updateDots(); clearInterval(slideInterval); slideInterval = setInterval(nextSlide,4000); }
+        function nextMobileSlide() { currentMobileSlide = (currentMobileSlide+1)%totalSlides; if(mobileSliderTrack) mobileSliderTrack.style.transform = `translateX(-${currentMobileSlide*100}%)`; updateMobileDots(); }
+        function prevMobileSlide() { currentMobileSlide = (currentMobileSlide-1+totalSlides)%totalSlides; if(mobileSliderTrack) mobileSliderTrack.style.transform = `translateX(-${currentMobileSlide*100}%)`; updateMobileDots(); clearInterval(mobileSlideInterval); mobileSlideInterval = setInterval(nextMobileSlide,4000); }
+        function goToMobileSlide(i) { currentMobileSlide = i; if(mobileSliderTrack) mobileSliderTrack.style.transform = `translateX(-${currentMobileSlide*100}%)`; updateMobileDots(); clearInterval(mobileSlideInterval); mobileSlideInterval = setInterval(nextMobileSlide,4000); }
+        
+        // Pause on hover
+        if(sliderTrack) { sliderTrack.addEventListener('mouseenter',()=>clearInterval(slideInterval)); sliderTrack.addEventListener('mouseleave',()=>{ slideInterval = setInterval(nextSlide,4000); }); }
+        if(mobileSliderTrack) { mobileSliderTrack.addEventListener('mouseenter',()=>clearInterval(mobileSlideInterval)); mobileSliderTrack.addEventListener('mouseleave',()=>{ mobileSlideInterval = setInterval(nextMobileSlide,4000); }); }
+        
+        updateDots(); updateMobileDots();
+
+        // Mobile menu and other functionality
         document.addEventListener("DOMContentLoaded", function() {
-            // Mobile menu
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
-            if(mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-
+            if(mobileMenuBtn && mobileMenu) mobileMenuBtn.addEventListener('click', function(e) { e.stopPropagation(); mobileMenu.classList.toggle('hidden'); });
+            
             const mobileCompanyToggle = document.getElementById('mobileCompanyToggle');
             const mobileCompanyMenu = document.getElementById('mobileCompanyMenu');
-            if(mobileCompanyToggle && mobileCompanyMenu) {
-                mobileCompanyToggle.addEventListener('click', function() {
-                    mobileCompanyMenu.classList.toggle('hidden');
-                    const icon = this.querySelector('i');
-                    if(icon) icon.style.transform = mobileCompanyMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-                });
-            }
-
-            // FAQ Accordion
-            document.querySelectorAll('.faq-question').forEach((q, idx) => {
-                const ans = q.nextElementSibling;
-                const icon = q.querySelector('i');
-                q.addEventListener('click', () => {
-                    const expanded = q.getAttribute('aria-expanded') === 'true';
-                    document.querySelectorAll('.faq-question').forEach((qq, i) => {
-                        if(i !== idx) {
-                            const a = qq.nextElementSibling;
-                            const ic = qq.querySelector('i');
-                            if(a) a.style.maxHeight = null;
-                            if(ic) { ic.classList.remove('fa-chevron-up'); ic.classList.add('fa-chevron-down'); }
-                        }
-                    });
-                    if(!expanded) {
-                        ans.style.maxHeight = ans.scrollHeight + "px";
-                        icon.classList.remove('fa-chevron-down');
-                        icon.classList.add('fa-chevron-up');
-                    } else {
-                        ans.style.maxHeight = null;
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
-                    }
-                });
-            });
-
-            // Contact form
+            if(mobileCompanyToggle && mobileCompanyMenu) mobileCompanyToggle.addEventListener('click', function() { mobileCompanyMenu.classList.toggle('hidden'); const icon = this.querySelector('i'); if(icon) icon.style.transform = mobileCompanyMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)'; });
+            
+            document.querySelectorAll('.faq-question').forEach((q, idx) => { const ans = q.nextElementSibling; const icon = q.querySelector('i'); q.addEventListener('click', () => { const expanded = q.getAttribute('aria-expanded') === 'true'; document.querySelectorAll('.faq-question').forEach((qq, i) => { if(i !== idx) { const a = qq.nextElementSibling; const ic = qq.querySelector('i'); if(a) a.style.maxHeight = null; if(ic) { ic.classList.remove('fa-chevron-up'); ic.classList.add('fa-chevron-down'); } } }); if(!expanded) { ans.style.maxHeight = ans.scrollHeight + "px"; icon.classList.remove('fa-chevron-down'); icon.classList.add('fa-chevron-up'); } else { ans.style.maxHeight = null; icon.classList.remove('fa-chevron-up'); icon.classList.add('fa-chevron-down'); } }); });
+            
             const contactForm = document.getElementById('contactForm');
-            if(contactForm) {
-                contactForm.addEventListener("submit", function(e) {
-                    e.preventDefault();
-                    const inputs = this.querySelectorAll('input, textarea');
-                    if(!inputs[0].value.trim() || !inputs[1].value.trim() || !inputs[2].value.trim()) {
-                        showToast("Please fill in all fields", "error");
-                        return;
-                    }
-                    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputs[1].value)) {
-                        showToast("Invalid email address", "error");
-                        return;
-                    }
-                    showToast("Thank you! We'll get back to you soon.");
-                    this.reset();
-                });
-            }
-
-            // Download buttons
-            document.querySelectorAll('.download-app-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const platform = this.getAttribute('data-platform');
-                    const storeName = platform === 'ios' ? 'App Store' : 'Google Play';
-                    showToast(`Redirecting to ${storeName}...`, "info");
-                });
-            });
-
-            function showToast(msg, type = "success") {
-                const toast = document.getElementById('successToast');
-                const toastMsg = document.getElementById('toastMessage');
-                toastMsg.textContent = msg;
-                toast.classList.remove('hidden');
-                setTimeout(() => toast.classList.add('hidden'), 3000);
-            }
-
-            // Close mobile menu on outside click
-            document.addEventListener('click', function(e) {
-                if(mobileMenu && !mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if(href === '#') return;
-                    const target = document.querySelector(href);
-                    if(target) {
-                        e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        if(mobileMenu && !mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
+            if(contactForm) contactForm.addEventListener("submit", function(e) { e.preventDefault(); const inputs = this.querySelectorAll('input, textarea'); if(!inputs[0].value.trim() || !inputs[1].value.trim() || !inputs[2].value.trim()) { showToast("Please fill in all fields", "error"); return; } if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputs[1].value)) { showToast("Invalid email", "error"); return; } showToast("Thank you! We'll get back to you soon."); this.reset(); });
+            
+            document.querySelectorAll('.download-app-btn').forEach(btn => btn.addEventListener('click', function() { const platform = this.getAttribute('data-platform'); const storeName = platform === 'ios' ? 'App Store' : 'Google Play'; showToast(`Redirecting to ${storeName}...`, "info"); }));
+            
+            function showToast(msg, type = "success") { const toast = document.getElementById('successToast'); const toastMsg = document.getElementById('toastMessage'); toastMsg.textContent = msg; toast.classList.remove('hidden'); setTimeout(() => toast.classList.add('hidden'), 3000); }
+            
+            document.addEventListener('click', function(e) { if(mobileMenu && !mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) mobileMenu.classList.add('hidden'); });
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { const href = this.getAttribute('href'); if(href === '#') return; const target = document.querySelector(href); if(target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); if(mobileMenu && !mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden'); } }); });
         });
     </script>
 </body>
