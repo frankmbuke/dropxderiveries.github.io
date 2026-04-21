@@ -3,7 +3,7 @@
 <head>
     <base target="_self">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Our Team – DropX Delivery Malawi</title>
     <meta name="description" content="Meet the dedicated team behind DropX Delivery in Malawi. Professional leadership committed to excellence in delivery services.">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,6 +18,13 @@
                         accent: "#f59e0b",
                         dark: "#1f2937",
                         light: "#f8fafc"
+                    },
+                    screens: {
+                        'xs': '475px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1024px',
+                        'xl': '1280px'
                     }
                 }
             }
@@ -28,70 +35,155 @@
             -webkit-tap-highlight-color: transparent;
         }
         
+        /* Mobile-first responsive styles */
         .team-card {
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border-left: 4px solid #44A3E3;
         }
+        
         .team-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(68, 163, 227, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(68, 163, 227, 0.2);
         }
+        
+        /* Responsive team image - smaller on mobile */
+        .team-image {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(68, 163, 227, 0.25);
+        }
+        
+        @media (min-width: 640px) {
+            .team-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .team-image {
+                width: 110px;
+                height: 110px;
+                border-width: 4px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .team-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        
         .social-icon {
             transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            min-height: 40px;
+            width: 40px;
+            height: 40px;
+            border-radius: 9999px;
         }
+        
+        @media (min-width: 768px) {
+            .social-icon {
+                min-width: 44px;
+                min-height: 44px;
+                width: 44px;
+                height: 44px;
+            }
+        }
+        
         .social-icon:hover {
-            transform: scale(1.2);
+            transform: scale(1.08);
             background: linear-gradient(135deg, #44A3E3, #195887) !important;
             color: white !important;
         }
-        .bg-logo-gradient {
-            background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);
+        
+        /* Better touch targets */
+        button, a, .clickable, .btn-primary, .btn-outline {
+            min-height: 44px;
+            min-width: 44px;
+            cursor: pointer;
+            touch-action: manipulation;
         }
+        
+        /* Responsive text adjustments */
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 1.875rem !important;
+                line-height: 1.3 !important;
+            }
+            .section-title {
+                font-size: 1.5rem !important;
+            }
+            .value-card {
+                padding: 1rem !important;
+            }
+        }
+        
+        /* Loading animation */
+        img {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        img.loaded {
+            opacity: 1;
+        }
+        
+        /* Button styles */
         .btn-primary {
             background: linear-gradient(135deg, #44A3E3, #195887);
             color: white;
             transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         .btn-primary:hover {
             background: linear-gradient(135deg, #195887, #44A3E3);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(68, 163, 227, 0.4);
+            box-shadow: 0 10px 20px -5px rgba(68, 163, 227, 0.4);
         }
         .btn-outline {
             border: 2px solid #44A3E3;
             color: #195887;
+            background: transparent;
             transition: all 0.3s ease;
         }
         .btn-outline:hover {
             background: linear-gradient(135deg, #44A3E3, #195887);
             color: white;
-        }
-        /* Smaller team card image */
-        .team-image {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 4px 15px rgba(68, 163, 227, 0.3);
+            border-color: transparent;
         }
         
-        /* Better touch targets */
-        button, a, .clickable {
+        /* Dropdown menu for desktop */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 50;
+            min-width: 200px;
+        }
+        .group:hover .dropdown-menu,
+        .group:focus-within .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
             min-height: 44px;
-            min-width: 44px;
-            cursor: pointer;
-        }
-
-        /* Image loading */
-        img {
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            width: 100%;
+            pointer-events: auto;
         }
         
-        img.loaded {
-            opacity: 1;
-        }
-
+        /* Modal overlay */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -103,17 +195,42 @@
             z-index: 1000;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
         }
         .modal-content {
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             max-width: 90%;
             max-height: 90%;
             overflow: auto;
             position: relative;
+            cursor: default;
+        }
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: white;
+            border-radius: 9999px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        @media (min-width: 768px) {
+            .modal-close {
+                width: 44px;
+                height: 44px;
+            }
+        }
+        .modal-close:hover {
+            background: #f0f0f0;
         }
         
-        /* Placeholder style matching logo */
+        /* Placeholder style */
         .image-placeholder {
             background: linear-gradient(135deg, #44A3E3, #195887);
             display: flex;
@@ -121,48 +238,97 @@
             justify-content: center;
             font-weight: bold;
             color: white;
-            border: 4px solid white;
-            box-shadow: 0 4px 15px rgba(68, 163, 227, 0.3);
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(68, 163, 227, 0.25);
             border-radius: 9999px;
-            width: 120px;
-            height: 120px;
+            width: 90px;
+            height: 90px;
             margin: 0 auto;
         }
+        @media (min-width: 640px) {
+            .image-placeholder {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        @media (min-width: 768px) {
+            .image-placeholder {
+                width: 110px;
+                height: 110px;
+                border-width: 4px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .image-placeholder {
+                width: 120px;
+                height: 120px;
+            }
+        }
         .placeholder-text {
-            font-size: 2.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        @media (min-width: 768px) {
+            .placeholder-text {
+                font-size: 2rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .placeholder-text {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Value card hover */
+        .value-card {
+            transition: all 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(68, 163, 227, 0.15);
         }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
-    <!-- Header with logo colors -->
+    <!-- Header with Company Dropdown (consistent with Careers page) -->
     <header class="bg-white shadow-lg sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-2">
-                    <a href="index.html" class="flex items-center space-x-2">
+                    <a href="index.html" class="flex items-center space-x-2 clickable">
                         <img src="logo.png" 
                              alt="DropX Logo" 
                              class="h-8 w-auto rounded-lg shadow-md"
                              onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 40 40\'%3E%3Crect width=\'40\' height=\'40\' fill=\'%2344A3E3\' rx=\'8\'/%3E%3Ctext x=\'8\' y=\'28\' fill=\'white\' font-size=\'24\' font-weight=\'bold\'%3EDX%3C/text%3E%3C/svg%3E'">
+                        <span class="font-bold text-lg hidden xs:inline" style="color: #195887;">DropX</span>
                     </a>
                 </div>
                 
+                <!-- Desktop Navigation with Company Dropdown -->
                 <div class="hidden md:flex space-x-6">
                     <a href="index.html" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm py-2">Home</a>
                     <a href="careers.html" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm py-2">Careers</a>
                     <a href="ourteam.html" class="text-[#195887] font-medium transition-colors text-sm py-2 border-b-2 border-[#44A3E3]">Our Team</a>
-                    <a href="privacy.html" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm py-2">Privacy</a>
-                    <a href="terms.html" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm py-2">Terms</a>
+                    
+                    <!-- Company Dropdown -->
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm py-2 flex items-center">
+                            Company <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="dropdown-menu bg-white rounded-lg shadow-lg py-2 border border-gray-100">
+                            <a href="privacy.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors">Privacy Policy</a>
+                            <a href="terms.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors">Terms of Service</a>
+                        </div>
+                    </div>
+                    
                     <a href="index.html#contact" class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm py-2">Contact</a>
                 </div>
                 
-                <div class="flex items-center space-x-4">
-                    <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 clickable" id="mobileMenuBtn">
-                        <i class="fas fa-bars text-xl" style="color: #195887;"></i>
-                    </button>
-                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-3 rounded-lg hover:bg-gray-100 clickable" aria-label="Menu">
+                    <i class="fas fa-bars text-xl" style="color: #195887;"></i>
+                </button>
             </div>
             
             <!-- Mobile Menu -->
@@ -171,70 +337,80 @@
                     <a href="index.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Home</a>
                     <a href="careers.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Careers</a>
                     <a href="ourteam.html" class="block px-4 py-4 text-white font-medium clickable" style="background: linear-gradient(135deg, #44A3E3, #195887);">Our Team</a>
-                    <a href="privacy.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Privacy Policy</a>
-                    <a href="terms.html" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Terms of Service</a>
+                    
+                    <!-- Mobile Company Section -->
+                    <div class="px-4 py-3 bg-gray-50">
+                        <button id="mobileCompanyToggle" class="w-full text-left flex justify-between items-center py-2 clickable">
+                            <span class="text-sm font-semibold" style="color: #195887;">Company</span>
+                            <i class="fas fa-chevron-down transition-transform" style="color: #44A3E3;"></i>
+                        </button>
+                        <div id="mobileCompanyMenu" class="hidden mt-2 space-y-2">
+                            <a href="privacy.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-lg transition-colors clickable">Privacy Policy</a>
+                            <a href="terms.html" class="block text-gray-700 hover:bg-[#44A3E3] hover:text-white py-3 px-3 text-sm rounded-lg transition-colors clickable">Terms of Service</a>
+                        </div>
+                    </div>
+                    
                     <a href="index.html#contact" class="block px-4 py-4 text-gray-700 hover:bg-[#44A3E3] hover:text-white font-medium clickable">Contact</a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="py-16 text-white" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);">
+    <!-- Hero Section - Responsive -->
+    <section class="py-12 md:py-16 text-white" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                <h1 class="hero-title text-3xl md:text-5xl font-bold mb-3 md:mb-4">
                     Meet Our Team
                 </h1>
-                <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+                <p class="text-base md:text-xl text-blue-100 max-w-2xl mx-auto px-2">
                     The dedicated professionals behind DropX Delivery in Malawi, committed to excellence in every delivery.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Leadership Team – 6 cards with proper image names -->
-    <section class="py-16 bg-white">
+    <!-- Leadership Team - Responsive Grid -->
+    <section class="py-12 md:py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-2" style="color: #195887;">Leadership Team</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="section-title text-2xl md:text-4xl font-bold mb-2" style="color: #195887;">Leadership Team</h2>
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
                     Experienced leaders driving innovation in Malawi's delivery industry
                 </p>
             </div>
             
-            <!-- 6 cards grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 max-w-7xl mx-auto" id="leadershipGrid"></div>
+            <div class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-5 max-w-7xl mx-auto" id="leadershipGrid"></div>
         </div>
     </section>
 
-    <!-- Our Values -->
-    <section class="py-16" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
+    <!-- Our Values - Responsive -->
+    <section class="py-12 md:py-16" style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-2" style="color: #195887;">Our Values</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="section-title text-2xl md:text-4xl font-bold mb-2" style="color: #195887;">Our Values</h2>
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
                     The principles that guide our team in serving Malawi
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto" id="valuesGrid"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-5xl mx-auto" id="valuesGrid"></div>
         </div>
     </section>
 
-    <!-- Join Our Team CTA -->
-    <section class="py-16" style="background: linear-gradient(135deg, #195887 0%, #44A3E3 100%);">
+    <!-- Join Our Team CTA - Responsive -->
+    <section class="py-12 md:py-16" style="background: linear-gradient(135deg, #195887 0%, #44A3E3 100%);">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto text-center text-white">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Join Our Team</h2>
-                <p class="text-xl mb-8 text-blue-100">
+                <h2 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4">Join Our Team</h2>
+                <p class="text-base md:text-xl mb-6 md:mb-8 text-blue-100 px-2">
                     We're always looking for passionate individuals to help us revolutionize delivery services in Malawi.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="careers.html" class="bg-white text-[#195887] px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors">
+                <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
+                    <a href="careers.html" class="bg-white text-[#195887] px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg hover:bg-gray-100 transition-colors text-center clickable">
                         View Openings
                     </a>
-                    <a href="mailto:careers@dropxdelivery.mw" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-[#195887] transition-colors">
+                    <a href="mailto:careers@dropxdelivery.mw" class="border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg hover:bg-white hover:text-[#195887] transition-colors text-center clickable">
                         Send Your CV
                     </a>
                 </div>
@@ -242,47 +418,42 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-white py-8" style="background: linear-gradient(135deg, #195887 0%, #44A3E3 100%);">
+    <!-- Footer - Simplified with only separate file links -->
+    <footer class="text-white py-8 md:py-10" style="background: linear-gradient(135deg, #195887 0%, #44A3E3 100%);">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row gap-8">
+            <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+                <!-- Company Info -->
                 <div class="w-full md:w-1/3">
                     <div class="flex items-center space-x-2 mb-3">
                         <img src="logo.png" 
                              alt="DropX Logo" 
                              class="h-8 w-auto rounded-lg bg-white p-1"
-                             onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 40 40\'%3E%3Crect width=\'40\' height=\'40\' fill=\'white\' rx=\'8\'/%3E%3Ctext x=\'8\' y=\'28\' fill=\'%2344A3E3\' font-size=\'24\' font-weight=\'bold\'%3EDX%3C/text%3E%3C/svg%3E'">
+                             onerror="this.style.display='none'">
                     </div>
-                    <p class="text-sm text-blue-100 mb-3">
+                    <p class="text-xs md:text-sm text-blue-100 mb-3">
                         Professional delivery service in Malawi, committed to excellence and customer satisfaction.
                     </p>
                     <div class="flex space-x-3 mt-4">
-                        <a href="#" class="text-white hover:text-yellow-400 text-lg"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-white hover:text-yellow-400 text-lg"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white hover:text-yellow-400 text-lg"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white hover:text-yellow-400 text-lg clickable"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-white hover:text-yellow-400 text-lg clickable"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-yellow-400 text-lg clickable"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
                 
+                <!-- Company Links - Only separate file links -->
                 <div class="w-1/2 md:w-1/6">
-                    <h4 class="text-sm font-bold mb-3">Quick Links</h4>
+                    <h4 class="text-sm font-bold mb-3 text-white">Company</h4>
                     <ul class="space-y-2">
-                        <li><a href="index.html" class="text-xs text-blue-100 hover:text-white">Home</a></li>
-                        <li><a href="careers.html" class="text-xs text-blue-100 hover:text-white">Careers</a></li>
-                        <li><a href="ourteam.html" class="text-xs text-white font-medium">Our Team</a></li>
-                        <li><a href="index.html#contact" class="text-xs text-blue-100 hover:text-white">Contact</a></li>
+                        <li><a href="careers.html" class="text-xs text-blue-100 hover:text-white transition-colors clickable">Careers</a></li>
+                        <li><a href="ourteam.html" class="text-xs text-white font-medium transition-colors clickable">Our Team</a></li>
+                        <li><a href="privacy.html" class="text-xs text-blue-100 hover:text-white transition-colors clickable">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-xs text-blue-100 hover:text-white transition-colors clickable">Terms of Service</a></li>
                     </ul>
                 </div>
                 
+                <!-- Contact Info -->
                 <div class="w-1/2 md:w-1/6">
-                    <h4 class="text-sm font-bold mb-3">Legal</h4>
-                    <ul class="space-y-2">
-                        <li><a href="privacy.html" class="text-xs text-blue-100 hover:text-white">Privacy</a></li>
-                        <li><a href="terms.html" class="text-xs text-blue-100 hover:text-white">Terms</a></li>
-                    </ul>
-                </div>
-                
-                <div class="w-1/2 md:w-1/6">
-                    <h4 class="text-sm font-bold mb-3">Contact</h4>
+                    <h4 class="text-sm font-bold mb-3 text-white">Contact</h4>
                     <ul class="space-y-2">
                         <li class="text-xs text-blue-100">team@dropx.mw</li>
                         <li class="text-xs text-blue-100">+265 123 456 789</li>
@@ -300,11 +471,11 @@
     <!-- Image Modal -->
     <div class="modal-overlay" id="imageModal">
         <div class="modal-content p-4">
-            <button class="absolute top-2 right-2 text-gray-600 hover:text-gray-800" onclick="closeModal()">
-                <i class="fas fa-times text-2xl"></i>
+            <button class="modal-close" onclick="closeModal()" aria-label="Close">
+                <i class="fas fa-times text-gray-600 hover:text-gray-800"></i>
             </button>
-            <img id="modalImage" src="" alt="" class="max-w-full max-h-[80vh]">
-            <p id="modalCaption" class="mt-2 text-center text-gray-700"></p>
+            <img id="modalImage" src="" alt="" class="max-w-full max-h-[80vh] rounded-lg">
+            <p id="modalCaption" class="mt-2 text-center text-gray-700 text-sm"></p>
         </div>
     </div>
 
@@ -320,6 +491,19 @@
                     mobileMenu.classList.toggle('hidden');
                 });
             }
+            
+            // Mobile Company Toggle
+            const mobileCompanyToggle = document.getElementById('mobileCompanyToggle');
+            const mobileCompanyMenu = document.getElementById('mobileCompanyMenu');
+            if (mobileCompanyToggle && mobileCompanyMenu) {
+                mobileCompanyToggle.addEventListener('click', function() {
+                    mobileCompanyMenu.classList.toggle('hidden');
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.style.transform = mobileCompanyMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                    }
+                });
+            }
 
             // Close menu when clicking outside
             document.addEventListener('click', function(e) {
@@ -330,145 +514,60 @@
                 }
             });
 
-            // Team data with proper image filenames as requested
+            // Team data
             const teamMembers = [
-                {
-                    id: 1,
-                    name: "Frank Mwakasungula",
-                    position: "CEO & Founder",
-                    bio: "15+ years logistics experience, leading innovation across Southern Africa.",
-                    image: "images/team/frank.jpg",  // As specified: frank.jpg
-                    social: [
-                        { platform: "linkedin", url: "#" },
-                        { platform: "twitter", url: "#" }
-                    ]
-                },
-                {
-                    id: 2,
-                    name: "Maggie Chisiza",
-                    position: "Operations Director",
-                    bio: "Supply chain specialist ensuring smooth deliveries nationwide.",
-                    image: "images/team/maggie.jpg",  // As specified: maggie.jpg
-                    social: [
-                        { platform: "linkedin", url: "#" },
-                        { platform: "twitter", url: "#" }
-                    ]
-                },
-                {
-                    id: 3,
-                    name: "Frank Mbuke Jr",
-                    position: "Technology Lead",
-                    bio: "Software architect building robust delivery platforms.",
-                    image: "images/team/mbuke.jpg",  // As specified: mbuke.jpg
-                    social: [
-                        { platform: "linkedin", url: "#" },
-                        { platform: "github", url: "#" }
-                    ]
-                },
-                {
-                    id: 4,
-                    name: "Thandiwe Banda",
-                    position: "Customer Experience",
-                    bio: "Passionate about service excellence and client satisfaction.",
-                    image: "images/team/team3.jpg",  // Added thandiwe.jpg
-                    social: [
-                        { platform: "linkedin", url: "#" },
-                        { platform: "twitter", url: "#" }
-                    ]
-                },
-                {
-                    id: 5,
-                    name: "Gift Khonje",
-                    position: "Fleet Manager",
-                    bio: "Ensuring safety and efficiency across our delivery fleet.",
-                    image: "images/team/team1.jpg",  // Added gift.jpg
-                    social: [
-                        { platform: "linkedin", url: "#" },
-                        { platform: "facebook", url: "#" }
-                    ]
-                },
-                {
-                    id: 6,
-                    name: "Temwa Nyirenda",
-                    position: "HR & Culture",
-                    bio: "Building a people-first culture and recruiting top talent.",
-                    image: "images/team/team2.jpg",  // Added temwa.jpg
-                    social: [
-                        { platform: "linkedin", url: "#" },
-                        { platform: "twitter", url: "#" }
-                    ]
-                }
+                { id: 1, name: "Frank Mwakasungula", position: "CEO & Founder", bio: "15+ years logistics experience, leading innovation across Southern Africa.", image: "images/team/frank.jpg", initials: "FM", social: [{ platform: "linkedin", url: "#" }, { platform: "twitter", url: "#" }] },
+                { id: 2, name: "Maggie Chisiza", position: "Operations Director", bio: "Supply chain specialist ensuring smooth deliveries nationwide.", image: "images/team/maggie.jpg", initials: "MC", social: [{ platform: "linkedin", url: "#" }, { platform: "twitter", url: "#" }] },
+                { id: 3, name: "Frank Mbuke Jr", position: "Technology Lead", bio: "Software architect building robust delivery platforms.", image: "images/team/mbuke.jpg", initials: "FM", social: [{ platform: "linkedin", url: "#" }, { platform: "github", url: "#" }] },
+                { id: 4, name: "Thandiwe Banda", position: "Customer Experience", bio: "Passionate about service excellence and client satisfaction.", image: "images/team/team3.jpg", initials: "TB", social: [{ platform: "linkedin", url: "#" }, { platform: "twitter", url: "#" }] },
+                { id: 5, name: "Gift Khonje", position: "Fleet Manager", bio: "Ensuring safety and efficiency across our delivery fleet.", image: "images/team/team1.jpg", initials: "GK", social: [{ platform: "linkedin", url: "#" }, { platform: "facebook", url: "#" }] },
+                { id: 6, name: "Temwa Nyirenda", position: "HR & Culture", bio: "Building a people-first culture and recruiting top talent.", image: "images/team/team2.jpg", initials: "TN", social: [{ platform: "linkedin", url: "#" }, { platform: "twitter", url: "#" }] }
             ];
 
             // Values data
             const values = [
-                {
-                    title: "Customer First",
-                    description: "Every decision starts with our customers' needs. We're committed to exceeding expectations.",
-                    icon: "fas fa-heart"
-                },
-                {
-                    title: "Professional Excellence",
-                    description: "We maintain the highest standards in every delivery and interaction.",
-                    icon: "fas fa-star"
-                },
-                {
-                    title: "Safety & Security",
-                    description: "Protecting our customers, team members, and partners is our top priority.",
-                    icon: "fas fa-shield-alt"
-                },
-                {
-                    title: "Integrity",
-                    description: "We operate with honesty and transparency in all we do.",
-                    icon: "fas fa-handshake"
-                },
-                {
-                    title: "Innovation",
-                    description: "Constantly improving to provide better services for Malawi.",
-                    icon: "fas fa-lightbulb"
-                },
-                {
-                    title: "Teamwork",
-                    description: "Collaborative success through mutual support and shared goals.",
-                    icon: "fas fa-users"
-                }
+                { title: "Customer First", description: "Every decision starts with our customers' needs. We're committed to exceeding expectations.", icon: "fas fa-heart" },
+                { title: "Professional Excellence", description: "We maintain the highest standards in every delivery and interaction.", icon: "fas fa-star" },
+                { title: "Safety & Security", description: "Protecting our customers, team members, and partners is our top priority.", icon: "fas fa-shield-alt" },
+                { title: "Integrity", description: "We operate with honesty and transparency in all we do.", icon: "fas fa-handshake" },
+                { title: "Innovation", description: "Constantly improving to provide better services for Malawi.", icon: "fas fa-lightbulb" },
+                { title: "Teamwork", description: "Collaborative success through mutual support and shared goals.", icon: "fas fa-users" }
             ];
 
-            // Render team members with proper image filenames and fallback placeholders
+            // Generate fallback SVG
+            function getFallbackSVG(initials) {
+                return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2344A3E3'/%3E%3Cstop offset='100%25' stop-color='%23195887'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='60' cy='60' r='58' fill='url(%23grad)' stroke='white' stroke-width='4'/%3E%3Ctext x='60' y='80' font-size='42' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial, sans-serif'%3E${initials}%3C/text%3E%3C/svg%3E`;
+            }
+
+            // Render team members
             const leadershipGrid = document.getElementById('leadershipGrid');
             if (leadershipGrid) {
                 leadershipGrid.innerHTML = '';
-                
                 teamMembers.forEach(member => {
-                    // Get initials for fallback placeholder
-                    const initials = member.name.split(' ').map(n => n[0]).join('');
-                    
-                    // Create fallback placeholder SVG (used if image fails to load)
-                    const fallbackSVG = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2344A3E3'/%3E%3Cstop offset='100%25' stop-color='%23195887'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='60' cy='60' r='58' fill='url(%23grad)' stroke='white' stroke-width='4'/%3E%3Ctext x='60' y='80' font-size='42' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial, sans-serif'%3E${initials}%3C/text%3E%3C/svg%3E`;
-                    
+                    const fallbackSVG = getFallbackSVG(member.initials);
                     const memberHTML = `
-                        <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-                            <div class="relative pt-4 flex justify-center items-center" style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);">
+                        <div class="team-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-full transition-all hover:shadow-xl">
+                            <div class="relative pt-4 pb-2 flex justify-center items-center" style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);">
                                 <img src="${member.image}" 
                                      alt="${member.name}" 
-                                     class="team-image rounded-full"
+                                     class="team-image rounded-full cursor-pointer"
+                                     onclick="openImageModal('${member.image}', '${member.name} - ${member.position}')"
                                      onerror="this.onerror=null; this.src='${fallbackSVG}'">
                             </div>
-                            <div class="p-3 text-center flex-1 flex flex-col">
-                                <h3 class="text-base font-bold mb-0.5" style="color: #195887;">${member.name}</h3>
-                                <p class="text-[#44A3E3] text-xs font-medium mb-2">${member.position}</p>
+                            <div class="p-3 md:p-4 text-center flex-1 flex flex-col">
+                                <h3 class="text-sm md:text-base font-bold mb-0.5" style="color: #195887;">${member.name}</h3>
+                                <p class="text-primary text-xs font-medium mb-2" style="color: #44A3E3;">${member.position}</p>
                                 <p class="text-gray-600 text-xs mb-3 line-clamp-2">${member.bio}</p>
-                                <div class="flex justify-center space-x-2 mt-auto">
+                                <div class="flex justify-center space-x-2 mt-auto pt-2">
                                     ${member.social.map(social => `
-                                        <a href="${social.url}" class="social-icon w-7 h-7 bg-[#f0f7ff] rounded-full flex items-center justify-center text-xs" style="color: #195887;">
-                                            <i class="fab fa-${social.platform}"></i>
+                                        <a href="${social.url}" class="social-icon bg-[#f0f7ff] rounded-full flex items-center justify-center transition-all hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white" style="color: #195887;">
+                                            <i class="fab fa-${social.platform} text-base md:text-lg"></i>
                                         </a>
                                     `).join('')}
                                 </div>
                             </div>
                         </div>
                     `;
-                    
                     leadershipGrid.innerHTML += memberHTML;
                 });
             }
@@ -477,22 +576,20 @@
             const valuesGrid = document.getElementById('valuesGrid');
             if (valuesGrid) {
                 valuesGrid.innerHTML = '';
-                
                 values.forEach(value => {
                     const valueHTML = `
-                        <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all border-l-4" style="border-left-color: #44A3E3;">
+                        <div class="value-card bg-white p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all border-l-4" style="border-left-color: #44A3E3;">
                             <div class="flex items-start">
-                                <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4 flex-shrink-0" style="background: linear-gradient(135deg, #44A3E3, #195887);">
-                                    <i class="${value.icon} text-white"></i>
+                                <div class="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0" style="background: linear-gradient(135deg, #44A3E3, #195887);">
+                                    <i class="${value.icon} text-white text-base md:text-lg"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-lg font-bold mb-2" style="color: #195887;">${value.title}</h3>
-                                    <p class="text-gray-600 text-sm">${value.description}</p>
+                                    <h3 class="text-base md:text-lg font-bold mb-1 md:mb-2" style="color: #195887;">${value.title}</h3>
+                                    <p class="text-gray-600 text-xs md:text-sm">${value.description}</p>
                                 </div>
                             </div>
                         </div>
                     `;
-                    
                     valuesGrid.innerHTML += valueHTML;
                 });
             }
@@ -500,13 +597,8 @@
             // Image loading handler
             const images = document.querySelectorAll('img');
             images.forEach(img => {
-                if (img.complete) {
-                    img.classList.add('loaded');
-                } else {
-                    img.addEventListener('load', function() {
-                        this.classList.add('loaded');
-                    });
-                }
+                if (img.complete) img.classList.add('loaded');
+                else img.addEventListener('load', () => img.classList.add('loaded'));
             });
 
             // Smooth scrolling for anchor links
@@ -514,20 +606,23 @@
                 anchor.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
                     if (href === '#') return;
-                    
-                    e.preventDefault();
-                    const targetElement = document.querySelector(href);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                        
-                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                        }
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
                     }
                 });
+            });
+
+            // Handle escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    closeModal();
+                }
             });
         });
 
@@ -536,33 +631,27 @@
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
             const modalCaption = document.getElementById('modalCaption');
-            
-            modalImage.src = src;
-            modalImage.alt = alt;
-            modalCaption.textContent = alt;
-            
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            if (modal && modalImage) {
+                modalImage.src = src;
+                modalImage.alt = alt || '';
+                if (modalCaption) modalCaption.textContent = alt || '';
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         function closeModal() {
             const modal = document.getElementById('imageModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         }
 
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-
-        const modal = document.getElementById('imageModal');
-        if (modal) {
-            modal.addEventListener('click', function(event) {
-                if (event.target === this) {
-                    closeModal();
-                }
+        const modalOverlay = document.getElementById('imageModal');
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', function(event) {
+                if (event.target === this) closeModal();
             });
         }
     </script>
