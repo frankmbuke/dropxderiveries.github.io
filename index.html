@@ -112,14 +112,9 @@
             background-size: 28px 28px;
         }
         
-        /* Professional slider styling */
         .slider-container {
             border-radius: 24px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-        
-        .slider-image {
-            transition: transform 0.3s ease;
         }
         
         .slider-nav-btn {
@@ -131,19 +126,6 @@
             background: rgba(255, 255, 255, 0.4);
         }
         
-        .dot-active {
-            background: white;
-            width: 10px;
-            height: 10px;
-        }
-        
-        .dot-inactive {
-            background: rgba(255, 255, 255, 0.4);
-            width: 8px;
-            height: 8px;
-        }
-        
-        /* Service card hover */
         .service-card {
             transition: all 0.3s ease;
         }
@@ -162,6 +144,14 @@
             border-color: #44A3E3;
             box-shadow: 0 8px 20px -6px rgba(68, 163, 227, 0.15);
         }
+        
+        /* Logo styling */
+        .logo-text {
+            background: linear-gradient(135deg, #44A3E3, #195887);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
@@ -169,12 +159,13 @@
     <header class="bg-white/95 backdrop-blur-sm shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
+                <!-- Logo with fallback -->
                 <div class="flex items-center space-x-2">
                     <img src="logo.png" 
                          alt="DropX Logo" 
-                         class="h-8 w-auto rounded-lg shadow-md"
-                         onerror="this.style.display='none'">
-                    <span class="font-bold text-xl hidden sm:inline" style="color: #195887;">DropX</span>
+                         class="h-9 w-auto rounded-lg shadow-sm"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'36\' height=\'36\' viewBox=\'0 0 40 40\'%3E%3Crect width=\'40\' height=\'40\' fill=\'%2344A3E3\' rx=\'10\'/%3E%3Ctext x=\'20\' y=\'28\' text-anchor=\'middle\' fill=\'white\' font-size=\'22\' font-weight=\'bold\'%3EDX%3C/text%3E%3C/svg%3E'">
+                    <span class="font-bold text-xl tracking-tight" style="color: #195887;">DropX</span>
                 </div>
                 
                 <div class="flex items-center space-x-4">
@@ -230,7 +221,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section - Professional with High-Quality Images -->
+    <!-- Hero Section - Professional with Your Images -->
     <section id="home" class="relative overflow-hidden" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);">
         <!-- Decorative pattern -->
         <div class="absolute inset-0 hero-pattern opacity-30"></div>
@@ -287,16 +278,15 @@
                     </div>
                 </div>
                 
-                <!-- Right - Professional Image Slider -->
+                <!-- Right - Professional Image Slider with Your Images -->
                 <div class="slider-container relative overflow-hidden rounded-2xl shadow-2xl bg-white/10 backdrop-blur-sm p-2">
                     <div id="desktopSlider" class="relative overflow-hidden rounded-xl" style="height: 380px;">
                         <div id="sliderTrack" class="flex transition-transform duration-500 ease-out h-full">
-                            <!-- High-quality professional images from Unsplash (food/delivery themed) -->
-                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=380&fit=crop" alt="Delicious burger meal" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=380&fit=crop" alt="Fresh pizza delivery" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=380&fit=crop" alt="Healthy grain bowl" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&h=380&fit=crop" alt="Fresh groceries" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600&h=380&fit=crop" alt="Delivery rider" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="office.jpeg" alt="DropX Office" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%2344A3E3\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3EOffice%3C/text%3E%3C/svg%3E'">
+                            <img src="track.jpg" alt="Delivery Tracking" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%23195887\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3ETracking%3C/text%3E%3C/svg%3E'">
+                            <img src="frank.jpg" alt="Our Team" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%2344A3E3\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3ETeam%3C/text%3E%3C/svg%3E'">
+                            <img src="customer.jpg" alt="Happy Customer" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%23195887\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3ECustomer%3C/text%3E%3C/svg%3E'">
+                            <img src="item.jpg" alt="Delivery Items" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%2344A3E3\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3EItems%3C/text%3E%3C/svg%3E'">
                         </div>
                         
                         <!-- Navigation Buttons -->
@@ -334,14 +324,14 @@
                     
                     <p class="text-sm text-blue-100 mb-6 px-4">Order from 50+ restaurants through our app.</p>
                     
-                    <!-- Mobile Slider -->
+                    <!-- Mobile Slider with Your Images -->
                     <div class="relative overflow-hidden rounded-xl mb-6 shadow-xl" style="height: 220px;">
                         <div id="mobileSliderTrack" class="flex transition-transform duration-500 ease-out h-full">
-                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&h=220&fit=crop" alt="Food" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&h=220&fit=crop" alt="Pizza" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&h=220&fit=crop" alt="Healthy bowl" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=500&h=220&fit=crop" alt="Groceries" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=500&h=220&fit=crop" alt="Delivery" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="office.jpeg" alt="Office" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="track.jpg" alt="Track" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="frank.jpg" alt="Team" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="customer.jpg" alt="Customer" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="item.jpg" alt="Items" class="w-full h-full object-cover flex-shrink-0">
                         </div>
                         
                         <button onclick="prevMobileSlide()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 text-white rounded-full w-8 h-8 flex items-center justify-center backdrop-blur-sm">
@@ -539,7 +529,6 @@
         function prevMobileSlide() { currentMobileSlide = (currentMobileSlide-1+totalSlides)%totalSlides; if(mobileSliderTrack) mobileSliderTrack.style.transform = `translateX(-${currentMobileSlide*100}%)`; updateMobileDots(); clearInterval(mobileSlideInterval); mobileSlideInterval = setInterval(nextMobileSlide,4000); }
         function goToMobileSlide(i) { currentMobileSlide = i; if(mobileSliderTrack) mobileSliderTrack.style.transform = `translateX(-${currentMobileSlide*100}%)`; updateMobileDots(); clearInterval(mobileSlideInterval); mobileSlideInterval = setInterval(nextMobileSlide,4000); }
         
-        // Pause on hover
         if(sliderTrack) { sliderTrack.addEventListener('mouseenter',()=>clearInterval(slideInterval)); sliderTrack.addEventListener('mouseleave',()=>{ slideInterval = setInterval(nextSlide,4000); }); }
         if(mobileSliderTrack) { mobileSliderTrack.addEventListener('mouseenter',()=>clearInterval(mobileSlideInterval)); mobileSliderTrack.addEventListener('mouseleave',()=>{ mobileSlideInterval = setInterval(nextMobileSlide,4000); }); }
         
