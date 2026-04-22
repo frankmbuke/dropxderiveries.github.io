@@ -4,7 +4,7 @@
     <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>DropX Delivery - Fast Food & Grocery Delivery in Lilongwe</title>
+    <title>DropX Delivery - Food & Grocery Delivery in Lilongwe</title>
     <meta name="description" content="DropX Delivery provides fast food and grocery delivery in Lilongwe, Malawi. Order through our mobile app.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -18,15 +18,6 @@
                         accent: "#f59e0b",
                         dark: "#1f2937",
                         light: "#f8fafc"
-                    },
-                    animation: {
-                        'float': 'float 4s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
                     }
                 }
             }
@@ -35,6 +26,10 @@
     <style>
         * {
             -webkit-tap-highlight-color: transparent;
+        }
+        
+        .transition-all {
+            transition: all 0.3s ease;
         }
         
         .faq-answer {
@@ -84,15 +79,6 @@
             width: 100%;
             pointer-events: auto;
         }
-        
-        img {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        img.loaded {
-            opacity: 1;
-        }
 
         .btn-primary {
             background: linear-gradient(135deg, #44A3E3, #195887);
@@ -106,56 +92,42 @@
             box-shadow: 0 10px 25px -5px rgba(68, 163, 227, 0.4);
         }
         
-        .hero-pattern {
-            background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.08) 1.5px, transparent 1.5px);
-            background-size: 28px 28px;
-        }
-        
-        .slider-container {
-            border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-        
-        .slider-nav-btn {
-            transition: all 0.2s ease;
-        }
-        
-        .slider-nav-btn:hover {
-            transform: scale(1.1);
-            background: rgba(255, 255, 255, 0.4);
-        }
-        
+        /* Professional card hover effects */
         .service-card {
             transition: all 0.3s ease;
         }
-        
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -12px rgba(68, 163, 227, 0.2);
+            box-shadow: 0 20px 25px -12px rgba(68, 163, 227, 0.25);
         }
         
         .partner-card {
             transition: all 0.25s ease;
         }
-        
         .partner-card:hover {
             transform: translateY(-3px);
             border-color: #44A3E3;
-            box-shadow: 0 8px 20px -6px rgba(68, 163, 227, 0.15);
+            box-shadow: 0 8px 20px -6px rgba(68, 163, 227, 0.2);
+        }
+        
+        /* Hero pattern */
+        .hero-pattern {
+            background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.08) 1.5px, transparent 1.5px);
+            background-size: 28px 28px;
         }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
     <!-- Header -->
-    <header class="bg-white/95 backdrop-blur-sm shadow-md sticky top-0 z-50">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-2">
-                    <img src="images/logo.png" 
+                    <img src="logo.png" 
                          alt="DropX Logo" 
-                         class="h-9 w-auto rounded-lg shadow-sm"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'36\' height=\'36\' viewBox=\'0 0 40 40\'%3E%3Crect width=\'40\' height=\'40\' fill=\'%2344A3E3\' rx=\'10\'/%3E%3Ctext x=\'20\' y=\'28\' text-anchor=\'middle\' fill=\'white\' font-size=\'22\' font-weight=\'bold\'%3EDX%3C/text%3E%3C/svg%3E'">
-                    <span class="font-bold text-xl tracking-tight" style="color: #195887;">DropX</span>
+                         class="h-8 w-auto rounded-lg shadow-md"
+                         onerror="this.style.display='none'">
+                    <span class="font-bold text-xl hidden sm:inline" style="color: #195887;">DropX</span>
                 </div>
                 
                 <div class="flex items-center space-x-4">
@@ -170,11 +142,11 @@
                             <button class="text-gray-700 hover:text-[#44A3E3] font-medium transition-colors text-sm flex items-center">
                                 Company <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
                             </button>
-                            <div class="dropdown-menu bg-white rounded-xl shadow-lg py-2 border border-gray-100 min-w-[200px]">
-                                <a href="careers.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-colors mx-1 rounded-lg">Careers</a>
-                                <a href="ourteam.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-colors mx-1 rounded-lg">Our Team</a>
-                                <a href="privacy.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-colors mx-1 rounded-lg">Privacy Policy</a>
-                                <a href="terms.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-colors mx-1 rounded-lg">Terms of Service</a>
+                            <div class="dropdown-menu bg-white rounded-lg shadow-lg py-2 border border-gray-100 min-w-[200px]">
+                                <a href="careers.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors rounded-lg mx-1">Careers</a>
+                                <a href="ourteam.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors rounded-lg mx-1">Our Team</a>
+                                <a href="privacy.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors rounded-lg mx-1">Privacy Policy</a>
+                                <a href="terms.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-[#44A3E3] hover:text-white transition-colors rounded-lg mx-1">Terms of Service</a>
                             </div>
                         </div>
                     </div>
@@ -211,7 +183,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Professional with working images -->
     <section id="home" class="relative overflow-hidden" style="background: linear-gradient(135deg, #44A3E3 0%, #195887 100%);">
         <div class="absolute inset-0 hero-pattern opacity-30"></div>
         
@@ -230,16 +202,15 @@
                     </h1>
                     
                     <p class="text-base text-blue-100 mb-8 leading-relaxed max-w-lg">
-                        Order from 50+ restaurants and get your favorites delivered fast. 
-                        Fresh groceries also available through our mobile app.
+                        Order from 50+ restaurants and get your favorites delivered fast.
                     </p>
                     
                     <div class="flex flex-wrap gap-4 mb-6">
-                        <button class="btn-primary px-6 py-3.5 rounded-xl flex items-center gap-3 shadow-lg hover:shadow-xl transition-all download-app-btn" data-platform="ios">
+                        <button class="btn-primary px-6 py-3.5 rounded-xl flex items-center gap-3 shadow-lg download-app-btn" data-platform="ios">
                             <i class="fab fa-apple text-2xl"></i>
                             <div><div class="text-xs opacity-90">Download on the</div><div class="font-bold">App Store</div></div>
                         </button>
-                        <button class="btn-primary px-6 py-3.5 rounded-xl flex items-center gap-3 shadow-lg hover:shadow-xl transition-all download-app-btn" data-platform="android">
+                        <button class="btn-primary px-6 py-3.5 rounded-xl flex items-center gap-3 shadow-lg download-app-btn" data-platform="android">
                             <i class="fab fa-google-play text-2xl"></i>
                             <div><div class="text-xs opacity-90">Get it on</div><div class="font-bold">Google Play</div></div>
                         </button>
@@ -252,30 +223,24 @@
                     </div>
                 </div>
                 
-                <!-- Image Slider with images/ folder paths -->
-                <div class="slider-container relative overflow-hidden rounded-2xl shadow-2xl bg-white/10 backdrop-blur-sm p-2">
-                    <div id="desktopSlider" class="relative overflow-hidden rounded-xl" style="height: 380px;">
-                        <div id="sliderTrack" class="flex transition-transform duration-500 ease-out h-full">
-                            <img src="images/office.jpeg" alt="DropX Office" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%2344A3E3\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3EOffice%3C/text%3E%3C/svg%3E'">
-                            <img src="images/track.jpg" alt="Delivery Tracking" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%23195887\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3ETracking%3C/text%3E%3C/svg%3E'">
-                            <img src="images/frank.jpg" alt="Our Team" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%2344A3E3\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3ETeam%3C/text%3E%3C/svg%3E'">
-                            <img src="images/customer.jpg" alt="Happy Customer" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%23195887\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3ECustomer%3C/text%3E%3C/svg%3E'">
-                            <img src="images/item.jpg" alt="Delivery Items" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'%3E%3Crect width=\'600\' height=\'380\' fill=\'%2344A3E3\'/%3E%3Ctext x=\'300\' y=\'190\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\'%3EItems%3C/text%3E%3C/svg%3E'">
+                <!-- Image Slider - Working exactly like your original -->
+                <div class="relative">
+                    <div class="relative overflow-hidden rounded-xl shadow-2xl" style="height: 380px;">
+                        <div id="slider" class="flex transition-transform duration-500 ease-in-out h-full">
+                            <img src="office.jpeg" alt="Office" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="track.jpg" alt="Track" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="frank.jpg" alt="Staff" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="customer.jpg" alt="Customer" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="item.jpg" alt="Item" class="w-full h-full object-cover flex-shrink-0">
                         </div>
-                        
-                        <button onclick="prevSlide()" class="slider-nav-btn absolute left-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm">
-                            <i class="fas fa-chevron-left text-sm"></i>
-                        </button>
-                        <button onclick="nextSlide()" class="slider-nav-btn absolute right-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm">
-                            <i class="fas fa-chevron-right text-sm"></i>
-                        </button>
-                        
-                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(0)"></div>
-                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(1)"></div>
-                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(2)"></div>
-                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(3)"></div>
-                            <div class="slider-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(4)"></div>
+                        <button onclick="prevSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 backdrop-blur-sm transition-all"><i class="fas fa-chevron-left text-xl"></i></button>
+                        <button onclick="nextSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 backdrop-blur-sm transition-all"><i class="fas fa-chevron-right text-xl"></i></button>
+                        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                            <div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(0)"></div>
+                            <div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(1)"></div>
+                            <div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(2)"></div>
+                            <div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(3)"></div>
+                            <div class="dot w-2 h-2 rounded-full bg-white/50 cursor-pointer transition-all" onclick="goToSlide(4)"></div>
                         </div>
                     </div>
                 </div>
@@ -296,23 +261,17 @@
                     
                     <p class="text-sm text-blue-100 mb-6 px-4">Order from 50+ restaurants through our app.</p>
                     
-                    <div class="relative overflow-hidden rounded-xl mb-6 shadow-xl" style="height: 220px;">
-                        <div id="mobileSliderTrack" class="flex transition-transform duration-500 ease-out h-full">
-                            <img src="images/office.jpeg" alt="Office" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="images/track.jpg" alt="Track" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="images/frank.jpg" alt="Team" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="images/customer.jpg" alt="Customer" class="w-full h-full object-cover flex-shrink-0">
-                            <img src="images/item.jpg" alt="Items" class="w-full h-full object-cover flex-shrink-0">
+                    <div class="relative overflow-hidden rounded-xl shadow-xl mb-6" style="height: 220px;">
+                        <div id="mobileSlider" class="flex transition-transform duration-500 ease-in-out h-full">
+                            <img src="office.jpeg" alt="Office" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="track.jpg" alt="Track" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="frank.jpg" alt="Staff" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="customer.jpg" alt="Customer" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="item.jpg" alt="Item" class="w-full h-full object-cover flex-shrink-0">
                         </div>
-                        
-                        <button onclick="prevMobileSlide()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 text-white rounded-full w-8 h-8 flex items-center justify-center backdrop-blur-sm">
-                            <i class="fas fa-chevron-left text-xs"></i>
-                        </button>
-                        <button onclick="nextMobileSlide()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 text-white rounded-full w-8 h-8 flex items-center justify-center backdrop-blur-sm">
-                            <i class="fas fa-chevron-right text-xs"></i>
-                        </button>
-                        
-                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                        <button onclick="prevMobileSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-1.5 backdrop-blur-sm"><i class="fas fa-chevron-left text-sm"></i></button>
+                        <button onclick="nextMobileSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-1.5 backdrop-blur-sm"><i class="fas fa-chevron-right text-sm"></i></button>
+                        <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1.5">
                             <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(0)"></div>
                             <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(1)"></div>
                             <div class="mobile-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer" onclick="goToMobileSlide(2)"></div>
@@ -332,13 +291,13 @@
                         </button>
                     </div>
                     
-                    <p class="text-blue-200 text-xs mt-4"><i class="fas fa-info-circle mr-1"></i>Info site only. Order via app.</p>
+                    <p class="text-blue-200 text-xs"><i class="fas fa-info-circle mr-1"></i>Info site only. Order via app.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section - Enhanced -->
     <section id="services" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -466,7 +425,7 @@
     <footer class="text-white py-10" style="background: linear-gradient(135deg, #195887 0%, #44A3E3 100%);">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row gap-8">
-                <div class="w-full md:w-1/3"><div class="flex items-center space-x-2 mb-3"><img src="images/logo.png" alt="DropX Logo" class="h-8 w-auto rounded-lg bg-white p-1" onerror="this.style.display='none'"><span class="font-bold text-xl">DropX</span></div><p class="text-sm text-blue-100 mb-3">Fast food and grocery delivery in Malawi.<br>Order exclusively through our mobile app.</p><div class="flex space-x-3 mt-4"><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-facebook-f text-sm"></i></a><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-twitter text-sm"></i></a><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-instagram text-sm"></i></a></div></div>
+                <div class="w-full md:w-1/3"><div class="flex items-center space-x-2 mb-3"><img src="logo.png" alt="DropX Logo" class="h-8 w-auto rounded-lg bg-white p-1" onerror="this.style.display='none'"><span class="font-bold text-xl">DropX</span></div><p class="text-sm text-blue-100 mb-3">Fast food and grocery delivery in Malawi.<br>Order exclusively through our mobile app.</p><div class="flex space-x-3 mt-4"><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-facebook-f text-sm"></i></a><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-twitter text-sm"></i></a><a href="#" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-[#195887] transition-all"><i class="fab fa-instagram text-sm"></i></a></div></div>
                 <div class="w-1/2 md:w-1/6"><h4 class="text-sm font-bold mb-3 text-white">Company</h4><ul class="space-y-2"><li><a href="careers.html" class="text-xs text-blue-100 hover:text-white">Careers</a></li><li><a href="ourteam.html" class="text-xs text-blue-100 hover:text-white">Our Team</a></li><li><a href="privacy.html" class="text-xs text-blue-100 hover:text-white">Privacy Policy</a></li><li><a href="terms.html" class="text-xs text-blue-100 hover:text-white">Terms of Service</a></li></ul></div>
                 <div class="w-1/2 md:w-1/6"><h4 class="text-sm font-bold mb-3 text-white">Contact</h4><ul class="space-y-2"><li class="text-xs text-blue-100">info@dropxdelivery.mw</li><li class="text-xs text-blue-100">+265 123 456 789</li><li class="text-xs text-blue-100">Lilongwe, Malawi</li></ul></div>
             </div>
@@ -474,55 +433,53 @@
         </div>
     </footer>
 
-    <div id="successToast" class="fixed top-4 left-4 right-4 md:left-auto md:right-4 md:w-96 text-white px-4 py-3 rounded-xl shadow-lg hidden z-50" style="background: linear-gradient(135deg, #44A3E3, #195887);"><div class="flex items-center justify-center gap-2"><i class="fas fa-check-circle"></i><span id="toastMessage" class="text-sm">Action completed!</span></div></div>
+    <div id="successToast" class="fixed top-4 left-4 right-4 md:left-auto md:right-4 md:w-96 text-white px-4 py-3 rounded-lg shadow-lg hidden z-50" style="background: linear-gradient(135deg, #44A3E3, #195887);"><div class="flex items-center justify-center gap-2"><i class="fas fa-check-circle"></i><span id="toastMessage" class="text-sm">Action completed!</span></div></div>
 
     <script>
-        // Slider logic
-        let currentSlide = 0, currentMobileSlide = 0, totalSlides = 5;
-        const sliderTrack = document.getElementById('sliderTrack');
-        const mobileSliderTrack = document.getElementById('mobileSliderTrack');
-        const dots = document.querySelectorAll('.slider-dot');
-        const mobileDots = document.querySelectorAll('.mobile-dot');
-        let slideInterval = setInterval(nextSlide, 4000);
-        let mobileSlideInterval = setInterval(nextMobileSlide, 4000);
-        
-        function updateDots() { dots.forEach((d,i) => { if(i===currentSlide) { d.classList.remove('bg-white/50','w-2'); d.classList.add('bg-white','w-3'); } else { d.classList.remove('bg-white','w-3'); d.classList.add('bg-white/50','w-2'); } }); }
-        function updateMobileDots() { mobileDots.forEach((d,i) => { if(i===currentMobileSlide) { d.classList.remove('bg-white/50'); d.classList.add('bg-white'); } else { d.classList.remove('bg-white'); d.classList.add('bg-white/50'); } }); }
-        function nextSlide() { currentSlide = (currentSlide+1)%totalSlides; if(sliderTrack) sliderTrack.style.transform = `translateX(-${currentSlide*100}%)`; updateDots(); }
-        function prevSlide() { currentSlide = (currentSlide-1+totalSlides)%totalSlides; if(sliderTrack) sliderTrack.style.transform = `translateX(-${currentSlide*100}%)`; updateDots(); clearInterval(slideInterval); slideInterval = setInterval(nextSlide,4000); }
-        function goToSlide(i) { currentSlide = i; if(sliderTrack) sliderTrack.style.transform = `translateX(-${currentSlide*100}%)`; updateDots(); clearInterval(slideInterval); slideInterval = setInterval(nextSlide,4000); }
-        function nextMobileSlide() { currentMobileSlide = (currentMobileSlide+1)%totalSlides; if(mobileSliderTrack) mobileSliderTrack.style.transform = `translateX(-${currentMobileSlide*100}%)`; updateMobileDots(); }
-        function prevMobileSlide() { currentMobileSlide = (currentMobileSlide-1+totalSlides)%totalSlides; if(mobileSliderTrack) mobileSliderTrack.style.transform = `translateX(-${currentMobileSlide*100}%)`; updateMobileDots(); clearInterval(mobileSlideInterval); mobileSlideInterval = setInterval(nextMobileSlide,4000); }
-        function goToMobileSlide(i) { currentMobileSlide = i; if(mobileSliderTrack) mobileSliderTrack.style.transform = `translateX(-${currentMobileSlide*100}%)`; updateMobileDots(); clearInterval(mobileSlideInterval); mobileSlideInterval = setInterval(nextMobileSlide,4000); }
-        
-        if(sliderTrack) { sliderTrack.addEventListener('mouseenter',()=>clearInterval(slideInterval)); sliderTrack.addEventListener('mouseleave',()=>{ slideInterval = setInterval(nextSlide,4000); }); }
-        if(mobileSliderTrack) { mobileSliderTrack.addEventListener('mouseenter',()=>clearInterval(mobileSlideInterval)); mobileSliderTrack.addEventListener('mouseleave',()=>{ mobileSlideInterval = setInterval(nextMobileSlide,4000); }); }
-        
-        updateDots(); updateMobileDots();
-
-        // Mobile menu and other functionality
         document.addEventListener("DOMContentLoaded", function() {
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
             if(mobileMenuBtn && mobileMenu) mobileMenuBtn.addEventListener('click', function(e) { e.stopPropagation(); mobileMenu.classList.toggle('hidden'); });
-            
+
             const mobileCompanyToggle = document.getElementById('mobileCompanyToggle');
             const mobileCompanyMenu = document.getElementById('mobileCompanyMenu');
             if(mobileCompanyToggle && mobileCompanyMenu) mobileCompanyToggle.addEventListener('click', function() { mobileCompanyMenu.classList.toggle('hidden'); const icon = this.querySelector('i'); if(icon) icon.style.transform = mobileCompanyMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)'; });
-            
-            document.querySelectorAll('.faq-question').forEach((q, idx) => { const ans = q.nextElementSibling; const icon = q.querySelector('i'); q.addEventListener('click', () => { const expanded = q.getAttribute('aria-expanded') === 'true'; document.querySelectorAll('.faq-question').forEach((qq, i) => { if(i !== idx) { const a = qq.nextElementSibling; const ic = qq.querySelector('i'); if(a) a.style.maxHeight = null; if(ic) { ic.classList.remove('fa-chevron-up'); ic.classList.add('fa-chevron-down'); } } }); if(!expanded) { ans.style.maxHeight = ans.scrollHeight + "px"; icon.classList.remove('fa-chevron-down'); icon.classList.add('fa-chevron-up'); } else { ans.style.maxHeight = null; icon.classList.remove('fa-chevron-up'); icon.classList.add('fa-chevron-down'); } }); });
-            
+
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener("click", function(e) { const href = this.getAttribute('href'); if(href === '#') return; e.preventDefault(); const target = document.querySelector(href); if(target) { window.scrollTo({ top: target.offsetTop - 80, behavior: "smooth" }); if(mobileMenu && !mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden'); } });
+            });
+
             const contactForm = document.getElementById('contactForm');
             if(contactForm) contactForm.addEventListener("submit", function(e) { e.preventDefault(); const inputs = this.querySelectorAll('input, textarea'); if(!inputs[0].value.trim() || !inputs[1].value.trim() || !inputs[2].value.trim()) { showToast("Please fill in all fields", "error"); return; } if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputs[1].value)) { showToast("Invalid email", "error"); return; } showToast("Thank you! We'll get back to you soon."); this.reset(); });
-            
+
+            document.querySelectorAll('.faq-question').forEach((q, idx) => { const ans = q.nextElementSibling; const icon = q.querySelector('i'); q.addEventListener('click', () => { const expanded = q.getAttribute('aria-expanded') === 'true'; document.querySelectorAll('.faq-question').forEach((qq, i) => { if(i !== idx) { const a = qq.nextElementSibling; const ic = qq.querySelector('i'); if(a) a.style.maxHeight = null; if(ic) { ic.classList.remove('fa-chevron-up'); ic.classList.add('fa-chevron-down'); } } }); if(!expanded) { ans.style.maxHeight = ans.scrollHeight + "px"; icon.classList.remove('fa-chevron-down'); icon.classList.add('fa-chevron-up'); } else { ans.style.maxHeight = null; icon.classList.remove('fa-chevron-up'); icon.classList.add('fa-chevron-down'); } }); });
+
             document.querySelectorAll('.download-app-btn').forEach(btn => btn.addEventListener('click', function() { showToast(`Redirecting to ${this.getAttribute('data-platform') === 'ios' ? 'App Store' : 'Google Play'}...`, "info"); }));
-            
+
             function showToast(msg) { const toast = document.getElementById('successToast'); const toastMsg = document.getElementById('toastMessage'); toastMsg.textContent = msg; toast.classList.remove('hidden'); setTimeout(() => toast.classList.add('hidden'), 3000); }
-            
+
             document.addEventListener('click', function(e) { if(mobileMenu && !mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) mobileMenu.classList.add('hidden'); });
-            
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { const href = this.getAttribute('href'); if(href === '#') return; const target = document.querySelector(href); if(target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); if(mobileMenu && !mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden'); } }); });
         });
+
+        // Slider logic - exactly as your working version
+        let currentSlide = 0, currentMobileSlide = 0, totalSlides = 5;
+        const slider = document.getElementById('slider'), mobileSlider = document.getElementById('mobileSlider');
+        const dots = document.querySelectorAll('.dot'), mobileDots = document.querySelectorAll('.mobile-dot');
+        let slideInterval = setInterval(nextSlide, 3000), mobileSlideInterval = setInterval(nextMobileSlide, 3000);
+        
+        function updateDots() { dots.forEach((d,i) => { d.classList.toggle('bg-white', i===currentSlide); d.classList.toggle('bg-white/50', i!==currentSlide); }); }
+        function updateMobileDots() { mobileDots.forEach((d,i) => { d.classList.toggle('bg-white', i===currentMobileSlide); d.classList.toggle('bg-white/50', i!==currentMobileSlide); }); }
+        function nextSlide() { currentSlide = (currentSlide+1)%totalSlides; if(slider) slider.style.transform = `translateX(-${currentSlide*100}%)`; updateDots(); }
+        function prevSlide() { currentSlide = (currentSlide-1+totalSlides)%totalSlides; if(slider) slider.style.transform = `translateX(-${currentSlide*100}%)`; updateDots(); }
+        function goToSlide(i) { currentSlide = i; if(slider) slider.style.transform = `translateX(-${currentSlide*100}%)`; updateDots(); clearInterval(slideInterval); slideInterval = setInterval(nextSlide,3000); }
+        function nextMobileSlide() { currentMobileSlide = (currentMobileSlide+1)%totalSlides; if(mobileSlider) mobileSlider.style.transform = `translateX(-${currentMobileSlide*100}%)`; updateMobileDots(); }
+        function prevMobileSlide() { currentMobileSlide = (currentMobileSlide-1+totalSlides)%totalSlides; if(mobileSlider) mobileSlider.style.transform = `translateX(-${currentMobileSlide*100}%)`; updateMobileDots(); }
+        function goToMobileSlide(i) { currentMobileSlide = i; if(mobileSlider) mobileSlider.style.transform = `translateX(-${currentMobileSlide*100}%)`; updateMobileDots(); clearInterval(mobileSlideInterval); mobileSlideInterval = setInterval(nextMobileSlide,3000); }
+        
+        if(slider) { slider.addEventListener('mouseenter',()=>clearInterval(slideInterval)); slider.addEventListener('mouseleave',()=>{ slideInterval = setInterval(nextSlide,3000); }); }
+        if(mobileSlider) { mobileSlider.addEventListener('mouseenter',()=>clearInterval(mobileSlideInterval)); mobileSlider.addEventListener('mouseleave',()=>{ mobileSlideInterval = setInterval(nextMobileSlide,3000); }); }
+        
+        updateDots(); updateMobileDots();
     </script>
 </body>
 </html>
